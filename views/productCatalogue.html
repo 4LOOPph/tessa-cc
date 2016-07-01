@@ -159,16 +159,21 @@
                                         </a>
                                     </div>
 
-                                    <div class="item_content font_14 grey1 font_light">
+                                    <div class="item_content font_14 grey1 Roboto pad20top">
                                         <span data-ng-bind-html="item.bundle_description"></span>
 
                                     </div>
-                                    <div class="font_14 grey2 font_medium pad20top">
+                                    <!-- <div class="font_14 grey2 font_medium pad20top">
                                         For as low as
+                                    </div> -->
+
+                                    <div class="box_price font_14 Roboto">
+                                            More details
                                     </div>
-                                    <div class="box_price font_24 font_light">
-                                        <sup class="">$</sup>{{((item.sell_price)*12)/52 | number : 2}}<span class="font_light font_14">/wk</span>
-                                    </div>
+
+                                    <!-- <div class="box_price font_24 Roboto">
+                                        <sup class="">$</sup>{{((item.sell_price)*12)/52 | number : 2}}<span class="Roboto font_14">/wk</span>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -196,14 +201,14 @@
                                     <a ui-sref="productDetailsHardware({selected_id: item.p_id})" class=" blue1 font_bold">
                                         {{item.item_name}}
                                     </a>
-                                    <div class="font_14 grey1 font_light pad20top">
+                                    <div class="font_14 grey1 Roboto pad20top">
 
                                         <span data-ng-bind-html="item.bundle_description"></span>
                                     </div>
                                     <div class="font_14 grey2 font_medium pad20top">
                                         For as low as
                                     </div>
-                                    <div class="box_price font_24 font_light">
+                                    <div class="box_price font_24 Roboto">
                                         <sup class="">$</sup>{{item.sell_price | number : 2}}
                                     </div>
                                 </div>
@@ -225,13 +230,13 @@
                                         {{item.item_name}}
 
                                     </a>
-                                    <div class="font_14 grey1 font_light pad20top">
+                                    <div class="font_14 grey1 Roboto pad20top">
                                         <span data-ng-bind-html="item.bundle_description"></span>
                                     </div>
                                     <div class="font_14 grey2 font_medium pad20top">
                                         For as low as
                                     </div>
-                                    <div class="box_price font_24 font_light">
+                                    <div class="box_price font_24 Roboto">
                                         <sup class="">$</sup>{{item.sell_price | number: 2}}
                                     </div>
                                 </div>
