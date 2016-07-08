@@ -126,10 +126,10 @@
         <div id="pc-wrap" class="wrapper">
             <div id="sec-pc-category" class="row_title padding_10">
                 <div class="btn-group font_14" data-toggle="buttons">
-                    <label id="btn-software" class="btn btn-primary-alt btn-pc-radio" ng-class="{active: prodType == 'Solution'}" ng-click="prodType = 'Solution'" ng-init="prodType = 'Solution'">
+                    <label id="btn-software" class="btn btn-primary-alt btn-pc-radio" ng-class="{active: prodType == 'Solution'}" ng-click="activeProd('Solution')" ng-init="prodType = 'Solution'">
                         <input type="radio" name="catalogue_selector" id="option1" /> SOLUTION
                     </label>
-                    <label id="btn-hardware" class="btn btn-primary-alt btn-pc-radio" ng-click="prodType = 'Hardware'">
+                    <label id="btn-hardware" class="btn btn-primary-alt btn-pc-radio" ng-click="activeProd('Hardware')">
                         <input type="radio" name="catalogue_selector" id="option2" /> HARDWARE
                     </label>
                 </div>
@@ -173,8 +173,8 @@
             </div>
             <div ng-show="prodType == 'Hardware'">
                 <div class="pc_tabs text14_medium ">
-                    <a class="tab_items" ng-class="{active: hardwareType == 'Screens'}" ng-click="hardwareType = 'Screens'" ng-init="hardwareType = 'Screens'">Screens</a>
-                    <a class="tab_items" ng-class="{active: hardwareType == 'MediaPlayer'}" ng-click="hardwareType = 'MediaPlayer'">Media Player</a>
+                    <a class="tab_items" ng-class="{active: hardwareType == 'Screens'}" ng-click="activeHard('Screens')" ng-init="hardwareType = 'Screens'">Screens</a>
+                    <a class="tab_items" ng-class="{active: hardwareType == 'MediaPlayer'}" ng-click="activeHard('MediaPlayer')">Media Player</a>
                 </div>
                 <div class="row sec-pc-items">
                     <div ng-show="hardwareType == 'Screens'">

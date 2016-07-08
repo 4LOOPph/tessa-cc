@@ -1,6 +1,6 @@
 <div class="row">
     <div id="search-page" class="wrapper">
-        <div class="row_title sec-search-filter">
+       <!--  <div class="row_title sec-search-filter">
             <ul class="filter_options">
                 <li>
                     <div class="font_14 font_bold grey2">
@@ -137,12 +137,12 @@
                     <a href="#" class="btn btn-primary">Submit</a>
                 </li>
             </ul>
-        </div>
+        </div> -->
         <div class="pc_tabs text14_medium ">
+            <a class="tab_items" ng-class="{'active': DisplayTab == 'All'}" ng-click="activeTab('All')">All({{SelectedSearch.length}})</a>
             <a class="tab_items" ng-class="{'active': DisplayTab == 'Solutions'}" ng-click="activeTab('Solutions')">Solutions({{bundles.length}})</a>
             <a class="tab_items" ng-class="{ 'active': DisplayTab == 'Experience'}" ng-click="activeTab('Experience')">Experience({{articles.length}})</a>
             <a class="tab_items" ng-class="{'active': DisplayTab == 'Hardware'}" ng-click="activeTab('Hardware')">Hardware({{products.length}})</a>
-            <a class="tab_items" ng-class="{'active': DisplayTab == 'All'}" ng-click="activeTab('All')">All({{SelectedSearch.length}})</a>
         </div>
         <div class="row sec-pc-items">
             <div ng-show="DisplayTab == 'All'">
