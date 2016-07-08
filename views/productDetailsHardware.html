@@ -1,21 +1,21 @@
 <div class="row">
     <div id="hd-wrap" class=" wrapper">
         <div class="row_title">
-            <a ui-sref="productCatalogue" class=" btn btn-tessa-back ">
-                <i class="ti ti-angle-left"> </i>
+            <a onclick="goBack()" class="btn btn-tessa-back ">
+                <i class="fa fa-angle-left"> </i>
             </a>
         </div>
 
         <div id="sec-hd-preview">
-        <div class="row_title">
-            Product details
-        </div>
+            <div class="row_title">
+                Product details
+            </div>
 
             <div class="row">
                 <div class="col-lg-6">
 
                     <div class="img_holder">
-                        <img src="{{productDetails.img_default}}" class="bg-image"/>
+                        <img src="{{productDetails.img_default}}"  err-src="images/is4.jpg" class="bg-image"/>
                     </div>
                 </div>
 
@@ -23,11 +23,11 @@
                     <div class="font_24 blue1 font_bold">
                         {{productDetails.item_name}}
                     </div>
-                    <div class="font_light grey1 line-24">
+                    <div class="font_light grey1 line-24 pad20top">
                         <p ng-bind-html="productDetails.item_description"></p>
                     </div>
 
-                    <div class="sec-option-set pad20top">
+                    <div class="sec-option-set ">
                         <div class="font_bold grey3">PRICE</div>
                         <div class="font_24 font_light">
                             <a class="box_price">
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div id="sec-hd-specs">
+        <!-- <div id="sec-hd-specs">
             <div class="dis_table">
                 <div class="dis_cell">
                     <div class="head_specs">
@@ -53,7 +53,8 @@
                                         SCREEN
                                     </div>
 
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         10.1
                                     </a>
                                 </li>
@@ -61,7 +62,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         brightness
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         400 units
                                     </a>
                                 </li>
@@ -69,7 +71,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         bezel size
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         14.1(top), 14.1(side), 14.1(bot)
                                     </a>
                                 </li>
@@ -77,7 +80,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         display technology
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         LED
                                     </a>
                                 </li>
@@ -85,7 +89,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         weight
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         0.7 kg
                                     </a>
                                 </li>
@@ -93,7 +98,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         usage
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         16/7
                                     </a>
                                 </li>
@@ -105,7 +111,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         vesa
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         75 X 75
                                     </a>
                                 </li>
@@ -113,7 +120,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         brightness
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         244.3 x 195.7 x 9.8 mm
                                     </a>
                                 </li>
@@ -121,7 +129,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         orientation
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         portrait/landscape
                                     </a>
                                 </li>
@@ -129,7 +138,8 @@
                                     <div class="font_12 font_bold grey3 uppercase">
                                         display interface
                                     </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
+                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
+                                       class="font_light grey2">
                                         HDMI
                                     </a>
                                 </li>
@@ -137,7 +147,7 @@
                             </ul>
                         </div>
                     </div>
-                </div><!--end of specification cell-->
+                </div>
                 <div class="dis_cell">
                     <div class="head_specs">
                         this goes well with
@@ -212,7 +222,7 @@
                             </a>
                         </li>
                     </ul>
-                </div><!--end of this goes with cell-->
+                </div>
                 <div class="dis_cell">
                     <div class="head_specs">
                         included in these packages solutions
@@ -268,13 +278,12 @@
                         </li>
                     </ul>
 
-                </div><!--end of specification cell-->
+                </div>
             </div>
-        </div>
+        </div> -->
 
     </div>
 </div>
-
 
 
 <!--Modal-->
@@ -300,7 +309,9 @@
 
                         <div class="sec-xd-items">
                             <div class="xd-img">
-                                <div class="img_holder myImage" ng-repeat="image in selected.mediafiles | limitTo: 1" style="background-image:url({{image.media_path}});">
+                                <div class="img_holder ">
+                                    <img src="{{image.media_path}}"
+                                         ng-repeat="image in selected.mediafiles | limitTo: 1"/>
                                 </div>
                             </div>
                             <div class="xd-content">
@@ -318,9 +329,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -329,3 +337,9 @@
         </div>
     </div>
 </div>
+
+<style>
+    #active-catalogue{
+        background: #424242;
+    }
+</style>

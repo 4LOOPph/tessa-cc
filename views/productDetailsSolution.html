@@ -1,8 +1,8 @@
 <div class="row">
     <div id="pd-sol-wrap" class="wrapper">
         <div class="row_title">
-            <a ui-sref="productCatalogue" class=" btn btn-tessa-back ">
-                <i class="ti ti-angle-left"> </i>
+            <a class=" btn btn-tessa-back " ng-click="goBack()" >
+                <i class="fa fa-angle-left"> </i>
             </a>
         </div>
         <div class="parent-sd">
@@ -14,7 +14,8 @@
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="img_holder">
-                            <img src="{{img.image_path}}" class="bg-image" ng-repeat="img in details.product_images | limitTo:1"/>
+                            <img src="{{img.image_path}}" class="bg-image"
+                                 ng-repeat="img in details.product_images | limitTo:1"/>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -25,16 +26,18 @@
                             <span data-ng-bind-html="details.bundle_description"></span>
                         </div>
                         <div class="divider"></div>
-                    
-                        <div class="row_title">
+
+                        <div class="row_title pad20top">
                             Payment Term
                         </div>
 
                         <div class="sec-option-set pad20top">
-                            <div class="font_regular grey2">Capex/Opex</div>
+                            <div class="font_bold grey2">Capex/Opex</div>
                             <div class="font_24 font_bold">
                                 <a class="font_light box_price">
-                                    <sup>$</sup>{{hwPrice + dPrice + swPrice | number:2}}<span class=" font_14"> upfront</span>
+
+                                    <sup>$</sup>{{upfront | number:2}}<span class=" font_14"> upfront</span>
+
                                 </a>
                                 <a class=" font_light box_price ">
                                     <sup>$</sup>{{spPrice | number: 2}}<span class=" font_14"> /mth</span>
@@ -42,13 +45,15 @@
                             </div>
                         </div>
                         <div class="sec-option-set pad20top">
-                            <div class="font_regular grey2">Opex</div>
+                            <div class="font_bold grey2">Opex</div>
                             <div class="font_24 font_light font_bold">
                                 <a class=" box_price">
                                     <sup>$</sup>0<span class=" font_14"> upfront</span>
                                 </a>
                                 <a class="font_light box_price">
-                                    <sup>$</sup>{{(((hwPrice + dPrice + swPrice)*36)/1000) | number:2}}<span class=" font_14"> /mth</span>
+
+                                    <sup>$</sup>{{((upfront*36)/1000) | number:2}}<span class=" font_14"> /mth</span>
+
                                 </a>
                             </div>
                         </div>
@@ -63,12 +68,14 @@
                                     <sup>$</sup>0<span class=" font_14"> upfront</span>
                                 </a>
                                 <a class="font_light box_price">
-                                    <sup>$</sup>{{(((((hwPrice + dPrice + swPrice)*36)/1000))*12) / 52 | number:2}}<span class=" font_14"> /wk</span>
+
+                                    <sup>$</sup>{{weekly | number:2}}<span class=" font_14"> /wk</span>
+
                                 </a>
                             </div>
                         </div>
                         <div class="pad20top grey2 font_medium font_12">
-                            Based on a 3-year contract payment term
+                            This payment term is based on a 3-year contract.
                         </div>
                     </div>
                 </div>
@@ -83,7 +90,7 @@
                     <div class="dis_cell">
                         <div class="inc_head">
                             <div class="img_holder">
-                                <img src="../images/icons/software.png" class="dtIcons"/>
+                                <img src="images/icons/software.png" class="dtIcons"/>
                             </div>
                             <div class="font_14 font_bold grey2">
                                 SOFTWARE
@@ -102,7 +109,7 @@
                     <div class="dis_cell">
                         <div class="inc_head">
                             <div class="img_holder">
-                                <img src="../images/icons/hardware.png" class="dtIcons"/>
+                                <img src="images/icons/hardware.png" class="dtIcons"/>
                             </div>
                             <div class="font_14 font_bold grey2">
                                 HARDWARE
@@ -113,7 +120,8 @@
                                 {{categ.category_label}}
                             </div>
 
-                            <a href="" class="inc_text font_light grey2">
+                            <a class="inc_text font_light grey2" href="productDetailsSolution/{{pb_id}}/#softwareModal"
+                               data-toggle="modal" ng-click="openModal(categ)">
                                 {{categ.item_name}}
                             </a>
 
@@ -122,7 +130,7 @@
                     <div class="dis_cell">
                         <div class="inc_head">
                             <div class="img_holder">
-                                <img src="../images/icons/deployment.png" class="dtIcons"/>
+                                <img src="images/icons/deployment.png" class="dtIcons"/>
                             </div>
                             <div class="font_14 font_bold grey2">
                                 DEPLOYMENT
@@ -137,7 +145,7 @@
                     <div class="dis_cell">
                         <div class="inc_head">
                             <div class="img_holder">
-                                <img src="../images/icons/support.png" class="dtIcons"/>
+                                <img src="images/icons/support.png" class="dtIcons"/>
                             </div>
                             <div class="font_14 font_bold grey2">
                                 SUPPORT
@@ -151,14 +159,48 @@
                     </div>
                 </div>
                 <!--End: Inclusions-->
-
             </div>
         </div>
     </div>
 </div>
 
-
 <!--Modal-->
+<!-- <div id="hd-modal"> -->
+<div class="modal fade" id="softwareModal" tabindex="-1" role="dialog" aria-labelledby="hardwareModal"
+     aria-hidden="true" style="display: none;">
+    <div class="modal-backdrop fade in" style="height: 100vh; position: fixed;" data-dismiss="modal"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="mdl-hardware">
+                    <div class="img_holder">
+                        <img src="{{selected.img_default}}" class="bg-icon">
+                    </div>
+                    <div class="pad20top mdl-hardware-content">
+                        <div class="font_24 blue1 font_medium">
+                            {{selected.item_name}}
+                        </div>
+                        <div class="article-primary pad20top">
+                            <p ng-bind-html="selected.item_description"></p>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->
 
 <!--End of Modal-->
+<style>
+    #active-catalogue{
+        background: #424242;
+    }
+</style>

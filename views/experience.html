@@ -5,26 +5,29 @@
                 Browse by industries
             </div>
             <div id="browse-industry" class="btn-group" data-toggle="buttons">
-                <!-- <label  ng-repeat="tag in tags | duplicates: 'tags'">
-                    <input type="checkbox" checklist-model="tagselected.selected_tags" checklist-value="tag">
+                <!--<label class="btn btn-primary-alt" ng-repeat="tag in tags | duplicates: 'tags'"
+                       ng-click="toggleSelectedTag(tag)" ng-class="isTagSelected(tag) ? 'active' : 'inactive'">
                     <span>{{tag.tags}} </span>
-                </label> -->
-                <label class="btn btn-primary-alt" ng-repeat="tag in tags | duplicates: 'tags'" ng-click="toggleSelectedTag(tag)" ng-class="isTagSelected(tag) ? 'active' : 'inactive'">
-                    <span>{{tag.tags}} </span>
+                </label>-->
+                <label ng-repeat="tag in tags | duplicates: 'tags'"
+                       ng-click="toggleSelectedTag(tag)" ng-class="isTagSelected(tag) ? 'active' : 'inactive'">
+                    <button type="button" class="btn-checkbox">
+                        <span>{{tag.tags}}</span>
+                    </button>
+
                 </label>
-                <!-- <pre>
-                {{tagselected | json}}
-            </pre> -->
             </div>
         </div>
         <div class="row_title xd-success-stories">
             Success Stories
         </div>
         <div id="masonry-item">
-            <div href="#xd-modal" data-toggle="modal" class="item_experience" ng-repeat="article in articlesListFiltered = ( articlesList | filter:isOnSelectedTag())" ng-click="select(article, $index)">
+            <div ng-click="openArticle(article,articlesList,$index)" class="item_experience"
+                 ng-repeat="article in $parent.articlesListFiltered = ( articlesList | filter:isOnSelectedTag())"
+                 ng-click="select(article, articlesList,$index)">
+
                 <div class="panel panel-default">
                     <div class="img_holder">
-                        <!-- <a href="#xd-modal" data-toggle="modal"><img src="{{image.media_path}}" ng-repeat="image in article.mediafiles | limitTo:1"></a> -->
                         <a><img src="{{image.media_path}}" ng-repeat="image in article.mediafiles | limitTo:1"></a>
                     </div>
                     <div id="masonry_body" class="padding_10 blue1 font_14 font_bold">
@@ -34,94 +37,14 @@
                         </div>
                     </div>
                 </div>
-                <!-- <pre>
-                {{article | json}}
-            </pre> -->
             </div>
         </div>
     </div>
 </div>
-<!--Modal-->
-<div class="modal fade" id="xd-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-backdrop fade in" style="height: 100vh; position: fixed;" data-dismiss="modal"></div>
-    <div class="previousModalButton" ng-click="previousArticle()"><i class="fa fa-chevron-left fa-3"></i></div>
-    <div class="nextModalButton" ng-click="nextArticle()"><i class="fa fa-chevron-right fa-3"></i></div>
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body">
-                <div class="row_title pad20top">
-                    <a href="#" class=" btn btn-label btn-social btn-flickr">
-                        <i class="padding_10 fa fa-share-square"></i> Share
-                    </a>
-                </div>
-                <div id="sec-xd-article">
-                    <div class="sec-xd-items">
-                        <div class="xd-img">
-                            <div class="img_holder myImage" ng-repeat="image in selected.mediafiles | limitTo: 1" style="background-image:url({{image.media_path}});">
-                            </div>
-                            <div class="panel-body">
-                                <blockquote>
-                                    <p ng-bind-html="selected.article">""</p>
-                                </blockquote>
-                            </div>
-                        </div>
-                        <div class="xd-content">
-                            <div class="font_24 blue1 font_medium">
-                                {{selected.title}}
-                            </div>
-                            <div class="article-primary">
-                                <p ng-bind-html="selected.description"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="sec-xd-fs">
-                    <div class="row_title" ng-hide="selected.article_features.length == 0">
-                        FEATURED SOLUTION
-                    </div>
-                    <div class="row pad20top">
-                        <div class="col-lg-4" ng-repeat="featured in selected.article_features">
-                            <div class="panel panel-default box-item">
-                                <a href="#">
-                                    <div class="img_holder">
-                                        <img src="images/is5.jpg" />
-                                    </div>
-                                    <div class="font_bold grey2 cap-box-item">
-                                        {{featured.bundle_details.bundle_name}}
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="sec-xd-rx">
-                    <div class="row_title pad20top">
-                        Related experience
-                    </div>
-                    <div class="row pad20top">
-                        <div class="col-lg-4">
-                            <div class="panel panel-default box-item">
-                                <a href="#">
-                                    <div class="img_holder">
-                                        <img src="images/is4.jpg" />
-                                    </div>
-                                    <div class="cap-box-item">
-                                        <div class="font_bold blue1">
-                                            <a href="#">Eze Impress 55" Wall Mounted Digital Display DB55E with Essential Media Player</a>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
+
+<style>
+    #active-experience {
+        background: #424242;
+    }
+</style>
+
