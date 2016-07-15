@@ -1,8 +1,19 @@
 <div class="row">
     <div id="hd-wrap" class=" wrapper">
         <div class="row_title">
-            <a onclick="goBack()" class="btn btn-tessa-back ">
+            <a ng-click="goBack()" class="btn btn-tessa-back ">
                 <i class="fa fa-angle-left"> </i>
+            </a>
+        </div>
+
+        <div class="side_clips">
+            <a ng-click="addToCart(productDetails)" class="clip_item">
+                <i class="fa fa-shopping-cart"></i>
+                <div class="row_title">add to cart</div>
+            </a>
+            <a ng-click="openShareModal()" class="clip_item">
+                <i class="fa fa-share-alt"></i>
+                <div class="row_title">share</div>
             </a>
         </div>
 
@@ -10,23 +21,27 @@
             <div class="row_title">
                 Product details
             </div>
-
             <div class="row">
                 <div class="col-lg-6">
-
                     <div class="img_holder">
-                        <img src="{{productDetails.img_default}}"  err-src="images/is4.jpg" class="bg-image"/>
+                        <img src="{{productDetails.img_default}}" err-src="images/is4.jpg" class="bg-image" />
                     </div>
                 </div>
-
                 <div class="col-lg-6">
+                    <!-- <div class="row_title pad20top">
+                        <a ng-click="openShareModal()" class=" btn btn-label btn-social btn-flickr">
+                            <i class="padding_10 fa fa-share-square"></i> Share
+                        </a>
+                        <a class=" btn btn-label btn-social btn-flickr" ng-click="addToCart(productDetails)">
+                            <i class="padding_10 fa fa-shopping-cart"></i> Add to Cart
+                        </a>
+                    </div> -->
                     <div class="font_24 blue1 font_bold">
                         {{productDetails.item_name}}
                     </div>
                     <div class="font_light grey1 line-24 pad20top">
                         <p ng-bind-html="productDetails.item_description"></p>
                     </div>
-
                     <div class="sec-option-set ">
                         <div class="font_bold grey3">PRICE</div>
                         <div class="font_24 font_light">
@@ -38,308 +53,10 @@
                 </div>
             </div>
         </div>
-
-        <!-- <div id="sec-hd-specs">
-            <div class="dis_table">
-                <div class="dis_cell">
-                    <div class="head_specs">
-                        SPEcifications
-                    </div>
-                    <div class="spec_table">
-                        <div class="spec_cell">
-                            <ul class="spec_list">
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        SCREEN
-                                    </div>
-
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        10.1
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        brightness
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        400 units
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        bezel size
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        14.1(top), 14.1(side), 14.1(bot)
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        display technology
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        LED
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        weight
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        0.7 kg
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        usage
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        16/7
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="spec_cell">
-                            <ul class="spec_list">
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        vesa
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        75 X 75
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        brightness
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        244.3 x 195.7 x 9.8 mm
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        orientation
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        portrait/landscape
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="font_12 font_bold grey3 uppercase">
-                                        display interface
-                                    </div>
-                                    <a data-toggle="modal" href="productDetailsHardware/#xd-modal"
-                                       class="font_light grey2">
-                                        HDMI
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="dis_cell">
-                    <div class="head_specs">
-                        this goes well with
-                    </div>
-                    <div class="goes-well-cat font_bold grey2 uppercase">
-                        <img src="../images/icons/hardware.png" style="max-height: 30px;"/> hardware
-                    </div>
-                    <ul class="spec_list">
-                        <li>
-                            <div class="font_12 font_bold grey3 uppercase">
-                                bracket
-                            </div>
-                            <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
-                                <div class="icon_table">
-                                    <div class="icon_cell">
-                                        Commercial Grade Wall Mount
-                                    </div>
-                                    <div class="icon_cell">
-                                        <i class="pull-right ti ti-angle-right"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <div class="font_12 font_bold grey3 uppercase">
-                                media player
-                            </div>
-                            <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
-                                <div class="icon_table">
-                                    <div class="icon_cell">
-                                        DH170-i3
-                                    </div>
-                                    <div class="icon_cell">
-                                        <i class="pull-right ti ti-angle-right"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <div class="font_12 font_bold grey3 uppercase">
-                                router
-                            </div>
-                            <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
-                                <div class="icon_table">
-                                    <div class="icon_cell">
-                                        NTC - 6200 - 02 NEtcomm
-                                    </div>
-                                    <div class="icon_cell">
-                                        <i class="pull-right ti ti-angle-right"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="goes-well-cat font_bold grey2 uppercase">
-                        <img src="../images/icons/software.png" style="max-height: 30px;"/> software
-                    </div>
-                    <ul class="spec_list">
-                        <li>
-                            <div class="font_12 font_bold grey3 uppercase">
-                                cms
-                            </div>
-                            <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
-                                <div class="icon_table">
-                                    <div class="icon_cell">
-                                        Engagis Eze Impress Enhanced CMS
-                                    </div>
-                                    <div class="icon_cell">
-                                        <i class="pull-right ti ti-angle-right"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="dis_cell">
-                    <div class="head_specs">
-                        included in these packages solutions
-                    </div>
-                    <ul class="spec_list">
-                        <li>
-                            <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
-                                <div class="icon_table">
-                                    <div class="icon_cell">
-                                        Eze Impress 55" 2x2 Landscape Wall Mounted Digital Display
-                                    </div>
-                                    <div class="icon_cell">
-                                        <i class="pull-right ti ti-angle-right"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
-                                <div class="icon_table">
-                                    <div class="icon_cell">
-                                        Eze Impress 55" 2x2 Landscape Wall Mounted Digital Display
-                                    </div>
-                                    <div class="icon_cell">
-                                        <i class="pull-right ti ti-angle-right"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
-                                <div class="icon_table">
-                                    <div class="icon_cell">
-                                        Eze Impress 55" 2x2 Landscape Wall Mounted Digital Display
-                                    </div>
-                                    <div class="icon_cell">
-                                        <i class="pull-right ti ti-angle-right"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a data-toggle="modal" href="productDetailsHardware/#xd-modal" class="font_light grey2">
-                                <div class="icon_table">
-                                    <div class="icon_cell">
-                                        Eze Impress 55" 2x2 Landscape Wall Mounted Digital Display
-                                    </div>
-                                    <div class="icon_cell">
-                                        <i class="pull-right ti ti-angle-right"></i>
-                                    </div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-            </div>
-        </div> -->
-
     </div>
 </div>
-
-
-<!--Modal-->
-<div id="hd-modal">
-    <div class="modal fade" id="xd-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"
-         style="display: none;">
-        <div class="modal-backdrop fade in" style="height: 100vh; position: fixed;" data-dismiss="modal"></div>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                </div>
-
-                <div class="modal-body">
-                    <!--Modal Body-->
-                    <div class="row_title pad20top">
-                        <a href="#" class=" btn btn-label btn-social btn-flickr">
-                            <i class="padding_10 fa fa-share-square"></i> Share
-                        </a>
-                    </div>
-
-                    <div id="sec-xd-article">
-
-                        <div class="sec-xd-items">
-                            <div class="xd-img">
-                                <div class="img_holder ">
-                                    <img src="{{image.media_path}}"
-                                         ng-repeat="image in selected.mediafiles | limitTo: 1"/>
-                                </div>
-                            </div>
-                            <div class="xd-content">
-                                <div class="font_24 blue1 font_medium">
-                                    {{selected.title}}
-                                </div>
-                                <div class="article-primary">
-                                    <p ng-bind-html="selected.description"></p>
-                                    <div class="panel-body">
-                                        <blockquote>
-                                            <p ng-bind-html="selected.article">""</p>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <style>
-    #active-catalogue{
-        background: #424242;
-    }
+#active-catalogue {
+    background: #424242;
+}
 </style>

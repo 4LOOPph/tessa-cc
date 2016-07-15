@@ -2,25 +2,19 @@
     <h4 class="modal-title">Share</h4>
 </div>
 <div class="modal-body">
-    <div class="row_title pad20top">
-        <table class="table table-bordered">
-            <tbody>
-                <tr>
-                    <th style="width: 10px">
-                        <input type="checkbox" ng-model="selectDeselectAll" ng-change="changeSelectDeselectAll()">
-                    </th>
-                    <th class="text-center">Email Address</th>
-                </tr>
-                <tr ng-repeat="data in profile.subscriptions">
-                    <td width="5%">
-                        <input type="text" ng-model="data.selected" ng-change="checkDataChanges(data)">
-                    </td>
-                    <!-- <td class="text-center">{{data.company_name}}</td> -->
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-md-12 pad20all">
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon2">Email</span>
+                <input type="text" class="form-control" placeholder="Email Address" ng-model="data.email">
+            </div>
+        </div>
     </div>
+    <div id="printarticle" ng-include="'./views/sharer/article.html'" ng-if="param === 'article'" style="display:none;"></div>
+    <div id="printbundle" ng-include="'./views/sharer/bundle.html'" ng-if="param === 'bundle'" style="display:none;"></div>
+    <div id="printproduct" ng-include="'./views/sharer/products.html'" ng-if="param === 'product'" style="display:none;"></div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-flat btn-default" type="button" ng-click="cancel()">Close</button>
+    <button class="btn btn-social btn-flickr" type="button" ng-click="send()">Share</button>
+    <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
 </div>

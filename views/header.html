@@ -13,116 +13,62 @@
                     <img src="images/icons/consolidated_home.png"/>
                 </span>
         </a>
-        <a id="srch-pop" class=" tes-icon dropdown-toggle" data-toggle='dropdown' style="border-left:0;">
-            <img src="images/icons/consolidated_search.png" />
+
+        <a ng-click="clicks()" id="srch-pop" class="tes-icon" style="border-left:0;">
+            <img src="images/icons/consolidated_search.png"/>
         </a>
-        <div class="toolbar-icon-bg" id="toolbar-search" style="display: none;">
+        <div class="toolbar-icon-bg" id="toolbar-search" ng-show="shows">
             <div class="input-group">
-                <ui-select ng-model="list.name" tagging on-select="seachValue($select.selected.name)" theme="bootstrap" disabled >
-                    <ui-select-match placeholder="Search..."  >
+
+                <ui-select ng-model="search" tagging on-select="seachValue($select.selected.name)" theme="bootstrap"
+                           reset-search-input="false">
+                    <ui-select-match placeholder="Search...">
                         {{$select.selected.name}}
                     </ui-select-match>
-                    <ui-select-choices group-by="'group'" repeat="list in allSearch track by $index" refresh="refreshDelay($select.search)" refresh-delay="0">
+                    <ui-select-header>Top of the list!</ui-select-header>
+                    <ui-select-choices group-by="'group'" repeat="list in allSearch track by $index"
+                                       refresh="refreshDelay($select.search)" refresh-delay="0">
                         {{list.name}}
-                        <!-- <span ng-style="{color: (list.disabled ? '#dddddd' : '#2e2e2e') }" ng-bind-html="list.name"></span> -->
+                        <!-- <div ng-bind-html="list.name"></div> -->
                     </ui-select-choices>
                     <ui-select-no-choice>
                         No Result Found
                     </ui-select-no-choice>
                 </ui-select>
                 <div class="go-cell dis_cell">
-                    <a class="go button" ng-click="seachValue()"><i class="fa fa-search"></i> </a>
+                    <a class="go button" ng-click="searchval()"><i class="fa fa-search"></i> </a>
+
                 </div>
             </div>
         </div>
         <!--<a class="button" ng-click="clear(1)">back</a>-->
     </div>
     <ul id="nav-right" class="nav navbar-nav toolbar pull-right">
-        <li>
-            <div class="dropdown-menu notifications arrow">
-                <div class="topnav-dropdown-header">
-                    <span>Notifications</span>
-                </div>
-                <div class="scroll-pane">
-                    <ul class="media-list scroll-content">
-                        <li class="media notification-success">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="ti ti-check"></i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">Update 1.0.4 successfully pushed</h4>
-                                    <span class="notification-time">8 mins ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="media notification-info">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="ti ti-check"></i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">Update 1.0.3 successfully pushed</h4>
-                                    <span class="notification-time">24 mins ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="media notification-teal">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="ti ti-check"></i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">Update 1.0.2 successfully pushed</h4>
-                                    <span class="notification-time">16 hours ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="media notification-indigo">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="ti ti-check"></i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">Update 1.0.1 successfully pushed</h4>
-                                    <span class="notification-time">2 days ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="media notification-danger">
-                            <a href="#">
-                                <div class="media-left">
-                                    <span class="notification-icon"><i class="ti ti-arrow-up"></i></span>
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="notification-heading">Initial Release 1.0</h4>
-                                    <span class="notification-time">4 days ago</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="topnav-dropdown-footer">
-                    <a href="#">See all notifications</a>
-                </div>
-            </div>
-        </li>
-        <li>
-            <a href="" class="tes-icon dropdown-toggle " data-toggle="dropdown">
-                <img src="images/icons/dp.png" />
+        <div class="btn-group" uib-dropdown>
+            <a ng-click="cartModal()" type="button" class="tes-icon" uib-dropdown-toggle ng-disabled="disabled">
+                <img src="images/icons/consolidated_cart.png" />
+                <span class="badge badge-danger" ng-show="cartItems.length == 0">{{cartItems.length}}</span>
+                <span class="badge badge-success" ng-show="cartItems.length > 0">{{cartItems.length}}</span>
             </a>
-            <ul class="dropdown-menu userinfo arrow">
+        </div>
+        <div class="btn-group" uib-dropdown>
+            <a id="single-button" type="button" class="tes-icon" uib-dropdown-toggle ng-disabled="disabled">
+                <img src="images/icons/dp.png"/>
+
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
                 <li><a href=""><i class="ti ti-user"></i><span>Profile</span><span
                         class="badge badge-info pull-right">80%</span></a></li>
                 <li><a href=""><i class="ti ti-panel"></i><span>Account</span></a></li>
                 <li><a href=""><i class="ti ti-settings"></i><span>Settings</span></a></li>
                 <li class="divider"></li>
-                <li><a ui-sref="login"><i class="ti ti-shift-right"></i><span>Sign Out</span></a></li>
+                <li><a ng-click="signout()"><i class="ti ti-shift-right"></i><span>Sign Out</span></a></li>
             </ul>
-        </li>
+        </div>
     </ul>
 </header>
 <div id="wrapper">
+
     <div id="layout-static">
         <div id="myBar" class="static-sidebar-wrapper sidebar-midnightblue">
             <div class="">
@@ -153,66 +99,54 @@
     </div>
 </div>
 <script>
-$(document).ready(function() {
-    $("#trigger-sidebar").click(function() {
-        $("#myBar").css({
-            'display': 'table-cell'
-        });
-
-        $(".collapsible").toggle();
-
-        if ($(".collapsible").is(':visible')) {
-            $("#myBar, .acc-menu li a").css({
-                'min-width': '245px'
-            });
-
-        } else {
+    $(document).ready(function () {
+        $("#trigger-sidebar").click(function () {
             $("#myBar").css({
-                'min-width': '56px'
+                'display': 'table-cell'
             });
-            $("#myBar, .acc-menu li a").css({
-                'min-width': '56px'
-            });
-        }
-    });
-    $(".collapsible").toggle();
 
-    if ($(".collapsible").is(':visible')) {
-        $("#myBar, .acc-menu li a").css({
-            'min-width': '245px'
+            $(" .collapsible").toggle();
+
+            if ($(".collapsible").is(':visible')) {
+                $("#myBar, .acc-menu li a").css({
+                    'min-width': '245px'
+                });
+            } else {
+                $("#myBar").css({
+                    'min-width': '56px'
+                });
+                $("#myBar, .acc-menu li a").css({
+                    'min-width': '56px'
+                });
+            }
         });
 
-    } else {
-        $("#myBar").css({
-            'min-width': '56px'
-        });
-        $("#myBar, .acc-menu li a").css({
-            'min-width': '56px'
-        });
-    }
+    });
+</script>
 
-});
-</script>
+
 <script>
-$(document).ready(function() {
-    $("#trigger-close-search, #srch-pop").click(function() {
-        $("#toolbar-search").hide();
+    $(document).ready(function () {
+        $("#trigger-close-search, #srch-pop, #wrapper").click(function () {
+            $("#toolbar-search").hide();
+        });
+        $("#trigger-toolbar-search,#srch-pop").click(function () {
+            $("#toolbar-search").show();
+        });
     });
-    $("#trigger-toolbar-search,#srch-pop").click(function() {
-        $("#toolbar-search").show();
-    });
-});
 </script>
+
+
+
 <script>
-function goBack() {
-    window.history.back();
-}
-</script>
-<script>
-$(document).ready(function() {
-    $(document).on("click", ".btn-checkbox", function(e) {
-        e.stopPropagation();
-        $(this).toggleClass("btn-checkbox-active");
+    $(document).ready(function () {
+        $(document).on("click", ".btn-checkbox", function (e) {
+            e.stopPropagation();
+            $(this).toggleClass("btn-checkbox-active");
+        });
     });
-});
+
 </script>
+
+
+

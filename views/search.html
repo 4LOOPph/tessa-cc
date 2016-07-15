@@ -1,6 +1,6 @@
 <div class="row">
     <div id="search-page" class="wrapper">
-       <!--  <div class="row_title sec-search-filter">
+        <div class="row_title sec-search-filter">
             <ul class="filter_options">
                 <li>
                     <div class="font_14 font_bold grey2">
@@ -8,7 +8,11 @@
                     </div>
                 </li>
                 <li>
-                    <div class="btn-group">
+                    <div class="btn-group" ng-dropdown-multiselect="" options="producttypedata" selected-model="productType" checkboxes="true" translation-texts="{buttonDefaultText: 'Select Product Type',uncheckAll: 'Clear Filter'}" extra-settings="config"></div>
+                    <div class="btn-group" ng-dropdown-multiselect="" options="experiencedata" selected-model="experience" checkboxes="true" translation-texts="{buttonDefaultText: 'Choose Eze Suite Family'}" extra-settings="config"></div>
+                    <div class="btn-group" ng-dropdown-multiselect="" options="experiencedata" selected-model="location" checkboxes="true" translation-texts="{buttonDefaultText: 'Select Location'}" extra-settings="config"></div>
+                    <div class="btn-group" ng-dropdown-multiselect="" options="experiencedata" selected-model="configuration" checkboxes="true" translation-texts="{buttonDefaultText: 'Configuration'}" extra-settings="config"></div>
+                    <!-- <div class="btn-group">
                         <button type="button" class=" font_light btn btn-default-alt dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             Choose Eze Suite Family
                             <span class="caret"></span>
@@ -38,8 +42,8 @@
                                     <input type="checkbox" /> </div>
                             </li>
                         </ul>
-                    </div>
-                    <div class="btn-group">
+                    </div> -->
+                    <!-- <div class="btn-group">
                         <button type="button" class="font_light btn btn-default-alt dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                             Solution
                             <span class="caret"></span>
@@ -131,13 +135,13 @@
                                     <input type="checkbox" /> </div>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
                 </li>
                 <li>
-                    <a href="#" class="btn btn-primary">Submit</a>
+                    <a  class="btn btn-primary">Submit</a>
                 </li>
             </ul>
-        </div> -->
+        </div>
         <div class="pc_tabs text14_medium ">
             <a class="tab_items" ng-class="{'active': DisplayTab == 'All'}" ng-click="activeTab('All')">All({{SelectedSearch.length}})</a>
             <a class="tab_items" ng-class="{'active': DisplayTab == 'Solutions'}" ng-click="activeTab('Solutions')">Solutions({{bundles.length}})</a>
@@ -146,7 +150,7 @@
         </div>
         <div class="row sec-pc-items">
             <div ng-show="DisplayTab == 'All'">
-                <div href="#xd-modal" data-toggle="modal" class="col-lg-3" ng-repeat="items in SelectedSearch" ng-hide="items.type == 'Services'" ng-click="detail(items,$index)">
+                <div href="#xd-modal" data-toggle="modal" class="col-lg-3" ng-repeat="items in SelectedSearch" ng-hide="items.type == 'Services'" ng-click="openModal(items)">
                     <!-- ui-sref="main.productDetailsHardware({selected_id: searchresult.p_id})" -->
                     <div class="panel panel-default">
                         <div class="panel-body">
@@ -163,7 +167,7 @@
                             </div>
                             <div class="item_text">
                                 <div class="item_title">
-                                    <a class=" grey2 font_bold">
+                                    <a class=" grey2 font_bold" ng-click="openModal(items)">
                                     {{items.name}}
                                 </a>
                                     <div class="item_content grey3 font_bold font_12">
@@ -183,7 +187,7 @@
                 </div>
             </div>
             <div ng-show="DisplayTab == 'Solutions'">
-                <div href="#xd-modal" data-toggle="modal" class="col-lg-3" ng-repeat="items in bundles" ng-click="detail(items,$index)">
+                <div href="#xd-modal" data-toggle="modal" class="col-lg-3" ng-repeat="items in bundles" ng-click="openModal(items)">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="img-contain">
@@ -213,7 +217,7 @@
                 </div>
             </div>
             <div ng-show="DisplayTab == 'Experience'">
-                <div href="#xd-modal" data-toggle="modal" class="col-lg-3" ng-repeat="item in articles" ng-click="detail(item,$index)">
+                <div href="#xd-modal" data-toggle="modal" class="col-lg-3" ng-repeat="item in articles" ng-click="openModal(items)">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="img-contain">
@@ -243,7 +247,7 @@
                 </div>
             </div>
             <div ng-show="DisplayTab == 'Hardware'">
-                <div href="#xd-modal" data-toggle="modal" class="col-lg-3" ng-repeat="items in products" ng-click="detail(items,$index)">
+                <div href="#xd-modal" data-toggle="modal" class="col-lg-3" ng-repeat="items in products" ng-click="openModal(items)">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="img-contain">
@@ -269,91 +273,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade" id="xd-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-backdrop fade in" style="height: 100vh; position: fixed;" data-dismiss="modal"></div>
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <div class="modal-body">
-                        <!--                 <div class="row_title pad20top">
-                    <a href="#" class=" btn btn-label btn-social btn-flickr">
-                        <i class="padding_10 fa fa-share-square"></i> Share
-                    </a>
-                </div> -->
-                        <div id="sec-xd-article">
-                            <div class="sec-xd-items">
-                                <div class="xd-img">
-                                    <div class="img_holder " ng-if="selected.self == 'articles'">
-                                         <img src="{{image.media_path}}" ng-repeat="image in selected.mediafiles | limitTo: 1"/>
-                                    </div>
-                                     <div class="img_holder " ng-if="selected.self == 'products'">
-                                          <img src="images/is5.jpg" err-src="http://placehold.it/750x450" />
-                                    </div>
-                                    <div class="panel-body">
-                                        <blockquote>
-                                            <p ng-bind-html="selected.article">""</p>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                                <div class="xd-content">
-                                    <div class="font_24 blue1 font_medium">
-                                        {{selected.name}}
-                                    </div>
-                                    <div class="article-primary">
-                                        <p ng-bind-html="selected.description"></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="sec-xd-fs">
-                            <div class="row_title" ng-hide="selected.article_features.length == 0">
-                                FEATURED SOLUTION
-                            </div>
-                            <div class="row pad20top">
-                                <div class="col-lg-4" ng-repeat="featured in selected.article_features">
-                                    <div class="panel panel-default box-item">
-                                        <a href="#">
-                                            <div class="img_holder">
-                                                <img src="images/is5.jpg" />
-                                            </div>
-                                            <div class="font_bold grey2 cap-box-item">
-                                                {{featured.bundle_details.bundle_name}}
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="sec-xd-rx">
-                            <div class="row_title pad20top">
-                                Related experience
-                            </div>
-                            <div class="row pad20top">
-                                <div class="col-lg-4">
-                                    <div class="panel panel-default box-item">
-                                        <a href="#">
-                                            <div class="img_holder">
-                                                <img src="images/is4.jpg" />
-                                            </div>
-                                            <div class="cap-box-item">
-                                                <div class="font_light grey">
-                                                    <p class="black1">Eze Impress 55" Wall Mounted Digital Display DB55E with Essential Media Player</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

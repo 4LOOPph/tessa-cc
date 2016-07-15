@@ -1,0 +1,27 @@
+<div class="modal-header">
+    <button class="close" aria-hidden="true" ng-click="cancel()">×</button>
+    <h3>Item Details</h3>
+    <div class="row_title pad20top">
+        <a ng-click="openShareModal()" class=" btn btn-label btn-social btn-flickr">
+            <i class="padding_10 fa fa-share-square"></i> Share
+        </a>
+    </div>
+</div>
+<div class="modal-body">
+    <div id="mdl-hardware">
+        <div class="img_holder">
+            <img src="{{selected.img_default}}" err-src="images/is4.jpg" class="bg-icon">
+        </div>
+        <div class="pad20top mdl-hardware-content">
+            <div class="font_24 blue1 font_medium">
+                {{selected.name}}
+            </div>
+            <div class="article-primary pad20top">
+                <p ng-bind-html="selected.description"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+</div>
