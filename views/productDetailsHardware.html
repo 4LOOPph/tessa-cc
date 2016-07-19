@@ -1,0 +1,62 @@
+<div class="row">
+    <div id="hd-wrap" class=" wrapper">
+        <div class="row_title">
+            <a ng-click="goBack()" class="btn btn-tessa-back ">
+                <i class="fa fa-angle-left"> </i>
+            </a>
+        </div>
+
+        <div class="side_clips">
+            <a ng-click="addToCart(productDetails)" class="clip_item">
+                <i class="fa fa-shopping-cart"></i>
+                <div class="row_title">add to cart</div>
+            </a>
+            <a ng-click="openShareModal()" class="clip_item">
+                <i class="fa fa-share-alt"></i>
+                <div class="row_title">share</div>
+            </a>
+        </div>
+
+        <div id="sec-hd-preview">
+            <div class="row_title">
+                Product details
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="img_holder">
+                        <img src="{{productDetails.img_default}}" err-src="images/is4.jpg" class="bg-image" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <!-- <div class="row_title pad20top">
+                        <a ng-click="openShareModal()" class=" btn btn-label btn-social btn-flickr">
+                            <i class="padding_10 fa fa-share-square"></i> Share
+                        </a>
+                        <a class=" btn btn-label btn-social btn-flickr" ng-click="addToCart(productDetails)">
+                            <i class="padding_10 fa fa-shopping-cart"></i> Add to Cart
+                        </a>
+                    </div> -->
+                    <div class="font_24 blue1 font_bold">
+                        {{productDetails.item_name}}
+                    </div>
+                    <div class="font_light grey1 line-24 pad20top">
+                        <p ng-bind-html="productDetails.item_description"></p>
+                    </div>
+                    <div class="sec-option-set ">
+                        <div class="font_bold grey3">PRICE</div>
+                        <div class="font_24 font_light">
+                            <a class="box_price">
+                                <sup>$</sup>{{productDetails.sell_price}}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+#active-catalogue {
+    background: #424242;
+}
+</style>

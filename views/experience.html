@@ -1,0 +1,50 @@
+
+    <div id="experience" class="wrapper">
+        <div id="sec-browse-industry">
+            <div class="row_title padding_10 ">
+                Browse by industries
+            </div>
+            <div id="browse-industry" class="btn-group" data-toggle="buttons">
+                <!--<label class="btn btn-primary-alt" ng-repeat="tag in tags | duplicates: 'tags'"
+                       ng-click="toggleSelectedTag(tag)" ng-class="isTagSelected(tag) ? 'active' : 'inactive'">
+                    <span>{{tag.tags}} </span>
+                </label>-->
+                <label ng-repeat="tag in tags | duplicates: 'tags'"
+                       ng-click="toggleSelectedTag(tag)" ng-class="isTagSelected(tag) ? 'active' : 'inactive'">
+                    <button type="button" class="btn-checkbox">
+                        <span>{{tag.tags}}</span>
+                    </button>
+
+                </label>
+            </div>
+        </div>
+        <div class="row_title xd-success-stories">
+            Success Stories
+        </div>
+        <div id="masonry-item">
+            <div ng-click="openArticle(article,articlesList,$index)" class="item_experience"
+                 ng-repeat="article in $parent.articlesListFiltered = ( articlesList | filter:isOnSelectedTag())"
+                 ng-click="select(article, articlesList,$index)">
+
+                <div class="panel panel-default">
+                    <div class="img_holder">
+                        <a><img src="{{image.media_path}}" ng-repeat="image in article.mediafiles | limitTo:1"></a>
+                    </div>
+                    <div id="masonry_body" class="padding_10 blue1 font_14 font_bold">
+                        <a>{{article.title}}</a>
+                        <div id="featured_solution" class="label_medium">
+                            <p ng-bind-html="article.article"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<style>
+    #active-experience {
+        background: #424242;
+    }
+</style>
+

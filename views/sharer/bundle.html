@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>ENGAGIS-TESSA</title>
+</head>
+
+<body class="full-padding" style="margin: 0px;padding: 0;-webkit-text-size-adjust: 100%;background-color: #ffffff;">
+    <div class="wrapper" style="background-color: #ffffff;">
+        <table class="layout layout--no-gutter" style="border-collapse: collapse;table-layout: fixed;margin-left: auto;margin-right: auto;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;" align="center">
+            <tbody>
+                <tr>
+                    <td class="preheader__webversion" style="text-align: right;padding: 10px 0 5px 0;vertical-align: top;width: 280px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="preheader__webversion" style="text-align: right;padding: 10px 0 5px 0;vertical-align: top;width: 280px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="column" style="padding-left:20px;width: 800px;">
+                        <a href="http://engagis.com.au/" title="Engagis Home"><img src="http://engagis.com/wp-content/uploads/2014/05/Logo_400x96.png" width="268" height="62"></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="preheader__webversion" style="text-align: right;padding: 10px 0 5px 0;vertical-align: top;width: 280px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="preheader__webversion" style="padding-left: 25px;width: 800px;">
+                        <h3 style="color: #3b7ff0;font-family:'Open Sans',sans-serif;font-weight:700; font-size:20px;">
+                            {{selected.bundle_name}}
+                        </h3>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="layout layout--no-gutter" style="border-collapse: collapse;table-layout: fixed;margin-left: auto;margin-right: auto;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;background-color: #ffffff;" align="center">
+            <tbody>
+                <tr>
+                    <td class="column" style="padding-top: 30px;padding-left:20px;text-align: center;vertical-align: middle; width: 800px;">
+                        <img ng-src="{{selected.product_images}}" width="800px">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="column" style="text-align: left;vertical-align: top;color: #60666d;font-size: 14px;line-height: 21px;font-family:'Open Sans',sans-serif;width: 800px;">
+                        <div style="margin-left:20px;margin-right:20px;" data-ng-bind-html="selected.bundle_description"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="column" style="text-align: left;vertical-align: top;color: #60666d;font-size: 14px;line-height: 21px;font-family:'Open Sans',sans-serif;width: 800px;">
+                        <div style="margin-left:20px;margin-right:20px;">
+                            <h3 style="color: #BDBDBD;font-style: normal;font-variant: normal;font-weight: 700;font-stretch: normal;font-size: 15px;line-height: 13.03px;ont-family:'Open Sans',sans-serif;">
+                                PAYMENT TERM
+                            </h3>
+                            <h4 style="color: #4f4f4f;font-weight: bold; padding-top:20px;font-size: 16px;">Capex</h4>
+                            <table cellpadding="0" cellspacing="0" border="0" style="width: auto !important; Margin: 0 0 10px; padding: 0;">
+                                <tr style="margin:0; padding:0;">
+                                    <td style="padding-right: 10px;" align="center" valign="top">
+                                        <a style="font-family:'Open Sans',sans-serif;font-size: 24px;font-weight: 300; line-height: 2; color: #ffffff;display: inline-block; background: #3B7FF0; padding: 10px;min-width: 100px;">
+                                            <sup style="font-size: 14px; line-height: 0; vertical-align: 10px">$</sup>{{selected.others.upfront | number:2}}
+                                            <span style="font-size: 14px;"> upfront</span>
+                                        </a>
+                                    </td>
+                                    <td align="center" valign="top">
+                                        <a style="font-family:'Open Sans',sans-serif;font-size: 24px;font-weight: 300; line-height: 2; color: #ffffff;display: inline-block; background: #3B7FF0; padding: 10px;min-width: 100px;">
+                                            <sup style="font-size: 14px; line-height: 0; vertical-align: 10px">$</sup>{{selected.others.spPrice}}
+                                            <span style="font-size: 14px;"> /mth</span><sup style="font-size: 14px; line-height: 0; vertical-align: 10px" >*</sup>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h4 style="color: #4f4f4f;font-weight: bold;font-size:15px;font-size: 16px;">Opex</h4>
+                            <table cellpadding="0" cellspacing="0" border="0" style="width: auto !important; Margin: 0 0 10px; padding: 0;">
+                                <tr style="margin:0; padding:0;">
+                                    <td style="padding-right: 10px;" align="center" valign="top">
+                                        <a style="font-family:'Open Sans',sans-serif;font-size: 24px;font-weight: 300; line-height: 2; color: #ffffff;display: inline-block; background: #3B7FF0; padding: 10px;min-width: 100px;">
+                                            <sup style="font-size: 14px; line-height: 0; vertical-align: 10px">$</sup>0
+                                            <span style="font-size: 14px;"> upfront</span>
+                                        </a>
+                                    </td>
+                                    <td align="center" valign="top">
+                                        <a style="font-family:'Open Sans',sans-serif;font-size: 24px;font-weight: 300; line-height: 2; color: #ffffff;display: inline-block; background: #3B7FF0; padding: 10px;min-width: 100px;">
+                                            <sup style="font-size: 14px; line-height: 0; vertical-align: 10px" >$</sup>{{selected.others.opex}}
+                                            <span style="font-size: 14px;"> /mth</span><sup style="font-size: 14px; line-height: 0; vertical-align: 10px" >*</sup>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <h4 style="color: #616161;font-weight: 200;font-size: 16px;">or</h4>
+                            <table cellpadding="0" cellspacing="0" border="0" style="width: auto !important; Margin: 0 0 10px; padding: 0;">
+                                <tr style="margin:0; padding:0;">
+                                    <td style="padding-right: 10px;" align="center" valign="top">
+                                        <a style="font-family:'Open Sans',sans-serif;font-size: 24px;font-weight: 300; line-height: 2; color: #ffffff;display: inline-block; background: #3B7FF0; padding: 10px;min-width: 100px;">
+                                            <sup style="font-size: 14px; line-height: 0; vertical-align: 10px">$</sup>0
+                                            <span style="font-size: 14px;"> upfront</span>
+                                        </a>
+                                    </td>
+                                    <td align="center" valign="top">
+                                        <a style="font-family:'Open Sans',sans-serif;font-size: 24px;font-weight: 300; line-height: 2; color: #ffffff;display: inline-block; background: #3B7FF0; padding: 10px;min-width: 100px;">
+                                            <sup style="font-size: 14px; line-height: 0; vertical-align: 10px">$</sup>{{selected.others.weekly}}
+                                            <span style="font-size: 14px;"> /wk</span><sup style="font-size: 14px; line-height: 0; vertical-align: 10px" >*</sup>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div style="padding-top: 20px;color: #616161;font-size:12px; font-weight:800;">
+                                *This payment term is based on a 3-year contract.
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="column" style="padding-top: 70px;padding-left:20px;text-align: center;vertical-align: middle; width: 800px;">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

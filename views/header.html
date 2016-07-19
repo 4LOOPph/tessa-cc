@@ -1,0 +1,150 @@
+<header id="topnav" class="navbar navbar-default navbar-fixed-top" role="banner">
+    <div class="logo-area">
+        <span id="trigger-sidebar" class="toolbar-trigger toolbar-icon-bg">
+          <a data-toggle="tooltips" data-placement="right" title="Toggle Sidebar">
+            <span class="icon-bg">
+              <i class="fa fa-bars"></i>
+            </span>
+        </a>
+        </span>
+        <a class="navbar-brand" ui-sref="main.experience">Tessa</a>
+        <a class="tes-icon " ui-sref="main.experience">
+            <span class="icon-bg">
+                    <img src="images/icons/consolidated_home.png"/>
+                </span>
+        </a>
+
+        <a ng-click="clicks()" id="srch-pop" class="tes-icon" style="border-left:0;">
+            <img src="images/icons/consolidated_search.png"/>
+        </a>
+        <div class="toolbar-icon-bg" id="toolbar-search" ng-show="shows">
+            <div class="input-group">
+
+                <ui-select ng-model="search" tagging on-select="seachValue($select.selected.name)" theme="bootstrap"
+                           reset-search-input="false">
+                    <ui-select-match placeholder="Search...">
+                        {{$select.selected.name}}
+                    </ui-select-match>
+                    <ui-select-header>Top of the list!</ui-select-header>
+                    <ui-select-choices group-by="'group'" repeat="list in allSearch track by $index"
+                                       refresh="refreshDelay($select.search)" refresh-delay="0">
+                        {{list.name}}
+                        <!-- <div ng-bind-html="list.name"></div> -->
+                    </ui-select-choices>
+                    <ui-select-no-choice>
+                        No Result Found
+                    </ui-select-no-choice>
+                </ui-select>
+                <div class="go-cell dis_cell">
+                    <a class="go button" ng-click="searchval()"><i class="fa fa-search"></i> </a>
+
+                </div>
+            </div>
+        </div>
+        <!--<a class="button" ng-click="clear(1)">back</a>-->
+    </div>
+    <ul id="nav-right" class="nav navbar-nav toolbar pull-right">
+        <div class="btn-group" uib-dropdown>
+            <a ng-click="cartModal()" type="button" class="tes-icon" uib-dropdown-toggle ng-disabled="disabled">
+                <img src="images/icons/consolidated_cart.png" />
+                <span class="badge badge-danger" ng-show="cartItems.length == 0">{{cartItems.length}}</span>
+                <span class="badge badge-success" ng-show="cartItems.length > 0">{{cartItems.length}}</span>
+            </a>
+        </div><div class="btn-group" uib-dropdown>
+            <a id="single-button" type="button" class="tes-icon" uib-dropdown-toggle ng-disabled="disabled">
+                <img src="images/icons/dp.png"/>
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                <li><a href=""><i class="ti ti-user"></i><span>Profile</span><span
+                        class="badge badge-info pull-right">80%</span></a></li>
+                <li><a href=""><i class="ti ti-panel"></i><span>Account</span></a></li>
+                <li><a href=""><i class="ti ti-settings"></i><span>Settings</span></a></li>
+                <li class="divider"></li>
+                <li><a ng-click="signout()"><i class="ti ti-shift-right"></i><span>Sign Out</span></a></li>
+            </ul>
+        </div>
+    </ul>
+</header>
+<div id="wrapper">
+
+    <div id="layout-static">
+        <div id="myBar" class="static-sidebar-wrapper sidebar-midnightblue">
+            <div class="">
+                <div class="sidebar">
+                    <div class="widget stay-on-collapse" id="widget-sidebar">
+                        <nav role="navigation" class="widget-body">
+                            <ul class="acc-menu">
+                                <li><a id="active-experience" ui-sref="main.experience"><i
+                                        class="fa fa-comment"></i><span class="collapsible">Experience</span></a></li>
+                                <li><a id="active-catalogue" ng-click="product()"><i
+                                        class="fa fa-desktop"></i><span class="collapsible">Product Catalogue</span></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="static-content-wrapper">
+            <div class="static-content">
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <div ui-view></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#trigger-sidebar").click(function () {
+            $("#myBar").css({
+                'display': 'table-cell'
+            });
+
+            $(" .collapsible").toggle();
+
+            if ($(".collapsible").is(':visible')) {
+                $("#myBar, .acc-menu li a").css({
+                    'min-width': '245px'
+                });
+            } else {
+                $("#myBar").css({
+                    'min-width': '56px'
+                });
+                $("#myBar, .acc-menu li a").css({
+                    'min-width': '56px'
+                });
+            }
+        });
+
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#trigger-close-search, #srch-pop, #wrapper").click(function () {
+            $("#toolbar-search").hide();
+        });
+        $("#trigger-toolbar-search,#srch-pop").click(function () {
+            $("#toolbar-search").show();
+        });
+    });
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+        $(document).on("click", ".btn-checkbox", function (e) {
+            e.stopPropagation();
+            $(this).toggleClass("btn-checkbox-active");
+        });
+    });
+
+</script>
+
+
+
