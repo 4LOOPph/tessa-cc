@@ -1,34 +1,39 @@
-
-    <div id="experience" class="wrapper">
-        <div id="sec-browse-industry">
-            <div class="row_title padding_10 ">
-                Browse by industries
-            </div>
-            <div id="browse-industry" class="btn-group" data-toggle="buttons">
-                <!--<label class="btn btn-primary-alt" ng-repeat="tag in tags | duplicates: 'tags'"
-                       ng-click="toggleSelectedTag(tag)" ng-class="isTagSelected(tag) ? 'active' : 'inactive'">
-                    <span>{{tag.tags}} </span>
-                </label>-->
-                <label ng-repeat="tag in tags | duplicates: 'tags'"
-                       ng-click="toggleSelectedTag(tag)" ng-class="isTagSelected(tag) ? 'active' : 'inactive'">
-                    <button type="button" class="btn-checkbox">
-                        <span>{{tag.tags}}</span>
-                    </button>
-
-                </label>
-            </div>
+<div id="experience" class="wrapper">
+    <div class="dis_table xd-success-stories">
+        <div class="browse_industry">
+            <button uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-primary">Filter by Industry
+            </button>
         </div>
-        <div class="row_title xd-success-stories">
+        <div class="row_title ">
             Success Stories
         </div>
+    </div>
+    <!--  <div class="row">
         <div id="masonry-item">
-            <div ng-click="openArticle(article,articlesList,$index)" class="item_experience"
-                 ng-repeat="article in $parent.articlesListFiltered = ( articlesList | filter:isOnSelectedTag())"
-                 ng-click="select(article, articlesList,$index)">
-
+            <div class="col-xs-18 col-sm-6 col-md-3">
+            <div ng-click="openArticle(article,articlesList,$index)" class="item_experience" ng-repeat="article in $parent.articlesListFiltered = ( articlesList | filter:isOnSelectedTag())" ng-if="article.tags.length > 0">
+                <div class="thumbnail">
+                    <img ng-repeat="image in article.mediafiles" src="{{image.media_path}}" imageonload width="300" height="500"/>
+                    <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
+                    <div class="caption">
+                        <a>{{article.title}}</a>
+                        <h4>Thumbnail label</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, soluta, eligendi doloribus sunt minus amet sit debitis repellat. Consectetur, culpa itaque odio similique suscipit</p>
+                        <p><a href="#" class="btn btn-info btn-xs" role="button">Button</a> <a href="#" class="btn btn-default btn-xs" role="button">Button</a></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div> -->
+    <div id="masonry-item">
+        <div ng-click="openArticle(article,articlesList,$index)" class="item_experience" ng-repeat="article in $parent.articlesListFiltered = ( articlesList | filter:isOnSelectedTag() | orderBy:'date_created':true )" ng-if="article.tags.length > 0 && article.is_active == 1">
+            <div class="col-md-12 col-lg-12 col-xs-12">
                 <div class="panel panel-default">
                     <div class="img_holder">
-                        <a><img src="{{image.media_path}}" ng-repeat="image in article.mediafiles | limitTo:1"></a>
+                            <img ng-repeat="image in article.mediafiles" src="{{image.media_path}}" imageonload ng-if="!article.article_thumbnail"/>
+                            <img src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail"/>
+                            <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
                     </div>
                     <div id="masonry_body" class="padding_10 blue1 font_14 font_bold">
                         <a>{{article.title}}</a>
@@ -40,11 +45,21 @@
             </div>
         </div>
     </div>
-
-
+</div>
 <style>
-    #active-experience {
-        background: #424242;
-    }
+#active-experience {
+    background: #424242;
+}
 </style>
-
+<script type="text/ng-template" id="myPopoverTemplate.html">
+    <div class="form-group">
+        <div class="pad_vertical">
+            <input type="search" class="form-control" placeholder="Search..." ng-model="searchIndustry" />
+        </div>
+        <div class="checkbox" ng-repeat="tag in tags | duplicates: 'tags' | filter:searchIndustry ">
+            <label>
+                <input type="checkbox" ng-click="toggleSelectedTag(tag)" ng-model="tag.checked"> {{tag.tags}}
+            </label>
+        </div>
+    </div>
+</script>

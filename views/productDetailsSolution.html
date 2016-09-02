@@ -1,209 +1,163 @@
-<div class="row">
-    <div id="pd-sol-wrap" class="wrapper">
-        <div class="row_title">
-            <a class=" btn btn-tessa-back " ng-click="goBack()">
-                <i class="fa fa-angle-left"> </i>
-            </a>
-        </div>
-        <div class="parent-sd">
-
-            <div class="sec-sd-psd">
-
-                <div class="row_title">
-                    Packaged solutions details
-                </div>
-
-                <!-- Main Article -->
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="img_holder">
-                            <img src="{{img.image_path}}" class="bg-image" ng-repeat="img in details.product_images | limitTo:1" />
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <!-- <div class="row_title pad20top">
-                            <a ng-click="openShareModal()" class=" btn btn-label btn-social btn-flickr">
-                                <i class="padding_10 fa fa-share-square"></i> Share
-                            </a>
-                             <a class=" btn btn-label btn-social btn-flickr" ng-click="addToCart(details)">
-                                <i class="padding_10 fa fa-shopping-cart"></i> Add to Cart
-                            </a>
-                        </div> -->
-                        <div class=" font_24 font_bold blue1">
-                            {{details.bundle_name}}
-                        </div>
-                        <div class="font_light grey2 pad20top line-24">
-                            <span data-ng-bind-html="details.bundle_description"></span>
-                        </div>
-                        <div class="divider"></div>
-                        <div class="row_title pad20top">
-                            Payment Term
-                        </div>
-                        <div class="sec-option-set pad20top">
-                            <div class="font_bold grey2">Capex</div>
-                            <div class="font_24 font_bold">
-                                <a class="font_light box_price">
-                                    <sup>$</sup>{{upfront | number:2}}<span class=" font_14"> upfront</span>
-                                </a>
-                                <a class=" font_light box_price ">
-                                    <sup>$</sup>{{spPrice | number: 2}}<span class=" font_14"> /mth</span><sup>*</sup>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="sec-option-set pad20top">
-                            <div class="font_bold grey2">Opex</div>
-                            <div class="font_24 font_light font_bold">
-                                <a class=" box_price">
-                                    <sup>$</sup>0<span class=" font_14"> upfront</span>
-                                </a>
-                                <a class="font_light box_price">
-                                    <sup>$</sup>{{((upfront*36)/1000) | number:2}}<span class=" font_14"> /mth</span><sup>*</sup>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="grey2 font_light ">
-                            or
-                        </div>
-                        <div class="sec-option-set ">
-                            <div class="font_light font_24 font_bold">
-                                <a class=" box_price">
-                                    <sup>$</sup>0<span class=" font_14"> upfront</span>
-                                </a>
-                                <a class="font_light box_price">
-                                    <sup>$</sup>{{weekly | number:2}}<span class=" font_14"> /wk</span><sup>*</sup>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="pad20top grey2 font_medium font_12">
-                            *This payment term is based on a 3-year contract.
-                        </div>
-                    </div>
-
-                    <div class="side_clips">
-                        <a ng-click="addToCart(details)" class="clip_item">
-                            <i class="fa fa-shopping-cart"></i>
-                            <div class="row_title">add to cart</div>
-                        </a>
-                        <a ng-click="openShareModal()" class="clip_item">
-                            <i class="fa fa-share-alt"></i>
-                            <div class="row_title">share</div>
-                        </a>
-                    </div>
-
-                </div>
-                <!-- End of: Main Article -->
-                <div class="row_title pad20top">
-                    inclusions
-                </div>
-                <!--Inclusions-->
-                <div class=" dis_table sec-sd-inclusions ">
-                    <div class="dis_cell">
-                        <div class="inc_head">
-                            <div class="img_holder">
-                                <img src="images/icons/software.png" class="dtIcons" />
-                            </div>
-                            <div class="font_14 font_bold grey2">
-                                SOFTWARE
-                            </div>
-                        </div>
-                        <div class="inc_body" ng-repeat="softwares in software">
-                            <div class="inc_title font_bold grey2">
-                                {{softwares.category_label}}
-                            </div>
-                            <a class="inc_text font_light grey2" ng-click="openModal(softwares)">
-                                {{softwares.item_name}}
-                            </a>
-                        </div>
-                    </div>
-
-
-
-                    <div class="dis_cell">
-                        <div class="inc_head">
-                            <div class="img_holder">
-
-                                <img src="images/icons/hardware.png" class="dtIcons"/>
-
-
-                            </div>
-                            <div class="font_14 font_bold grey2">
-                                HARDWARE
-                            </div>
-                        </div>
-                        <div class="inc_body" ng-repeat="categ in hardware">
-                            <div class="inc_title font_bold grey2">
-                                {{categ.category_label}}
-                            </div>
-                            <a class="inc_text font_light grey2" ng-click="openModal(categ)">
-                                {{categ.item_name}}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="dis_cell">
-                        <div class="inc_head">
-                            <div class="img_holder">
-                                <img src="images/icons/deployment.png" class="dtIcons" />
-                            </div>
-                            <div class="font_14 font_bold grey2">
-                                DEPLOYMENT
-                            </div>
-                        </div>
-                        <div class="inc_body" ng-repeat="deploy in deployment">
-                            <a  class="inc_text font_light grey2" ng-click="openModal(deploy)">
-                                {{deploy.item_name}}
-                            </a>
-                        </div>
-                    </div>
-                    <div class="dis_cell">
-                        <div class="inc_head">
-                            <div class="img_holder">
-                                <img src="images/icons/support.png" class="dtIcons" />
-                            </div>
-                            <div class="font_14 font_bold grey2">
-                                SUPPORT
-                            </div>
-                        </div>
-                        <div class="inc_body" ng-repeat="supp in support">
-                            <a href="" class="inc_text font_light grey2" ng-click="openModal(supp)">
-                                {{supp.item_name}}
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--End: Inclusions-->
+<div id="pd-sol-wrap" class="wrapper" ng-show="details">
+    <div class="row_title">
+        <a class=" btn btn-tessa-back " ng-click="goBack()">
+            <i class="fa fa-angle-left"> </i>
+        </a>
+    </div>
+    <div class="parent-sd">
+        <div class="sec-sd-psd">
+            <div class="row_title">
+                Packaged solutions details
             </div>
+            <!-- Main Article -->
+            <div class="row pad20top">
+                <div class="col-lg-6">
+                    <div class="img_holder">
+                        <img ng-repeat="img in details.product_images | limitTo:1" src="{{img.image_path}}" imageonload class="bg-image" />
+                        <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;padding-top: 25%;"></span>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class=" font_24 font_bold blue1">
+                        {{details.bundle_name}}
+                    </div>
+                    <div class="font_light grey2 pad20top line-24">
+                        <span data-ng-bind-html="details.bundle_description"></span>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="row_title pad20top">
+                        Pricing Options
+                    </div>
+                    <div class="sec-option-set pad20top">
+                        <div class="font_bold grey2">Capex</div>
+                        <div class="font_24 font_bold">
+                            <span class="font_light box_price">
+                                    <sup>$</sup>{{upfront | number:2}}<span class=" font_14"> upfront</span>
+                            </span>
+                            <span class=" font_light box_price ">
+                                    <sup>$</sup>{{spPrice | number: 2}}<span class=" font_14"> /mth</span><sup>*</sup>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="sec-option-set pad20top">
+                        <div class="font_bold grey2">Opex</div>
+                        <div class="font_24 font_light font_bold">
+                            <span class=" box_price">
+                                    <sup>$</sup>0<span class=" font_14"> upfront</span>
+                            </span>
+                            <span class="font_light box_price">
+                                    <sup>$</sup>{{(((upfront*30.66)/1000) + spPrice) | number:2}}<span
+                                    class=" font_14"> /mth</span><sup>*</sup>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="grey2 font_light ">
+                        or
+                    </div>
+                    <div class="sec-option-set ">
+                        <div class="font_light font_24 font_bold">
+                            <span class=" box_price">
+                                    <sup>$</sup>0<span class=" font_14"> upfront</span>
+                            </span>
+                            <span class="font_light box_price">
+                                    <sup>$</sup>{{(((((upfront * 30.66)/1000) + spPrice)*12)/52) | number:2}} /wk<span class=" font_14"></span><sup>*</sup>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="pad20top grey2 font_medium font_12">
+                        *Billed monthly within a 36-month term.
+                    </div>
+                </div>
+                <div class="side_clips">
+                    <a ng-click="addToCart(details)" class="clip_item">
+                        <i class="fa fa-shopping-cart"></i>
+                        <div class="row_title">add to cart</div>
+                    </a>
+                    <a ng-click="openShareModal()" class="clip_item">
+                        <i class="fa fa-share-alt"></i>
+                        <div class="row_title">share</div>
+                    </a>
+                </div>
+            </div>
+            <!-- End of: Main Article -->
+            <div class="row_title pad20top">
+                inclusions
+            </div>
+            <!--Inclusions-->
+            <div class=" dis_table sec-sd-inclusions ">
+                <div class="dis_cell">
+                    <div class="inc_head">
+                        <div class="img_holder">
+                            <img src="./images/icons/icon-software.svg" class="dtIcons" />
+                        </div>
+                        <div class="font_14 font_bold grey2">
+                            SOFTWARE
+                        </div>
+                    </div>
+                    <div class="inc_body" ng-repeat="(key,value) in (software | groupBy:'category_label')">
+                        <div class="inc_title font_bold grey2" ng-if="key == 'CMS'">
+                            {{key}}
+                        </div>
+                        <a>
+                            <div class="inc_text font_light grey2" ng-repeat="softwares in value" ng-click="openModal(softwares)" ng-if="key == 'CMS'">
+                                {{softwares.item_name}}
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="dis_cell">
+                    <div class="inc_head">
+                        <div class="img_holder">
+                            <img src="./images/icons/icon-hardware.svg" class="dtIcons" />
+                        </div>
+                        <div class="font_14 font_bold grey2">
+                            HARDWARE
+                        </div>
+                    </div>
+                    <div class="inc_body" ng-repeat="(key,value) in (hardware | groupBy:'category_label')">
+                        <div class="inc_title font_bold grey2">
+                            {{key}}
+                        </div>
+                        <a class="inc_text font_light grey2" ng-repeat="categ in value" ng-click="openModal(categ)">
+                            {{categ.item_name}}
+                        </a>
+                    </div>
+                </div>
+                <div class="dis_cell">
+                    <div class="inc_head">
+                        <div class="img_holder">
+                            <img src="./images/icons/icon-deployment.svg" class="dtIcons" />
+                        </div>
+                        <div class="font_14 font_bold grey2">
+                            DEPLOYMENT
+                        </div>
+                    </div>
+                    <div class="inc_body" ng-repeat="deploy in deployment">
+                        <a class="inc_text font_light grey2" ng-click="openModal(deploy)">
+                            {{deploy.item_name}}
+                        </a>
+                    </div>
+                </div>
+                <div class="dis_cell">
+                    <div class="inc_head">
+                        <div class="img_holder">
+                            <img src="./images/icons/icon-support.svg" class="dtIcons" />
+                        </div>
+                        <div class="font_14 font_bold grey2">
+                            SUPPORT
+                        </div>
+                    </div>
+                    <div class="inc_body" ng-repeat="supp in support">
+                        <a href="" class="inc_text font_light grey2" ng-click="openModal(supp)">
+                            {{supp.item_name}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--End: Inclusions-->
         </div>
     </div>
 </div>
-<!-- 
-<div class="modal fade" id="softwareModal" tabindex="-1" role="dialog" aria-labelledby="hardwareModal" aria-hidden="true" style="display: none;">
-    <div class="modal-backdrop fade in" style="height: 100vh; position: fixed;" data-dismiss="modal"></div>
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-            </div>
-            <div class="modal-body">
-                <div id="mdl-hardware">
-                    <div class="img_holder">
-                        <img src="{{selected.img_default}}" class="bg-icon">
-                    </div>
-                    <div class="pad20top mdl-hardware-content">
-                        <div class="font_24 blue1 font_medium">
-                            {{selected.item_name}}
-                        </div>
-                        <div class="article-primary pad20top">
-                            <p ng-bind-html="selected.item_description"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div> -->
 <style>
 #active-catalogue {
     background: #424242;

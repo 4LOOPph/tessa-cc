@@ -1,55 +1,235 @@
-<div class="row">
-    <div id="hd-wrap" class=" wrapper">
+<div id="hd-wrap" class=" wrapper" ng-show="productDetails">
+    <div class="row_title">
+        <a ng-click="goBack()" class="btn btn-tessa-back ">
+            <i class="fa fa-angle-left"> </i>
+        </a>
+    </div>
+    <div class="side_clips">
+        <a ng-click="addToCart(productDetails)" class="clip_item">
+            <i class="fa fa-shopping-cart"></i>
+            <div class="row_title">add to cart</div>
+        </a>
+        <a ng-click="openShareModal()" class="clip_item">
+            <i class="fa fa-share-alt"></i>
+            <div class="row_title">share</div>
+        </a>
+    </div>
+    <div id="sec-hd-preview">
         <div class="row_title">
-            <a ng-click="goBack()" class="btn btn-tessa-back ">
-                <i class="fa fa-angle-left"> </i>
-            </a>
+            Product details
         </div>
-
-        <div class="side_clips">
-            <a ng-click="addToCart(productDetails)" class="clip_item">
-                <i class="fa fa-shopping-cart"></i>
-                <div class="row_title">add to cart</div>
-            </a>
-            <a ng-click="openShareModal()" class="clip_item">
-                <i class="fa fa-share-alt"></i>
-                <div class="row_title">share</div>
-            </a>
-        </div>
-
-        <div id="sec-hd-preview">
-            <div class="row_title">
-                Product details
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="img_holder">
+                    <img ng-src="{{productDetails.img_default}}" imageonload class="bg-image" />
+                    <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;padding-top: 25%;"></span>
+                </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="img_holder">
-                        <img src="{{productDetails.img_default}}" err-src="images/is4.jpg" class="bg-image" />
+            <div class="col-lg-6">
+                <div class="font_24 blue1 font_bold">
+                    {{productDetails.item_name}}
+                </div>
+                <div class="font_light grey1 line-24 pad20top">
+                    <p ng-bind-html="productDetails.item_description"></p>
+                </div>
+                <div class="sec-option-set ">
+                    <div class="font_bold grey3">PRICE</div>
+                    <div class="font_24 font_light">
+                        <a class="box_price">
+                            <sup>$</sup>{{productDetails.sell_price | number:2}}
+                        </a>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <!-- <div class="row_title pad20top">
-                        <a ng-click="openShareModal()" class=" btn btn-label btn-social btn-flickr">
-                            <i class="padding_10 fa fa-share-square"></i> Share
-                        </a>
-                        <a class=" btn btn-label btn-social btn-flickr" ng-click="addToCart(productDetails)">
-                            <i class="padding_10 fa fa-shopping-cart"></i> Add to Cart
-                        </a>
-                    </div> -->
-                    <div class="font_24 blue1 font_bold">
-                        {{productDetails.item_name}}
+            </div>
+        </div>
+        <div id="sec-hd-specs">
+            <div class="dis_table">
+                <div class="dis_cell">
+                    <div class="head_specs">
+                        SPEcifications
                     </div>
-                    <div class="font_light grey1 line-24 pad20top">
-                        <p ng-bind-html="productDetails.item_description"></p>
-                    </div>
-                    <div class="sec-option-set ">
-                        <div class="font_bold grey3">PRICE</div>
-                        <div class="font_24 font_light">
-                            <a class="box_price">
-                                <sup>$</sup>{{productDetails.sell_price}}
-                            </a>
+                    <div class="spec_table">
+                        <div class="spec_cell">
+                            <ul class="spec_list">
+                                <li ng-if="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        Processor
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{processor[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-if="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        Ram
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{ram[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-if="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        Storage
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{storage[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-if="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        graphics
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{graphics[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-if="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        maximum resolution
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{maxresolution[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        screen
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{screensize[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        brightness
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{brightness[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        bezel size
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{bezel[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        display technology
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{displaytechno[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        weight
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{weight[0].value}}
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="spec_cell">
+                            <ul class="spec_list">
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        usage
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{usage[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        Resolution
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{resolution[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        Dimension
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{dimensions[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        orientation
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{orientation[0].value}}
+                                    </div>
+                                </li>
+                                <li ng-hide="category[0].fk_category_id == 83">
+                                    <div class="font_12 font_bold grey3 uppercase">
+                                        display interface
+                                    </div>
+                                    <div class="font_light grey2">
+                                        {{displayinterface[0].value}}
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
+                </div>
+                <div class="dis_cell">
+                    <div class="head_specs">
+                        this goes well with
+                    </div>
+                    <div class="goes-well-cat font_bold grey2 uppercase">
+                        <span><img src="../images/icons/svg-tessa-hardware.svg" style="max-height: 20px; width:30px;"/></span>
+                        <span>hardware</span>
+                    </div>
+                    <ul class="spec_list">
+                        <li ng-repeat="item in relatedProductHardware">
+                            <a ng-click="openDetail(item.ref_product.p_id)" class="font_light grey2">
+                                <div class="font_regular grey2">
+                                    - {{item.ref_product.item_name}}
+                                </div>
+                            </a>
+                        </li>
+                        <li ng-show="!relatedProductHardware.length"><span class="font_12 grey3 font_light"> No Related Items</span></li>
+                    </ul>
+                    <div class="goes-well-cat font_bold grey2 uppercase">
+                        <span><img src="../images/icons/svg-tessa-software.svg" style="max-height: 20px; width:30px;"/></span>
+                        <span>Software</span>
+                    </div>
+                    <ul class="spec_list">
+                        <li ng-repeat="item in relatedProductSoftware">
+                            <a  ng-click="openDetail(item.ref_product.p_id)" class="font_light grey2">
+                                <div class="icon_table">
+                                    <div class="icon_cell">
+                                        - {{item.ref_product.item_name}}
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li ng-show="!relatedProductSoftware.length"><span class="font_12 grey3 font_light"> No Related Items</span></li>
+                    </ul>
+                </div>
+                <div class="dis_cell">
+                    <div class="head_specs">
+                        included in these packages solutions
+                    </div>
+                    <ul class="spec_list">
+                        <li ng-repeat="pack in SolutionPack">
+                            <a data-toggle="modal" ui-sref="main.productDetailsSolution({selected_id: pack.pb_id})" class="font_light grey2">
+                                <div class="icon_table">
+                                    <div class="icon_cell">
+                                        - {{pack.bundle_name}}
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li ng-show="!SolutionPack.length"><span class="font_12 grey3 font_light"> No Related Items</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
