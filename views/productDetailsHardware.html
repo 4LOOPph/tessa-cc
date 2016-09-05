@@ -183,12 +183,13 @@
                     <div class="head_specs">
                         this goes well with
                     </div>
-                    <div class="goes-well-cat font_bold grey2 uppercase">
+                    <div class="goes-well-cat font_bold grey3 uppercase font_12 ">
                         <span><img src="../images/icons/svg-tessa-hardware.svg" style="max-height: 20px; width:30px;"/></span>
-                        <span>hardware</span>
+                        <span>Hardware</span>
                     </div>
                     <ul class="spec_list">
                         <li ng-repeat="item in relatedProductHardware">
+
                             <a ng-click="openDetail(item.ref_product.p_id)" class="font_light grey2">
                                 <div class="font_regular grey2">
                                     - {{item.ref_product.item_name}}
@@ -197,7 +198,8 @@
                         </li>
                         <li ng-show="!relatedProductHardware.length"><span class="font_12 grey3 font_light"> No Related Items</span></li>
                     </ul>
-                    <div class="goes-well-cat font_bold grey2 uppercase">
+                    <br/>
+                    <div class="goes-well-cat font_bold grey3 uppercase font_12  ">
                         <span><img src="../images/icons/svg-tessa-software.svg" style="max-height: 20px; width:30px;"/></span>
                         <span>Software</span>
                     </div>
