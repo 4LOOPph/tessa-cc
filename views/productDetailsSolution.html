@@ -1,156 +1,224 @@
 <div id="pd-sol-wrap" class="wrapper" ng-show="details">
-    <div class="row_title">
-        <a class=" btn btn-tessa-back " ng-click="goBack()">
-            <i class="fa fa-angle-left"> </i>
+    <div class="breadcrumb">
+        <img src="../images/icons/ico_store00.svg"/>
+        <a class="grey3 " ng-click="main.productCatalogue">
+            Product Catalogue >
         </a>
+
+        <a class="grey3 " ng-click="goBack()">
+             Solutions
+        </a>
+        <a class="current">
+            {{details.bundle_name}}
+        </a>
+
+        <!-- <a class="current">
+        > {{details.bundle_name}}
+        </a> -->
     </div>
     <div class="parent-sd">
         <div class="sec-sd-psd">
-            <div class="row_title">
-                Packaged solutions details
-            </div>
             <!-- Main Article -->
-            <div class="row pad20top">
-                <div class="col-lg-6">
-                    <div class="img_holder">
-                        <img ng-repeat="img in details.product_images | limitTo:1" src="{{img.image_path}}" imageonload class="bg-image" />
-                        <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;padding-top: 25%;"></span>
+            <div class="main_article">
+                <div class=" row ">
+                    <div class="col-lg-6">
+                        <div class="carousel_contain">
+                            <!--  <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                                <div uib-slide ng-repeat="slide in slides track by $index" index="slide.index">
+                                    <img ng-src="{{slide.image}}" style="margin:auto;">
+                                    <div class="carousel-caption">
+                                        <h4>Slide {{slide.id}}</h4>
+                                        <p>{{slide.text}}</p>
+                                    </div>
+                                </div>
+                            </div> -->
+                            <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                                <div class="carousel-outer">
+                                    <div class="carousel-inner">
+                                        <div ng-repeat="slide in slides" class="item" ng-class="{active:!$index}" data-thumb="{{$index}}">
+                                            <img class="image-responsive" ng-src="{{slide.image}}">
+                                        </div>
+                                    </div>
+                                    <a class="carousel-control left" data-target='#carousel-custom'" data-slide="prev">
+                                        <span class="glyphicon glyphicon-chevron-left"></span>
+                                    </a>
+                                    <a class="carousel-control right" data-target='#carousel-custom' data-slide="next">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </a>
+                                </div>
+                                <ol class="carousel-indicators">
+                                    <li ng-repeat="slide in slides" data-target='#carousel-custom' data-slide-to="{{slide.index}}" ng-class="{active:!$index}">
+                                        <img ng-src="{{slide.image}}" alt='' width="150" height="100" />
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <!--carousel here-->
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class=" font_24 font_bold blue1">
-                        {{details.bundle_name}}
-                    </div>
-                    <div class="font_light grey2 pad20top line-24">
-                        <span data-ng-bind-html="details.bundle_description"></span>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="row_title pad20top">
-                        Pricing Options
-                    </div>
-                    <div class="sec-option-set pad20top">
-                        <div class="font_bold grey2">Capex</div>
-                        <div class="font_24 font_bold">
-                            <span class="font_light box_price">
-                                    <sup>$</sup>{{upfront | number:2}}<span class=" font_14"> upfront</span>
-                            </span>
-                            <span class=" font_light box_price ">
-                                    <sup>$</sup>{{spPrice | number: 2}}<span class=" font_14"> /mth</span><sup>*</sup>
-                            </span>
+                    <div class="col-lg-6">
+                        <div class="dis_table_auto ">
+                            <div class="dis_cell">
+                                <ul class="product_gallery">
+                                    <li ng-repeat="slide in slides" data-target='#carousel-custom' data-slide-to="{{slide.index}}" ng-class="{active:!$index}">
+                                        <img ng-src="{{slide.image}}" alt='' width="150" height="100" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="side_menu dis_cell_2">
+                                <a ng-click="openShareModal()" class="side_buttons font_bold uppercase">
+                                    <i class="fa fa-share"></i> Share
+                                </a>
+                            </div>
+
+                        </div>
+                        <br/>
+
+
+                        <div class=" font_24 font_light blue1">
+                            {{details.bundle_name}}
+                        </div>
+                        <!--product name-->
+                        <div class=" font_18 grey2 pad10top" data-ng-bind-html="details.bundle_description">
+                        </div>
+                        <!--product description-->
+                        <div class="divider"></div>
+                        <div class="row_title pad20top">
+                            Pricing Options
+                        </div>
+                        <!--pricing options-->
+                        <div id="pricing_options">
+                            <div class="dis_flex">
+                                <div class="flex_lg">
+                                    <ul class="price_row">
+                                        <li>
+                                            <div class="dis_table">
+                                                <div class="dis_cell fill_grey center_align">
+                                                    <span class="font_18 font_bold blue3 ">
+                                                        Capex
+                                                    </span>
+                                                </div>
+                                                <div class="dis_cell fill_blue2 right_align">
+                                                    <div class="font_12">
+                                                        Upfront
+                                                    </div>
+                                                    <div class="font_24">
+                                                        <sup>$</sup>{{upfront | number:2}}
+                                                    </div>
+                                                </div>
+                                                <div class="dis_cell fill_blue1  right_align">
+                                                    <div class="font_12">
+                                                        Monthly
+                                                    </div>
+                                                    <div class="font_24">
+                                                        <sup>$</sup>{{spPrice | number: 2}}*
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dis_table">
+                                                <div class="dis_cell fill_grey center_align">
+                                                    <span class="font_18 font_bold blue3">
+                                                        Opex
+                                                    </span>
+                                                </div>
+                                                <div class="dis_cell fill_blue2 right_align">
+                                                    <div class="font_12">
+                                                        For as low as
+                                                    </div>
+                                                    <div class="font_24">
+                                                        <sup>$</sup>{{(((((upfront * 30.66)/1000) + spPrice)*12)/52) | number:2}} /wk
+                                                    </div>
+                                                </div>
+                                                <div class="dis_cell fill_blue1 right_align">
+                                                    <div class="font_12">
+                                                        Monthly
+                                                    </div>
+                                                    <div class="font_24">
+                                                        <sup>$</sup>{{(((upfront*30.66)/1000) + spPrice) | number:2}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <a class="flex_sm" ng-click="addToCart(productDetails)">
+
+                                    <span class="font_medium uppercase"><img src="../images/icons/ico_cartDark.svg"/> add to cart</span>
+                                </a>
+                            </div>
+                        </div>
+                        <!--pricing options-->
+                        <div class=" grey3 font_medium font_12">
+                            *Billed monthly within a 36-month term.
                         </div>
                     </div>
-                    <div class="sec-option-set pad20top">
-                        <div class="font_bold grey2">Opex</div>
-                        <div class="font_24 font_light font_bold">
-                            <span class=" box_price">
-                                    <sup>$</sup>0<span class=" font_14"> upfront</span>
-                            </span>
-                            <span class="font_light box_price">
-                                    <sup>$</sup>{{(((upfront*30.66)/1000) + spPrice) | number:2}}<span
-                                    class=" font_14"> /mth</span><sup>*</sup>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="grey2 font_light ">
-                        or
-                    </div>
-                    <div class="sec-option-set ">
-                        <div class="font_light font_24 font_bold">
-                            <span class=" box_price">
-                                    <sup>$</sup>0<span class=" font_14"> upfront</span>
-                            </span>
-                            <span class="font_light box_price">
-                                    <sup>$</sup>{{(((((upfront * 30.66)/1000) + spPrice)*12)/52) | number:2}} /wk<span class=" font_14"></span><sup>*</sup>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="pad20top grey2 font_medium font_12">
-                        *Billed monthly within a 36-month term.
-                    </div>
-                </div>
-                <div class="side_clips">
-                    <a ng-click="addToCart(details)" class="clip_item">
-                        <i class="fa fa-shopping-cart"></i>
-                        <div class="row_title">add to cart</div>
-                    </a>
-                    <a ng-click="openShareModal()" class="clip_item">
-                        <i class="fa fa-share-alt"></i>
-                        <div class="row_title">share</div>
-                    </a>
+                    <!--product details here-->
                 </div>
             </div>
             <!-- End of: Main Article -->
-            <div class="row_title pad20top">
-                inclusions
-            </div>
             <!--Inclusions-->
-            <div class=" dis_table sec-sd-inclusions ">
-                <div class="dis_cell">
-                    <div class="inc_head">
-                        <div class="img_holder">
-                            <img src="./images/icons/icon-software.svg" class="dtIcons" />
-                        </div>
-                        <div class="font_14 font_bold grey2">
-                            SOFTWARE
-                        </div>
-                    </div>
-                    <div class="inc_body" ng-repeat="(key,value) in (software | groupBy:'category_label')">
-                        <div class="inc_title font_bold grey2" ng-if="key == 'CMS'">
-                            {{key}}
-                        </div>
-                        <a>
-                            <div class="inc_text font_light grey2" ng-repeat="softwares in value" ng-click="openModal(softwares)" ng-if="key == 'CMS'">
-                                {{softwares.item_name}}
-                            </div>
-                        </a>
-                    </div>
+            <div class="packages">
+                <div class="font_24 blue3">
+                    Packages
                 </div>
-                <div class="dis_cell">
-                    <div class="inc_head">
-                        <div class="img_holder">
-                            <img src="./images/icons/icon-hardware.svg" class="dtIcons" />
+                <div class=" dis_table sec-sd-inclusions ">
+                    <div class="dis_cell">
+                        <div class="inc_head">
+                            Software
                         </div>
-                        <div class="font_14 font_bold grey2">
-                            HARDWARE
-                        </div>
+                        <ul class="inc_body">
+                            <li ng-repeat="(key,value) in (software | groupBy:'category_label')">
+                                <div class="inc_title font_bold grey2" ng-if="key == 'CMS'">
+                                    {{key}}
+                                </div>
+                                <a>
+                                    <div class="inc_text font_light grey2" ng-repeat="softwares in value" ng-click="openModal(softwares)" ng-if="key == 'CMS'">
+                                        {{softwares.item_name}}
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="inc_body" ng-repeat="(key,value) in (hardware | groupBy:'category_label')">
-                        <div class="inc_title font_bold grey2">
-                            {{key}}
+                    <div class="dis_cell">
+                        <div class="inc_head">
+                            Hardware
                         </div>
-                        <a class="inc_text font_light grey2" ng-repeat="categ in value" ng-click="openModal(categ)">
-                            {{categ.item_name}}
-                        </a>
+                        <ul class="inc_body">
+                            <li ng-repeat="(key,value) in (hardware | groupBy:'category_label')">
+                                <div class="inc_title font_bold grey2">
+                                    {{key}}
+                                </div>
+                                <a class="inc_text font_light grey2" ng-repeat="categ in value" ng-click="openModal(categ)">
+                                    {{categ.item_name}}
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-                <div class="dis_cell">
-                    <div class="inc_head">
-                        <div class="img_holder">
-                            <img src="./images/icons/icon-deployment.svg" class="dtIcons" />
+                    <div class="dis_cell">
+                        <div class="inc_head">
+                            Deployment
                         </div>
-                        <div class="font_14 font_bold grey2">
-                            DEPLOYMENT
-                        </div>
+                        <ul class="inc_body">
+                            <li ng-repeat="deploy in deployment">
+                                <a class="inc_text font_light grey2" ng-click="openModal(deploy)">
+                                    {{deploy.item_name}}
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="inc_body" ng-repeat="deploy in deployment">
-                        <a class="inc_text font_light grey2" ng-click="openModal(deploy)">
-                            {{deploy.item_name}}
-                        </a>
-                    </div>
-                </div>
-                <div class="dis_cell">
-                    <div class="inc_head">
-                        <div class="img_holder">
-                            <img src="./images/icons/icon-support.svg" class="dtIcons" />
+                    <div class="dis_cell">
+                        <div class="inc_head">
+                            Support
                         </div>
-                        <div class="font_14 font_bold grey2">
-                            SUPPORT
-                        </div>
-                    </div>
-                    <div class="inc_body" ng-repeat="supp in support">
-                        <a href="" class="inc_text font_light grey2" ng-click="openModal(supp)">
-                            {{supp.item_name}}
-                        </a>
+                        <ul class="inc_body">
+                            <li ng-repeat="supp in support">
+                                <a href="" class="inc_text font_light grey2" ng-click="openModal(supp)">
+                                    {{supp.item_name}}
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
