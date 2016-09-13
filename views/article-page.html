@@ -1,129 +1,175 @@
 <div id="article_page">
     <div class="wrapper">
         <div class="mod_title">
-            <div class="font_24 blue1 font_medium ">
-                Tropicana Caffe Digital Signage
+            <div class="dis_table_auto">
+                <div class="dis_cell">
+                    <a ng-click="goBack()" class=" btn-tessa-back ">
+                        <i class="fa fa-angle-left"> </i>
+                    </a>
+                </div>
+                <div class="pad_side_10 dis_cell  blue1 font_medium ">
+                    {{detail.title}}
+                </div>
             </div>
         </div>
         <div id="article_carousel">
             <!--carousel here-->
-            <section>
-
+            <section id="#carousel-custom">
+                <div uib-carousel active="$index" interval="myInterval" no-wrap="noWrapSlides">
+                    <div uib-slide ng-repeat="slide in detail.mediafiles track by $index" index="$index">
+                        <div ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'">
+                            <img ng-src="{{slide.media_path}}" style="margin:auto;">
+                        </div>
+                        <div ng-if="slide.media_mimetype == 'video/mp4'">
+                            <videogular vg-theme="detail.article_thumbnail.url">
+                                <vg-media vg-src="detail.article_thumbnail.media_path"></vg-media>
+                                <vg-controls>
+                                    <vg-play-pause-button></vg-play-pause-button>
+                                    <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                    <vg-scrub-bar>
+                                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                    </vg-scrub-bar>
+                                    <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                                    <vg-volume>
+                                        <vg-mute-button></vg-mute-button>
+                                        <vg-volume-bar></vg-volume-bar>
+                                    </vg-volume>
+                                    <vg-fullscreen-button></vg-fullscreen-button>
+                                </vg-controls>
+                                <vg-overlay-play></vg-overlay-play>
+                                <vg-buffering></vg-buffering>
+                            </videogular>
+                        </div>
+                    </div>
+                </div>
             </section>
-            <!--carousel here-->
-
+            <!-- <div id="mycarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-outer">
+                    <div class="carousel-inner">
+                        <div ng-repeat="slide in detail.mediafiles" class="item" ng-class="{active:!$index}" data-thumb="{{slide.index}}">
+                            <div ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'">
+                                <img  ng-src="{{slide.media_path}}" style="margin:auto;">
+                            </div>
+                            <div ng-if="slide.media_mimetype == 'video/mp4'">
+                                <videogular vg-theme="detail.article_thumbnail.url">
+                                    <vg-media vg-src="detail.article_thumbnail.media_path"></vg-media>
+                                    <vg-controls>
+                                        <vg-play-pause-button></vg-play-pause-button>
+                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-scrub-bar>
+                                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                        </vg-scrub-bar>
+                                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-volume>
+                                            <vg-mute-button></vg-mute-button>
+                                            <vg-volume-bar></vg-volume-bar>
+                                        </vg-volume>
+                                        <vg-fullscreen-button></vg-fullscreen-button>
+                                    </vg-controls>
+                                    <vg-overlay-play></vg-overlay-play>
+                                    <vg-buffering></vg-buffering>
+                                    <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+                                </videogular>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control left" data-target='#mycarousel' data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left "></span>
+                    </a>
+                    <a class="carousel-control right" data-target='#mycarousel' data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div> -->
         </div>
-        <div id="article_section">
-            <div class="dis_flex">
-                <section class="flex_lg">
+        <div id="article_section ">
+            <div class="dis_flex ">
+                <section class="flex_lg ">
                     <blockquote>
-                        <p ng-bind-html="selected.article ">
-                            <i class="fa fa-quote-left"></i>
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                            <i class="fa fa-quote-right"></i>
+                        <p ng-bind-html="detail.article ">
+                            <!-- <i class="fa fa-quote-left "></i> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                            <i class="fa fa-quote-right "></i> -->
                         </p>
                     </blockquote>
                     <article>
-                        What was holding them back?
-                        Adapting to the shifting changes in technology and consumer needs is a huge priority for Telstra. Having a Discovery Store where they have showcased how they are able to engage with their customers by bringing digital to the physical environment, has provided an amazing innovations platform for a roll out to other stores. The Discovery store has also allowed Telstra to reflect the values of their company on a large scale.
-
-                        What did they change?
-                        Engagis worked with Telstra to create, “The Store Of The Future”. Whether its a giant curved digital screens with video content, or a Sandbox tabletop where the customer controls the information they receive interactively – this really is a store which sets the benchmark for the phygital space.
-
-                        How has it worked out?
-                        The success of the Sydney Discovery Store has been a driving factor for the roll out across all Telstra stores over the next 5 years and has set the tone for the Telstra Future Retail Environment (FRE), also delivered by Engagis across their 400+ locations Australia wide. What’s more, this store is not all smoke and mirrors; the interactive and customer engagement solutions in store are delivering an improved ROI, delivering more sales and driving a huge increase in advocacy among Telstra customers.
+                        <p ng-bind-html="detail.description "></p>
                     </article>
                 </section>
-                <section class="flex_sm">
-                    <button type="button" class="btn btn-primary width100">
+                <!--  <section class="flex_sm">
+                    <div>
+                        <ul class="product_gallery">
+                            <li ng-repeat="slide in detail.mediafiles track by $index" data-target='#article_carousel' data-slide-to="{{slide.index}}" ng-class="{active:!$index}">
+                                <img ng-src="{{slide.media_path}}" alt='' width="150" height="150" />
+                            </li>
+                        </ul>
+                    </div>
+                    <button type="button" ng-click="openShareModal()" class=" btn btn-primary width100">
                         Share
                     </button>
-                </section>
+                </section> -->
             </div>
         </div>
-        <div id="related_items">
-            <div class="dis_table">
+        <div id="related_items ">
+            <div class="dis_table ">
                 <div class="dis_cell_top ">
-                    <div class="font_18 blue3 border_bottom">
+                    <div class="font_18 blue3 border_bottom ">
                         Related Articles
                     </div>
-                    <div class="article_instances">
-                        <div class="col-lg-3">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="img_holder">
-                                        <img src="../images/test_06.jpg"/>
-
+                    <div class="article_instances ">
+                        <div class="col-lg-3 " ng-repeat="related in relatedExperiences " ng-if="related.is_active==1 " ng-click="select(related.article_id) ">
+                            <div class="panel panel-default ">
+                                <div class="panel-body ">
+                                    <div class="img_holder ">
+                                        <img ng-repeat="image in related.mediafiles | limitTo: 1 " ng-src="{{image.media_path}} " err-src="http://placehold.it/750x450 " />
                                     </div>
-                                    <div class="item_text">
-                                        <div class="item_title">
-                                            <a class="blue1 font_bold">
-                                                ddsads
-
+                                    <div class="item_text ">
+                                        <div class="item_title ">
+                                            <a class="blue1 font_bold ">
+                                            {{related.title}}
                                             </a>
                                         </div>
-                                        <div class="item_content font_14 grey1 font_light">
-                                            dsds
-
-                                        </div>
-
                                     </div>
+                                </div>
+                                <div class="item_content font_14 grey1 font_light ">
+                                    <p ng-bind-html="related.article "></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="img_holder">
-                                        <img src="../images/test_06.jpg"/>
-
-                                    </div>
-                                    <div class="item_text">
-                                        <div class="item_title">
-                                            <a class="blue1 font_bold">
-                                                ddsads
-
-                                            </a>
-                                        </div>
-                                        <div class="item_content font_14 grey1 font_light">
-                                            dsds
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
                 </div>
-                <div class="dis_cell_top">
-                    <div class="font_18 blue3 border_bottom">
-                        Featured Products
+                <div class="dis_cell_top ">
+                    <div class="font_18 blue3 border_bottom ">
+                        Featured Solution
                     </div>
-                    <div class="article_instances">
-                        <div class="col-lg-3">
+                    <div class="article_instances ">
+                        <div class="col-lg-3 " ng-repeat="item in bundles " ng-if="detail.article_features.length> 0" ui-sref="main.productDetailsSolution({selected_id:item.pb_id})">
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="img_holder">
-
+                                        <img ng-repeat="image in item.product_images | limitTo: 1" ng-src="{{image.image_path}}" err-src="http://placehold.it/750x450" />
                                     </div>
                                     <div class="item_text">
                                         <div class="item_title">
                                             <a class="blue1 font_bold">
-
+                                            {{item.bundle_name}}
                                             </a>
                                         </div>
-                                        <div class="item_content font_14 grey1 font_light">
-
-                                        </div>
-                                        <div class="box_price font_24 font_light"></div>
+                                    </div>
+                                    <div class="item_content font_14 grey1 font_light">
+                                        <p ng-bind-html="item.bundle_description"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-lg-3" ng-if="detail.article_features.length == 0">
+                            <div class="panel-body">
+                                <div class="item_text">
+                                    <p class="blue1 font_bold">
+                                        {{norelated}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

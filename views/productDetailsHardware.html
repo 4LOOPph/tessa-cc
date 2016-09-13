@@ -1,17 +1,15 @@
 <div id="pd-sol-wrap" class="wrapper" ng-show="productDetails">
-    <div class="contentHdr">
-        <div class="breadcrumb">
-            <img style="margin-top: -9px;" src="../images/icons/ico_store00.svg" />
-            <a class="current" ng-click="goBack()">
-                    Product Catalogue >
-                </a>
-            <a class="current">
-                    {{productDetails.item_name}}
-                </a>
-            <!-- <a class="current">
-            > {{details.bundle_name}}
-            </a> -->
-        </div>
+    <div class="breadcrumbs font_medium">
+        <img style="margin-top: -9px;" src="../images/icons/ico_store00.svg" />
+        <a class="grey3 " ui-sref="main.productCatalogue">
+            Product Catalogue >
+        </a>
+        <a class="current">
+            {{productDetails.item_name}}
+        </a>
+        <!-- <a class="current">
+        > {{details.bundle_name}}
+        </a> -->
     </div>
     <div class="parent-sd">
         <div class="sec-sd-psd">
@@ -21,17 +19,20 @@
                     <div class="col-lg-6">
                         <div class="img_holder">
                             <img ng-src="{{productDetails.img_default}}" imageonload class="bg-image" />
-                            <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;padding-top: 25%;"></span>
+                            <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img
+                                    src="./images/icons/default.gif"
+                                    style="width: 20% !important;padding-top: 25%;"></span>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <div class="dis_table_auto">
+                        <div class="dis_table_auto ">
                             <div class="side_menu dis_cell_2">
                                 <a ng-click="openShareModal()" class="side_buttons font_bold uppercase">
                                     <i class="fa fa-share"></i> Share
                                 </a>
                             </div>
                         </div>
+                        <br/>
                         <div class=" font_24 font_light blue1">
                             {{productDetails.item_name}}
                         </div>
@@ -77,6 +78,8 @@
                             *Billed monthly within a 36-month term.
                         </div>
                     </div>
+                   <div class=" font_18 grey2 pad10top" data-ng-bind-html="productDetails.item_description">
+                        </div>
                     <!--product details here-->
                 </div>
             </div>
@@ -93,10 +96,10 @@
                         </div>
                         <ul class="inc_body">
                             <li>
-                               <!--  <div class="inc_title font_bold grey2">
-                                </div> -->
+                                <!--  <div class="inc_title font_bold grey2">
+                                 </div> -->
                                 <a class="inc_text font_light grey2">
-                                {{productDetails.item_overview}}
+                                    {{productDetails.item_overview}}
                                 </a>
                             </li>
                         </ul>
@@ -225,23 +228,19 @@
                             This Goes Well With
                         </div>
                         <div class="goes-well-cat font_bold grey3 uppercase font_12 ">
-                            <span><img src="../images/icons/svg-tessa-hardware.svg"
-                                       style="max-height: 20px; width:30px;"/></span>
                             <span>Hardware</span>
                         </div>
                         <ul class="spec_list">
                             <li ng-repeat="item in relatedProductHardware">
                                 <a class="font_light font_regulargrey2" ng-click="openDetail(item.ref_product.p_id)">
-                                        {{item.ref_product.item_name}}
-                            </a>
+                                    {{item.ref_product.item_name}}
+                                </a>
                             </li>
                             <li ng-show="!relatedProductHardware.length"><span class="font_12 grey3 font_light"> No Related Items</span>
                             </li>
                         </ul>
                         <br/>
                         <div class="goes-well-cat font_bold grey3 uppercase font_12  ">
-                            <span><img src="../images/icons/svg-tessa-software.svg"
-                                       style="max-height: 20px; width:30px;"/></span>
                             <span>Software</span>
                         </div>
                         <ul class="spec_list">

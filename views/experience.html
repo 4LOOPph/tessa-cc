@@ -4,7 +4,7 @@
             <div class="dis_table_auto">
                 <div class="dis_cell btn-group">
                     <div class="input-group input-icon pad_right10 font_medium">
-                        <div class="input-group-addon">
+                        <div class="input-group-addon grey3">
                             <i class="fa fa-eye-slash"></i>
                         </div>
                         <button type="button" class="btn btn-default-alt" ng-class="{'active': (expFilter == 'all')}" ng-click="filterArticle('all')">All</button>
@@ -48,12 +48,12 @@
                         <!-- <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" /> -->
                         <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
                     </div>
-                    <div class="img_holder" ng-if="article.thumbnail_media">
+                    <div class="img_holder" ng-if="article.article_thumbnail.media_mimetype == 'image/jpeg' || article.article_thumbnail.media_mimetype == 'image/png'">
                         <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" err-src="http://placehold.it/750x450" />
                         <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
                     </div>
                     <div class="videogular-container" ng-if="article.article_thumbnail.media_mimetype == 'video/mp4'">
-                        <videogular vg-theme="article.article_thumbnail.url" >
+                        <videogular vg-theme="article.article_thumbnail.url">
                             <vg-media vg-src="article.article_thumbnail.media_path"></vg-media>
                             <vg-controls>
                                 <vg-play-pause-button></vg-play-pause-button>
@@ -71,7 +71,7 @@
                             <vg-overlay-play></vg-overlay-play>
                         </videogular>
                     </div>
-                    <div id="masonry_body" class="padding_10 blue1 font_14 font_bold" ng-click="openArticle(article,articlesList,$index)" fa-track-event="['Experience','View',article.title,article.article_id]">
+                    <div id="masonry_body" class="padding_10 blue1 font_14 font_bold" ui-sref="main.articlePage({selected_id:article.article_id})" fa-track-event="['Experience','View',article.title,article.article_id]">
                         <a>{{article.title}}</a>
                         <div id="featured_solution" class="label_medium">
                             <p ng-bind-html="article.article"></p>
