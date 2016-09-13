@@ -1,15 +1,11 @@
 <div id="pd-sol-wrap" class="wrapper" ng-show="productDetails">
     <div class="contentHdr">
         <div class="breadcrumb">
-                <img style="margin-top: -9px;" src="../images/icons/ico_store00.svg"/>
-                <a class="current " ng-click="main.productCatalogue">
+            <img style="margin-top: -9px;" src="../images/icons/ico_store00.svg" />
+            <a class="current" ng-click="goBack()">
                     Product Catalogue >
                 </a>
-
-                <a class="current " ng-click="goBack()">
-                    Hardware >
-                </a>
-                <a class="current">
+            <a class="current">
                     {{productDetails.item_name}}
                 </a>
             <!-- <a class="current">
@@ -23,44 +19,18 @@
             <div class="main_article">
                 <div class=" row ">
                     <div class="col-lg-6">
-                        <div class="carousel_contain">
-                            <!--  <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                                 <div uib-slide ng-repeat="slide in slides track by $index" index="slide.index">
-                                     <img ng-src="{{slide.image}}" style="margin:auto;">
-                                     <div class="carousel-caption">
-                                         <h4>Slide {{slide.id}}</h4>
-                                         <p>{{slide.text}}</p>
-                                     </div>
-                                 </div>
-                             </div> -->
-                            <div id="carousel-custom" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-outer">
-                                    <div class="carousel-inner">
-                                        <div ng-repeat="slide in slides" class="item" ng-class="{active:!$index}" data-thumb="{{$index}}">
-                                            <img class="image-responsive" ng-src="{{slide.image}}">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                        <div class="img_holder">
+                            <img ng-src="{{productDetails.img_default}}" imageonload class="bg-image" />
+                            <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;padding-top: 25%;"></span>
                         </div>
-                        <!--carousel here-->
                     </div>
                     <div class="col-lg-6">
                         <div class="dis_table_auto">
-                            <div class="dis_cell">
-                                <ul class="product_gallery">
-                                    <li ng-repeat="slide in slides" data-target='#carousel-custom' data-slide-to="{{slide.index}}" ng-class="{active:!$index}">
-                                        <img ng-src="{{slide.image}}" alt='' width="150" height="100" />
-                                    </li>
-                                </ul>
-                            </div>
                             <div class="side_menu dis_cell_2">
                                 <a ng-click="openShareModal()" class="side_buttons font_bold uppercase">
                                     <i class="fa fa-share"></i> Share
                                 </a>
                             </div>
-
                         </div>
                         <div class=" font_24 font_light blue1">
                             {{productDetails.item_name}}
@@ -93,14 +63,11 @@
                                                         <sup>$</sup>{{productDetails.sell_price | number:2}}
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </li>
                                     </ul>
                                 </div>
-
                                 <a class="flex_sm" ng-click="addToCart(productDetails)">
-
                                     <span class="font_medium uppercase"><img src="../images/icons/ico_cartDark.svg"/> add to cart</span>
                                 </a>
                             </div>
@@ -125,12 +92,11 @@
                             General Features
                         </div>
                         <ul class="inc_body">
-                            <li ng-repeat="">
-                                <div class="inc_title font_bold grey2">
-
-                                </div>
+                            <li>
+                               <!--  <div class="inc_title font_bold grey2">
+                                </div> -->
                                 <a class="inc_text font_light grey2">
-
+                                {{productDetails.item_overview}}
                                 </a>
                             </li>
                         </ul>
@@ -139,7 +105,6 @@
                         <div class="inc_head">
                             Hardware Specifications
                         </div>
-
                         <ul class="spec_list">
                             <li ng-if="category[0].fk_category_id == 83">
                                 <div class="font_12 font_bold grey3 uppercase">
@@ -221,10 +186,40 @@
                                     {{weight[0].value}}
                                 </div>
                             </li>
+                            <li ng-hide="category[0].fk_category_id == 83">
+                                <div class="font_12 font_bold grey3 uppercase">
+                                    Usage
+                                </div>
+                                <div class="font_light grey2">
+                                    {{usage[0].value}}
+                                </div>
+                            </li>
+                            <li ng-hide="category[0].fk_category_id == 83">
+                                <div class="font_12 font_bold grey3 uppercase">
+                                    Vesa
+                                </div>
+                                <div class="font_light grey2">
+                                    {{vesa[0].value}}
+                                </div>
+                            </li>
+                            <li ng-hide="category[0].fk_category_id == 83">
+                                <div class="font_12 font_bold grey3 uppercase">
+                                    Screen type
+                                </div>
+                                <div class="font_light grey2">
+                                    {{screentype[0].value}}
+                                </div>
+                            </li>
+                            <li ng-hide="category[0].fk_category_id == 83">
+                                <div class="font_12 font_bold grey3 uppercase">
+                                    Resolution
+                                </div>
+                                <div class="font_light grey2">
+                                    {{resolution[0].value}}
+                                </div>
+                            </li>
                         </ul>
-
                     </div>
-
                     <div class="dis_cell">
                         <div class="inc_head">
                             This Goes Well With
@@ -236,12 +231,9 @@
                         </div>
                         <ul class="spec_list">
                             <li ng-repeat="item in relatedProductHardware">
-
-                                <a ng-click="openDetail(item.ref_product.p_id)" class="font_light grey2">
-                                    <a class="font_regular grey2">
+                                <a class="font_light font_regulargrey2" ng-click="openDetail(item.ref_product.p_id)">
                                         {{item.ref_product.item_name}}
-                                    </a>
-                                </a>
+                            </a>
                             </li>
                             <li ng-show="!relatedProductHardware.length"><span class="font_12 grey3 font_light"> No Related Items</span>
                             </li>
@@ -272,8 +264,7 @@
                         </div>
                         <ul class="spec_list">
                             <li ng-repeat="pack in SolutionPack">
-                                <a data-toggle="modal" ui-sref="main.productDetailsSolution({selected_id: pack.pb_id})"
-                                   class="font_light grey2">
+                                <a data-toggle="modal" ui-sref="main.productDetailsSolution({selected_id: pack.pb_id})" class="font_light grey2">
                                     <div class="icon_table">
                                         <div class="icon_cell">
                                             {{pack.bundle_name}}
@@ -281,10 +272,8 @@
                                     </div>
                                 </a>
                             </li>
-                            <li ng-show="!SolutionPack.length"><span
-                                    class="font_12 grey3 font_light"> No Related Items</span></li>
+                            <li ng-show="!SolutionPack.length"><span class="font_12 grey3 font_light"> No Related Items</span></li>
                         </ul>
-
                     </div>
                 </div>
             </div>
@@ -293,7 +282,7 @@
     </div>
 </div>
 <style>
-    #active-catalogue {
-        background: #424242;
-    }
+#active-catalogue {
+    background: #424242;
+}
 </style>

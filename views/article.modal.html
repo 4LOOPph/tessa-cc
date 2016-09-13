@@ -13,12 +13,10 @@
             </a>
         </div>
         <div id="sec-xd-article">
-
             <div class="sec-xd-items">
-
                 <div class="xd-img">
                     <div class="img_holder ">
-                        <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
+                        <div uib-carousel active="$ndex" interval="myInterval" no-wrap="noWrapSlides">
                             <div uib-slide ng-repeat="slide in selected.mediafiles track by $index" index="$index">
                                 <img ng-src="{{slide.media_path}}" style="margin:auto;">
                                 <videogular vg-theme="selected.article_thumbnail.url" ng-show="slide.media_mimetype == 'video/mp4'">

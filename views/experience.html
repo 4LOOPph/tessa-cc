@@ -11,7 +11,6 @@
                         <button type="button" class="btn btn-default-alt" ng-class="{'active': (expFilter == 'Portfolio')}" ng-click="filterArticle('Portfolio')">Portfolio</button>
                         <button type="button" class="btn btn-default-alt" ng-class="{'active': (expFilter == 'Article')}" ng-click="filterArticle('Article')">Articles</button>
                     </div>
-
                 </div>
                 <div class="dis_cell">
                     <button uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-primary">
@@ -20,7 +19,6 @@
                     </button>
                 </div>
             </div>
-
         </div>
     </div>
     <!--  <div class="row">
@@ -46,16 +44,16 @@
             <div class="col-md-12 col-lg-12 col-xs-12">
                 <div class="panel panel-default">
                     <div class="img_holder" ng-if="!article.thumbnail_media">
-                        <img ng-repeat="image in article.mediafiles | limitTo: 1" ng-src="{{image.media_path}}" imageonload err-src="http://placehold.it/750x450"/>
+                        <img ng-repeat="image in article.mediafiles | limitTo: 1" ng-src="{{image.media_path}}" imageonload err-src="http://placehold.it/750x450" />
                         <!-- <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" /> -->
                         <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
                     </div>
-                    <div class="videogular-container" ng-if="article.thumbnail_media">
-                        <div class="img_holder" ng-show="article.article_thumbnail.media_mimetype == 'image/jpeg' || article.article_thumbnail.media_mimetype == 'image/png'">
-                            <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" err-src="http://placehold.it/750x450"/>
-                            <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
-                        </div>
-                        <videogular vg-theme="article.article_thumbnail.url" ng-show="article.article_thumbnail.media_mimetype == 'video/mp4'">
+                    <div class="img_holder" ng-if="article.thumbnail_media">
+                        <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" err-src="http://placehold.it/750x450" />
+                        <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
+                    </div>
+                    <div class="videogular-container" ng-if="article.article_thumbnail.media_mimetype == 'video/mp4'">
+                        <videogular vg-theme="article.article_thumbnail.url" >
                             <vg-media vg-src="article.article_thumbnail.media_path"></vg-media>
                             <vg-controls>
                                 <vg-play-pause-button></vg-play-pause-button>
@@ -84,11 +82,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
 <style>
 #active-experience {
     background: #424242;

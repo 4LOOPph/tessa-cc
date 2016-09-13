@@ -31,7 +31,7 @@
                         Filter
                         </span>
                     </a>
-                    <a class="dis_cell">
+                    <!--  <a class="dis_cell">
                         <div class="btn-group">
                             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 Sort By <span class="caret"></span>
@@ -43,7 +43,7 @@
                                 <li class="divider"></li>
                             </ul>
                         </div>
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <div ng-hide="seemore" class="filter_secondary">
@@ -62,17 +62,18 @@
                             <div class="inblock">
                                 <div class="form_addon">
                                   <a class="blue1" ng-click="searchData()" ng-keypress="($event.which === 13)?searchData():0">
-                                   <i class="fa fa-search"></i></a>
+                                  <i class="fa fa-search"></i>
+                                   </a>
                                 </div>
                             </div>
                         </span>
                         <span class="btn-group">
-                             <button uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Location
+                             <button uib-popover-template="dynamicPopover.location" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Location
                               <span class="caret"></span>
                         </button>
                         </span>
                         <span class="btn-group">
-                             <button uib-popover-template="dynamicPopover.templateUrl2" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Mounting Option
+                             <button uib-popover-template="dynamicPopover.mounting" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Mounting Option
                               <span class="caret"></span>
                         </button>
                         </span>
@@ -116,25 +117,35 @@
                             </div>
                         </span>
                         <span class="btn-group">
-                             <button uib-popover-template="dynamicPopover.templateUrl3" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Screen Size
+                             <button uib-popover-template="dynamicPopover.screensize" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Screen Size
                               <span class="caret"></span>
-                        </span>
-                        <span class="btn-group">
-                            <button uib-popover-template="dynamicPopover.templateUrl4" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Brightness
-                              <span class="caret"></span>
+                        <button uib-popover-template="dynamicPopover.brightness" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Brightness
+                            <span class="caret"></span>
                         </button>
-                        </span>
-                        <span class="btn-group">
-                            <button uib-popover-template="dynamicPopover.templateUrl5"  popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Bezel Size
-                              <span class="caret"></span>
+                        <button uib-popover-template="dynamicPopover.bezel" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Bezel Size
+                            <span class="caret"></span>
                         </button>
+                        <button uib-popover-template="dynamicPopover.usage" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Usage
+                            <span class="caret"></span>
                         </button>
-                        </span>
-                        <span class="btn-group">
-                             <button uib-popover-template="dynamicPopover.templateUrl6" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Usage
-                              <span class="caret"></span>
+                         <!-- <button uib-popover-template="dynamicPopover.displaytechno" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Display Technology
+                            <span class="caret"></span>
                         </button>
+                         <button uib-popover-template="dynamicPopover.weight" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Weight
+                            <span class="caret"></span>
                         </button>
+                        <button uib-popover-template="dynamicPopover.dimensions" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Dimensions
+                            <span class="caret"></span>
+                        </button>
+                        <button uib-popover-template="dynamicPopover.orientation" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Orientation
+                            <span class="caret"></span>
+                        </button>
+                        <button uib-popover-template="dynamicPopover.displayinterface" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Display Interface
+                            <span class="caret"></span>
+                        </button>
+                        <button uib-popover-template="dynamicPopover.vesa" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Vesa
+                            <span class="caret"></span>
+                        </button> -->
                         </span>
                     </div>
                     <div ng-show="hardwareType == 'MediaPlayer'">
@@ -168,7 +179,7 @@
                         </button>
                         </span>
                         <div class="btn-group">
-                            <button uib-popover-template="dynamicPopover.templateUrlResolution" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Graphics
+                            <button uib-popover-template="dynamicPopover.templateUrlResolution" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">Max Resolution
                                 <span class="caret"></span>
                             </button>
                             </span>
@@ -438,6 +449,102 @@
             <div class="checkbox" ng-repeat="media in Resolution | duplicates: 'value' | filter:searchEzeFamily ">
                 <label>
                     <input type="checkbox" ng-click="toggleSelectedType(media)" ng-model="media.checked">{{media.value}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script async type="text/ng-template" id="displaytechno.html">
+        <div class="form-group">
+            <div class="pad_vertical">
+                <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
+            </div>
+            <div class="checkbox" ng-repeat="display in Displaytechno | duplicates: 'value' | filter:searchEzeFamily ">
+                <label>
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked">{{display.value}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script async type="text/ng-template" id="weight.html">
+        <div class="form-group">
+            <div class="pad_vertical">
+                <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
+            </div>
+            <div class="checkbox" ng-repeat="display in weight | duplicates: 'value' | filter:searchEzeFamily ">
+                <label>
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked">{{display.value}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script async type="text/ng-template" id="dimensions.html">
+        <div class="form-group">
+            <div class="pad_vertical">
+                <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
+            </div>
+            <div class="checkbox" ng-repeat="display in dimensions | duplicates: 'value' | filter:searchEzeFamily ">
+                <label>
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked">{{display.value}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script async type="text/ng-template" id="orientation.html">
+        <div class="form-group">
+            <div class="pad_vertical">
+                <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
+            </div>
+            <div class="checkbox" ng-repeat="display in orientation | duplicates: 'value' | filter:searchEzeFamily ">
+                <label>
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked">{{display.value}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script async type="text/ng-template" id="displayinterface.html">
+        <div class="form-group">
+            <div class="pad_vertical">
+                <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
+            </div>
+            <div class="checkbox" ng-repeat="display in displayinterface | duplicates: 'value' | filter:searchEzeFamily ">
+                <label>
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked">{{display.value}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script async type="text/ng-template" id="vesa.html">
+        <div class="form-group">
+            <div class="pad_vertical">
+                <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
+            </div>
+            <div class="checkbox" ng-repeat="display in vesa | duplicates: 'value' | filter:searchEzeFamily ">
+                <label>
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked">{{display.value}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script async type="text/ng-template" id="screentype.html">
+        <div class="form-group">
+            <div class="pad_vertical">
+                <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
+            </div>
+            <div class="checkbox" ng-repeat="display in screentype | duplicates: 'value' | filter:searchEzeFamily ">
+                <label>
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked">{{display.value}}
+                </label>
+            </div>
+        </div>
+    </script>
+    <script async type="text/ng-template" id="resolution.html">
+        <div class="form-group">
+            <div class="pad_vertical">
+                <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
+            </div>
+            <div class="checkbox" ng-repeat="display in resolution | duplicates: 'value' | filter:searchEzeFamily ">
+                <label>
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked">{{display.value}}
                 </label>
             </div>
         </div>

@@ -1,17 +1,12 @@
 <div id="pd-sol-wrap" class="wrapper" ng-show="details">
     <div class="breadcrumb">
         <img src="../images/icons/ico_store00.svg"/>
-        <a class="grey3 " ng-click="main.productCatalogue">
-            Product Catalogue >
-        </a>
-
         <a class="grey3 " ng-click="goBack()">
-             Solutions
+            Product Catalogue >
         </a>
         <a class="current">
             {{details.bundle_name}}
         </a>
-
         <!-- <a class="current">
         > {{details.bundle_name}}
         </a> -->
@@ -143,8 +138,7 @@
                                     </ul>
                                 </div>
 
-                                <a class="flex_sm" ng-click="addToCart(productDetails)">
-
+                                <a class="flex_sm" ng-click="addToCart(details)">
                                     <span class="font_medium uppercase"><img src="../images/icons/ico_cartDark.svg"/> add to cart</span>
                                 </a>
                             </div>
@@ -186,7 +180,7 @@
                             Hardware
                         </div>
                         <ul class="inc_body">
-                            <li ng-repeat="(key,value) in (hardware | groupBy:'category_label')">
+                            <li ng-repeat="(key,value) in (hardwareCategory | groupBy:'category_label')">
                                 <div class="inc_title font_bold grey2">
                                     {{key}}
                                 </div>
