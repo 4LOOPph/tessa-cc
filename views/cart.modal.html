@@ -198,10 +198,13 @@
                             <tr>
                                 <th><span class="font_bold grey3">BILL TO</span></th>
                                 <!-- <td>
-                                <select class="form-control">
-                                    <option>1</option>
-                                </select>
-                            </td> -->
+                                    <div class="pull-right">
+                                        <div class="checkbox">
+                                            <i class="ti ti-check"></i>
+                                            <input type="checkbox" ng-model="billing" ng-click="useCustomerAddress(billing)"> Use Customer Address as Billing Address
+                                        </div>
+                                    </div>
+                                </td> -->
                             </tr>
                             <tr>
                                 <th>Attention</th>
@@ -248,7 +251,17 @@
                                 </th>
                             </tr>
                             <tr>
-                                <th><span class="font_bold grey3">SHIP TO</span></th>
+                                <th>
+                                    <span class="font_bold grey3">SHIP TO</span>
+                                </th>
+                                <td>
+                                    <div class="pull-right">
+                                        <div class="checkbox">
+                                            <!-- <i class="ti ti-check"></i> -->
+                                            <input type="checkbox" ng-model="shipping" ng-click="useBillingAddress(shipping)"> use Billing Address as Shipping Address
+                                        </div>
+                                    </div>
+                                </td>
                                 <!-- <td>
                                 <select class="form-control">
                                     <option>1</option>
