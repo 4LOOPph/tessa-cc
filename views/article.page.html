@@ -15,7 +15,7 @@
         <div id="article_carousel">
             <!--carousel here-->
             <section id="#carousel-custom">
-               <!--  <div uib-carousel active="$index" interval="myInterval" no-wrap="noWrapSlides">
+                <!--  <div uib-carousel active="$index" interval="myInterval" no-wrap="noWrapSlides">
                     <div uib-slide ng-repeat="slide in detail.mediafiles track by $index" index="$index">
                         <div ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'">
                             <img ng-src="{{slide.media_path}}" style="margin:auto;">
@@ -44,42 +44,42 @@
                         </div>
                     </div>
                 </div> -->
-                 <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                <div id="carousel-custom" class="carousel slide" data-ride="carousel">
                     <div class="carousel-outer">
                         <div class="carousel-inner">
                             <div ng-repeat="slide in detail.mediafiles track by $index" class="item" ng-class="{active:!$index}" data-thumb="{{$index}}">
                                 <div ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'">
                                     <img ng-src="{{slide.media_path}}" style="margin:auto;">
                                 </div>
+                                <div class="vid_holder">
+                                    <div ng-if="slide.media_mimetype == 'video/mp4'">
+                                        <videogular vg-theme="detail.article_thumbnail.url">
+                                            <vg-media vg-src="detail.article_thumbnail.media_path"></vg-media>
+                                            <vg-controls>
+                                                <vg-play-pause-button></vg-play-pause-button>
+                                                <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                                <vg-scrub-bar>
+                                                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                                </vg-scrub-bar>
+                                                <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                                                <vg-volume>
+                                                    <vg-mute-button></vg-mute-button>
+                                                    <vg-volume-bar></vg-volume-bar>
+                                                </vg-volume>
+                                                <vg-fullscreen-button></vg-fullscreen-button>
+                                            </vg-controls>
+                                            <vg-buffering></vg-buffering>
+                                        </videogular>
+                                    </div>
+                                </div>
+                                <a class="carousel-control left" data-target='#carousel-custom' data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="carousel-control right" data-target='#carousel-custom' data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
                             </div>
                         </div>
-                        <div class="vid_holder">
-                            <div ng-if="slide.media_mimetype == 'video/mp4'">
-                                <videogular vg-theme="detail.article_thumbnail.url">
-                                    <vg-media vg-src="detail.article_thumbnail.media_path"></vg-media>
-                                    <vg-controls>
-                                        <vg-play-pause-button></vg-play-pause-button>
-                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
-                                        <vg-scrub-bar>
-                                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                                        </vg-scrub-bar>
-                                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
-                                        <vg-volume>
-                                            <vg-mute-button></vg-mute-button>
-                                            <vg-volume-bar></vg-volume-bar>
-                                        </vg-volume>
-                                        <vg-fullscreen-button></vg-fullscreen-button>
-                                    </vg-controls>
-                                    <vg-buffering></vg-buffering>
-                                </videogular>
-                            </div>
-                        </div>
-                        <a class="carousel-control left" data-target='#carousel-custom' data-slide="prev">
-                            <span class="glyphicon glyphicon-chevron-left"></span>
-                        </a>
-                        <a class="carousel-control right" data-target='#carousel-custom' data-slide="next">
-                            <span class="glyphicon glyphicon-chevron-right"></span>
-                        </a>
                     </div>
                 </div>
             </section>
@@ -115,7 +115,7 @@
             <div class="dis_table">
                 <div class="dis_cell_top ">
                     <div class="font_18 blue3 border_bottom">
-                        Related Articles
+                        Related Experience
                     </div>
                     <div class="article_instances">
                         <div class="col-lg-3" ng-repeat="related in relatedExperiences" ng-if="related.is_active == 1" ng-click="select(related.article_id)">
@@ -135,6 +135,15 @@
                                         <p ng-bind-html="related.article"></p>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3" ng-show="!relatedExperiences.length">
+                        <div class="panel-body">
+                            <div class="item_text">
+                                <p class="blue1 font_bold">
+                                    NO RELATED EXPERIENCE
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -178,3 +187,11 @@
         </div>
     </div>
 </div>
+
+
+<style>
+    #active-experience {
+        background: #424242;
+    }
+</style>
+

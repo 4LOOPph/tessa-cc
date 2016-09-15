@@ -1,6 +1,6 @@
 <div id="product-catalogue">
     <div id="article-page" class="wrapper">
-        <div class="breadcrumbs">
+        <div class="breadcrumbs padding_10">
             <img src="../images/icons/ico_store00.svg" />
             <a class="current font_medium">
                 Product Catalogue
@@ -255,10 +255,10 @@
                     <div class="col-lg-3" ui-sref="main.productDetailsSolution({selected_id: item.pb_id})" ng-repeat="item in products" ng-if="item.is_published == 1 && item.is_archived == 0 && item.category_label == 'Eze Impress'">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <div class="img_holder">
+                                <a class="img_holder">
                                     <img ng-src="{{myImage.image_path}}" ng-repeat="myImage in item.product_images | limitTo: 1" imageonload err-src="images/is5.jpg" />
                                     <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
-                                </div>
+                                </a>
                                 <div class="item_text">
                                     <div class="item_title">
                                         <a class=" blue1 font_bold">
@@ -286,11 +286,11 @@
                     <div class="col-lg-3" ui-sref="main.productDetailsSolution({selected_id: item.pb_id})" ng-repeat="item in categoryWifi" ng-if="item.is_published == 1 && item.is_archived == 0">
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <div class="img_holder">
+                                <a class="img_holder">
                                     <img ng-src="{{myImage.image_path}}" ng-repeat="myImage in item.product_images | limitTo: 1" class="" imageonload err-src="images/is5.jpg" />
                                     <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img
                                         src="./images/icons/default.gif" style="width: 20% !important;"/></span>
-                                </div>
+                                </a>
                                 <div class="item_text">
                                     <div class="item_title">
                                         <a class=" blue1 font_bold">

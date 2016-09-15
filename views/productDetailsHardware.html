@@ -1,12 +1,12 @@
 <div id="pd-sol-wrap" class="wrapper" ng-show="productDetails">
     <div class="breadcrumbs font_medium">
-        <img style="margin-top: -9px;" src="../images/icons/ico_store00.svg" />
-        <a class="grey3 " ui-sref="main.productCatalogue">
-            Product Catalogue >
+        <a class=" btn btn-tessa-back " ng-click="goBack()">
+            <i class="fa fa-angle-left"> </i>
         </a>
-        <a class="current">
+        <a class="current pad_side_10">
             {{productDetails.item_name}}
         </a>
+
         <!-- <a class="current">
         > {{details.bundle_name}}
         </a> -->
@@ -18,7 +18,7 @@
                 <div class=" row ">
                     <div class="col-lg-6">
                         <div class="img_holder">
-                            <img ng-src="{{productDetails.img_default}}" imageonload class="bg-image" />
+                            <img ng-src="{{productDetails.img_default}}" imageonload class="bg-image"/>
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img
                                     src="./images/icons/default.gif"
                                     style="width: 20% !important;padding-top: 25%;"></span>
@@ -60,7 +60,7 @@
                                                     <div class="font_12">
                                                         Upfront
                                                     </div>
-                                                    <div class="font_24">
+                                                    <div class="font_18 ">
                                                         <sup>$</sup>{{productDetails.sell_price | number:2}}
                                                     </div>
                                                 </div>
@@ -69,7 +69,7 @@
                                     </ul>
                                 </div>
                                 <a class="flex_sm" ng-click="addToCart(productDetails)">
-                                    <span class="font_medium uppercase"><img src="../images/icons/ico_cartDark.svg"/> add to cart</span>
+                                    <span class="font_medium font_14 uppercase"><img src="../images/icons/ico_cartDark.svg"/> add to cart</span>
                                 </a>
                             </div>
                         </div>
@@ -78,8 +78,7 @@
                             *Billed monthly within a 36-month term.
                         </div>
                     </div>
-                   <div class=" font_18 grey2 pad10top" data-ng-bind-html="productDetails.item_description">
-                        </div>
+
                     <!--product details here-->
                 </div>
             </div>
@@ -94,20 +93,24 @@
                         <div class="inc_head">
                             General Features
                         </div>
-                        <ul class="inc_body">
-                                <!--  <div class="inc_title font_bold grey2">
-                                 </div> -->
-                                <a class="inc_text font_light grey2">
-                                    <p ng-bind-html="productDetails.item_description"></p>
-                                </a>
+
+                        <ul class="spec_list">
+                            <li>
+                                <div class="inc_text font_light grey2">
+                                    <div ng-bind-html="productDetails.item_description"></div>
+                                </div>
+                            </li>
                         </ul>
+
+
                     </div>
                     <div class="dis_cell">
                         <div class="inc_head">
                             Hardware Specifications
                         </div>
                         <ul class="spec_list">
-                            <li ng-repeat="(key,value) in (attributevalues | groupBy:'attribute')" ng-if="category[0].fk_category_id == 83">
+                            <li ng-repeat="(key,value) in (attributevalues | groupBy:'attribute')"
+                                ng-if="category[0].fk_category_id == 83">
                                 <div class="font_12 font_bold grey3 uppercase">
                                     {{key}}
                                 </div>
@@ -115,7 +118,8 @@
                                     {{item.value}}
                                 </div>
                             </li>
-                            <li ng-repeat="(key,value) in (attributevalues | groupBy:'attribute')" ng-hide="category[0].fk_category_id == 83">
+                            <li ng-repeat="(key,value) in (attributevalues | groupBy:'attribute')"
+                                ng-hide="category[0].fk_category_id == 83">
                                 <div class="font_12 font_bold grey3 uppercase">
                                     {{key}}
                                 </div>
@@ -165,7 +169,8 @@
                         </div>
                         <ul class="spec_list">
                             <li ng-repeat="pack in SolutionPack">
-                                <a data-toggle="modal" ui-sref="main.productDetailsSolution({selected_id: pack.pb_id})" class="font_light grey2">
+                                <a data-toggle="modal" ui-sref="main.productDetailsSolution({selected_id: pack.pb_id})"
+                                   class="font_light grey2">
                                     <div class="icon_table">
                                         <div class="icon_cell">
                                             {{pack.bundle_name}}
@@ -173,7 +178,8 @@
                                     </div>
                                 </a>
                             </li>
-                            <li ng-show="!SolutionPack.length"><span class="font_12 grey3 font_light"> No Related Items</span></li>
+                            <li ng-show="!SolutionPack.length"><span
+                                    class="font_12 grey3 font_light"> No Related Items</span></li>
                         </ul>
                     </div>
                 </div>
@@ -183,7 +189,7 @@
     </div>
 </div>
 <style>
-#active-catalogue {
-    background: #424242;
-}
+    #active-catalogue {
+        background: #424242;
+    }
 </style>

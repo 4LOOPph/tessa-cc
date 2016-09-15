@@ -1,10 +1,9 @@
 <div id="pd-sol-wrap" class="wrapper" ng-show="details">
     <div class="breadcrumbs font_medium">
-        <img src="../images/icons/ico_store00.svg"/>
-        <a class="grey3 " ui-sref="main.productCatalogue">
-            Product Catalogue >
+        <a class=" btn btn-tessa-back " ng-click="goBack()">
+            <i class="fa fa-angle-left"> </i>
         </a>
-        <a class="current">
+        <a class="current pad_side_10">
             {{details.bundle_name}}
         </a>
         <!-- <a class="current">
@@ -15,18 +14,9 @@
         <div class="sec-sd-psd">
             <!-- Main Article -->
             <div class="main_article">
-                <div class=" row ">
+                <div class="row">
                     <div class="col-lg-6">
                         <div class="carousel_contain">
-                            <!--  <div uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides">
-                                <div uib-slide ng-repeat="slide in slides track by $index" index="slide.index">
-                                    <img ng-src="{{slide.image}}" style="margin:auto;">
-                                    <div class="carousel-caption">
-                                        <h4>Slide {{slide.id}}</h4>
-                                        <p>{{slide.text}}</p>
-                                    </div>
-                                </div>
-                            </div> -->
                             <div id="carousel-custom" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-outer">
                                     <div class="carousel-inner">
@@ -34,11 +24,11 @@
                                             <img class="image-responsive" ng-src="{{slide.image}}">
                                         </div>
                                     </div>
-                                    <a class="carousel-control left" data-target='#carousel-custom'" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                    <a class="carousel-control left" data-target='#carousel-custom' data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left "></span>
                                     </a>
                                     <a class="carousel-control right" data-target='#carousel-custom' data-slide="next">
-                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                        <span class="glyphicon glyphicon-chevron-right "></span>
                                     </a>
                                 </div>
                             </div>
@@ -46,7 +36,7 @@
                         <!--carousel here-->
                     </div>
                     <div class="col-lg-6">
-                        <div class="dis_table_auto ">
+                        <div class="dis_table_auto">
                             <div class="dis_cell">
                                 <ul class="product_gallery">
                                     <li ng-repeat="slide in slides" data-target='#carousel-custom' data-slide-to="{{slide.index}}" ng-class="{active:!$index}">
@@ -63,7 +53,7 @@
                         <br/>
 
 
-                        <div class=" font_24 font_light blue1">
+                        <div class="font_24 font_light blue1">
                             {{details.bundle_name}}
                         </div>
                         <!--product name-->
@@ -82,7 +72,7 @@
                                         <li>
                                             <div class="dis_table">
                                                 <div class="dis_cell fill_grey center_align">
-                                                    <span class="font_18 font_bold blue3 ">
+                                                    <span class="font_18 font_bold blue3">
                                                         Capex
                                                     </span>
                                                 </div>
@@ -90,15 +80,15 @@
                                                     <div class="font_12">
                                                         Upfront
                                                     </div>
-                                                    <div class="font_24">
+                                                    <div class="font_18 ">
                                                         <sup>$</sup>{{upfront | number:2}}
                                                     </div>
                                                 </div>
-                                                <div class="dis_cell fill_blue1  right_align">
-                                                    <div class="font_12">
+                                                <div class="dis_cell fill_blue1 right_align">
+                                                    <div class="font_12 ">
                                                         Monthly
                                                     </div>
-                                                    <div class="font_24">
+                                                    <div class="font_18 ">
                                                         <sup>$</sup>{{spPrice | number: 2}}*
                                                     </div>
                                                 </div>
@@ -116,14 +106,14 @@
                                                         For as low as
                                                     </div>
                                                     <div class="font_24">
-                                                        <sup>$</sup>{{(((((upfront * 30.66)/1000) + spPrice)*12)/52) | number:2}} /wk
+                                                        <sup>$</sup>{{(((((upfront * 31.11)/1000) + spPrice)*12)/52) | number:2}} /wk
                                                     </div>
                                                 </div>
                                                 <div class="dis_cell fill_blue1 right_align">
                                                     <div class="font_12">
                                                         Monthly
                                                     </div>
-                                                    <div class="font_24">
+                                                    <div class="font_18 ">
                                                         <sup>$</sup>{{(((upfront*30.66)/1000) + spPrice) | number:2}}
                                                     </div>
                                                 </div>
@@ -150,18 +140,18 @@
                 <div class="font_24 blue3">
                     Packages
                 </div>
-                <div class=" dis_table sec-sd-inclusions ">
+                <div class=" dis_table sec-sd-inclusions">
                     <div class="dis_cell">
                         <div class="inc_head">
                             Software
                         </div>
                         <ul class="inc_body">
-                            <li ng-repeat="(key,value) in (software | groupBy:'category_label')">
-                                <div class="inc_title font_bold grey2" ng-if="key == 'CMS'">
+                            <li ng-repeat="(key,value) in (software | groupBy: 'category_label')">
+                                <div class="inc_title font_bold grey2" ng-if="key=='CMS'">
                                     {{key}}
                                 </div>
                                 <a>
-                                    <div class="inc_text font_light grey2" ng-repeat="softwares in value" ng-click="openModal(softwares)" ng-if="key == 'CMS'">
+                                    <div class="inc_text font_light grey2" ng-repeat="softwares in value" ng-click="openModal(softwares)" ng-if="key=='CMS'">
                                         {{softwares.item_name}}
                                     </div>
                                 </a>
@@ -173,7 +163,7 @@
                             Hardware
                         </div>
                         <ul class="inc_body">
-                            <li ng-repeat="(key,value) in (hardwareCategory | groupBy:'category_label')">
+                            <li ng-repeat="(key,value) in (hardwareCategory | groupBy: 'category_label')">
                                 <div class="inc_title font_bold grey2">
                                     {{key}}
                                 </div>
@@ -201,7 +191,7 @@
                         </div>
                         <ul class="inc_body">
                             <li ng-repeat="supp in support">
-                                <a href="" class="inc_text font_light grey2" ng-click="openModal(supp)">
+                                <a href=" " class="inc_text font_light grey2" ng-click="openModal(supp)">
                                     {{supp.item_name}}
                                 </a>
                             </li>
