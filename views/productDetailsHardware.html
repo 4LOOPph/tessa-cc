@@ -95,13 +95,11 @@
                             General Features
                         </div>
                         <ul class="inc_body">
-                            <li>
                                 <!--  <div class="inc_title font_bold grey2">
                                  </div> -->
                                 <a class="inc_text font_light grey2">
-                                    {{productDetails.item_overview}}
+                                    <p ng-bind-html="productDetails.item_description"></p>
                                 </a>
-                            </li>
                         </ul>
                     </div>
                     <div class="dis_cell">
@@ -109,116 +107,20 @@
                             Hardware Specifications
                         </div>
                         <ul class="spec_list">
-                            <li ng-if="category[0].fk_category_id == 83">
+                            <li ng-repeat="(key,value) in (attributevalues | groupBy:'attribute')" ng-if="category[0].fk_category_id == 83">
                                 <div class="font_12 font_bold grey3 uppercase">
-                                    Processor
+                                    {{key}}
                                 </div>
-                                <div class="font_light grey2">
-                                    {{processor[0].value}}
+                                <div class="font_light grey2" ng-repeat="item in value">
+                                    {{item.value}}
                                 </div>
                             </li>
-                            <li ng-if="category[0].fk_category_id == 83">
+                            <li ng-repeat="(key,value) in (attributevalues | groupBy:'attribute')" ng-hide="category[0].fk_category_id == 83">
                                 <div class="font_12 font_bold grey3 uppercase">
-                                    Ram
+                                    {{key}}
                                 </div>
-                                <div class="font_light grey2">
-                                    {{ram[0].value}}
-                                </div>
-                            </li>
-                            <li ng-if="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    Storage
-                                </div>
-                                <div class="font_light grey2">
-                                    {{storage[0].value}}
-                                </div>
-                            </li>
-                            <li ng-if="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    graphics
-                                </div>
-                                <div class="font_light grey2">
-                                    {{graphics[0].value}}
-                                </div>
-                            </li>
-                            <li ng-if="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    maximum resolution
-                                </div>
-                                <div class="font_light grey2">
-                                    {{maxresolution[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    screen
-                                </div>
-                                <div class="font_light grey2">
-                                    {{screensize[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    brightness
-                                </div>
-                                <div class="font_light grey2">
-                                    {{brightness[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    bezel size
-                                </div>
-                                <div class="font_light grey2">
-                                    {{bezel[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    display technology
-                                </div>
-                                <div class="font_light grey2">
-                                    {{displaytechno[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    weight
-                                </div>
-                                <div class="font_light grey2">
-                                    {{weight[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    Usage
-                                </div>
-                                <div class="font_light grey2">
-                                    {{usage[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    Vesa
-                                </div>
-                                <div class="font_light grey2">
-                                    {{vesa[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    Screen type
-                                </div>
-                                <div class="font_light grey2">
-                                    {{screentype[0].value}}
-                                </div>
-                            </li>
-                            <li ng-hide="category[0].fk_category_id == 83">
-                                <div class="font_12 font_bold grey3 uppercase">
-                                    Resolution
-                                </div>
-                                <div class="font_light grey2">
-                                    {{resolution[0].value}}
+                                <div class="font_light grey2" ng-repeat="item in value">
+                                    {{item.value}}
                                 </div>
                             </li>
                         </ul>

@@ -15,41 +15,12 @@
         <div id="article_carousel">
             <!--carousel here-->
             <section id="#carousel-custom">
-                <div uib-carousel active="$index" interval="myInterval" no-wrap="noWrapSlides">
+               <!--  <div uib-carousel active="$index" interval="myInterval" no-wrap="noWrapSlides">
                     <div uib-slide ng-repeat="slide in detail.mediafiles track by $index" index="$index">
                         <div ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'">
                             <img ng-src="{{slide.media_path}}" style="margin:auto;">
                         </div>
-                        <div ng-if="slide.media_mimetype == 'video/mp4'">
-                            <videogular vg-theme="detail.article_thumbnail.url">
-                                <vg-media vg-src="detail.article_thumbnail.media_path"></vg-media>
-                                <vg-controls>
-                                    <vg-play-pause-button></vg-play-pause-button>
-                                    <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
-                                    <vg-scrub-bar>
-                                        <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                                    </vg-scrub-bar>
-                                    <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
-                                    <vg-volume>
-                                        <vg-mute-button></vg-mute-button>
-                                        <vg-volume-bar></vg-volume-bar>
-                                    </vg-volume>
-                                    <vg-fullscreen-button></vg-fullscreen-button>
-                                </vg-controls>
-                                <vg-overlay-play></vg-overlay-play>
-                                <vg-buffering></vg-buffering>
-                            </videogular>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- <div id="mycarousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-outer">
-                    <div class="carousel-inner">
-                        <div ng-repeat="slide in detail.mediafiles" class="item" ng-class="{active:!$index}" data-thumb="{{slide.index}}">
-                            <div ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'">
-                                <img  ng-src="{{slide.media_path}}" style="margin:auto;">
-                            </div>
+                        <div class="vid_holder">
                             <div ng-if="slide.media_mimetype == 'video/mp4'">
                                 <videogular vg-theme="detail.article_thumbnail.url">
                                     <vg-media vg-src="detail.article_thumbnail.media_path"></vg-media>
@@ -68,37 +39,68 @@
                                     </vg-controls>
                                     <vg-overlay-play></vg-overlay-play>
                                     <vg-buffering></vg-buffering>
-                                    <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
                                 </videogular>
                             </div>
                         </div>
                     </div>
-                    <a class="carousel-control left" data-target='#mycarousel' data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left "></span>
-                    </a>
-                    <a class="carousel-control right" data-target='#mycarousel' data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
+                </div> -->
+                 <div id="carousel-custom" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-outer">
+                        <div class="carousel-inner">
+                            <div ng-repeat="slide in detail.mediafiles track by $index" class="item" ng-class="{active:!$index}" data-thumb="{{$index}}">
+                                <div ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'">
+                                    <img ng-src="{{slide.media_path}}" style="margin:auto;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vid_holder">
+                            <div ng-if="slide.media_mimetype == 'video/mp4'">
+                                <videogular vg-theme="detail.article_thumbnail.url">
+                                    <vg-media vg-src="detail.article_thumbnail.media_path"></vg-media>
+                                    <vg-controls>
+                                        <vg-play-pause-button></vg-play-pause-button>
+                                        <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-scrub-bar>
+                                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                        </vg-scrub-bar>
+                                        <vg-time-display>{{ timeLeft | date:'mm:ss':'+0000' }}</vg-time-display>
+                                        <vg-volume>
+                                            <vg-mute-button></vg-mute-button>
+                                            <vg-volume-bar></vg-volume-bar>
+                                        </vg-volume>
+                                        <vg-fullscreen-button></vg-fullscreen-button>
+                                    </vg-controls>
+                                    <vg-buffering></vg-buffering>
+                                </videogular>
+                            </div>
+                        </div>
+                        <a class="carousel-control left" data-target='#carousel-custom' data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="carousel-control right" data-target='#carousel-custom' data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </div>
                 </div>
-            </div> -->
+            </section>
         </div>
-        <div id="article_section ">
-            <div class="dis_flex ">
-                <section class="flex_lg ">
+        <div id="article_section">
+            <div class="dis_flex">
+                <section class="flex_lg">
                     <blockquote>
                         <p ng-bind-html="detail.article ">
-                            <!-- <i class="fa fa-quote-left "></i> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
-                            <i class="fa fa-quote-right "></i> -->
+                            <!-- <i class="fa fa-quote-left"></i> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
+                            <i class="fa fa-quote-right"></i> -->
                         </p>
                     </blockquote>
                     <article>
                         <p ng-bind-html="detail.description "></p>
                     </article>
                 </section>
-                <!--  <section class="flex_sm">
+                <section class="flex_sm">
                     <div>
                         <ul class="product_gallery">
-                            <li ng-repeat="slide in detail.mediafiles track by $index" data-target='#article_carousel' data-slide-to="{{slide.index}}" ng-class="{active:!$index}">
+                            <li ng-repeat="slide in detail.mediafiles track by $index" data-target='#carousel-custom' data-slide-to="{{slide.index}}" ng-class="{active:!$index}">
                                 <img ng-src="{{slide.media_path}}" alt='' width="150" height="150" />
                             </li>
                         </ul>
@@ -106,43 +108,43 @@
                     <button type="button" ng-click="openShareModal()" class=" btn btn-primary width100">
                         Share
                     </button>
-                </section> -->
+                </section>
             </div>
         </div>
-        <div id="related_items ">
-            <div class="dis_table ">
+        <div id="related_items">
+            <div class="dis_table">
                 <div class="dis_cell_top ">
-                    <div class="font_18 blue3 border_bottom ">
+                    <div class="font_18 blue3 border_bottom">
                         Related Articles
                     </div>
-                    <div class="article_instances ">
-                        <div class="col-lg-3 " ng-repeat="related in relatedExperiences " ng-if="related.is_active==1 " ng-click="select(related.article_id) ">
-                            <div class="panel panel-default ">
-                                <div class="panel-body ">
-                                    <div class="img_holder ">
-                                        <img ng-repeat="image in related.mediafiles | limitTo: 1 " ng-src="{{image.media_path}} " err-src="http://placehold.it/750x450 " />
+                    <div class="article_instances">
+                        <div class="col-lg-3" ng-repeat="related in relatedExperiences" ng-if="related.is_active == 1" ng-click="select(related.article_id)">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="img_holder">
+                                        <img ng-repeat="image in related.mediafiles | limitTo: 1" ng-src="{{image.media_path}}" err-src="http://placehold.it/750x450" />
                                     </div>
-                                    <div class="item_text ">
-                                        <div class="item_title ">
-                                            <a class="blue1 font_bold ">
-                                            {{related.title}}
+                                    <div class="item_text">
+                                        <div class="item_title">
+                                            <a class="blue1 font_bold">
+                                                {{related.title}}
                                             </a>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="item_content font_14 grey1 font_light ">
-                                    <p ng-bind-html="related.article "></p>
+                                    <div class="item_content font_14 grey1 font_light">
+                                        <p ng-bind-html="related.article"></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="dis_cell_top ">
-                    <div class="font_18 blue3 border_bottom ">
+                <div class="dis_cell_top">
+                    <div class="font_18 blue3 border_bottom">
                         Featured Solution
                     </div>
-                    <div class="article_instances ">
-                        <div class="col-lg-3 " ng-repeat="item in bundles " ng-if="detail.article_features.length> 0" ui-sref="main.productDetailsSolution({selected_id:item.pb_id})">
+                    <div class="article_instances">
+                        <div class="col-lg-3" ng-repeat="item in bundles" ng-if="detail.article_features.length > 0" ui-sref="main.productDetailsSolution({selected_id:item.pb_id})">
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <div class="img_holder">
@@ -151,7 +153,7 @@
                                     <div class="item_text">
                                         <div class="item_title">
                                             <a class="blue1 font_bold">
-                                            {{item.bundle_name}}
+                                                {{item.bundle_name}}
                                             </a>
                                         </div>
                                     </div>
