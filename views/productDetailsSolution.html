@@ -151,7 +151,7 @@
                                     {{key}}
                                 </div>
                                 <a>
-                                    <div class="inc_text font_light grey2" ng-repeat="softwares in value" ng-click="openModal(softwares)" ng-if="key=='CMS'">
+                                    <div class="inc_text font_light grey2" ng-repeat="softwares in value" ng-click="openProductModal(softwares)" ng-if="key=='CMS'">
                                         {{softwares.item_name}}
                                     </div>
                                 </a>
@@ -167,7 +167,7 @@
                                 <div class="inc_title font_bold grey2">
                                     {{key}}
                                 </div>
-                                <a class="inc_text font_light grey2" ng-repeat="categ in value" ng-click="openModal(categ)">
+                                <a class="inc_text font_light grey2" ng-repeat="categ in value" ng-click="openProductModal(categ)">
                                     {{categ.item_name}}
                                 </a>
                             </li>
@@ -179,7 +179,7 @@
                         </div>
                         <ul class="inc_body">
                             <li ng-repeat="deploy in deployment">
-                                <a class="inc_text font_light grey2" ng-click="openModal(deploy)">
+                                <a class="inc_text font_light grey2" ng-click="openProductModal(deploy)">
                                     {{deploy.item_name}}
                                 </a>
                             </li>
@@ -191,7 +191,7 @@
                         </div>
                         <ul class="inc_body">
                             <li ng-repeat="supp in support">
-                                <a href=" " class="inc_text font_light grey2" ng-click="openModal(supp)">
+                                <a class="inc_text font_light grey2" ng-click="openProductModal(supp)">
                                     {{supp.item_name}}
                                 </a>
                             </li>

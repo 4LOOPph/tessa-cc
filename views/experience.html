@@ -52,7 +52,7 @@
                         <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
                     </div>
                     <div class="videogular-container" ng-if="article.article_thumbnail.media_mimetype == 'video/mp4'">
-                        <videogular vg-theme="article.article_thumbnail.url" imageonload>
+                        <videogular vg-theme="article.article_thumbnail.url">
                             <vg-media vg-src="article.article_thumbnail.media_path"></vg-media>
                             <vg-controls>
                                 <vg-play-pause-button></vg-play-pause-button>
