@@ -125,7 +125,7 @@
                                         <div class="price_option">
                                             <div class="font_12 grey3 font_bold">TCO monthly</div>
                                             <div class="font_medium font_24 grey2 pad_vertical">
-                                                {{(((total() * 30.66)/1000) + spprice) | currency}}
+                                                {{(((total() * 31.111)/1000) + spprice) | currency}}
                                             </div>
                                         </div>
                                     </div>
@@ -133,7 +133,7 @@
                                         <div class="price_option">
                                             <div class="font_12 grey3 font_bold">For as low as</div>
                                             <div class="font_medium font_24 grey3 pad_vertical">
-                                                {{(((((total() * 30.66)/1000) + spprice)*12)/52) | currency}} /wk
+                                                {{(((((total() * 31.111)/1000) + spprice)*12)/52) | currency}} /wk
                                             </div>
                                         </div>
                                     </div>
@@ -231,7 +231,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Zipcode</th>
+                                <th>Postal Code</th>
                                 <td>
                                     <input type="text" class="form-control" ng-model="company.bill_zipcode" required/>
                                 </td>
@@ -258,7 +258,7 @@
                                     <div class="pull-right">
                                         <div class="checkbox">
                                             <!-- <i class="ti ti-check"></i> -->
-                                            <input type="checkbox" ng-model="shipping" ng-click="useBillingAddress(shipping)"> Use Billing Address as Shipping Address
+                                            <input type="checkbox" ng-model="shipping" ng-click="useBillingAddress(shipping)" /> Use Billing Address as Shipping Address
                                         </div>
                                     </div>
                                 </td>
@@ -268,6 +268,7 @@
                                 </select>
                             </td> -->
                             </tr>
+                            <tbody ng-hide="shipping">
                             <tr>
                                 <th>Attention</th>
                                 <td>
@@ -293,7 +294,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th>Zipcode</th>
+                                <th>Postal Code</th>
                                 <td>
                                     <input type="text" ng-model="company.ship_zipcode" class="form-control" />
                                 </td>
@@ -307,6 +308,8 @@
                                     </select>
                                 </td>
                             </tr>
+                            </tbody>
+
                             <tr>
                                 <th colspan="2">
                                     <hr/>

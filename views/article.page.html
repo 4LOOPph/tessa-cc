@@ -1,21 +1,27 @@
 <div id="article_page">
     <div class="wrapper">
-        <div class="mod_title">
+        <div class="breadcrumbs font_medium">
             <div class="dis_table_auto">
                 <div class="dis_cell">
-                    <a ng-click="goBack()" class=" btn-tessa-back ">
+                    <a class=" btn btn-tessa-back " ng-click="goBack()">
                         <i class="fa fa-angle-left"> </i>
                     </a>
                 </div>
-                <div class="pad_side_10 dis_cell  blue1 font_medium ">
-                    {{detail.title}}
+                <div class="dis_cell">
+                    <a class="current pad_side_10 ">
+                        {{detail.title}}
+                    </a>
                 </div>
             </div>
+            <!-- <a class="current">
+            > {{details.bundle_name}}
+            </a> -->
         </div>
         <div id="article_carousel">
             <!--carousel here-->
             <section id="#carousel-custom">
                 <!--  <div uib-carousel active="$index" interval="myInterval" no-wrap="noWrapSlides">
+
                     <div uib-slide ng-repeat="slide in detail.mediafiles track by $index" index="$index">
                         <div ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'">
                             <img ng-src="{{slide.media_path}}" style="margin:auto;">
@@ -88,10 +94,10 @@
             <div class="dis_flex">
                 <section class="flex_lg">
                     <blockquote>
-                        <p ng-bind-html="detail.article ">
+                        <div ng-bind-html="detail.article ">
                             <!-- <i class="fa fa-quote-left"></i> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.
                             <i class="fa fa-quote-right"></i> -->
-                        </p>
+                        </div>
                     </blockquote>
                     <article>
                         <p ng-bind-html="detail.description "></p>
@@ -102,11 +108,11 @@
                         <ul class="product_gallery">
                             <li ng-repeat="slide in slides" data-target='#carousel-custom' data-slide-to="{{$index}}" ng-class="{active:!$index}">
                                 <img ng-if="slide.media_mimetype == 'image/jpeg' || slide.media_mimetype == 'image/png'" ng-src="{{slide.image}}" alt='' width="150" height="150" />
-                                 <div class="vid_holder">
+                                <div class="vid_holder">
                                     <div ng-if="slide.media_mimetype == 'video/mp4'">
                                         <videogular vg-theme="slide.url">
                                             <vg-media vg-src="slide.image"></vg-media>
-                                           <!--  <vg-controls>
+                                            <!--  <vg-controls>
                                                 <vg-play-pause-button></vg-play-pause-button>
                                                 <vg-time-display>{{ currentTime | date:'mm:ss':'+0000' }}</vg-time-display>
                                                 <vg-scrub-bar>
@@ -142,8 +148,24 @@
                         <div class="col-lg-3" ng-repeat="related in relatedExperiences" ng-if="related.is_active == 1" ng-click="select(related.article_id)">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <div class="img_holder">
+                                    <!--   <div class="img_holder">
                                         <img ng-repeat="image in related.mediafiles | limitTo: 1" ng-src="{{image.media_path}}" err-src="http://placehold.it/750x450" />
+                                    </div> -->
+                                    <div class="img_holder" ng-if="!related.thumbnail_media">
+                                        <img ng-src="{{related.image}}" imageonload err-src="http://placehold.it/750x450" />
+                                        <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
+                                    </div>
+                                    <div class="img_holder" ng-if="related.article_thumbnail.media_mimetype == 'image/jpeg' || related.article_thumbnail.media_mimetype == 'image/png'">
+                                        <img ng-src="{{related.article_thumbnail.media_path}}" imageonload ng-if="related.article_thumbnail" err-src="http://placehold.it/750x450" />
+                                        <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
+                                    </div>
+                                    <div class="videogular-container" ng-if="related.article_thumbnail.media_mimetype == 'video/mp4'">
+                                        <videogular vg-theme="related.article_thumbnail.url">
+                                            <vg-media vg-src="related.article_thumbnail.media_path"></vg-media>
+                                            <vg-buffering></vg-buffering>
+                                            <!-- <vg-overlay-play></vg-overlay-play> -->
+                                        </videogular>
+                                        <span class="loading background-spinner"> <img src="./images/icons/default.gif"></span>
                                     </div>
                                     <div class="item_text">
                                         <div class="item_title">
@@ -162,8 +184,8 @@
                     <div class="col-lg-3" ng-show="!relatedExperiences.length">
                         <div class="panel-body">
                             <div class="item_text">
-                                <p class="blue1 font_bold">
-                                    NO RELATED EXPERIENCE
+                                <p class="grey3 ">
+                                    No related experience
                                 </p>
                             </div>
                         </div>
@@ -196,7 +218,7 @@
                         <div class="col-lg-3" ng-if="detail.article_features.length == 0">
                             <div class="panel-body">
                                 <div class="item_text">
-                                    <p class="blue1 font_bold">
+                                    <p class="grey3 ">
                                         {{norelated}}
                                     </p>
                                 </div>
@@ -208,11 +230,8 @@
         </div>
     </div>
 </div>
-
-
 <style>
-    #active-experience {
-        background: #424242;
-    }
+#active-experience {
+    background: #424242;
+}
 </style>
-
