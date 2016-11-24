@@ -123,6 +123,7 @@
                     </label>
                 </div>
             </div>
+
             <div ng-show="prodTypeLabel == 'Solution'">
                 <div class="pc_tabs text14_medium ">
                     <a class="tab_items" ng-class="{'active': solutionTypes == 'EzeImpress'}" ng-click="activateTab('EzeImpress')">Eze Impress</a>
@@ -160,12 +161,13 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="row sec-pc-items" ng-show="solutionTypes == 'EzeWifi'">
                     <div class="col-lg-3" ui-sref="main.productDetailsSolution({selected_id: item.pb_id})" ng-repeat="item in products" ng-if="item.is_published == 1 && item.is_archived == 0 && item.category_label == 'Eze Wi-Fi'">
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="img_holder">
-                                    <img ng-src="{{myImage.image_path}}" ng-repeat="myImage in item.product_images | limitTo: 1" class="" imageonload err-src="images/is5.jpg" />
+                                    <img ng-src="{{myImage.image_path}}" ng-repeat="myImage in item.product_images | limitTo: 1"  imageonload err-src="images/is5.jpg" />
                                     <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;" /></span>
                                 </div>
                                 <div class="item_text">

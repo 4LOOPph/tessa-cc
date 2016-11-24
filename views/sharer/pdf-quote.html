@@ -80,7 +80,7 @@
                 </tr>
                 <tr style="font-size:10px;">
                     <th style="font-weight: normal;text-align: right">Customer</th>
-                    <td style="padding-left:10px;text-align: left">{{selected.customer.displayName}}</td>
+                    <td style="padding-left:10px;text-align: left">{{selected.customer.displayName || selected.company_name}}</td>
                 </tr>
                 <tr style="font-size:10px;">
                     <th style="font-weight: normal;text-align: right">Sales Rep</th>
@@ -109,11 +109,10 @@
                 <tr style="font-size:10px;">
                     <th style="font-weight: normal;text-align: right">Memo</th>
                     <td style="padding-left:10px;text-align: left">
-                        <div class="" ng-bind-html="details.comments">
-                            <!-- {{details.comments}} -->
-                        </div>
+                        {{selected.comments}}
                     </td>
                 </tr>
+
             </table>
         </div>
     </div>
@@ -159,7 +158,7 @@
             </td>
             <td style="vertical-align: top;border-bottom:solid thin dimgrey;padding: 5px 0;text-align: center;"
                 ng-if="selected.type == 'Opex'">
-                {{(items.price * 30.66)/1000 | number:2}}
+                {{(items.price * 31.111)/1000 | number:2}}
             </td>
             <td style="vertical-align: top;border-bottom:solid thin dimgrey;padding: 5px 0;text-align: center;"
                 ng-if="items.spprices">
@@ -178,7 +177,7 @@
             </td>
             <td style="vertical-align: top;border-bottom:solid thin dimgrey;padding: 5px 0;text-align: center;"
                 ng-if="selected.type == 'Opex'">
-                {{((((items.price *30.66)/1000)+items.spprices)*items.quantity) | number:2}}
+                {{((((items.price *31.111)/1000)+items.spprices)*items.quantity) | number:2}}
             </td>
         </tr>
         </tbody>
@@ -202,7 +201,7 @@
     <table style="font-size:10px;margin-left:auto;" ng-if="selected.type == 'Opex'">
         <tr>
             <th style="padding: 0 10px; text-align: left; ">Subtotal</th>
-            <td>{{subtotalOpex| number:2}}</td>
+            <td>{{subtotalOpex | number:2}}</td>
         </tr>
         <tr>
             <th style="padding: 0 10px;text-align: left; ">Tax Total (10%)</th>
@@ -211,7 +210,7 @@
         <tr>
             <th style="padding: 0 10px;text-align: left; ">Total</th>
 
-            <td>{{((subtotalOpex* 0.10) + (subtotalOpex)) | currency }}</td>
+            <td>{{(((subtotalOpex)* 0.10) + (subtotalOpex)) | currency }}</td>
 
         </tr>
     </table>
@@ -240,7 +239,13 @@
         </tr>
     </table>
     <div style="padding: 10px ;font-size:10px; ">
-        <i>Quote is valid for 30 days only and is subject to our terms and conditions.</i>
+        <div>
+            <i>Quote is valid for 30 days only and is subject to our terms and conditions.</i>
+        </div>
+        <div>
+            <i>Pricing is subject to exchange rate variations.</i>
+        </div>
+
     </div>
 </div>
 </body>
