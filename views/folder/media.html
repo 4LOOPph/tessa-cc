@@ -70,7 +70,7 @@
                 <a type="button" uib-tooltip="Exit Fullscreen" tooltip-placement="bottom" ng-click="exitFullScreen()" ng-if="isFullScreen" style="margin-bottom: -7px;float: right;padding: 8px;">
                     <img src="./images/icons/ic_aspect_ratio_white_24px.svg">
                 </a>
-                <span uib-dropdown style="float: right;" ng-if="!displayInstallPlugin && !displayInCompatiblePlugin && !mirrorFile">
+                <span uib-dropdown style="float: right;" ng-if="!displayInstallPlugin && !displayInCompatiblePlugin && !mirrorFile" ng-hide="casting">
         <a id="single-button" uib-tooltip="Cast to Screen" tooltip-placement="bottom" type="button" uib-dropdown-toggle style="margin-bottom: -7px;float: right;padding: 8px;margin-left: 10px;margin-right: 10px;">
             <img src="./images/icons/ic_cast_white_24px.svg">
         </a>

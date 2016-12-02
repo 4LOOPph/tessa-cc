@@ -1,4 +1,4 @@
-<div id="experience" class="wrapper col-md-12">
+<div id="experience" class="wrapper col-md-12" ng-init="loader = false;">
     <div class="dis_table xd-success-stories">
         <div class="browse_industry">
             <div class="dis_table_auto">
@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row sec-pc-items">
-        <div class="col-xs-12 col-sm-6 col-md-3 " ng-repeat="article in ( articlesList | filter:isOnSelectedTag())" ng-if="article.tags.length > 0 && article.is_active == 1">
+        <div class="col-xs-12 col-sm-6 col-md-3 " ng-repeat="article in ( articlesList | filter:isOnSelectedTag()) track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1">
             <div class="panel panel-default">
                 <div class="panel-body" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
@@ -70,8 +70,26 @@
             </div>
         </div>
     </div>
+    <div class="col-md-12 loadmore">
+        <a ng-if="showLoadMore" ng-show="!loadmore" ng-click="addMoreItems()">Load More</a>
+        <div class="loader" ng-show="loadmore">
+        </div>
+    </div>
 </div>
-<style>
+<script type="text/ng-template" id="myPopoverTemplate.html">
+    <div class="form-group">
+        <div class="pad_vertical">
+            <input type="search" class="form-control" placeholder="Search..." ng-model="searchIndustry" />
+        </div>
+        <button ng-show="tagselected.length > 0" class="btn btn-default" style="padding: 4px 10px;border-radius: 3px;margin-top: 10px;" ng-click="clearAll()">Clear All</button>
+        <div class="checkbox" ng-repeat="tag in tagscopy | filter:searchIndustry ">
+            <label>
+                <input type="checkbox" ng-click="toggleSelectedTag(tag)" ng-model="tag.checked" fa-track-event="event"> {{tag.tags}}
+            </label>
+        </div>
+    </div>
+</script>
+<style type="text/css">
 #active-experience {
     background: #424242;
 }
@@ -126,6 +144,67 @@
     width: 100%;
 }
 
+.loadmore {
+    text-align: center;
+    margin-bottom: 65px;
+    margin-top: 50px;
+}
+
+.loadmore a {
+    border: 2px solid #337ab7;
+    padding: 38px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    border-radius: 50%;
+}
+
+.loader,
+.loader:after {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    border-radius: 50%;
+    border-width: 2px;
+    border-style: solid;
+    box-sizing: border-box;
+}
+
+.loader {
+    border-color: #c9cbcc;
+}
+
+.loader:after {
+    content: '';
+    border-color: #337ab7 transparent transparent transparent;
+    -webkit-animation: rotateLoader 1s infinite ease;
+    animation: rotateLoader 1s infinite ease;
+}
+
+@-webkit-keyframes rotateLoader {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateLoader {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
 @media screen and (max-width: 480px) {
     .deckgrid[deckgrid]::before {
         content: '1 .column.column-1-1';
@@ -141,16 +220,3 @@
     }
 }
 </style>
-<script type="text/ng-template" id="myPopoverTemplate.html">
-    <div class="form-group">
-        <div class="pad_vertical">
-            <input type="search" class="form-control" placeholder="Search..." ng-model="searchIndustry" />
-        </div>
-        <button ng-show="tagselected.length > 0" class="btn btn-default" style="padding: 4px 10px;border-radius: 3px;margin-top: 10px;" ng-click="clearAll()">Clear All</button>
-        <div class="checkbox" ng-repeat="tag in tagscopy | filter:searchIndustry ">
-            <label>
-                <input type="checkbox" ng-click="toggleSelectedTag(tag)" ng-model="tag.checked" fa-track-event="event"> {{tag.tags}}
-            </label>
-        </div>
-    </div>
-</script>
