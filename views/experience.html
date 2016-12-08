@@ -21,6 +21,9 @@
         </div>
     </div>
     <div class="row sec-pc-items">
+        <div class=" sec-search-filter" ng-if="articlesList.length == 0">
+            <h4>NO RESULTS FOUND</h4>
+        </div>
         <div class="col-xs-12 col-sm-6 col-md-3 " ng-repeat="article in ( articlesList | filter:isOnSelectedTag()) track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1">
             <div class="panel panel-default">
                 <div class="panel-body" ng-click="trackExperienceAll(article)">
@@ -142,47 +145,6 @@
 
 .deckgrid .column-1-1 {
     width: 100%;
-}
-
-.loadmore {
-    text-align: center;
-    margin-bottom: 65px;
-    margin-top: 50px;
-}
-
-.loadmore a {
-    border: 2px solid #337ab7;
-    padding: 38px 15px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -50px 0 0 -50px;
-    border-radius: 50%;
-}
-
-.loader,
-.loader:after {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin: -50px 0 0 -50px;
-    border-radius: 50%;
-    border-width: 2px;
-    border-style: solid;
-    box-sizing: border-box;
-}
-
-.loader {
-    border-color: #c9cbcc;
-}
-
-.loader:after {
-    content: '';
-    border-color: #337ab7 transparent transparent transparent;
-    -webkit-animation: rotateLoader 1s infinite ease;
-    animation: rotateLoader 1s infinite ease;
 }
 
 @-webkit-keyframes rotateLoader {
