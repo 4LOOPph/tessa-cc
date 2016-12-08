@@ -3,7 +3,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="ctn-ico">
-                    <img src="./images/icons/ico_compare01-01.svg" />
+                    <img src="./images/icons/ico_compare01-01.svg"/>
+
                     <h2 class="fg-sky">Product Comparison</h2>
                 </div>
             </div>
@@ -12,12 +13,13 @@
     <div class="font_medium dis-menu">
         <div class=" row">
             <div class=" col-lg-12">
-                <button ng-if="compareproducts.length > 0" type="button" class="btn bg-sky" ng-click="comparisonShare()">
+                <button ng-if="compareproducts.length > 0" type="button" class="btn bg-sky"
+                        ng-click="comparisonShare()">
                     <i class="fa fa-share"></i> <span class="sm_hid">Share</span>
                 </button>
                 <button type="button" class="btn bg-midnight" ui-sref="main.productCatalogue">
                     <div class="ctn-ico">
-                        <img src="./images/icons/ico_store00_nav.svg" />
+                        <img src="./images/icons/ico_store00_nav.svg"/>
                         <span class="sm_hid">Browse Products</span>
                     </div>
                 </button>
@@ -39,8 +41,7 @@
                                 <h5>
                                     <a ui-sref="main.productDetailsSolution({selected_id: group.id})">View
                                         Details</a> |
-                                    <a
-                                            ng-click="removeItem(group)"> Remove</a>
+                                    <a ng-click="removeItem(group)"> Remove</a>
                                 </h5>
                             </div>
                         </div>
@@ -51,7 +52,7 @@
                 <div class="row dis-flx">
                     <div class="col-xs-6 col-sm-3 center_align" ng-repeat="group in comparelists">
                         <div class="dis-img">
-                            <img ng-src="{{group.titles.image}}" />
+                            <img ng-src="{{group.titles.image}}"/>
                         </div>
                     </div>
                 </div>
@@ -72,6 +73,7 @@
                             <div class="atb-ins" ng-repeat="(name,value) in group.softwaregroup">
                                 <div ng-repeat="val in value track by $index">
                                     <h6>{{name}}</h6>
+
                                     <p>{{val.product_detail.item_name}}
                                     </p>
                                 </div>
@@ -94,8 +96,10 @@
                     <div class="row atb-itm dis-flx">
                         <div class="col-xs-6 col-sm-3" ng-repeat="val in value track by $index">
                             <div class="atb">
-                                <div class="atb-ins" ng-repeat="attribute in val[0].atrribute track by $index" ng-if="attribute.is_comparable == 1">
+                                <div class="atb-ins" ng-repeat="attribute in val[0].atrribute track by $index"
+                                     ng-if="attribute.is_comparable == 1">
                                     <h6>{{attribute.attribute}}</h6>
+
                                     <p>{{attribute.value}}
                                     </p>
                                 </div>
@@ -119,15 +123,19 @@
                         <div class="atb">
                             <div class="atb-ins">
                                 <h6>Essential</h6>
+
                                 <p ng-if="group.essential">✔
                                 </p>
+
                                 <p ng-if="!group.essential">X
                                 </p>
                             </div>
                             <div class="atb-ins">
                                 <h6>Enterprise</h6>
+
                                 <p ng-if="group.enterprise">✔
                                 </p>
+
                                 <p ng-if="!group.enterprise">X
                                 </p>
                             </div>
@@ -150,11 +158,13 @@
                         <div class="atb">
                             <div class="atb-ins">
                                 <h6>Capex</h6>
+
                                 <p>{{group.price | currency}}
                                 </p>
                             </div>
                             <div class="atb-ins">
                                 <h6>Opex</h6>
+
                                 <p ng-if="group.enterprise">{{group.weekly | currency}}
                                 </p>
                             </div>
@@ -178,14 +188,14 @@
                     <div class="col-xs-6 col-sm-3 flx-spb-vrt center_align" ng-repeat="group in comparehardwarelists">
                         <div class="cpr-head">
                             <h3 class="fg-dark">
-                                    {{group.title}}
-                                </h3>
+                                {{group.title}}
+                            </h3>
                         </div>
                         <div>
                             <h5>
-                                    <a ui-sref="main.productDetailsHardware({selected_id: group.id})">View Details 
-                                    </a> | <a ng-click="removeItem(group)"> Remove</a>
-                                </h5>
+                                <a ui-sref="main.productDetailsHardware({selected_id: group.id})">View Details
+                                </a> | <a ng-click="removeItem(group)"> Remove</a>
+                            </h5>
                         </div>
                     </div>
                 </div>
@@ -194,7 +204,7 @@
                 <div class="row dis-flx">
                     <div class="col-xs-6 col-sm-3 center_align" ng-repeat="group in comparehardwarelists">
                         <div class="dis-img">
-                            <img ng-src="{{group.image}}" />
+                            <img ng-src="{{group.image}}"/>
                         </div>
                     </div>
                 </div>
@@ -204,15 +214,17 @@
                     <div class="col-lg-12">
                         <div class="sec-head">
                             <h4>
-                                    {{compare.type}}
-                                </h4>
+                                {{compare.type}}
+                            </h4>
                         </div>
                     </div>
                 </div>
                 <div class="row atb-itm dis-flx">
                     <div class="col-xs-6 col-sm-3" ng-repeat="group in comparehardwarelists">
-                        <div class="atb-ins" ng-repeat="attribute in group.attributes" ng-if="attribute.is_comparable == 1">
+                        <div class="atb-ins" ng-repeat="attribute in group.attributes"
+                             ng-if="attribute.is_comparable == 1">
                             <h6>{{attribute.attribute}}</h6>
+
                             <p>{{attribute.value}}
                             </p>
                         </div>
@@ -224,8 +236,8 @@
                     <div class="col-lg-12">
                         <div class="sec-head">
                             <h4>
-                                    Price
-                                </h4>
+                                Price
+                            </h4>
                         </div>
                     </div>
                 </div>
@@ -233,6 +245,7 @@
                     <div class="col-xs-6 col-sm-3" ng-repeat="group in comparehardwarelists">
                         <div class="atb-ins">
                             <h6>Capex</h6>
+
                             <p>{{group.price | currency}}
                             </p>
                         </div>
@@ -251,76 +264,76 @@
         </div>
     </div>
     <style>
-    #active-compare {
-        background: #424242;
-    }
-    
-    @media only screen and (min-width: 200px) and (max-width: 590px) {
+        #active-compare {
+            background: #424242;
+        }
+
+        /**@media only screen and (min-width: 200px) and (max-width: 590px) {
+            .atb-ins {
+                margin-top: 10px !important;
+                height: 67px !important;
+                overflow: hidden;
+            }
+            .cpr-head h3 {
+                font-size: 14px !important;
+                font-family: medium;
+                vertical-align: middle;
+                color: #333333 !important;
+                height: 60px;
+            }
+            .sec-head h4 {
+                font-family: light;
+                font-size: 17px !important;
+                vertical-align: middle;
+                color: #308ECC;
+            }
+            .atb-ins p {
+                font-family: light;
+                font-size: 13px !important;
+                line-height: 1;
+                margin-top: 3px;
+            }
+            .flx-spb-vrt h5 {
+                font-size: 12px;
+            }
+            .cpr-head {
+                height: 95px !important;
+            }
+        }
+
+        @media only screen and (min-width: 591px) and (max-width: 1025px) {
+            .atb-ins {
+                margin-top: 15px;
+                height: 70px !important;
+            }
+            .atb p {
+                font-family: light;
+                font-size: 14px !important;
+            }
+            .cpr-head {
+                margin-bottom: 20px;
+                height: 100px !important;
+            }
+            .item_content {
+                height: 160px !important;
+            }
+        }
+
         .atb-ins {
-            margin-top: 10px !important;
-            height: 67px !important;
-            overflow: hidden;
+            height: 50px;
         }
-        .cpr-head h3 {
-            font-size: 14px !important;
-            font-family: medium;
-            vertical-align: middle;
-            color: #333333 !important;
-            height: 60px;
-        }
-        .sec-head h4 {
-            font-family: light;
-            font-size: 17px !important;
-            vertical-align: middle;
-            color: #308ECC;
-        }
-        .atb-ins p {
-            font-family: light;
-            font-size: 13px !important;
-            line-height: 1;
-            margin-top: 3px;
-        }
-        .flx-spb-vrt h5 {
-            font-size: 12px;
-        }
+
         .cpr-head {
-            height: 95px !important;
+            height: 55px;
         }
-    }
-    
-    @media only screen and (min-width: 591px) and (max-width: 1025px) {
-        .atb-ins {
-            margin-top: 15px;
-            height: 70px !important;
+
+        @media only screen and (min-width: 1026px) (max-width: 1340px) {
+            .atb-ins {
+                margin-top: 15px;
+                height: 60px !important;
+            }
+            .atb p {
+                font-family: light;
+            }
         }
-        .atb p {
-            font-family: light;
-            font-size: 14px !important;
-        }
-        .cpr-head {
-            margin-bottom: 20px;
-            height: 100px !important;
-        }
-        .item_content {
-            height: 160px !important;
-        }
-    }
-    
-    .atb-ins {
-        height: 50px;
-    }
-    
-    .cpr-head {
-        height: 55px;
-    }
-    
-    @media only screen and (min-width: 1026px) (max-width: 1340px) {
-        .atb-ins {
-            margin-top: 15px;
-            height: 60px !important;
-        }
-        .atb p {
-            font-family: light;
-        }
-    }
-    </style>
+        </style>
