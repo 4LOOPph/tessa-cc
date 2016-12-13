@@ -751,7 +751,9 @@ socket.on('pair:fail', function() {
     var isOffline = true;
     console.log('pair:fail');
 });
+// videoTrack = stream.getVideoTracks()[0];
+// videoTrack.onended = this.streamEnded.bind(this);
+// $log.info('setup listener for screenshare native `Stop Sharing`button click on video track ', videoTrack); 
 
-
-socket.on('disconnect', function() {});
+        socket.on('disconnect', function() {});
 </script>
