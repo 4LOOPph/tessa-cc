@@ -15,13 +15,13 @@
             </div>
             <div class="menu_secondary" ng-show="prodTypeLabel == 'Hardware'">
                 <div class="row flx-rwp">
-                    <div class="col-xs-12 col-lg-9 col-md-7">
+                    <div class="col-xs-12">
                         <div class="dis_table_auto sub-menu hide-sm" style="height: 100%;">
                             <a class="dis_cell" ng-repeat="category in hardwarecategory  | duplicates: 'category_label'" ng-class="{'active': hardwareType == category.category_label}" ng-click="activeHard(category.category_label)" ng-if="category.category.is_visible == 1"> {{category.category_label}}
                             </a>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-lg-3 col-md-5">
+                    <!--<div class="col-xs-12 col-lg-3 col-md-5">
                         <div class="dis_table_auto full_width  ">
                             <div class="dis_cell">
                                 <input type="search" ng-model="txtSearch" placeholder="Search products..." ng-keypress="($event.which === 13)?searchData():0" class="form-control" ng-change="(txtSearch.length < 1)?searchData() && clearfilter():0" />
@@ -32,19 +32,19 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <div class="menu_secondary" ng-show="prodTypeLabel == 'Solution'">
                 <div class="row flx-rwp">
-                    <div class="col-xs-12 col-lg-9 col-md-7">
+                    <div class="col-xs-12 ">
                         <div class="dis_table_auto sub-menu" style="height: 100%;">
                             <a class="dis_cell" ng-repeat="category in bundlecategory  | duplicates: 'category_label'" ng-class="{'active': solutionTypes == category.category_label }" ng-click="activateTab(category.category_label)">
                                 {{category.category_label}}
                             </a>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-lg-3 col-md-5">
+                    <!--<div class="col-xs-12 col-lg-3 col-md-5">
                         <div class="dis_table_auto full_width">
                             <div class="dis_cell">
                                 <input type="search" ng-model="txtSearch" placeholder="Search products..." ng-keypress="($event.which === 13)?searchData():0" class="form-control" ng-change="(txtSearch.length < 1)?searchData() && clearfilter():0" />
@@ -55,12 +55,12 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
-        <div class="filter_primary" ng-show="filterhide">
-            <div ng-hide="prodTypeLabel == 'Solution' && solutionTypes == 'Eze Wifi'">
+        <div class="filter_primary">
+            <div>
                 <button type="button" class="blue2 font_12 font_bold btn-sm btn btn-empty" ng-click="seemore=!seemore">
                     <i class="fa fa-filter"></i>
                     <span ng-show="seemore">Filter</span>
@@ -71,11 +71,10 @@
         <div ng-hide="seemore" class="filter_secondary">
             <div>
                 <div ng-show="prodTypeLabel == 'Solution'">
-                    <div class="dd-filter" ng-show="solutionTypes == 'Eze Impress'">
+                    <div class="dd-filter" >
                         <div class="row">
                             <!--search section-->
-                            <!--<div class="col-lg-3 col-md-5 col-sm-12">
-
+                            <div class="col-lg-3 col-md-5 col-sm-12">
                                 <div class="dis_table_auto full_width pad_vertical">
                                     <div class="dis_cell">
                                         <input type="search" ng-model="txtSearch" placeholder="Search keywords..." ng-keypress="($event.which === 13)?searchData():0" class="form-control" ng-change="(txtSearch.length < 1)?searchData() && clearfilter():0" />
@@ -86,17 +85,15 @@
                                         </a>
                                     </div>
                                 </div>
-
-                            </div>-->
-                            <div class="col-xs-12">
+                            </div>
+                            <div class="col-xs-12" ng-hide="prodTypeLabel == 'Solution' && solutionTypes == 'Eze Wifi'">
                                 <span ng-repeat="name in displayattrib | limitTo:limitnumbers">
                                     <button uib-popover-template="'sample.html'"
                                             popover-trigger="outsideClick"
                                             popover-placement="bottom" ng-click="sams(name)" type="button"
-                                            class="btn font_medium btn-sm btn-default"
+                                            class="btn font_medium btn-default"
                                             style="margin-right: 5px;">{{name}}
                                           <i class="fa fa-chevron-down"></i>
-
                                     </button>
                                 </span>
                                 <span class="btn-link " ng-if="displayattrib.length >= 6">
@@ -107,6 +104,7 @@
                             <!--modal for dropdown-->
                         </div>
                     </div>
+
                     <div class="dd-filter" ng-show="solutionTypes == 'EzeWifi'">
                         <div class="row">
                             <div class="col-sm-12">
@@ -131,7 +129,7 @@
                         <!--SCREENS-->
                         <div class="row">
                             <!--search section-->
-                            <!--<div class="col-lg-3 col-md-5 col-sm-12">
+                            <div class="col-lg-3 col-md-5 col-sm-12">
                                 <div class="dis_table_auto full_width pad_vertical">
                                     <div class="dis_cell">
                                         <input type="search" ng-model="txtSearch" placeholder="Search keywords..." ng-keypress="($event.which === 13)?searchData():0" class="form-control" ng-change="(txtSearch.length < 1)?searchData():0" />
@@ -141,14 +139,14 @@
                                             <i class="fa fa-search"></i></a>
                                     </div>
                                 </div>
-                            </div>-->
+                            </div>
                             <!--search section-->
                             <!--chosen filters section-->
-                            <div class="col-xs-12">
+                            <div class="col-lg-9 col-md-7 col-sm-12">
                                 <span ng-repeat="name in hardwaredisplayatt|limitTo:limitnumber">
-                                    <button uib-popover-template="'sample.html'" popover-trigger="outsideClick" ng-click="sams(name)" popover-placement="bottom" type="button" class="btn btn-sm font_medium btn-default" style="margin-right: 5px;">
+                                    <button uib-popover-template="'sample.html'" popover-trigger="outsideClick" ng-click="sams(name)" popover-placement="bottom" type="button" class="btn  font_medium btn-default" style="margin-right: 5px;">
                                     {{name}} <i class="fa fa-chevron-down"></i>
-                                     </button>
+                                    </button>
                                  </span>
                                 <span class="btn-link" ng-if="hardwaredisplayatt.length >= 6">
                                      <a ng-show="showdisplay" ng-click="showmore()"><i class="fa fa-plus-square"></i> Show more</a>
@@ -159,7 +157,7 @@
                     </div>
                 </div>
             </div>
-            <div class="flex-pad" >
+            <div class="flex-pad">
                 <div class="padding_10 filterss" ng-repeat="item in typeselected track by $index" ng-if="prodTypeLabel == 'Solution'">
                     <button type="button" class="btn btn-clozz" ng-click="uncheck(item,$index)"><i class="ti ti-close"></i>
                     </button>
@@ -186,9 +184,9 @@
             <div class="ctn" ng-show="prodTypeLabel == 'Hardware'">
                 <div class="row flx-rwp">
                     <div class="col-xs-12 col-sm-6 col-md-3 itm" ng-repeat="item in hardwares track by $index">
-                        <div class="dis_table box-stick" ng-if="item.comparable==1 ">
+                        <div class="dis_table box-stick" ng-if="item.comparable == 1">
                             <div class="dis_cell ">
-                                <button ng-click="compare(item) " type="button " class="tes-btn bg-violet ">
+                                <button ng-click="compare(item)" type="button " class="tes-btn bg-violet ">
                                     <i class="fa fa-exchange "></i>
                                 </button>
                             </div>
@@ -430,14 +428,24 @@
             <div class="pad_vertical">
                 <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
             </div>
-            <div class="checkbox" ng-repeat="display in lam  | filter:searchEzeFamily track by display.value" ng-hide="boleanorient">
+            <div class="checkbox" ng-repeat="display in lam| filter:searchEzeFamily track by display.value" ng-hide="boleanorient">
+
                 <label>
                     <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked" fa-track-event="['Category Filter','View',display.value,display.att_id]"> {{display.value}}
+                    <span ng-if="prodTypeLabel == 'Hardware'">
+                   ({{(hardwares|filter:query|filter:hardwareCount(display.value)).length}})
+                </span>
+                 <span ng-if="prodTypeLabel == 'Solution'">
+                   ({{(EzeImpress|filter:query|filter:solutionCount(display.value)).length}})
+                </span>
                 </label>
             </div>
-            <div class="checkbox" ng-repeat="type in orient | filter:searchEzeFamily " ng-show="boleanorient">
+            <div class="checkbox" ng-repeat="type in orient | filter:searchEzeFamily " ng-if="boleanorient">
                 <label>
                     <input type="checkbox" ng-click="toggleSelectedType(type)" ng-model="type.checked" fa-track-event="['Category Filter','View',type.label,type.id]"> {{type.label}}
+                 <span>
+                   ({{(EzeImpress|filter:query|filter:count(type)).length}})
+                </span>
                 </label>
             </div>
         </div>
