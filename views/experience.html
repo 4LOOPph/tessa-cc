@@ -24,7 +24,7 @@
         <div class=" sec-search-filter" ng-if="articlesList.length == 0">
             <h4>NO RESULTS FOUND</h4>
         </div>
-        <div class="col-xs-12 col-sm-6 col-md-3 " ng-repeat="article in ( articlesList | filter:isOnSelectedTag()) track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1">
+        <div class="col-xs-12 col-sm-6 col-md-3 " ng-repeat="article in ( articlesList |limitTo: limitWithPage | filter:isOnSelectedTag()) track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1">
             <div class="panel panel-default">
                 <div class="panel-body" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
@@ -73,11 +73,11 @@
             </div>
         </div>
     </div>
-   <!--  <div class="col-md-12 loadmore">
+     <div class="col-md-12 loadmore" ng-if="limitWithPage < articlesList.length">
         <a ng-if="showLoadMore" ng-show="!loadmore" ng-click="addMoreItems()">Load More</a>
         <div class="loader" ng-show="loadmore">
         </div>
-    </div> -->
+    </div>
 </div>
 <script type="text/ng-template" id="myPopoverTemplate.html">
     <div class="form-group">

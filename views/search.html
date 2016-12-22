@@ -42,7 +42,7 @@
                 <div class=" sec-search-filter" ng-if="filtersearch.length == 0">
                     <h4>{{noresult}}</h4>
                 </div>
-                <div class="col-lg-3" ng-repeat="items in filtersearch " ng-hide="items.type == 'Services'">
+                <div class="col-lg-3" ng-repeat="items in filtersearch |limitTo: limitWithPage" ng-repeat-end-watch="repeatEnd" ng-hide="items.type == 'Services'">
                     <!-- ui-sref="main.productDetailsHardware({selected_id: searchresult.p_id})" -->
                     <div class="panel panel-default">
                         <!--  <div class="dis_table box-stick" ng-if="items.p_id || items.pb_id">
@@ -143,6 +143,11 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-12 loadmore" ng-if="limitWithPage < filtersearch.length">
+            <a ng-if="showLoadMore" ng-show="!loadmore" ng-click="addMoreItems()">Load More</a>
+            <div class="loader" ng-show="loadmore">
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/ng-template" id="productType.html">
@@ -241,3 +246,39 @@
         </div>
     </div>
 </script>
+<style type="text/css">
+@-webkit-keyframes rotateLoader {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotateLoader {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .deckgrid[deckgrid]::before {
+        content: '1 .column.column-1-1';
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .item_title {
+        height: 55px !important;
+    }
+    .item_content {
+        height: 105px !important;
+    }
+}
+</style>
