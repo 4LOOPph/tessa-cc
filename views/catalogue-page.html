@@ -88,7 +88,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-9 col-md-7 col-sm-12" ng-hide="prodTypeLabel == 'Solution' && solutionTypes == 'Eze Wifi'">
-                                <span ng-repeat="name in displayattrib | limitTo:limitnumbers">
+                                <span ng-repeat="name in displayattrib | limitTo:limitnumbers" ng-model="samp">
                                     <button uib-popover-template="'sample.html'"
                                             popover-trigger="outsideClick"
                                             popover-placement="bottom" ng-click="filterValues(name)" type="button"
@@ -197,8 +197,8 @@
                             <div class="itm-body dis-flx flx-spb-vrt" ng-click="hardwareScreens(item)">
                                 <a class="link-control" ng-click="hardwareScreens(item) " ui-sref="main.productDetailsHardware({selected_id: item.p_id})">
                                     <div class="img_holder ">
-                                        <img ng-src="{{item.img_default}}" imageonload err-src="images/is5.jpg"/>
-                                         <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
+                                        <img ng-src="{{item.img_default}}" imageonload err-src="images/is5.jpg" />
+                                        <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                                     </div>
                                     <div class="itm-ctn pad-15 ">
                                         <div>
@@ -237,7 +237,7 @@
                                 <div class="link-control" ui-sref="main.productDetailsSolution({selected_id: item.pb_id})" ng-click="solutionsEzeImpress(item)">
                                     <div class="img_holder ">
                                         <img ng-src="{{item.product_images[0].image_path}}" imageonload err-src="images/is5.jpg" />
-                                         <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
+                                        <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                                     </div>
                                     <div class="itm-ctn pad-15 ">
                                         <div>
@@ -446,14 +446,23 @@
             <div class="pad_vertical">
                 <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
             </div>
-            <div class="checkbox" ng-repeat="display in lam  | filter:searchEzeFamily track by display.value" ng-hide="boleanorient">
-                <label>
+            <div ng-if="prodTypeLabel == 'Solution'" class="checkbox" ng-repeat="display in lam | filter:searchEzeFamily track by display.value" ng-hide="boleanorient">
+                <label ng-if="(EzeImpress|filter:query|filter:solutionCount(display.value,display.type)).length >0 ">
                     <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked" fa-track-event="['Category Filter','View',display.value,display.att_id]"> {{display.value}}
-                    <span ng-if="prodTypeLabel == 'Hardware'">
-                   ({{(hardwares|filter:query|filter:hardwareCount(display.value)).length}})
-                </span>
-                    <span ng-if="prodTypeLabel == 'Solution'">
+                    <span>
                    ({{(EzeImpress|filter:query|filter:solutionCount(display.value,display.type)).length}})
+               <!--     <span ng-if="lam.length == 0">
+                       No event
+                   </span> -->
+
+                </span>
+                </label>
+            </div>
+            <div class="checkbox" ng-repeat="display in lam  | filter:searchEzeFamily track by display.value" ng-hide="boleanorient" ng-if="prodTypeLabel == 'Hardware'">
+                <label ng-if="(hardwares|filter:query|filter:hardwareCount(display.value)).length > 0">
+                    <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked" fa-track-event="['Category Filter','View',display.value,display.att_id]"> {{display.value}}
+                    <span>
+                   ({{(hardwares|filter:query|filter:hardwareCount(display.value)).length}})
                 </span>
                 </label>
             </div>
