@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <a type="button" ng-click="cancel()" uib-tooltip="Close" tooltip-placement="bottom" style="margin-bottom: -7px;float: left;padding: 8px;margin-left: 8px;">
+    <a type="button" ng-click="cancelLightBox()" uib-tooltip="Close" tooltip-placement="bottom" style="margin-bottom: -7px;float: left;padding: 8px;margin-left: 8px;">
         <img src="./images/icons/ic_arrow_back_white_24px.svg">
     </a>
     <span uib-dropdown style="float: right;">
@@ -43,7 +43,7 @@
         </a>
          <ul class="grey2 dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="single-button" style="margin-top: 6px;margin-right: 9px;">
                 <li ng-repeat="device in activeDevices">
-                    <a ng-click="selectDevice(device)">
+                    <a ng-click="selectLightBoxDevice(device)">
                         <span class="svg_icon_sm"><i class="ti ti-desktop padd"></i></span>
                         <span>&nbsp {{device.os}}({{device.os_version}})</span>
                     </a>
