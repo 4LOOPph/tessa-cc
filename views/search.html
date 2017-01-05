@@ -42,7 +42,7 @@
                 <div class=" sec-search-filter" ng-if="filtersearch.length == 0">
                     <h4>{{noresult}}</h4>
                 </div>
-                <div class="col-lg-3" ng-repeat="items in filtersearch |limitTo: limitWithPage" ng-repeat-end-watch="repeatEnd" ng-hide="items.type == 'Services'">
+                <div class="col-lg-3" ng-repeat="items in filtersearch |limitTo: limitWithPage track by $index" ng-repeat-end-watch="repeatEnd" ng-hide="items.type == 'Services'">
                     <!-- ui-sref="main.productDetailsHardware({selected_id: searchresult.p_id})" -->
                     <div class="panel panel-default">
                         <!--  <div class="dis_table box-stick" ng-if="items.p_id || items.pb_id">
@@ -54,12 +54,12 @@
                         </div> -->
                         <div class="panel-body">
                             <div class="img-contain">
-                                <a class="img_holder" ng-if="items.self == 'products'" ui-sref="main.productDetailsHardware({selected_id: items.p_id})">
+                                <a class="img_holder" ng-if="items.type == 'Hardware'" ui-sref="main.productDetailsHardware({selected_id: items.p_id})">
                                     <img ng-src="{{items.img_default}}" imageonload err-src="images/is5.jpg" />
                                     <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                                 </a>
-                                <a class="img_holder" ng-if="items.self == 'articles'" ui-sref="main.articlePage({selected_id:items.id})">
-                                    <img ng-src="{{image.media_path}}" ng-repeat="image in items.mediafiles | limitTo:1" imageonload err-src="images/is5.jpg" ng-if="image.media_mimetype == 'image/jpeg' ||image.media_mimetype == 'image/png'" />
+                                <a class="img_holder" ng-if="items.type == 'Experience'" ui-sref="main.articlePage({selected_id:items.id})">
+                                    <img ng-src="{{items.mediafiles[0].media_path}}" imageonload err-src="images/is5.jpg" ng-if="items.mediafiles[0].media_mimetype == 'image/jpeg' ||items.mediafiles[0].media_mimetype == 'image/png'" />
                                     <!-- <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;" ng-if="image.media_mimetype == 'image/jpeg'"></span> -->
                                     <div class="videogular-container" ng-repeat="item in items.mediafiles | limitTo:1" ng-if="item.media_mimetype == 'video/mp4'">
                                         <videogular vg-theme="item.url">
@@ -82,19 +82,19 @@
                                         </videogular>
                                     </div>
                                 </a>
-                                <a class="img_holder" ng-if="items.self == 'bundles'" ui-sref="main.productDetailsSolution({selected_id: items.pb_id})">
-                                    <img ng-src="{{image.image_path}}" ng-repeat="image in items.product_images | limitTo:1" imageonload err-src="images/is5.jpg" />
+                                <a class="img_holder" ng-if="items.type == 'Solutions'" ui-sref="main.productDetailsSolution({selected_id: items.pb_id})">
+                                    <img ng-src="{{items.product_images[0].image_path}}" imageonload err-src="images/is5.jpg" />
                                     <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                                 </a>
                             </div>
-                            <a class="item_text" ng-if="items.self == 'articles'" ui-sref="main.articlePage({selected_id:items.id})">
+                            <a class="item_text" ng-if="items.type == 'Experience'" ui-sref="main.articlePage({selected_id:items.id})">
                                 <div class="item_title">
                                     <div class=" grey2 font_bold">
                                         {{items.name}}
                                     </div>
-                                    <div class="item_content grey3 font_bold font_12">
+                                   <!--  <div class="item_content grey3 font_bold font_12">
                                         in {{items.self}}
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="dis_table">
                                     <div class="dis_cell">
@@ -104,14 +104,14 @@
                                     </div>
                                 </div>
                             </a>
-                            <a class="item_text" ng-if="items.self == 'products'" ui-sref="main.productDetailsHardware({selected_id: items.p_id})">
+                            <a class="item_text" ng-if="items.type == 'Hardware'" ui-sref="main.productDetailsHardware({selected_id: items.p_id})">
                                 <div class="item_title">
                                     <div class=" grey2 font_bold">
                                         {{items.item_name}}
                                     </div>
-                                    <div class="item_content grey3 font_bold font_12">
+                                   <!--  <div class="item_content grey3 font_bold font_12">
                                         in {{items.self}}
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="dis_table">
                                     <div class="dis_cell">
@@ -121,14 +121,14 @@
                                     </div>
                                 </div>
                             </a>
-                            <a class="item_text" ng-if="items.self == 'bundles'" ui-sref="main.productDetailsSolution({selected_id: items.pb_id})">
+                            <a class="item_text" ng-if="items.type == 'Solutions'" ui-sref="main.productDetailsSolution({selected_id: items.pb_id})">
                                 <div class="item_title">
                                     <div class=" grey2 font_bold">
                                         {{items.bundle_name}}
                                     </div>
-                                    <div class="item_content grey3 font_bold font_12">
+                                   <!--  <div class="item_content grey3 font_bold font_12">
                                         in {{items.self}}
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="dis_table">
                                     <div class="dis_cell">
