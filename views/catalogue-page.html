@@ -446,34 +446,31 @@
             <div class="pad_vertical">
                 <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
             </div>
-            <div ng-if="prodTypeLabel == 'Solution'" class="checkbox" ng-repeat="display in lam | filter:searchEzeFamily track by display.value" ng-hide="boleanorient">
-                <label ng-if="(EzeImpress|filter:query|filter:solutionCount(display.value,display.type)).length >0 ">
+            <div class="checkbox" ng-repeat="display in lam | filter:searchEzeFamily track by display.value" ng-if="prodTypeLabel == 'Solution'">
+                <label ng-if="(EzeImpress|filter:query|filter:solutionCount(display.value,display.type)).length >0">
                     <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked" fa-track-event="['Category Filter','View',display.value,display.att_id]"> {{display.value}}
                     <span>
+                   
                    ({{(EzeImpress|filter:query|filter:solutionCount(display.value,display.type)).length}})
-               <!--     <span ng-if="lam.length == 0">
-                       No event
-                   </span> -->
-
                 </span>
                 </label>
             </div>
-            <div class="checkbox" ng-repeat="display in lam  | filter:searchEzeFamily track by display.value" ng-hide="boleanorient" ng-if="prodTypeLabel == 'Hardware'">
-                <label ng-if="(hardwares|filter:query|filter:hardwareCount(display.value)).length > 0">
+            <div class="checkbox" ng-repeat="display in lam  | filter:searchEzeFamily track by display.value" ng-if="prodTypeLabel == 'Hardware'">
+                <label ng-if="(hardwares|filter:query|filter:hardwareCount(display.value,display.type)).length > 0">
                     <input type="checkbox" ng-click="toggleSelectedType(display)" ng-model="display.checked" fa-track-event="['Category Filter','View',display.value,display.att_id]"> {{display.value}}
                     <span>
-                   ({{(hardwares|filter:query|filter:hardwareCount(display.value)).length}})
+                   ({{(hardwares|filter:query|filter:hardwareCount(display.value,display.type)).length}})
                 </span>
                 </label>
             </div>
-            <div class="checkbox" ng-repeat="type in orient | filter:searchEzeFamily " ng-if="boleanorient">
+            <!-- <div class="checkbox" ng-repeat="type in orient | filter:searchEzeFamily " ng-if="boleanorient">
                 <label>
                     <input type="checkbox" ng-click="toggleSelectedType(type)" ng-model="type.checked" fa-track-event="['Category Filter','View',type.label,type.id]"> {{type.label}}
                     <span>
                    ({{(EzeImpress|filter:query|filter:count(type)).length}})
                 </span>
                 </label>
-            </div>
+            </div> -->
         </div>
     </script>
     <style>
