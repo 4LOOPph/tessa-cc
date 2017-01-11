@@ -216,13 +216,13 @@
                 <div class="grid-card" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
                         <a class="img_holder" ui-sref="main.articlePage({selected_id:article.article_id})">
-                            <img ng-src="{{article.image | trustUrl}}" imageonload class="grid-img" />
+                            <img ng-src="{{article.image}}" imageonload class="grid-img" />
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
                     <div class="" ng-if="article.article_thumbnail.media_mimetype == 'image/jpeg' || article.article_thumbnail.media_mimetype == 'image/png'">
                         <a class="img_holder" ui-sref="main.articlePage({selected_id:article.article_id})">
-                            <img ng-src="{{article.article_thumbnail.media_path | trustUrl}}" imageonload ng-if="article.article_thumbnail" err-src="images/is5.jpg" class="grid-img" />
+                            <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" err-src="images/is5.jpg" class="grid-img" />
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
@@ -249,10 +249,10 @@
                         </a>
                     </div> -->
                     <div id="masonry_body" class="padding_10 blue1 font_bold" ui-sref="main.articlePage({selected_id:article.article_id})" ui-sref="main.articlePage({selected_id:article.article_id})">
-                        <a>{{article.title | trustUrl}}</a>
+                        <a>{{article.title}}</a>
                         <br>
                         <div class="featured_solution font_light">
-                            <p ng-bind-html="article.article | trustUrl"></p>
+                            <p ng-bind-html="article.article"></p>
                         </div>
                     </div>
                 </div>
