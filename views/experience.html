@@ -211,7 +211,7 @@
         <div class=" sec-search-filter" ng-if="articlesList.length == 0">
             <h4>{{noResult}}</h4>
         </div>
-        <div ng-if="expFilter == 'all'" class="dynamic-grid"  angular-grid="articlesList" ag-grid-width="250" ag-options="angularGridOptions" ag-id="article">
+        <div ng-if="expFilter == 'all'" class="dynamic-grid" angular-grid="articlesList" ag-grid-width="250" ag-options="angularGridOptions" ag-id="article">
             <li data-ng-repeat="article in articlesList|limitTo:limitWithPage track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1" class="grid">
                 <div class="grid-card" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
@@ -352,7 +352,7 @@
                 </div>
             </li>
         </div>
-         <div class="col-md-12 loadmore" ng-if="limitWithPage < articlesList.length">
+        <div class="col-md-12 loadmore" ng-if="limitWithPage < articlesList.length">
             <a ng-if="showLoadMore" ng-show="!loadmore" ng-click="addMoreItems()">Load More</a>
             <div class="loader" ng-show="loadmore">
             </div>
@@ -479,6 +479,7 @@
         content: '1 .column.column-1-1';
     }
 }
+
 @-webkit-keyframes rotateLoader {
     0% {
         -webkit-transform: rotate(0);
