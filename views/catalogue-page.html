@@ -97,9 +97,9 @@
                                           <i class="fa fa-chevron-down"></i>
                                     </button>
                                 </span>
-                                <span class="btn-link " ng-if="displayattrib.length >= 6">
-                                    <a ng-show="showdisplay" ng-click="showmore()"><i class="fa fa-plus-square"></i> Show more</a>
-                                    <a ng-hide="showdisplay" ng-click="showless()"><i class="fa fa-minus-square"></i> Show less</a>
+                                <span class="btn-link" ng-if="displayattrib.length >= 6">
+                                    <a class="inblock" ng-show="showdisplay" ng-click="showmore()"><i class="fa fa-plus-square"></i> Show more</a>
+                                    <a class="inblock" ng-hide="showdisplay" ng-click="showless()"><i class="fa fa-minus-square"></i> Show less</a>
                                 </span>
                             </div>
                             <!--modal for dropdown-->
@@ -151,8 +151,8 @@
                                     </button>
                                  </span>
                                 <span class="btn-link" ng-if="hardwaredisplayatt.length >= 6">
-                                     <a ng-show="showdisplay" ng-click="showmore()"><i class="fa fa-plus-square"></i> Show more</a>
-                                      <a ng-hide="showdisplay" ng-click="showless()"><i class="fa fa-minus-square"></i> Show less</a>
+                                     <a class="inblock" ng-show="showdisplay" ng-click="showmore()"><i class="fa fa-plus-square"></i> Show more</a>
+                                      <a class="inblock" ng-hide="showdisplay" ng-click="showless()"><i class="fa fa-minus-square"></i> Show less</a>
                                 </span>
                             </div>
                         </div>
@@ -240,7 +240,7 @@
                                 </div>
                             </div>
                             <div class="itm-body dis-flx flx-spb-vrt" ng-click="solutionsEzeImpress(item)">
-                                <div class="link-control" ui-sref="main.productDetailsSolution({selected_id: item.pb_id})" ng-click="solutionsEzeImpress(item)">
+                                <a class="link-control" ui-sref="main.productDetailsSolution({selected_id: item.pb_id})" ng-click="solutionsEzeImpress(item)">
                                     <div class="img_holder ">
                                         <img ng-src="{{item.product_images[0].image_path}}" imageonload err-src="images/is5.jpg" />
                                         <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
@@ -249,9 +249,11 @@
                                         <a ui-sref="main.productDetailsSolution({selected_id: item.pb_id})">
                                             <h2>{{item.bundle_name}}</h2>
                                         </a>
-                                        <div class="itm-cnt">
-                                            <span data-ng-bind-html="item.bundle_description"></span>
-                                        </div>
+                                    </div>
+                                </a>
+                                <div class="itm-ctn pad-15 ">
+                                    <div class="itm-cnt">
+                                        <span data-ng-bind-html="item.bundle_description"></span>
                                     </div>
                                 </div>
                                 <div class=" pad-15 ">
@@ -573,6 +575,18 @@
         }
         .item_content {
             height: 105px !important;
+        }
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .itm-body {
+            height: 450px;
+        }
+    }
+    
+    @media only screen and (min-width: 769px) and (max-width: 1024px) {
+        .itm-body {
+            height: 550px !important;
         }
     }
     </style>

@@ -1,0 +1,88 @@
+<div class="modal-header">
+    <h4 class="modal-title">Update Request</h4>
+</div>
+<div class="modal-body no-padding" id="modal-body">
+    <div class="box">
+        <form class="form-horizontal">
+            <div class="box-body" style="padding-top: 20px;">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Move to</label>
+                    <div class="col-sm-9">
+                        <select class="form-control">
+                            <option>To do</option>
+                            <option>In progress</option>
+                            <option>Blocked</option>
+                            <option>For review</option>
+                            <option>Completed</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Assign to</label>
+                    <div class="col-sm-9">
+                        <select class="form-control">
+                            <option>Lucky</option>
+                            <option>Julian</option>
+                            <option>Jose</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Set complexity</label>
+                    <div class="col-sm-9">
+                        <select class="form-control">
+                            <option>0.5</option>
+                            <option>1</option>
+                            <option>3</option>
+                            <option>5</option>
+                            <option>8</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Set due date</label>
+                    <div class="col-sm-9">
+                        <!-- <datetimepicker ng-model="date" date-format="dd-MMM-yyyy" date-options="dateOptions" date-disabled="isDisabledDate(date, mode)" hidden-time="true" datepicker-append-to-body="false" clear-text="Clear" show-button-bar="false" day-header-format="false">
+                        </datetimepicker> -->
+                        <datepicker date-format="EEEE, MMMM d, y" selector="form-control">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="Choose a date" />
+                                <span class="input-group-addon" style="cursor: pointer">
+                                <i class="fa fa-lg fa-calendar"></i>
+                                </span>
+                            </div>
+                        </datepicker>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Comment</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" rows="4">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+    <button class="btn btn btn-primary" type="button" ng-click="send()">Apply</button>
+</div>
+<style type="text/css">
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.uib-button-bar {
+    padding: 5px !important;
+}
+
+._720kb-datepicker-calendar-month span {
+    color: rgba(0, 0, 0, 0.51);
+}
+
+datepicker .input-group-addon {
+    background-color: #fff;
+}
+</style>

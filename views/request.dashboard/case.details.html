@@ -1,0 +1,341 @@
+<div class="wrapper">
+
+
+    <div class="sec-option hide-sm">
+        <div class="dis-flx flx-spb-hrt font_medium">
+            <div class="pad_vertical ">
+                <a class="btn-plain"><i class="fa fa-arrow-left"></i> Back</a>
+                <a class="btn-plain"><i class="fa fa-filter"></i> Filters</a>
+                <a class=" btn-plain left_align "><i class="fa fa-sort"></i> Sort </a>
+            </div>
+            <div>
+                <button type="button" class="btn btn-sm btn-primary"> Update Request</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row padding_10">
+        <div class="col-lg-3 col-md-4">
+            <div class="case-details-widget">
+                <div class="flx-spb-hrt head-case-details font_medium">
+                    <div>CASE-6456546</div>
+                    <div>Not Started</div>
+                </div>
+                <div class="font_medium font_18 padding_10 blue3">
+                    Woolworths
+                </div>
+                <div class="padding_10">
+                    <table class="info_table full_width">
+                        <tr>
+                            <th>Request Type</th>
+                            <td>Design</td>
+                        </tr>
+                        <tr>
+                            <th>Request Status</th>
+                            <td>Not Started</td>
+                        </tr>
+                        <tr>
+                            <th>Date Requested</th>
+                            <td>October 28, 2016</td>
+                        </tr>
+                        <tr>
+                            <th>Delivery Date</th>
+                            <td>02-02-16</td>
+                        </tr>
+                        <tr>
+                            <th>Complexity</th>
+                            <td>Simple</td>
+                        </tr>
+                        <tr>
+                            <th>Priority Type</th>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td><br></td>
+                        </tr>
+                        <tr>
+                            <th>Requestor</th>
+                            <td>
+                                <input type="text" class="edit-on-text" value="dasd">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Scheduler</th>
+                            <td>
+                                <input type="text" class="edit-on-text" value="dasd">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Assignee</th>
+                            <td>
+                                <input type="text" class="edit-on-text" value="dasd">
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+            </div>
+
+
+            <div class="sec-details-tabs">
+
+                <!--Tab Menu-->
+                <div class="details-tabs">
+                    <div class="dis_table">
+                        <a ng-click="setTab(1)" ng-class="{'active':isSet(1)}" class=" dis_cell">
+                            <i class="fa fa-users"></i> Activity Logs
+                        </a>
+                        <a ng-click="setTab(2)" ng-class="{'active':isSet(2)}" class="dis_cell">
+                            <i class="fa fa-comments-o"></i> Comments
+                        </a>
+                        <a ng-click="setTab(3)" ng-class="{'active':isSet(3)}" class="dis_cell">
+                            <i class="fa fa-link"></i> Attachments
+                        </a>
+                    </div>
+                </div>
+
+                <!--Activities Tab-->
+                <div ng-show="isSet(1)" class="scroll-vt">
+                    <table class="info_table tbl-fix-pad full_width tbl-lg tbl-bordered">
+                        <tr>
+                            <td class="cell_xs">
+                                <div class="log-idfr">
+                                    <img src="../../images/icons/logs-identifier--09.svg">
+                                </div>
+
+                            </td>
+                            <td>
+                                <div>
+                                <span class="font_medium ">
+                                    Vanessa Gacula
+                                </span> left a
+                                    <span class="txt-underlined">
+                                    comment.
+                                </span>
+                                </div>
+                                <div class="font_10 grey2">
+                                    November 20, 2016 | 8:00 AM
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell_xs">
+                                <div class="log-idfr">
+                                    <img src="../../images/icons/logs-identifier--10.svg">
+                                </div>
+
+                            </td>
+                            <td>
+                                <div>
+                                <span class="font_medium ">
+                                    Vanessa Gacula
+                                </span> left a
+                                    <span class="txt-underlined">
+                                    comment.
+                                </span>
+                                </div>
+                                <div class="font_10 grey2">
+                                    November 20, 2016 | 8:00 AM
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell_xs">
+                                <div class="log-idfr">
+                                    <img src="../../images/icons/logs-identifier--15.svg">
+                                </div>
+
+                            </td>
+                            <td>
+                                <div>
+                                <span class="font_medium ">
+                                    Vanessa Gacula
+                                </span> left a
+                                    <span class="txt-underlined">
+                                    comment.
+                                </span>
+                                </div>
+                                <div class="font_10 grey2">
+                                    November 20, 2016 | 8:00 AM
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="cell_xs">
+                                <div class="log-idfr">
+                                    <img src="../../images/icons/logs-identifier--12.svg">
+                                </div>
+
+                            </td>
+                            <td>
+                                <div>
+                                <span class="font_medium ">
+                                    Vanessa Gacula
+                                </span> left a
+                                    <span class="txt-underlined">
+                                    comment.
+                                </span>
+                                </div>
+                                <div class="font_10 grey2">
+                                    November 20, 2016 | 8:00 AM
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+
+                <!--Comments Tab-->
+                <div ng-show="isSet(2)" class="sec-comments">
+                    Comments Here
+                </div>
+
+                <!--Attachments Tab-->
+                <div ng-show="isSet(3)" class="scroll-vt sec-attachments">
+                    <div class="pad_vertical">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="ctn-attachment ">
+                                    <a class="attachments-icon font_medium">
+                                        <img src="../../images/icons/ext-file-pdf.svg">
+                                        dasdas.pdf
+                                    </a>
+                                    <a class="float-icon">
+                                        <i class="fa fa-download"></i>
+                                    </a>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-5 col-md-4">
+            <div class=" pad_vertical_15 request-specs">
+
+                <div class=" font_18 font_medium blue3">
+                    Request Specifications
+                </div>
+
+                <table class="info_table tbl-bordered full_width tbl-lg ">
+                    <tr>
+                        <th class="tbl-label" colspan="2">Objectives</th>
+                    </tr>
+                    <tr>
+                        <th>Objectives</th>
+                        <td>Lorem Ipsum dollar.</td>
+                    </tr>
+                    <tr>
+                        <th>Intended Audience</th>
+                        <td>Lorem Ipsum</td>
+                    </tr>
+                    <tr>
+                        <th class="tbl-label" colspan="2">Solution Details</th>
+                    </tr>
+                    <tr>
+                        <th>Number of Solution</th>
+                        <td>
+                            Lorem Ipsum.
+                            <div>
+                                <a class="blue1 font_medium ">
+                                    <i class="fa fa-link"></i> 5 attachments
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Objectives</th>
+                        <td>Lorem Ipsum dollar.</td>
+                    </tr>
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4 col-md-4">
+            <div class="pad_vertical_15 ">
+                <div>
+                    <div class=" font_18 font_medium blue3">
+                        Client Details
+                    </div>
+                    <br>
+
+                    <table class="info_table tbl-bordered full_width tbl-lg ">
+                        <tr>
+                            <th>Company</th>
+                            <td>Woolworth</td>
+                        </tr>
+                        <tr>
+                            <th>ABN/ACN</th>
+                            <td>ABN</td>
+                        </tr>
+                        <tr>
+                            <th>Company Adress</th>
+                            <td>Emily Homes Cagayan deo orfsdfdsfds fsdfdsf fsdfds</td>
+                        </tr>
+                    </table>
+
+                </div>
+                <br>
+                <div>
+                    <div class=" font_18 font_medium blue3">
+                        Contact Details
+                    </div>
+                    <br>
+
+                    <table class="info_table tbl-bordered full_width tbl-lg ">
+
+                        <tr>
+                            <th>Contact Name</th>
+                            <td>Anne Curtis</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number (Home)</th>
+                            <td>342-5253</td>
+                        </tr>
+                        <tr>
+                            <th>Phone Number (Work)</th>
+                            <td>345-4556</td>
+                        </tr>
+                        <tr>
+                            <th>Email Address</th>
+                            <td>anne@gmail.com</td>
+                        </tr>
+                    </table>
+
+                </div>
+                <br>
+                <div>
+                    <div class=" font_18 font_medium blue3">
+                        Notes
+                    </div>
+                    <br>
+                    <div>
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec
+                        velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa,
+                        convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci
+                        luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel,
+                        ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at
+                        tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in
+                        ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in
+                        faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet
+                        aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Donec rutrum congue leo eget
+                        malesuada.
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+

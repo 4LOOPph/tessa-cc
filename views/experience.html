@@ -226,7 +226,7 @@
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
-                    <!--  <div class="" ng-if="article.article_thumbnail.media_mimetype == 'video/mp4'">
+                     <div class="" ng-if="article.article_thumbnail.media_mimetype == 'video/mp4'">
                         <a class="videogular-container" ui-sref="main.articlePage({selected_id:article.article_id})">
                             <videogular vg-theme="article.article_thumbnail.url" style="height: 250px;">
                                 <vg-media vg-src="article.article_thumbnail.media_path"></vg-media>
@@ -247,7 +247,7 @@
                                 <vg-buffering></vg-buffering>
                             </videogular>
                         </a>
-                    </div> -->
+                    </div>
                     <div id="masonry_body" class="padding_10 blue1 font_bold" ui-sref="main.articlePage({selected_id:article.article_id})" ui-sref="main.articlePage({selected_id:article.article_id})">
                         <a>{{article.title}}</a>
                         <br>
@@ -258,7 +258,7 @@
                 </div>
             </li>
         </div>
-        <div ng-if="expFilter == 'Portfolio'" class="dynamic-grid" angular-grid="articlesList" ag-grid-width="250" ag-options="angularGridOptions" ag-id="article">
+        <div ng-if="expFilter == 'Portfolio'" class="dynamic-grid" angular-grid="articlesList" ag-grid-width="250" ag-options="angularGridOptions" ag-id="article_one">
             <li ng-repeat="article in articlesList|limitTo:limitWithPage track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1" class="grid">
                 <div class="grid-card" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
@@ -305,7 +305,7 @@
                 </div>
             </li>
         </div>
-        <div ng-if="expFilter == 'Article'" class="dynamic-grid" angular-grid="articlesList" ag-grid-width="250" ag-options="angularGridOptions" ag-id="article">
+        <div ng-if="expFilter == 'Article'" class="dynamic-grid" angular-grid="articlesList" ag-grid-width="250" ag-options="angularGridOptions" ag-id="article_two">
             <li data-ng-repeat="article in articlesList|limitTo:limitWithPage track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1" class="grid">
                 <div class="grid-card" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
