@@ -1,0 +1,1039 @@
+<div class="wrapper">
+    <div class="breadcrumbs padding_10">
+        <img src="./images/icons/ico_store00.svg" />
+        <a class="current font_medium">
+            Request Dashboard
+        </a>
+    </div>
+    <div class="sec-option hide-sm">
+        <!-- <div class="dis-flx flx-spb-hrt font_medium">
+            <div class="pad_vertical ">
+                <a class="btn-plain"><i class="fa fa-filter"></i> Filters</a>
+                <a class=" btn-plain left_align "><i class="fa fa-sort"></i> Sort </a>
+            </div>
+            <div>
+                <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create New Request
+                </button>
+            </div>
+        </div> -->
+    </div>
+    <div class="ctn hide-sm">
+        <div class="dashboard-ctn">
+            <div class="width-fix">
+                <div class="dis_table">
+                    <div class="dis_cell" id="to-do" ng-repeat="list in models">
+                        <div class="case-ctn">
+                            <div class="case-ctn-head">
+                                <h3>
+                                    <img ng-src='{{list.image}}' class="icons-md" />
+                                    {{list.listName}}
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="case-ctn-body" dnd-list="list.listName" dnd-drop="onDrop('move cards vertical',event,list, item)">
+                            <div class="case-itm" ng-repeat="item in list.items" dnd-draggable="getSelectedItemsIncluding(list, item)" dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)" dnd-dragend="list.dragging = false" dnd-selected="logEvent(list,item)" ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected" dnd-callback="callback({targetList: list, targetIndex: index})" dnd-horizontal-list="false">
+                                <div ng-class="{
+                                'status-red': item.date == 'Overdue',
+                                'status-orange': item.date == '3 days',
+                                'status-green': item.date == 'Completed',
+                                'status-grey': item.date == '5 days'}">
+                                </div>
+                                <div class="case-head">
+                                    <div class="dis-flx flx-spb-hrt">
+                                        <div class="set-ellipses">
+                                            <a class="blue3 font_18 font_medium" ui-sref="main.caseDetails({case_id:item.request_info.request_id})">{{item.request_info.title}}</a>
+                                            <div class="font_12 grey2 font_bold">{{item.request_info.remark}}</div>
+                                        </div>
+                                        <div class="nowrap right_align  font_18 font_medium">
+                                            <div class="inblock clear-scroll pad_side_10">
+                                                {{item.request_info.case_number}}
+                                            </div>
+                                            <div class="btn-group" uib-dropdown style="margin-top: -2px;" dropdown-append-to-body>
+                                                <button class="specialbutton inblock" uib-dropdown-toggle><i class="fa fa-ellipsis-v"></i></button>
+                                                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                    <li role="menuitem"><a ng-click="manualupdateStatus(list,item)"><i
+                                                            class="ti ti-pencil-alt"></i> Update Status</a></li>
+                                                    <li role="menuitem"><a><i class="ti ti-trash"></i> Cancel
+                                                        Request</a></li>
+                                                    <li role="menuitem"><a ui-sref="main.caseDetails({case_id:item.request_info.request_id})"><i class="ti ti-eye"></i> View Details</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-body">
+                                    <div class="inblock clear-scroll">
+                                        <ul class="case-label grey2 font_medium">
+                                            <li>Due Date</li>
+                                            <li>Priority</li>
+                                            <li>Requester</li>
+                                            <li>Assignee</li>
+                                        </ul>
+                                    </div>
+                                    <div class="inblock">
+                                        <ul>
+                                            <li>{{item.request_info.due_date}}</li>
+                                            <li>{{item.request_info.priority_name}}</li>
+                                            <li>{{item.request_info.requester}}</li>
+                                            <li>{{item.request_info.scheduler}}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="case-foot">
+                                </div>
+                            </div>
+                            <div class="dndPlaceholder">
+                                Drop here!
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="dis_cell" id="in-progress">
+                        <div class="case-ctn">
+                            <div class="case-ctn-head">
+                                <h3><img src="../images/icons/rd-status-icon--05.svg" class="icons-md"> In Progress</h3>
+                            </div>
+                        </div>
+                        <div class="case-ctn-body">
+                            <div class="case-itm">
+                                <div class="status-grey">
+                                </div>
+                                <div class="case-head">
+                                    <div class="dis-flx flx-spb-hrt">
+                                        <div>
+                                            <a class="blue3 font_18 font_medium">Woolworths</a>
+                                            <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                                        </div>
+                                        <div class="nowrap right_align  font_18 font_medium">
+                                            <div class="inblock pad_side_10">
+                                                00002
+                                            </div>
+                                            <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-body">
+                                    <div class="inblock">
+                                        <ul class="case-label grey2 font_medium">
+                                            <li>Due Date</li>
+                                            <li>Priority</li>
+                                            <li>Requester</li>
+                                            <li>Assignee</li>
+                                        </ul>
+                                    </div>
+                                    <div class="inblock">
+                                        <ul>
+                                            <li>12-12-12</li>
+                                            <li>Critical</li>
+                                            <li>Bangs Garcia</li>
+                                            <li>Ellen Adarna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="case-foot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dis_cell" id="blocked">
+                        <div class="case-ctn">
+                            <div class="case-ctn-head">
+                                <h3><img src="../images/icons/rd-status-icon--06.svg" class="icons-md"> Blocked</h3>
+                            </div>
+                        </div>
+                        <div class="case-ctn-body">
+                            <div class="case-itm">
+                                <div class="status-orange">
+                                </div>
+                                <div class="case-head">
+                                    <div class="dis-flx flx-spb-hrt">
+                                        <div>
+                                            <a class="blue3 font_18 font_medium">Woolworths</a>
+                                            <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                                        </div>
+                                        <div class="nowrap right_align  font_18 font_medium">
+                                            <div class="inblock pad_side_10">
+                                                00002
+                                            </div>
+                                            <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-body">
+                                    <div class="inblock">
+                                        <ul class="case-label grey2 font_medium">
+                                            <li>Due Date</li>
+                                            <li>Priority</li>
+                                            <li>Requester</li>
+                                            <li>Assignee</li>
+                                        </ul>
+                                    </div>
+                                    <div class="inblock">
+                                        <ul>
+                                            <li>12-12-12</li>
+                                            <li>Critical</li>
+                                            <li>Bangs Garcia</li>
+                                            <li>Ellen Adarna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="case-foot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dis_cell" id="for-review">
+                        <div class="case-ctn">
+                            <div class="case-ctn-head">
+                                <h3><img src="../images/icons/rd-status-icon--07.svg" class="icons-md"> For Review</h3>
+                            </div>
+                        </div>
+                        <div class="case-ctn-body">
+                            <div class="case-itm">
+                                <div class="status-red">
+                                </div>
+                                <div class="case-head">
+                                    <div class="dis-flx flx-spb-hrt">
+                                        <div>
+                                            <a class="blue3 font_18 font_medium">Woolworths</a>
+                                            <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                                        </div>
+                                        <div class="nowrap right_align  font_18 font_medium">
+                                            <div class="inblock pad_side_10">
+                                                00002
+                                            </div>
+                                            <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-body">
+                                    <div class="inblock">
+                                        <ul class="case-label grey2 font_medium">
+                                            <li>Due Date</li>
+                                            <li>Priority</li>
+                                            <li>Requester</li>
+                                            <li>Assignee</li>
+                                        </ul>
+                                    </div>
+                                    <div class="inblock">
+                                        <ul>
+                                            <li>12-12-12</li>
+                                            <li>Critical</li>
+                                            <li>Bangs Garcia</li>
+                                            <li>Ellen Adarna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="case-foot">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dis_cell last-child" id="completed">
+                        <div class="case-ctn">
+                            <div class="case-ctn-head">
+                                <h3><img src="../images/icons/rd-status-icon--08.svg" class="icons-md"> Completed</h3>
+                            </div>
+                        </div>
+                        <div class="case-ctn-body">
+                            <div class="case-itm">
+                                <div class="status-green">
+                                </div>
+                                <div class="case-head">
+                                    <div class="dis-flx flx-spb-hrt">
+                                        <div>
+                                            <a class="blue3 font_18 font_medium">Woolworths</a>
+                                            <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                                        </div>
+                                        <div class="nowrap right_align  font_18 font_medium">
+                                            <div class="inblock pad_side_10">
+                                                00002
+                                            </div>
+                                            <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-body">
+                                    <div class="inblock">
+                                        <ul class="case-label grey2 font_medium">
+                                            <li>Due Date</li>
+                                            <li>Priority</li>
+                                            <li>Requester</li>
+                                            <li>Assignee</li>
+                                        </ul>
+                                    </div>
+                                    <div class="inblock">
+                                        <ul>
+                                            <li>12-12-12</li>
+                                            <li>Critical</li>
+                                            <li>Bangs Garcia</li>
+                                            <li>Ellen Adarna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="case-foot">
+                                </div>
+                            </div>
+                            <div class="case-itm">
+                                <div class="status-green">
+                                </div>
+                                <div class="case-head">
+                                    <div class="dis-flx flx-spb-hrt">
+                                        <div>
+                                            <a class="blue3 font_18 font_medium">Woolworths</a>
+                                            <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                                        </div>
+                                        <div class="nowrap right_align  font_18 font_medium">
+                                            <div class="inblock pad_side_10">
+                                                00002
+                                            </div>
+                                            <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-body">
+                                    <div class="inblock">
+                                        <ul class="case-label grey2 font_medium">
+                                            <li>Due Date</li>
+                                            <li>Priority</li>
+                                            <li>Requester</li>
+                                            <li>Assignee</li>
+                                        </ul>
+                                    </div>
+                                    <div class="inblock">
+                                        <ul>
+                                            <li>12-12-12</li>
+                                            <li>Critical</li>
+                                            <li>Bangs Garcia</li>
+                                            <li>Ellen Adarna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="case-foot">
+                                </div>
+                            </div>
+                            <div class="case-itm">
+                                <div class="status-green">
+                                </div>
+                                <div class="case-head">
+                                    <div class="dis-flx flx-spb-hrt">
+                                        <div>
+                                            <a class="blue3 font_18 font_medium">Woolworths</a>
+                                            <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                                        </div>
+                                        <div class="nowrap right_align  font_18 font_medium">
+                                            <div class="inblock pad_side_10">
+                                                00002
+                                            </div>
+                                            <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-body">
+                                    <div class="inblock">
+                                        <ul class="case-label grey2 font_medium">
+                                            <li>Due Date</li>
+                                            <li>Priority</li>
+                                            <li>Requester</li>
+                                            <li>Assignee</li>
+                                        </ul>
+                                    </div>
+                                    <div class="inblock">
+                                        <ul>
+                                            <li>12-12-12</li>
+                                            <li>Critical</li>
+                                            <li>Bangs Garcia</li>
+                                            <li>Ellen Adarna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="case-foot">
+                                </div>
+                            </div>
+                            <div class="case-itm">
+                                <div class="status-grey">
+                                </div>
+                                <div class="case-head">
+                                    <div class="dis-flx flx-spb-hrt">
+                                        <div>
+                                            <a class="blue3 font_18 font_medium">Woolworths</a>
+                                            <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                                        </div>
+                                        <div class="nowrap right_align  font_18 font_medium">
+                                            <div class="inblock pad_side_10">
+                                                00002
+                                            </div>
+                                            <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="case-body">
+                                    <div class="inblock">
+                                        <ul class="case-label grey2 font_medium">
+                                            <li>Due Date</li>
+                                            <li>Priority</li>
+                                            <li>Requester</li>
+                                            <li>Assignee</li>
+                                        </ul>
+                                    </div>
+                                    <div class="inblock">
+                                        <ul>
+                                            <li>12-12-12</li>
+                                            <li>Critical</li>
+                                            <li>Bangs Garcia</li>
+                                            <li>Ellen Adarna</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="case-foot">
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="show-sm ">
+        <div class="padding_10 dis-flx flx-spb-hrt flx-center font_12 font_medium ">
+            <div>
+                <a class=" btn-plain left_align "><i class="fa fa-filter"></i> Filters </a>
+                <a class=" btn-plain left_align "><i class="fa fa-sort"></i> Sort </a>
+            </div>
+            <!--<div>
+
+
+
+
+                <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Create New Request
+                </button>
+            </div>-->
+        </div>
+        <div class="sec-details-tabs font_12">
+            <!--Tab Menu-->
+            <div class="details-tabs">
+                <div class="dis_table">
+                    <a ng-click="setTab(1)" ng-class="{'active':isSet(1)}" class=" dis_cell">
+                        To Do
+                    </a>
+                    <a ng-click="setTab(2)" ng-class="{'active':isSet(2)}" class="dis_cell">
+                        In Progress
+                    </a>
+                    <a ng-click="setTab(3)" ng-class="{'active':isSet(3)}" class="dis_cell">
+                        Blocked
+                    </a>
+                    <a ng-click="setTab(4)" ng-class="{'active':isSet(4)}" class="dis_cell">
+                        For Review
+                    </a>
+                    <a ng-click="setTab(5)" ng-class="{'active':isSet(5)}" class="dis_cell">
+                        Completed
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="case-ctn">
+            <!--<div class="case-ctn-head dis_table_auto full_width ">
+                <div class="dis_cell cell_xs grey4">
+                    <i class="fa fa-eye pad_side_10"></i>
+                </div>
+                <div class="dis_cell">
+                    <button uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="full_width btn font_medium btn-default">
+                        TO DO
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                </div>
+            </div>-->
+            <div ng-show="isSet(1)" class="case-ctn-body">
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="case-foot">
+                    </div>
+                </div>
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="isSet(2)" class="case-ctn-body">
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="case-foot">
+                    </div>
+                </div>
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="isSet(3)" class="case-ctn-body">
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00003
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="case-foot">
+                    </div>
+                </div>
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="isSet(4)" class="case-ctn-body">
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="case-foot">
+                    </div>
+                </div>
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="isSet(5)" class="case-ctn-body">
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="case-foot">
+                    </div>
+                </div>
+                <div class="case-itm">
+                    <div class="status-grey">
+                    </div>
+                    <div class="case-head">
+                        <div class="dis-flx flx-spb-hrt">
+                            <div>
+                                <a class="blue3 font_18 font_medium">Woolworths</a>
+                                <div class="font_12 grey2 font_bold">PROPOSAL</div>
+                            </div>
+                            <div class="nowrap right_align  font_18 font_medium">
+                                <div class="inblock pad_side_10">
+                                    00002
+                                </div>
+                                <a class="inblock"><i class="fa fa-ellipsis-v"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-body">
+                        <div class="inblock">
+                            <ul class="case-label grey2 font_medium">
+                                <li>Due Date</li>
+                                <li>Priority</li>
+                                <li>Requester</li>
+                                <li>Assignee</li>
+                            </ul>
+                        </div>
+                        <div class="inblock">
+                            <ul>
+                                <li>12-12-12</li>
+                                <li>Critical</li>
+                                <li>Bangs Garcia</li>
+                                <li>Ellen Adarna</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="loading" ng-if="isLoading">Loading&#8230;</div>
+<style type="text/css">
+.multiDemo div[dnd-list] {
+    min-height: 200px;
+    padding-left: 0px;
+}
+
+.multiDemo div[dnd-list] div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: block;
+    margin-bottom: -1px;
+    padding: 10px 15px;
+}
+
+.dndPlaceholder {
+    background-color: #efefef !important;
+    min-height: 155px;
+    border-radius: 2px;
+    border: 3px dashed #d0d0d0 !important;
+    padding: 3px;
+    margin-bottom: 10px;
+    color: #d0d0d0;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    display: block;
+    padding: 55px
+}
+
+.selected {
+    background-color: #d3edff !important;
+    color: #1e587f;
+}
+
+.case-itm:hover {
+    background: inherit;
+}
+
+.dashboard-ctn .dis_cell {
+    /**width: 25%;**/
+}
+
+.case-ctn-body {
+    border-top: 0;
+    padding: 10px;
+    min-height: 100vh;
+    /*min-width: 200px;*/
+}
+
+.dis_cell {
+    vertical-align: inherit;
+}
+
+.case-itm {
+    cursor: move;
+}
+
+.icons-md {
+    margin-top: -3px;
+}
+
+.case-ctn-body .dropdown-menu {
+    left: -135px !important;
+    border: 1px solid rgba(204, 204, 204, 0.15);
+}
+
+.case-ctn-body .dropdown-menu > li > a {
+    font-family: regular;
+}
+
+.dropdown-menu .ti {
+    margin-right: 5px;
+}
+
+.specialbutton {
+    border: 0;
+    background: transparent;
+    margin-right: -10px;
+}
+
+.loading {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* Transparent Overlay */
+
+.loading:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.51);
+}
+
+
+/* :not(:required) hides these rules from IE9 and below */
+
+.loading:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.loading:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner 1500ms infinite linear;
+    -moz-animation: spinner 1500ms infinite linear;
+    -ms-animation: spinner 1500ms infinite linear;
+    -o-animation: spinner 1500ms infinite linear;
+    animation: spinner 1500ms infinite linear;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(253, 253, 253, 0.75) 0 1.5em 0 0, rgba(232, 232, 232, 0.75) -1.1em 1.1em 0 0, rgba(234, 232, 232, 0.75) -1.5em 0 0 0, rgba(236, 234, 234, 0.75) -1.1em -1.1em 0 0, rgba(234, 231, 231, 0.75) 0 -1.5em 0 0, rgba(241, 241, 241, 0.75) 1.1em -1.1em 0 0;
+    box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(253, 253, 253, 0.75) 0 1.5em 0 0, rgba(232, 232, 232, 0.75) -1.1em 1.1em 0 0, rgba(234, 232, 232, 0.75) -1.5em 0 0 0, rgba(236, 234, 234, 0.75) -1.1em -1.1em 0 0, rgba(234, 231, 231, 0.75) 0 -1.5em 0 0, rgba(241, 241, 241, 0.75) 1.1em -1.1em 0 0;
+}
+
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+</style>

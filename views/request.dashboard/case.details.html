@@ -1,85 +1,104 @@
 <div class="wrapper">
-
-
     <div class="sec-option hide-sm">
         <div class="dis-flx flx-spb-hrt font_medium">
             <div class="pad_vertical ">
-                <a class="btn-plain"><i class="fa fa-arrow-left"></i> Back</a>
-                <a class="btn-plain"><i class="fa fa-filter"></i> Filters</a>
-                <a class=" btn-plain left_align "><i class="fa fa-sort"></i> Sort </a>
+                <a class="btn-plain" ui-sref="main.experiment"><i class="fa fa-arrow-left"></i> Back</a>
             </div>
-            <div>
+            <!-- <div>
                 <button type="button" class="btn btn-sm btn-primary"> Update Request</button>
-            </div>
+            </div> -->
         </div>
     </div>
-
-
     <div class="row padding_10">
         <div class="col-lg-3 col-md-4">
             <div class="case-details-widget">
                 <div class="flx-spb-hrt head-case-details font_medium">
-                    <div>CASE-6456546</div>
-                    <div>Not Started</div>
+                    <div>CASE-{{details.request_info.case_number}}</div>
+                    <div style="text-transform: uppercase;">{{details.status_name}}</div>
                 </div>
                 <div class="font_medium font_18 padding_10 blue3">
-                    Woolworths
+                    {{details.request_info.title}}
                 </div>
                 <div class="padding_10">
                     <table class="info_table full_width">
                         <tr>
                             <th>Request Type</th>
-                            <td>Design</td>
+                            <td>{{details.request_info.request_type_name}}</td>
                         </tr>
                         <tr>
                             <th>Request Status</th>
-                            <td>Not Started</td>
+                            <td>{{details.status_name}}</td>
                         </tr>
                         <tr>
                             <th>Date Requested</th>
-                            <td>October 28, 2016</td>
+                            <td>{{details.request_info.date_created | date: 'longDate'}}</td>
                         </tr>
                         <tr>
                             <th>Delivery Date</th>
-                            <td>02-02-16</td>
+                            <td>{{details.request_info.expected_delivery_date| date:'longDate'}}</td>
                         </tr>
                         <tr>
                             <th>Complexity</th>
-                            <td>Simple</td>
+                            <td>{{details.request_info.complexity}}</td>
                         </tr>
                         <tr>
                             <th>Priority Type</th>
-                            <td>High</td>
+                            <td>{{details.request_info.priority_name}}</td>
                         </tr>
                         <tr>
-                            <td><br></td>
+                            <td>
+                                <br>
+                            </td>
                         </tr>
                         <tr>
                             <th>Requestor</th>
                             <td>
-                                <input type="text" class="edit-on-text" value="dasd">
+                                {{details.request_info.requester_details.person_name}}
                             </td>
+                           <!--  <td>
+                                <input type="text" class="edit-on-text" ng-focus="sam()" ng-if="!display">
+                                <ui-select ng-click="sam()" ng-model="displayName.selected" ng-click="btn-edit = true" style="" uib-tooltip="Click to Edit">
+                                    <ui-select-match placeholder="Select" style="outline: 0px;">
+                                        {{$select.selected.displayName}}
+                                    </ui-select-match>
+                                    <ui-select-choices focus-on="sam()" repeat="name in persons | filter: $select.search" position="down">
+                                        <span ng-bind-html="name.displayName | highlight: $select.search"></span>
+                                        <small ng-bind-html="name.code | highlight: $select.search"></small>
+                                    </ui-select-choices>
+                                    <button type="button" class="btn btn-default ">sample</button>
+                                </ui-select>
+                                <div class="edit-btn-container" ng-show="btn-edit">
+                                    <button class="btn btn-xm btn-default"><i class="ti ti-check"></i></button>
+                                    <button class="btn btn-xm btn-default"><i class="ti ti-close"></i></button>
+                                </div>
+                            </td> -->
                         </tr>
                         <tr>
                             <th>Scheduler</th>
                             <td>
-                                <input type="text" class="edit-on-text" value="dasd">
+                             {{details.request_info.scheduler_details.person_name}}
+                               <!--  <input type="text" class="edit-on-text" uib-tooltip="Click to Edit">
+                                <div class="edit-btn-container" ng-show="btn-editz">
+                                    <button class="btn btn-xm btn-default"><i class="ti ti-check"></i></button>
+                                    <button class="btn btn-xm btn-default"><i class="ti ti-close"></i></button>
+                                </div> -->
                             </td>
                         </tr>
                         <tr>
                             <th>Assignee</th>
                             <td>
-                                <input type="text" class="edit-on-text" value="dasd">
+                            {{details.request_info.assignee_details.person_name}}
+                                <!-- <input type="text" class="edit-on-text" value="dasd" uib-tooltip="Click to Edit">
+                                <div class="edit-btn-container" ng-show="btn-edit">
+                                    <button class="btn btn-xm btn-default"><i class="ti ti-check"></i></button>
+                                    <button class="btn btn-xm btn-default"><i class="ti ti-close"></i></button>
+                                </div> -->
                             </td>
                         </tr>
-
                     </table>
                 </div>
             </div>
-
-
             <div class="sec-details-tabs">
-
                 <!--Tab Menu-->
                 <div class="details-tabs">
                     <div class="dis_table">
@@ -94,7 +113,6 @@
                         </a>
                     </div>
                 </div>
-
                 <!--Activities Tab-->
                 <div ng-show="isSet(1)" class="scroll-vt">
                     <table class="info_table tbl-fix-pad full_width tbl-lg tbl-bordered">
@@ -103,11 +121,10 @@
                                 <div class="log-idfr">
                                     <img src="../../images/icons/logs-identifier--09.svg">
                                 </div>
-
                             </td>
                             <td>
                                 <div>
-                                <span class="font_medium ">
+                                    <span class="font_medium ">
                                     Vanessa Gacula
                                 </span> left a
                                     <span class="txt-underlined">
@@ -124,11 +141,10 @@
                                 <div class="log-idfr">
                                     <img src="../../images/icons/logs-identifier--10.svg">
                                 </div>
-
                             </td>
                             <td>
                                 <div>
-                                <span class="font_medium ">
+                                    <span class="font_medium ">
                                     Vanessa Gacula
                                 </span> left a
                                     <span class="txt-underlined">
@@ -145,11 +161,10 @@
                                 <div class="log-idfr">
                                     <img src="../../images/icons/logs-identifier--15.svg">
                                 </div>
-
                             </td>
                             <td>
                                 <div>
-                                <span class="font_medium ">
+                                    <span class="font_medium ">
                                     Vanessa Gacula
                                 </span> left a
                                     <span class="txt-underlined">
@@ -166,11 +181,10 @@
                                 <div class="log-idfr">
                                     <img src="../../images/icons/logs-identifier--12.svg">
                                 </div>
-
                             </td>
                             <td>
                                 <div>
-                                <span class="font_medium ">
+                                    <span class="font_medium ">
                                     Vanessa Gacula
                                 </span> left a
                                     <span class="txt-underlined">
@@ -183,14 +197,46 @@
                             </td>
                         </tr>
                     </table>
-
                 </div>
-
                 <!--Comments Tab-->
-                <div ng-show="isSet(2)" class="sec-comments">
-                    Comments Here
+                <div ng-show="isSet(2)" class="scroll-vt sec-comments flx-spb-vrt">
+                    <div class="box-comment">
+                        <div class="user-block">
+                            <img class="img-circle" src="../images/user1-128x128.jpg" alt="User Image">
+                            <span class="username"><a>Korr Valmoria:</a> Hello Thor, can i ask the asset file for this request? Thanks</span>
+                            <span class="description font_10 grey2">7:30 AM</span>
+                        </div>
+                        <div class="user-block">
+                            <img class="img-circle" src="../images/user1-128x128.jpg" alt="User Image">
+                            <span class="username"><a>Korr Valmoria:</a> Hello Thor, can i ask the asset file for this request? Thanks</span>
+                            <span class="description font_10 grey2">7:30 AM <a>Edit</a></span>
+                        </div>
+                    </div>
+                    <div class="comment-section" emoji-form emoji-message="emojiMessage">
+                        <div class="font_medium blue3">Post a comment</div>
+                        <textarea class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
+                        </textarea>
+                        <div>
+                            <span class="" uib-dropdown style="margin-top: -2px;">
+                            <button class="btn-def font_medium" uib-dropdown-toggle><i
+                                    class="fa fa-paperclip"></i> Attach Files</button>
+                                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                    <li role="menuitem" ng-click="newUploader()">
+                                    <a><img src="../images/icons/folder.svg"> Local Files</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li role="menuitem">
+                                    <a><img src="../images/icons/google-drive.svg"> Google Drive</a>
+                                    </li>
+                                    
+                                </ul>
+                            </span>
+                            <button class="btn-def font_medium " id="emojibtn"><img ng-src="http://i.imgur.com/5WUpcPZ.png" style="height: 18px;"> Emoji
+                            </button>
+                            <button class="btn btn-primary btn-sm pull-right">Post</button>
+                        </div>
+                    </div>
                 </div>
-
                 <!--Attachments Tab-->
                 <div ng-show="isSet(3)" class="scroll-vt sec-attachments">
                     <div class="pad_vertical">
@@ -198,34 +244,23 @@
                             <div class="col-xs-4">
                                 <div class="ctn-attachment ">
                                     <a class="attachments-icon font_medium">
-                                        <img src="../../images/icons/ext-file-pdf.svg">
-                                        dasdas.pdf
+                                        <img src="../../images/icons/ext-file-pdf.svg"> dasdas.pdf
                                     </a>
                                     <a class="float-icon">
                                         <i class="fa fa-download"></i>
                                     </a>
-
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
-
                 </div>
-
-
             </div>
-
         </div>
-
         <div class="col-lg-5 col-md-4">
             <div class=" pad_vertical_15 request-specs">
-
                 <div class=" font_18 font_medium blue3">
                     Request Specifications
                 </div>
-
                 <table class="info_table tbl-bordered full_width tbl-lg ">
                     <tr>
                         <th class="tbl-label" colspan="2">Objectives</th>
@@ -257,11 +292,8 @@
                         <td>Lorem Ipsum dollar.</td>
                     </tr>
                 </table>
-
             </div>
-
         </div>
-
         <div class="col-lg-4 col-md-4">
             <div class="pad_vertical_15 ">
                 <div>
@@ -269,11 +301,10 @@
                         Client Details
                     </div>
                     <br>
-
                     <table class="info_table tbl-bordered full_width tbl-lg ">
                         <tr>
                             <th>Company</th>
-                            <td>Woolworth</td>
+                            <td>{{details.company}}</td>
                         </tr>
                         <tr>
                             <th>ABN/ACN</th>
@@ -284,7 +315,6 @@
                             <td>Emily Homes Cagayan deo orfsdfdsfds fsdfdsf fsdfds</td>
                         </tr>
                     </table>
-
                 </div>
                 <br>
                 <div>
@@ -292,9 +322,7 @@
                         Contact Details
                     </div>
                     <br>
-
                     <table class="info_table tbl-bordered full_width tbl-lg ">
-
                         <tr>
                             <th>Contact Name</th>
                             <td>Anne Curtis</td>
@@ -312,7 +340,6 @@
                             <td>anne@gmail.com</td>
                         </tr>
                     </table>
-
                 </div>
                 <br>
                 <div>
@@ -321,21 +348,131 @@
                     </div>
                     <br>
                     <div>
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec
-                        velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa,
-                        convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci
-                        luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel,
-                        ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at
-                        tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in
-                        ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in
-                        faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet
-                        aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Donec rutrum congue leo eget
-                        malesuada.
+                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Donec rutrum congue leo eget malesuada.
                     </div>
-
                 </div>
             </div>
-
         </div>
     </div>
+</div>
+<style type="text/css">
+.box-comment {
+    padding: 10px;
+}
 
+.user-block {
+    margin: 7px 0;
+}
+
+.user-block img {
+    width: 40px;
+    height: 40px;
+    float: left;
+    border-radius: 50%;
+}
+
+.user-block .username {
+    font-size: 13px;
+    font-weight: 600;
+    display: block;
+    margin-left: 50px;
+}
+
+.user-block .description {
+    display: block;
+    margin-left: 50px;
+}
+
+.comment-section {
+    background: #fdfdfd;
+    border-top: 1px solid #ededed;
+    padding: 10px;
+    /*padding-bottom: 20px;*/
+}
+
+.comment-section textarea {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.comment-section .btn-def {
+    margin-top: 5px;
+    border: 0;
+    background: transparent;
+    font-size: 13px;
+}
+
+.comment-section .btn-def:hover {
+    color: #337ab7;
+}
+
+.comment-section img {
+    margin-top: -3px;
+}
+
+.comment-section .dropdown-menu {
+    top: -500%;
+}
+
+.edit-btn-container {
+    padding: 1px;
+    border: 1px solid #dedede;
+    position: absolute;
+    right: 26px;
+    background: #fff;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 3px 6px rgba(111, 111, 111, 0.2);
+}
+
+.btn-xm {
+    padding: 5px;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.edit-on-text {
+    border: 1px transparent solid;
+    background-position: right;
+    background-repeat: no-repeat;
+}
+
+.ui-select-bootstrap > .form-control.ui-select-match > .btn,
+.ui-select-bootstrap > .ui-select-match > .btn {
+    text-align: left !important;
+    border: solid thin transparent !important;
+}
+
+.ui-select-bootstrap .form-control {
+    height: 23px !important;
+    padding: 1px 3px !important;
+    width: 100% !important;
+    background-position: right;
+    background-repeat: no-repeat;
+    /*border: solid thin transparent;*/
+}
+
+.ui-select-bootstrap .form-control:hover,
+.ui-select-bootstrap .form-control:focus {
+    border: solid thin #719ECE !important;
+    /*transition: all 0.5s ease-in-out;*/
+    outline: none !important;
+    background-image: url('./images/icons/ic_mode_edit_black_18px.svg');
+    background-position: right;
+}
+
+.edit-on-text:hover,
+.edit-on-text:focus {
+    border: solid thin #719ECE;
+    outline: none !important;
+    background-image: url('./images/icons/ic_mode_edit_black_18px.svg');
+    background-position: right;
+}
+
+.ui-select-bootstrap .ui-select-toggle > .caret {
+    display: none;
+}
+
+.emoji-menu {
+    box-shadow: rgba(0, 0, 0, 0.172549) 0px 6px 12px !important;
+}
+</style>

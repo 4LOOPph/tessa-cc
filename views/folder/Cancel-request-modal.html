@@ -1,0 +1,70 @@
+<div class="modal-header">
+    <h4 class="modal-title">Cancel Request</h4>
+</div>
+<div class="modal-body no-padding" id="modal-body">
+    <div class="box">
+        <!--   <form class="form-horizontal" id="cancel1">
+            <div class="box-body" style="padding-top: 20px;">
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">Please provide details why the request needs to be cancelled.</label>
+                    <div class="col-sm-12">
+                        <textarea class="form-control" rows="7">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </form> -->
+        <form class="form-horizontal" id="cancel2">
+            <div class="box-body" style="padding-top: 20px;">
+                <div class="center">
+                    <img src="../images/icons/ic_report_problem_black_48px.svg" style="width: 70px;">
+                    <br>
+                </div>
+                <div class="grey2" style="text-align: center;">
+                    <div>Operation can not be undone.</div>
+                    <div>Are you sure you want to cancel this request?</div>
+                </div>
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- <div class="modal-footer" id="footer1">
+    <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
+    <button class="btn btn-primary" type="button" ng-click="send()">Confirm</button>
+</div> -->
+<div class="modal-footer" id="footer2">
+    <button class="btn btn-primary-alt" type="button" ng-click="cancel()">No, do not cancel request</button>
+    <button class="btn btn-primary" type="button" ng-click="send()">Yes, cancel request</button>
+</div>
+<style type="text/css">
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.uib-button-bar {
+    padding: 5px !important;
+}
+
+.modal-title {
+    font-size: 20px;
+}
+
+.center {
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+</style>
