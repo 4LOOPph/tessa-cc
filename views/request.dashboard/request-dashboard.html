@@ -30,19 +30,19 @@
                                 </h3>
                             </div>
                         </div>
-                        <div class="case-ctn-body" dnd-list="list.listName" dnd-drop="onDrop('move cards vertical',event,list, item)">
-                            <div class="case-itm" ng-repeat="item in list.items" dnd-draggable="getSelectedItemsIncluding(list, item)" dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)" dnd-dragend="list.dragging = false" dnd-selected="logEvent(list,item)" ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected" dnd-callback="callback({targetList: list, targetIndex: index})" dnd-horizontal-list="false">
+                        <div class="case-ctn-body" dnd-list="list" dnd-dragover="dragoverCallback(index, external, type, callback)" dnd-drop="onDrop('move cards vertical',event,list, item)">
+                            <div class="case-itm" ng-repeat="item in list.items" dnd-draggable="getSelectedItemsIncluding(list, item)" dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)" dnd-dragend="list.dragging = false" dnd-selected="logEvent(item)" ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected" dnd-callback="container.items.length" dnd-horizontal-list="false" dnd-dragstart="logEvent('Started to drag an item')" dnd-disable-if="item.drag">
                                 <div ng-class="{
-                                'status-red': item.date == 'Overdue',
-                                'status-orange': item.date == '3 days',
-                                'status-green': item.date == 'Completed',
-                                'status-grey': item.date == '5 days'}">
+                                'status-red': item.current > 5 || item.current == 0,
+                                'status-orange': item.current == 3,
+                                'status-green': item.current < 5 && item.status_name == 'completed',
+                                'status-grey': item.current == 5}">
                                 </div>
                                 <div class="case-head">
                                     <div class="dis-flx flx-spb-hrt">
                                         <div class="set-ellipses">
                                             <a class="blue3 font_18 font_medium" ui-sref="main.caseDetails({case_id:item.request_info.request_id})">{{item.request_info.title}}</a>
-                                            <div class="font_12 grey2 font_bold">{{item.request_info.remark}}</div>
+                                            <div class="font_12 grey2 font_bold">{{item.request_info.request_type_name}}</div>
                                         </div>
                                         <div class="nowrap right_align  font_18 font_medium">
                                             <div class="inblock clear-scroll pad_side_10">
@@ -53,7 +53,7 @@
                                                 <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
                                                     <li role="menuitem"><a ng-click="manualupdateStatus(list,item)"><i
                                                             class="ti ti-pencil-alt"></i> Update Status</a></li>
-                                                   <!--  <li role="menuitem"><a><i class="ti ti-trash"></i> Cancel
+                                                    <!--  <li role="menuitem"><a><i class="ti ti-trash"></i> Cancel
                                                         Request</a></li> -->
                                                     <li role="menuitem"><a ui-sref="main.caseDetails({case_id:item.request_info.request_id})"><i class="ti ti-eye"></i> View Details</a>
                                                     </li>
@@ -73,17 +73,17 @@
                                     </div>
                                     <div class="inblock">
                                         <ul>
-                                            <li>{{item.request_info.due_date}}</li>
+                                            <li>{{item.request_info.due_date| date:'longDate'}}</li>
                                             <li>{{item.request_info.priority_name}}</li>
-                                            <li>{{item.request_info.requester}}</li>
-                                            <li>{{item.request_info.scheduler}}</li>
+                                            <li>{{item.request_info.requester_details.person_name}}</li>
+                                            <li>{{item.request_info.scheduler_details.person_name}}</li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="case-foot">
                                 </div>
                             </div>
-                            <div class="dndPlaceholder">
+                            <div class="dndPlaceholder" ng-if="sam">
                                 Drop here!
                             </div>
                         </div>
@@ -845,7 +845,7 @@
 
 .dndPlaceholder {
     background-color: #efefef !important;
-    min-height: 155px;
+    /*min-height: 100%;*/
     border-radius: 2px;
     border: 3px dashed #d0d0d0 !important;
     padding: 3px;
@@ -856,7 +856,21 @@
     text-align: center;
     vertical-align: middle;
     display: block;
-    padding: 55px
+    padding: 55px;
+    padding-top: 50vh;
+    min-height: 100vh;
+    /*position: absolute;*/
+    top: 50px;
+    width: 230px;
+    z-index: 9999;
+}
+
+.case-body {
+    overflow: hidden;
+}
+
+.set-ellipses {
+    overflow: hidden;
 }
 
 .selected {
