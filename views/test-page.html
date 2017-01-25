@@ -1,55 +1,531 @@
-<div class="font_18 blue3 font_medium">
-    Request Type
-</div>
+<!--Progress bar-->
+<div class="form-wizard wrapper">
+    <div class="">
+        <!--For the progress bar-->
 
-<div class="sec-qst">
-    <div class="font_16 grey2 font_medium">
-        What type of request do you want to send?
+
+        <div>
+
+            <div id="step-one" ng-show="isSet(1)">
+                <div class="qtn-ctn" id="company-info">
+                    <div class="sec-qtn">
+                        <div class="form-type">
+                            Tell us about your client.
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="pad_vertical">
+                                    <div class="qtn qtn-default">
+                                        Company Name
+                                    </div>
+                                    <div>
+                                        <angucomplete-alt placeholder="Search..." pause="100" local-data="companies" selected-object="getCompany" search-fields="name" title-field="name" minlength="1" input-class="form-control" match-class="highlight" override-suggestions="true">
+                                    </div>
+                                    <!-- <div>
+                                        <input type="text" class="form-control" id="focusedinput">
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="pad_vertical">
+                                    <div class="qtn qtn-default">
+                                        ABN/ACN
+                                    </div>
+                                    <div>
+                                        <input type="text" class="form-control" id="focusedinput">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="pad_vertical">
+                                    <div class="qtn qtn-default">
+                                        Billing Address
+                                    </div>
+                                    <div>
+                                        <textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6">
+                                <div class="pad_vertical">
+                                    <div class="qtn qtn-default flx-spb-hrt">
+                                        <div>Shipping Address</div>
+                                        <div><input type="checkbox" ng-model="shipping"> Same as shipping address</div>
+                                    </div>
+                                    <div>
+                                        <textarea name="txtarea1" id="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--Shipping Details-->
+
+
+                        <br>
+                        <!--Buttons-->
+                        <div class="btn-ctn flx-spb-hrt font_medium">
+                            <div></div>
+                            <button ng-click="addRequest('contact-info')" class=" btn btn-primary">
+                                Proceed
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!--Contact Details-->
+                <div id="contact-info" class="qtn-ctn" ng-if="contactInfo">
+                    <div>
+                        <div>
+                            <div class="form-type">
+                                Provide contact information.
+                            </div>
+                        </div>
+
+                        <div class="sec-qtn">
+                            <!--Question-->
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-7">
+                                    <div class="pad_vertical">
+                                        <div class="qtn qtn-default">
+                                            Contact name
+                                        </div>
+                                        <div>
+                                            <input type="text" class="form-control" id="focusedinput">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-5">
+                                    <div class="pad_vertical">
+                                        <div class="qtn qtn-default">
+                                            Contact email
+                                        </div>
+                                        <div>
+                                            <input type="text" class="form-control" id="focusedinput">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-12">
+                                    <div class="pad_vertical">
+                                        <div class="qtn qtn-default">
+                                            Contact number (home)
+                                        </div>
+                                        <div>
+                                            <input type="text" class="form-control" id="focusedinput">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4 col-xs-12">
+                                    <div class="pad_vertical">
+                                        <div class="qtn qtn-default">
+                                            Contact number (work)
+                                        </div>
+                                        <div>
+                                            <input type="text" class="form-control" id="focusedinput">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <!--Buttons-->
+                            <div class="btn-ctn flx-spb-hrt font_medium">
+                                <button ng-click="scrollTo('company-info')" class="btn btn-default">
+                                    Back
+                                </button>
+                                <button ng-click="setTab(2)" class="btn btn-success">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <div id="step-two" ng-show="isSet(2)">
+                <!-- Select Proposal-->
+                <div ng-include="'../views/request.dashboard/add.request.html'">
+                </div>
+
+            </div>
+
+
+            <div id="step-three" ng-show="isSet(3)">
+                <div class="qtn-ctn">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="font_18 font_medium blue1">
+                                Review request.
+                            </div>
+                            <br>
+                            <p>You have successfully filled out necessary information for you request. Please take time
+                                to review it below and edit necessary details you desire to change. Once your request is
+                                <b>Final</b>, please click <b>Next</b> below to continue.</p>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class=" pad_vertical_15 request-specs">
+                                <div class="flx-spb-hrt">
+                                    <div class=" font_16 font_bold blue3">
+                                        CUSTOMER DETAILS
+                                    </div>
+                                    <div>
+                                        <a class=" font_medium">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <table class="info_table tbl-bordered full_width tbl-lg ">
+                                    <tbody>
+                                    <tr>
+                                        <th class="tbl-label" colspan="2">Customer details</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Company</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>ABN/ACN</th>
+                                        <td>Lorem Ipsum</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="tbl-label" colspan="2">Contact Details</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact name</th>
+                                        <td>
+                                            Emily Rose
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact address</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact email</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact number (Home)</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact number (Work)</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <div class=" pad_vertical_15 request-specs">
+                                <div class="flx-spb-hrt">
+                                    <div class=" font_16 font_bold blue3">
+                                        REQUEST DETAILS
+                                    </div>
+                                    <div>
+                                        <a class=" font_medium">
+                                            <i class="fa fa-edit"></i> Edit
+                                        </a>
+                                    </div>
+
+                                </div>
+                                <table class="info_table tbl-bordered full_width tbl-lg ">
+                                    <tbody>
+                                    <tr>
+                                        <th class="tbl-label" colspan="2">Customer details</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Company</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>ABN/ACN</th>
+                                        <td>Lorem Ipsum</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="tbl-label" colspan="2">Contact Details</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact name</th>
+                                        <td>
+                                            Emily Rose
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact address</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact email</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact number (Home)</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact number (Work)</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="tbl-label" colspan="2">Contact Details</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact name</th>
+                                        <td>
+                                            Emily Rose
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact address</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact email</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact number (Home)</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact number (Work)</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="tbl-label" colspan="2">Contact Details</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact name</th>
+                                        <td>
+                                            Emily Rose
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact address</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact email</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact number (Home)</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Contact number (Work)</th>
+                                        <td>Lorem Ipsum dollar.</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="row font_medium">
+                        <div class="col-xs-6">
+                            <button class="btn btn-default">
+                                Back
+                            </button>
+
+                        </div>
+                        <div class="col-xs-6 right_align">
+                            <button class="btn btn-success">
+                                Next
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
     </div>
 
-    <div class="dis_table_auto sec-wiz-option">
-        <a class="dis_cell ;">
-            <div class="wiz-option">
-                <!--<figure class="img_holder">
-                    <img src="../images/icons/logs-identifier--12.svg"/>
-                </figure>-->
-                <div class="font_14 font_medium blue3 ">
-                    Proposal
-                </div>
-                <div class="font_12 ">
-                    Hot fudge with rocky road.
-                </div>
-            </div>
-        </a>
-        <a class="dis_cell">
-            <div class="wiz-option active">
 
-                <div class="font_14 font_medium  ">
-                    Proposal
-                </div>
-                <div class="font_12 ">
-                    Hot fudge with rocky road.
-                </div>
-            </div>
-        </a>
+</div>
+
+<div>
+    <div class="prog-bar">
+        <div class="dis_table full_width font_medium  " ng-class="navClass">
+            <a ng-click="setTab(1)" ng-class="{'active':isSet(1)}" class="dis_cell step-focus">
+                <span class="step-ind">1</span> Customer details
+            </a>
+            <a ng-click="setTab(2)" ng-class="{'active':isSet(2)}" class="dis_cell">
+                Add request
+            </a>
+            <a ng-click="setTab(3)" ng-class="{'active':isSet(3)}" class="dis_cell">
+                Send request
+            </a>
+
+        </div>
     </div>
 </div>
 
-<div class="flx-spb-hrt full_width font_medium">
-    <button type="button" class="btn btn-sm btn-default-alt">
-        Back
-    </button>
-    <button type="button" class="btn btn-sm btn-primary">
-        Back
-    </button>
-    <span class="icon-logs-identifier--13"></span>
-</div>
+<!--Question Instance-->
+
+<!--<div>
+    <div class="font_18 blue3 font_medium" >
+        Request Type
+    </div>
+
+    <div class="sec-qst">
+        <div class="font_16 grey2 font_medium">
+            What type of request do you want to send?
+        </div>
+
+        <div class="dis_table_auto sec-wiz-option">
+            <a class="dis_cell ;">
+                <div class="wiz-option">
+                    <div class="font_14 font_medium blue3 ">
+                        Proposal
+                    </div>
+                    <div class="font_12 ">
+                        Hot fudge with rocky road.
+                    </div>
+                </div>
+            </a>
+            <a class="dis_cell">
+                <div class="wiz-option active">
+
+                    <div class="font_14 font_medium  ">
+                        Proposal
+                    </div>
+                    <div class="font_12 ">
+                        Hot fudge with rocky road.
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="flx-spb-hrt full_width font_medium">
+        <button type="button" class="btn btn-sm btn-default-alt">
+            Back
+        </button>
+        <button type="button" class="btn btn-sm btn-primary">
+            Go
+        </button>
+
+    </div>
+
+
+</div>-->
+
+
+<!--<div class="col-md-6">-->
+    <!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
+    <!--<br>-->
+    <!--<input type="text" name="" ng-model="slider.value">-->
+<!--</div>-->
+
+
+
+
+<!--<div class="col-md-6" style="margin-top: 100px;margin-bottom: 100px;">-->
+    <!--<wizard>-->
+        <!--<wz-step wz-title="Request Type" wz-disabled="{{disabled}}">-->
+            <!--<h1>This is the first step</h1>-->
+            <!--<p>Here you can use whatever you want. You can use other directives, binding, etc.</p>-->
+            <!--<input type="submit" wz-next value="Continue"/>-->
+        <!--</wz-step>-->
+        <!--<wz-step wz-title="Solution Details">-->
+            <!--<h1>Continuing</h1>-->
+            <!--<p>You have continued here!</p>-->
+            <!--<input type="submit" wz-next value="Go on"/>-->
+        <!--</wz-step>-->
+        <!--<wz-step wz-title="Hardware">-->
+            <!--<h1>Continuing</h1>-->
+            <!--<p>You have continued here!</p>-->
+            <!--<input type="submit" wz-next value="Go on"/>-->
+        <!--</wz-step>-->
+        <!--<wz-step wz-title="Installation">-->
+            <!--<h1>Continuing</h1>-->
+            <!--<p>You have continued here!</p>-->
+            <!--<input type="submit" wz-next value="Go on"/>-->
+        <!--</wz-step>-->
+        <!--<wz-step wz-title="Additional Services">-->
+            <!--<p>Even more steps!!</p>-->
+            <!--<input type="submit" wz-next value="Finish now"/>-->
+        <!--</wz-step>-->
+    <!--</wizard>-->
+<!--</div>-->
 
 
 <style>
-    .sec-qst{
-        margin-top:15px;
+    .step-ind {
+        font-size: 12px;
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
     }
+
+    .prog-bar a {
+        border-right: solid thin #bdbdbd;
+        text-decoration: none;
+        border-bottom: solid 3px #ededed;
+        background: #fafafa;
+        color: #bdbdbd;
+    }
+
+    .prog-bar .step-focus {
+        border-bottom: solid 3px #337AB7;
+        background: white;
+        color: #337AB7;
+    }
+
+    .big {
+        font-size: 18px;
+        height: 60px;
+    }
+
+    .small {
+        font-size: 14px;
+        height: 40px;
+    }
+
+    .prog-bar {
+        border-left: solid thin #ededed;
+        border-right: 0 !important;
+        position: fixed;
+        background: #ffffff;
+        text-align: center;
+    }
+
+    .prog-bar .dis_table {
+        -webkit-transition: 0.3s 0.5s ease-in-out all;
+        -moz-transition: 0.3s 0.5s ease-in-out all;
+        -o-transition: 0.3s 0.5s ease-in-out all;
+        transition: 0.3s 0.5s ease-in-out all;
+    }
+
+    .sec-qst {
+        margin-top: 15px;
+    }
+
     .wiz-option {
         padding: 20px 10px;
         text-align: center;
@@ -83,9 +559,239 @@
     .sec-wiz-option a {
         text-decoration: none;
     }
+
+    .rzslider .rz-tick {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        margin-left: 8px;
+        text-align: center;
+        cursor: pointer;
+        background: #bcc5da;
+        border-radius: 50%;
+    }
+
+    .rzslider .rz-pointer {
+        top: -11px;
+        z-index: 3;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        background-color: #00a2d6;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        border-radius: 16px;
+    }
+
+    .rzslider .rz-selection {
+        z-index: 2;
+        background: #00a2d6 !important;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    .rzslider .rz-bar {
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 4px;
+        background: #bcc5da;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    .rzslider .rz-pointer.rz-active:after {
+        background-color: #fff !important;
+    }
+
+    .rzslider .rz-pointer:after {
+        position: absolute;
+        top: 9px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        content: '';
+    }
+
+    .steps-indicator li a:before,
+    .steps-indicator:before {
+        background-color: #aeaeae;
+        content: '';
+    }
+
+    .steps-indicator li.current a:before {
+        background-color: #004d7f !important;
+    }
+
+    div {
+        counter-reset: my-awesome-counter;
+    }
+
+    .steps-indicator li a {
+        counter-increment: my-awesome-counter;
+    }
+
+    .steps-indicator li a:before {
+        position: absolute;
+        top: -10px;
+        left: calc(50% - 10px);
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        transition: .25s;
+        content: counter(my-awesome-counter);
+        -webkit-align-content: center;
+        align-content: center;
+        color: #fff;
+        padding: 2.5px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .steps-indicator li.done a:before {
+        background-color: #28b328 !important;
+        color: #fff;
+        background-image: url('./images/icons/ic_done_white_24px.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        content: close-quote;
+        /*content: "\f00c";
+        font: normal normal normal 14px/1 FontAwesome;
+        font-weight: 300;*/
+    }
+
+    .steps-indicator li.editing a:before {
+        background-color: #167116 !important;
+        background-image: url('./images/icons/ic_done_white_24px.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        content: close-quote;
+    }
+
+    .steps-indicator li a {
+        text-decoration: none;
+        text-transform: none;
+        font-weight: 700;
+        transition: .25s;
+        cursor: pointer;
+        font-size: 11px;
+    }
+
+    .steps-indicator li.editing a,
+    .steps-indicator li.done a {
+        color: #337ab7;
+    }
+
+    .steps-indicator.steps-5:before {
+        left: calc(100% / 5 / 1.9);
+        right: calc(100% / 5 / 1.7);
+    }
+
+    .steps-indicator:before {
+        position: absolute;
+        height: 3px;
+        margin-top: -1px;
+    }
+
+    .steps-indicator li.current {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background-color: #004d7f;
+    }
+
+    .steps-indicator li.editing:first-child,
+
+        /*.steps-indicator li.done:first-child,*/
+
+    .steps-indicator li.current:first-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #004d7f));
+    }
+
+    .steps-indicator li.done:first-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #28b328));
+    }
+
+    .steps-indicator li.current:last-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #004d7f), color-stop(50%, transparent));
+    }
+
+    .steps-indicator li.done:last-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));
+    }
+
+    .steps-indicator li.editing:last-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));
+    }
+
+    /*.steps-indicator li.default,*/
+
+    .steps-indicator li.editing {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background-color: #28b328;
+    }
+
+    .steps-indicator li.done {
+        background-color: #28b328;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+    }
+
+    .steps-indicator {
+        right: 0;
+        /* bottom: -56px; */
+        left: 0;
+        margin: 0;
+        padding: 20px 0 0;
+        height: 30px;
+        list-style: none;
+        position: absolute;
+        top: -112px;
+    }
 </style>
-
-
 <!--email template-->
 <!--<div style="width:100%; background:#004d7f; position:relative; height:550px;">
 

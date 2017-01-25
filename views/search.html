@@ -1,4 +1,4 @@
-<div id="search-page" class="wrapper">
+<div id="search-page" class="wrapper" uib-collapse="isNavCollapsed">
     <div class="sec-search-filter">
         <div class="grey2">
             <span class="font_bold">FILTER:</span>
@@ -9,16 +9,16 @@
                 <button uib-popover-template="dynamicPopover.templateUrl" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">
                     Product Type <i class="fa fa-caret-down"></i>
                 </button>
-                <button uib-popover-template="dynamicPopover.templateUrl2" popover-trigger="outsideClick" popover-placement="bottom " type="button" class="btn font_medium btn-default">
+                <button uib-popover-template="dynamicPopover.templateUrl2" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">
                     Eze Suite Family <i class="fa fa-caret-down"></i>
                 </button>
-                <button uib-popover-template="dynamicPopover.templateUrl3" popover-trigger="outsideClick " popover-placement="bottom " type="button" class="btn font_medium btn-default">
+                <button uib-popover-template="dynamicPopover.templateUrl3" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">
                     Location <i class="fa fa-caret-down"></i>
                 </button>
-                <button uib-popover-template="dynamicPopover.templateUrl4" popover-trigger="outsideClick " popover-placement="bottom " type="button" class="btn font_medium btn-default">
+                <button uib-popover-template="dynamicPopover.templateUrl4" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">
                     Mounting Configuration<i class="fa fa-caret-down "></i>
                 </button>
-                <button uib-popover-template="dynamicPopover.templateUrl5" popover-trigger="outsideClick " popover-placement="bottom " type="button" class="btn font_medium btn-default">
+                <button uib-popover-template="dynamicPopover.templateUrl5" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">
                     Usages <i class="fa fa-caret-down"></i>
                 </button>
                 <button uib-popover-template="dynamicPopover.templateUrl7" popover-trigger="outsideClick" popover-placement="bottom" type="button" class="btn font_medium btn-default">
@@ -108,17 +108,14 @@
                 </div>
 
             </div>
-            <div class="col-xs-12 loadmore " ng-if="limitWithPage < filtersearch.length ">
-                <a ng-if="showLoadMore" ng-show="!loadmore " ng-click="addMoreItems()">Load More</a>
+            <div class="col-xs-12 loadmore" ng-if="limitWithPage < filtersearch.length">
+                <a ng-if="showLoadMore" ng-show="!loadmore" ng-click="addMoreItems()">Load More</a>
                 <div class="loader" ng-show="loadmore">
                 </div>
             </div>
 
         </div>
     </div>
-
-
-
 
 </div>
 <script type="text/ng-template" id="productType.html">
@@ -133,19 +130,19 @@
         </div>
     </div>
 </script>
-<script async type="text/ng-template" id="ezefamily.html">
+<script type="text/ng-template" id="ezefamily.html">
     <div class="form-group">
         <div class="pad_vertical">
             <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
         </div>
-        <div class="checkbox" ng-repeat="eze in experiencedata | filter:searchEzeFamily ">
+        <div class="checkbox" ng-repeat="eze in experiencedata | filter:searchEzeFamily">
             <label>
                 <input type="checkbox" ng-click="toggleSelectedType(eze,2)" ng-model="eze.checked"> {{eze.label}}
             </label>
         </div>
     </div>
 </script>
-<script async type="text/ng-template" id="location.html">
+<script type="text/ng-template" id="location.html">
     <div class="form-group">
         <div class="pad_vertical">
             <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
@@ -157,10 +154,10 @@
         </div>
     </div>
 </script>
-<script async type="text/ng-template" id="configuration.html">
+<script type="text/ng-template" id="configuration.html">
     <div class="form-group">
         <div class="pad_vertical">
-            <input type="search" class="form-control" placeholder="Search... " ng-model="searchEzeFamily" />
+            <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
         </div>
         <div class="checkbox" ng-repeat="type in config | filter:searchEzeFamily">
             <label>
@@ -169,10 +166,10 @@
         </div>
     </div>
 </script>
-<script async type="text/ng-template" id="usages.html ">
+<script type="text/ng-template" id="usages.html">
     <div class="form-group">
         <div class="pad_vertical">
-            <input type="search" class="form-control " placeholder="Search..." ng-model="searchEzeFamily" />
+            <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
         </div>
         <div class="checkbox" ng-repeat="type in Usage | filter:searchEzeFamily ">
             <label>
@@ -181,7 +178,7 @@
         </div>
     </div>
 </script>
-<script async type="text/ng-template " id="orientation.html">
+<script type="text/ng-template" id="orientation.html">
     <div class="form-group">
         <div class="pad_vertical">
             <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />
@@ -193,10 +190,10 @@
         </div>
     </div>
 </script>
-<script async type="text/ng-template" id="brightness.html">
+<script type="text/ng-template" id="brightness.html">
     <div class="form-group">
         <div class="pad_vertical">
-            <input type="search" class="form-control" placeholder="Search... " ng-model="searchEzeFamily " />
+            <input type="search" class="form-control" placeholder="Search... " ng-model="searchEzeFamily" />
         </div>
         <div class="checkbox" ng-repeat="type in Brightness | filter:searchEzeFamily">
             <label>
@@ -205,7 +202,7 @@
         </div>
     </div>
 </script>
-<script async type="text/ng-template" id="bezelsize.html">
+<script type="text/ng-template" id="bezelsize.html">
     <div class="form-group">
         <div class="pad_vertical">
             <input type="search" class="form-control" placeholder="Search..." ng-model="searchEzeFamily" />

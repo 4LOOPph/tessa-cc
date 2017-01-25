@@ -1,0 +1,182 @@
+<div class="modal-header">
+    <h4 class="modal-title">Display Option</h4>
+</div>
+<div class="modal-body no-padding" id="modal-body">
+    <div class="box">
+        <form class="form-horizontal" id="update1" name="updateForm">
+            <div class="box-body" style="padding-top: 20px;">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Assign to</label>
+                    <div class="col-sm-9" required>
+                        <select class="form-control" name="selected" ng-model="data.singleSelect" ng-change="getdisplayOption(data.singleSelect)">
+                            <option value="" disabled>Please select</option>
+                            <option value="recent">Top most recent</option>
+                            <option value="range">By date range</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group" ng-if="display">
+                    <label class="col-sm-3 control-label">From</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="details.valid_until" data-date-format="MM-dd-yyyy" bs-datepicker/>
+                            <!-- <input ng-model="myDate" type="text" class="form-control" placeholder="Choose a date" /> -->
+                            <span class="input-group-addon" style="cursor: pointer">
+                                <i class="fa fa-lg fa-calendar"></i>
+                                </span>
+                        </div>
+                    </div>
+                    <!-- <label class="col-sm-3 control-label">To</label> -->
+                    <!--  <div class="col-sm-9">
+                        <datepicker date-format="EEEE, MMMM d, y" selector="form-control">
+                            <div class="input-group">
+                                <input class="form-control" placeholder="Choose a date" />
+                                <span class="input-group-addon" style="cursor: pointer">
+                                <i class="fa fa-lg fa-calendar"></i>
+                                </span>
+                            </div>
+                        </datepicker>
+                    </div> -->
+                </div>
+            </div>
+        </form>
+        <!--  <form class="form-horizontal" id="update2">
+            <div class="box-body" style="padding-top: 20px;">
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">Choose Action</label>
+                    <div class="col-sm-12">
+                        <div class="btn-group">
+                            <label for="cb" class="btn btn-primary btn-primary-switch" ng-model="approve">
+                                Approve
+                                <input type="checkbox" class="checkbox" name="cb" id="cb" onclick="selectOnlyThis(this)">
+                            </label>
+                            <label for="cb2" class="btn btn-primary btn-primary-switch">
+                                Needs revision
+                                <input type="checkbox" class="checkbox" name="cb" id="cb2" onclick="selectOnlyThis(this)">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-12 control-label">Remarks</label>
+                    <div class="col-sm-12">
+                        <textarea class="form-control" rows="4">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </form> -->
+    </div>
+</div>
+<!-- <div class="modal-footer">
+    <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
+    <button class="btn btn btn-primary" type="button" ng-click="send()">Update</button>
+</div> -->
+<div class="modal-footer">
+    <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
+    <!-- <button class="btn btn btn-primary" type="button" ng-disabled="updateForm.$invalid" ng-click="update()">Confirm</button> -->
+</div>
+<style type="text/css">
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.uib-button-bar {
+    padding: 5px !important;
+}
+
+._720kb-datepicker-calendar-month span {
+    color: rgba(0, 0, 0, 0.51);
+}
+
+datepicker .input-group-addon {
+    background-color: #fff;
+}
+
+.modal-title {
+    font-size: 20px;
+}
+
+.btn-primary-switch {
+    color: #2e6da4;
+    background-color: #fff;
+    border-color: #2e6da4 !important;
+    width: 165px !important;
+}
+
+.btn-primary-switch:active,
+.btn-primary-switch:visited,
+.btn-primary-switch.active,
+.btn-primary-switch:focus {
+    color: #ffffff !important;
+    background-color: #337ab7 !important;
+    border-color: #2e6da4 !important;
+    width: 165px !important;
+}
+
+.btn-group label input[type=checkbox]:focus {
+    background-color: #337ab7 !important;
+    border-color: #2e6da4 !important;
+}
+
+.activezzzz {
+    color: #ffffff !important;
+    background-color: #337ab7 !important;
+    border-color: #2e6da4 !important;
+}
+
+.checkbox {
+    position: absolute;
+    top: 0.700rem;
+    margin: 0 1rem 0 0;
+    cursor: pointer;
+    right: 15px;
+}
+
+.checkbox:before {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    content: "";
+    position: absolute;
+    left: -2px;
+    z-index: 1;
+    top: 4px;
+    width: 1.4rem;
+    height: 1.8rem;
+    border: 2px solid transparent;
+}
+
+.checkbox:checked:before {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    height: 0.8rem;
+    border-color: #337ab7;
+    border-top-style: none;
+    border-right-style: none;
+}
+
+.checkbox:after {
+    content: "";
+    position: absolute;
+    top: -0.125rem;
+    left: -5px;
+    width: 2.1rem;
+    height: 2.1rem;
+    background: #fff;
+    cursor: pointer;
+    border-radius: 50%;
+}
+</style>
+<script type="text/javascript">
+function selectOnlyThis(id) {
+    var cb = document.getElementsByName("cb");
+    Array.prototype.forEach.call(cb, function(el) {
+        el.checked = false;
+    });
+    id.checked = true;
+}
+</script>
