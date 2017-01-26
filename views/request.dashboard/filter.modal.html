@@ -19,24 +19,25 @@
                     <label class="col-sm-3 control-label">From</label>
                     <div class="col-sm-9">
                         <div class="input-group">
-                            <input type="text" class="form-control" ng-model="details.valid_until" data-date-format="MM-dd-yyyy" bs-datepicker/>
+                            <input type="text" class="form-control" ng-model="detail.date_from" data-date-format="MM-dd-yyyy" bs-datepicker/>
                             <!-- <input ng-model="myDate" type="text" class="form-control" placeholder="Choose a date" /> -->
                             <span class="input-group-addon" style="cursor: pointer">
                                 <i class="fa fa-lg fa-calendar"></i>
                                 </span>
                         </div>
                     </div>
-                    <!-- <label class="col-sm-3 control-label">To</label> -->
-                    <!--  <div class="col-sm-9">
-                        <datepicker date-format="EEEE, MMMM d, y" selector="form-control">
-                            <div class="input-group">
-                                <input class="form-control" placeholder="Choose a date" />
-                                <span class="input-group-addon" style="cursor: pointer">
+                </div>
+                <div class="form-group" ng-if="display">
+                    <label class="col-sm-3 control-label">To</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="detail.date_to" data-date-format="MM-dd-yyyy" bs-datepicker/>
+                            <!-- <input ng-model="myDate" type="text" class="form-control" placeholder="Choose a date" /> -->
+                            <span class="input-group-addon" style="cursor: pointer">
                                 <i class="fa fa-lg fa-calendar"></i>
                                 </span>
-                            </div>
-                        </datepicker>
-                    </div> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
@@ -74,7 +75,7 @@
 </div> -->
 <div class="modal-footer">
     <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
-    <!-- <button class="btn btn btn-primary" type="button" ng-disabled="updateForm.$invalid" ng-click="update()">Confirm</button> -->
+    <button class="btn btn btn-primary" type="button" ng-click="confirm()">Confirm</button>
 </div>
 <style type="text/css">
 .form-horizontal .control-label {
@@ -169,6 +170,10 @@ datepicker .input-group-addon {
     background: #fff;
     cursor: pointer;
     border-radius: 50%;
+}
+.datepicker{
+    display:inherit !important;
+    position:absolute !important;
 }
 </style>
 <script type="text/javascript">

@@ -6,14 +6,16 @@
         <form class="form-horizontal" id="update1" name="updateForm">
             <div class="box-body" style="padding-top: 20px;">
                 <div class="form-group" ng-if="!cards">
-                    <label class="col-sm-3 control-label" >Move to</label>
+                    <label class="col-sm-3 control-label">Move to</label>
                     <div class="col-sm-9">
                         <select class="form-control" ng-model="actions" ng-change="getAction(actions)">
-                            <option ng-hide="list.listName == 'to do'">To do</option>
+                            <!-- <option value=" " selected disabled>Select</option> -->
+                            <option ng-repeat="list in lists" ng-if="list.display">{{list.listName}}</option>
+                            <!-- <option ng-hide="list.listName == 'to do'">To do</option>
                             <option ng-hide="list.listName == 'in progress'">In progress</option>
                             <option ng-hide="list.listName == 'blocked'">Blocked</option>
                             <option ng-hide="list.listName == 'for review'">For review</option>
-                            <option ng-hide="list.listName == 'completed'">Completed</option>
+                            <option ng-hide="list.listName == 'completed'">Completed</option> -->
                         </select>
                     </div>
                 </div>
@@ -24,7 +26,7 @@
                         </select>
                     </div>
                 </div> -->
-               <!--  <div class="form-group">
+                <!--  <div class="form-group">
                     <label class="col-sm-3 control-label">Set complexity</label>
                     <div class="col-sm-9">
                         <select class="form-control" >
@@ -91,7 +93,7 @@
 </div> -->
 <div class="modal-footer">
     <button class="btn btn-default" type="button" ng-click="cancel()">Close</button>
-    <button class="btn btn btn-primary" type="button"  ng-disabled="updateForm.$invalid" ng-click="update()">Confirm</button>
+    <button class="btn btn btn-primary" type="button" ng-disabled="updateForm.$invalid" ng-click="update()">Confirm</button>
 </div>
 <style type="text/css">
 .form-horizontal .control-label {

@@ -1,0 +1,336 @@
+<!--Design-->
+<div  ng-if="design"  id="design" class="qtn-ctn">
+    <!--Form section-->
+    <div>
+        <div class="form-type">
+            Design Type
+        </div>
+    </div>
+
+    <!--Question instance-->
+
+    <div class="sec-qtn">
+        <!--Question-->
+        <div class="qtn qtn-default">
+            What type of prototype do your require?
+        </div>
+        <!--Options-->
+        <div class="row btn-opt">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class="" ng-click="getValue('renders')" ng-model="design" uib-btn-radio="'1'">Renders</label>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-click="getValue('graphics')"  ng-model="design" uib-btn-radio="'2'">Graphic design</label>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class="" ng-click="getValue('solcat')"  ng-model="design" uib-btn-radio="'3'">Solcat</label>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class="" ng-click="getValue('visual')"  ng-model="design" uib-btn-radio="'4'">Visual Design</label>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class="" ng-click="getValue('email')"  ng-model="design" uib-btn-radio="'5'">Email template</label>
+            </div>
+        </div>
+    </div>
+
+    <!--Buttons-->
+    <div class="btn-ctn flx-spb-hrt font_medium">
+        <button class="btn btn-default">
+            Back
+        </button>
+        <a  ng-click="addRequest(value)" class="btn btn-primary">
+            Proceed
+        </a>
+    </div>
+
+</div>
+
+<div id="renders" ng-if="renders" class="qtn-ctn">
+    <!--Form section-->
+    <div>
+        <div class="form-type">
+            Renders
+        </div>
+    </div>
+    <!--Renders  instance-->
+    <div  class="sec-qtn">
+
+        <!--Options-->
+        <div class="row">
+            <div class="col-xs-12 col-sm-7">
+                <div class="pad_vertical">
+                    <div class="qtn qtn-default">
+                        Requirements
+                    </div>
+
+                    <div>
+                        <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                    </div>
+                    <div class="flx-spb-hrt">
+                        <a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>
+                        <div class="blue2">
+                            <span class="font_medium grey2">2 files uploaded</span>
+                            <a><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col-xs-12">
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--Buttons-->
+    <div class="btn-ctn flx-spb-hrt font_medium">
+        <button class="btn btn-default">
+            Back
+        </button>
+        <button ng-click="setTab(3)" class="btn btn-success">
+            Next
+        </button>
+    </div>
+</div>
+
+<div id="solcat" ng-if="solcat" class="qtn-ctn">
+    <!--Form section-->
+    <div>
+        <div class="form-type">
+            Solcat
+        </div>
+    </div>
+
+    <!--Graphic design instance-->
+    <div class="sec-qtn">
+        <!--Question-->
+        <div class="qtn qtn-default">
+            What design experience do you require?
+        </div>
+        <!--Options-->
+        <div class="row btn-opt">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-model="xp" uib-btn-radio="'1'">Standard</label>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-model="xp" uib-btn-radio="'2'">Custom</label>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-7">
+            <div class="pad_vertical">
+                <div class="qtn qtn-default">
+                    Requirements
+                </div>
+
+                <div>
+                    <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                </div>
+                <div class="flx-spb-hrt">
+                    <a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>
+                    <div class="blue2">
+                        <span class="font_medium grey2">2 files uploaded</span>
+                        <a><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Buttons-->
+    <div class="btn-ctn flx-spb-hrt font_medium">
+        <button class="btn btn-default">
+            Back
+        </button>
+        <button ng-click="setTab(3)" class="btn btn-success">
+            Next
+        </button>
+    </div>
+</div>
+<div id="graphics" ng-if="graphics" class="qtn-ctn">
+    <!--Form section-->
+    <div>
+        <div class="form-type">
+            Graphic Design
+        </div>
+    </div>
+
+    <!--Graphic design instance-->
+    <div class="sec-qtn">
+        <!--Question-->
+        <div class="qtn qtn-default">
+            What design experience do you require?
+        </div>
+        <!--Options-->
+        <div class="row btn-opt">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-model="xp" uib-btn-radio="'1'">Standard</label>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-model="xp" uib-btn-radio="'2'">Custom</label>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-7">
+            <div class="pad_vertical">
+                <div class="qtn qtn-default">
+                    Requirements
+                </div>
+
+                <div>
+                    <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                </div>
+                <div class="flx-spb-hrt">
+                    <a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>
+                    <div class="blue2">
+                        <span class="font_medium grey2">2 files uploaded</span>
+                        <a><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Buttons-->
+    <div class="btn-ctn flx-spb-hrt font_medium">
+        <button class="btn btn-default">
+            Back
+        </button>
+        <button ng-click="setTab(3)" class="btn btn-success">
+            Next
+        </button>
+    </div>
+</div>
+<div id="visual" ng-if="visual" class="qtn-ctn">
+    <!--Form section-->
+    <div>
+        <div class="form-type">
+            Visual design
+        </div>
+    </div>
+
+    <!--Graphic design instance-->
+    <div class="sec-qtn">
+        <!--Question-->
+        <div class="qtn qtn-default">
+            What design experience do you require?
+        </div>
+        <!--Options-->
+        <div class="row btn-opt">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-model="xp" uib-btn-radio="'1'">Standard</label>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-model="xp" uib-btn-radio="'2'">Custom</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-7">
+            <div class="pad_vertical">
+                <div class="qtn qtn-default">
+                    Requirements
+                </div>
+
+                <div>
+                    <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                </div>
+                <div class="flx-spb-hrt">
+                    <a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>
+                    <div class="blue2">
+                        <span class="font_medium grey2">2 files uploaded</span>
+                        <a><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Buttons-->
+    <div class="btn-ctn flx-spb-hrt font_medium">
+        <button class="btn btn-default">
+            Back
+        </button>
+        <button class="btn btn-success">
+            Next
+        </button>
+    </div>
+</div>
+<div id="email" ng-if="emailtemplate" class="qtn-ctn">
+    <!--Form section-->
+    <div>
+        <div class="form-type">
+            Email template
+        </div>
+    </div>
+
+    <!--Graphic design instance-->
+    <div class="sec-qtn">
+        <!--Question-->
+        <div class="qtn qtn-default">
+            What design experience do you require?
+        </div>
+        <!--Options-->
+        <div class="row btn-opt">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-model="xp" uib-btn-radio="'1'">Standard</label>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class=""  ng-model="xp" uib-btn-radio="'2'">Custom</label>
+            </div>
+        </div>
+        <br>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12 col-sm-7">
+            <div class="pad_vertical">
+                <div class="qtn qtn-default">
+                    Requirements
+                </div>
+
+                <div>
+                    <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                </div>
+                <div class="flx-spb-hrt">
+                    <a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>
+                    <div class="blue2">
+                        <span class="font_medium grey2">2 files uploaded</span>
+                        <a><i class="fa fa-times"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Buttons-->
+    <div class="btn-ctn flx-spb-hrt font_medium">
+        <button class="btn btn-default">
+            Back
+        </button>
+        <button ng-click="setTab(3)" class="btn btn-success">
+            Next
+        </button>
+    </div>
+</div>
+
+

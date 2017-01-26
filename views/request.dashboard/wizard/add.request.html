@@ -1,0 +1,1591 @@
+<!--request type-->
+
+<div class="qtn-ctn">
+
+    <div id="request-type">
+        <div>
+            <div class="form-type">
+                Request type.
+            </div>
+        </div>
+        <div class="sec-qtn">
+            <!--Question-->
+            <div class="qtn qtn-default">
+                Choose request type.
+            </div>
+            <!--Options-->
+            <div class="row btn-opt">
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                    <label class="" ng-click="getValue('secProposal');innerShow(value)" ng-model="radioModel"
+                           uib-btn-radio="'proposal'">Proposal</label>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                    <label class="" ng-click="getValue('design'); hideOptions()" ng-model="radioModel"
+                           uib-btn-radio="'design'">Design</label>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                    <label class="" ng-click="getValue('prototype'); hideOptions()" ng-model="radioModel"
+                           uib-btn-radio="'prototype'"> Prototype</label>
+
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                    <label class="" ng-click="getValue('others');  hideOptions()" ng-model="radioModel"
+                           uib-btn-radio="'others'"> Others</label>
+                </div>
+
+            </div>
+            <!--Options-->
+
+
+        </div>
+        <div id="secPropoType" ng-if="proposalType" class="sec-qtn  ">
+            <div class="qtn qtn-default">
+                Choose a proposal type.
+            </div>
+            <!--Options-->
+            <div class="row btn-opt">
+
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                    <label class="" ng-click="getValue('ezefind')" ng-model="proposalType" uib-btn-radio="'eze-find'"> Eze
+                        Find</label>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+
+                    <label class="" ng-click="getValue('ezeimpress')" ng-model="proposalType" uib-btn-radio="'eze-impress'"> Eze
+                        Impress</label>
+
+                </div>
+
+            </div>
+            <!--Options-->
+        </div>
+
+        <!--<div id="secOthers" ng-if="secOthers" class="sec-qtn  ">-->
+            <!--<div class="row">-->
+                <!--<div class="col-sm-4 col-xs-12">-->
+                    <!--<div class="pad_vertical">-->
+                        <!--<div class="qtn qtn-default">-->
+                            <!--Please specify others.-->
+                        <!--</div>-->
+                        <!--<div>-->
+                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="btn-ctn flx-spb-hrt font_medium">
+            <button class="btn btn-default" ng-click="setTab(1)">
+                Back
+            </button>
+            <button class="btn btn-primary" ng-click="addRequest(value)">
+                Proceed
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Eze Find Section -->
+<div id="ezefind" ng-if="ezefind">
+    <div ng-include="'../views/request.dashboard/wizard/request.ezefind.html'">
+    </div>
+</div>
+
+<!-- exe impress Section -->
+<div id="ezeimpress" class="chuchu" ng-if="ezeimpress">
+    <div ng-include="'../views/request.dashboard/wizard/request.ezeimpress.html'">
+
+    </div>
+</div>
+
+<!-- design Section -->
+<div id="design" ng-if="design">
+    <div ng-include="'../views/request.dashboard/wizard/request.design.html'">
+
+    </div>
+</div>
+
+<!-- prototype Section -->
+<div id="prototype" ng-if="prototype">
+    <div ng-include="'../views/request.dashboard/wizard/request.prototype.html'">
+
+    </div>
+</div>
+
+<!-- others Section -->
+<div id="others" ng-if="others">
+    <div ng-include="'../views/request.dashboard/wizard/request.others.html'">
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;Request Details&ndash;&gt;-->
+<!--<div id="rdImpress" class="qtn-ctn" ng-if="ezeimpress">-->
+    <!--<div>-->
+        <!--<div>-->
+            <!--<div class="form-type">-->
+                <!--Request Details-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+        <!--<div class="sec-qtn">-->
+
+            <!--<div class="qtn qtn-default">-->
+                <!--How many solution will be deployed per site?-->
+            <!--</div>-->
+            <!--<br>-->
+
+            <!--<div class="row ">-->
+                <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                    <!--<div class="dis_table_auto">-->
+                        <!--<div class="dis_cell">-->
+                            <!--<button class="btn btn-roller">-->
+                                <!--<i class="fa fa-minus"></i>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                        <!--<div class="dis_cell">-->
+                            <!--<input type="text" class="qty-roller">-->
+                        <!--</div>-->
+                        <!--<div class="dis_cell">-->
+                            <!--<button class="btn btn-roller">-->
+                                <!--<i class="fa fa-plus"></i>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="qtn qtn-default">-->
+                <!--How many sites will the solution be deployed?-->
+            <!--</div>-->
+            <!--<br>-->
+
+            <!--<div class="row ">-->
+                <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                    <!--<div class="dis_table_auto">-->
+                        <!--<div class="dis_cell">-->
+                            <!--<button class="btn btn-roller">-->
+                                <!--<i class="fa fa-minus"></i>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                        <!--<div class="dis_cell">-->
+                            <!--<input type="text" class="qty-roller">-->
+                        <!--</div>-->
+                        <!--<div class="dis_cell">-->
+                            <!--<button class="btn btn-roller">-->
+                                <!--<i class="fa fa-plus"></i>-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+            <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+            <!--<div class="sec-qtn">-->
+                <!--&lt;!&ndash;Question&ndash;&gt;-->
+                <!--<div class="qtn qtn-default">-->
+                    <!--What design experience do you require?-->
+                <!--</div>-->
+                <!--&lt;!&ndash;Options&ndash;&gt;-->
+                <!--<div class="row btn-opt flx-rwp">-->
+                    <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                        <!--<a class="active">-->
+                            <!--<div class="opt-title">-->
+                                <!--Proof of concept-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                        <!--<a>-->
+                            <!--<div class="opt-title">-->
+                                <!--Rollout-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                        <!--<a>-->
+                            <!--<div class="opt-title">-->
+                                <!--Both-->
+                            <!--</div>-->
+                        <!--</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+            <!--<br>-->
+            <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+                <!--<button ng-click="scrollTo('request-type')" class="btn btn-default">-->
+                    <!--Back-->
+                <!--</button>-->
+                <!--<button ng-click="scrollTo('swFind')" class="btn btn-primary">-->
+                    <!--Go-->
+                <!--</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Software for Eze Find&ndash;&gt;-->
+<!--<div id="swFind" class="qtn-ctn" ng-if="ezefind">-->
+    <!--<div>-->
+        <!--<div>-->
+            <!--<div class="form-type">-->
+                <!--Software-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="sec-qtn">-->
+            <!--&lt;!&ndash;Question&ndash;&gt;-->
+            <!--<div class="qtn qtn-default">-->
+                <!--Which application would you like to include in your solution?-->
+            <!--</div>-->
+            <!--&lt;!&ndash;Options&ndash;&gt;-->
+
+            <!--<div class="row btn-opt">-->
+                <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                    <!--<a class="active">-->
+                        <!--<div class="opt-title">-->
+                            <!--Live Table-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                    <!--<a>-->
+                        <!--<div class="opt-title">-->
+                            <!--Digital Ticket-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                    <!--<a>-->
+                        <!--<div class="opt-title">-->
+                            <!--Compass-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                    <!--<a>-->
+                        <!--<div class="opt-title">-->
+                            <!--Concierge-->
+                        <!--</div>-->
+                    <!--</a>-->
+                <!--</div>-->
+                <!--<div class="col-xs-12">-->
+                    <!--1-->
+                <!--</div>-->
+                <!--<div class="col-xs-12">-->
+                    <!--2-->
+
+                <!--</div>-->
+                <!--<div class="col-xs-12">-->
+                    <!--3-->
+                <!--</div>-->
+                <!--<div class="col-xs-12">-->
+                    <!--4-->
+                <!--</div>-->
+
+            <!--</div>-->
+            <!--<br>-->
+            <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+            <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+                <!--<button ng-click="scrollTo('rdImpress')" class="btn btn-default">-->
+                    <!--Back-->
+                <!--</button>-->
+                <!--<button ng-click="scrollTo('sdFind')" class="btn btn-primary">-->
+                    <!--Go-->
+                <!--</button>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Software for Eze Impress&ndash;&gt;-->
+<!--<div id="swImpress" class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Software-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--Which CMS would you like to include in your solution?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Eze Impress-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+
+                <!--<a>-->
+
+                    <!--<div class="opt-title">-->
+                        <!--Magic Info Pro-->
+                    <!--</div>-->
+
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+
+                    <!--<div class="opt-title">-->
+                        <!--John Ryan-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--App Space-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-12">-->
+                <!--1-->
+            <!--</div>-->
+            <!--<div class="col-xs-12">-->
+                <!--2-->
+            <!--</div>-->
+            <!--<div class="col-xs-12">-->
+                <!--3-->
+            <!--</div>-->
+            <!--<div class="col-xs-12">-->
+                <!--4-->
+            <!--</div>-->
+
+
+        <!--</div>-->
+        <!--<br>-->
+        <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+        <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+            <!--<button class="btn btn-default">-->
+                <!--Back-->
+            <!--</button>-->
+            <!--<button class="btn btn-primary">-->
+                <!--Go-->
+            <!--</button>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+
+<!--&lt;!&ndash;Screen Details for Eze find&ndash;&gt;-->
+<!--<div id="scdFind" class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Screen Details-->
+
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--How would you like your screen to be configured?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Single-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Dual-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Matrix-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--BYO-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+
+        <!--<br>-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-4">-->
+                <!--<div class="blue2 qtn qtn-default">-->
+                    <!--Matrix Configurator-->
+                <!--</div>-->
+                <!--<br>-->
+
+
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-3">-->
+                        <!--<div class="grey2 font_medium">-->
+                            <!--Row-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                    <!--<div class="col-xs-3">-->
+                        <!--<div class="dis_table_auto">-->
+                            <!--<div class="dis_cell">-->
+                                <!--<button class="btn btn-roller">-->
+                                    <!--<i class="fa fa-minus"></i>-->
+                                <!--</button>-->
+                            <!--</div>-->
+                            <!--<div class="dis_cell">-->
+                                <!--<input type="text" class="qty-roller">-->
+                            <!--</div>-->
+                            <!--<div class="dis_cell">-->
+                                <!--<button class="btn btn-roller">-->
+                                    <!--<i class="fa fa-plus"></i>-->
+                                <!--</button>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<br>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-3">-->
+                        <!--<div class="grey2 font_medium">-->
+                            <!--Column-->
+                        <!--</div>-->
+
+                    <!--</div>-->
+                    <!--<div class="col-xs-3">-->
+                        <!--<div class="dis_table_auto">-->
+                            <!--<div class="dis_cell">-->
+                                <!--<button class="btn btn-roller">-->
+                                    <!--<i class="fa fa-minus"></i>-->
+                                <!--</button>-->
+                            <!--</div>-->
+                            <!--<div class="dis_cell">-->
+                                <!--<input type="text" class="qty-roller">-->
+                            <!--</div>-->
+                            <!--<div class="dis_cell">-->
+                                <!--<button class="btn btn-roller">-->
+                                    <!--<i class="fa fa-plus"></i>-->
+                                <!--</button>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<br>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-3">-->
+                        <!--<div class="grey2 font_medium">-->
+                            <!--Orientation-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="row">-->
+                    <!--<div class="col-xs-9">-->
+                        <!--<button uib-popover-template="dynamicPopover.templateUrl"-->
+                                <!--popover-trigger="outsideClick"-->
+                                <!--popover-placement="bottom" type="button"-->
+                                <!--class="full_width btn font_medium btn-default">-->
+                            <!--Portrait-->
+                            <!--<i class="fa fa-caret-down"></i>-->
+                        <!--</button>-->
+
+                    <!--</div>-->
+
+                <!--</div>-->
+                <!--<br>-->
+
+
+            <!--</div>-->
+            <!--<div class="col-lg-8">-->
+                <!--<div style="width:100%; border: solid thin black; height:400px;">-->
+                    <!--Live Configurator Here-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+
+        <!--</div>-->
+
+    <!--</div>-->
+    <!--<br>-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--Select screen size.-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<br>-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-7">-->
+                <!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-12 col-sm-3">-->
+                <!--<input type="text" class="form-control" name="" ng-model="slider.value">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<br>-->
+        <!--<a class="font_medium grey3">-->
+            <!--<i class="fa fa-plus"></i> Add more option-->
+        <!--</a>-->
+
+
+    <!--</div>-->
+
+    <!--<br>-->
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Screen Mount for Eze find&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Screen mount details-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--Select mounting options.-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Table-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Wall-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<br>-->
+        <!--<div class="qtn qtn-default">-->
+            <!--Select mount location.-->
+        <!--</div>-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Windows Facing-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Near Entrance-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Waiting area-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Outdoor-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Other-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<br>-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-4">-->
+                <!--<div class="pad_vertical">-->
+                    <!--<div class="qtn qtn-default">-->
+                        <!--Please specify others.-->
+                    <!--</div>-->
+
+                    <!--<div>-->
+                        <!--<input type="text" class="form-control" id="focusedinput">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Screen Type for Eze impress&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Screen type-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What screen type would you prefer?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Window facing-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Enhanced-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Premium-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Custom-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<br>-->
+        <!--<div class="qtn qtn-default">-->
+            <!--Usage.-->
+        <!--</div>-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--16/7-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--24/7-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<br>-->
+    <!--</div>-->
+
+    <!--<br>-->
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Media player&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Media Player-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--Select one media player you want to include in your solution.-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Standard-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Premium-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<br>-->
+
+
+    <!--</div>-->
+
+    <!--<br>-->
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Site Installation&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Site Installation-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What is your preferred distance betweeen DMP and Screen?-->
+        <!--</div>-->
+        <!--<br>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-7">-->
+                <!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-12 col-sm-3">-->
+                <!--<input type="text" class="form-control" name="" ng-model="slider.value">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<br><br>-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What is your preferred DMP install location?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Near the screen-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--In the server room-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Back of the screen-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Other-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<br>-->
+        <!--<div class="qtn qtn-default">-->
+            <!--Who do you prefer to install the solution on site?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Engagis-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Customer / 3rd Party-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+
+
+    <!--<br>-->
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Project Timeline&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Project Timeline-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What is the timeline of implementing the solution?-->
+        <!--</div>-->
+        <!--<br>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-7">-->
+                <!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
+            <!--</div>-->
+
+            <!--<div class="col-xs-12 col-sm-3">-->
+                <!--<input type="text" class="form-control" name="" ng-model="slider.value">-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+    <!--</div>-->
+
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+
+
+    <!--<br>-->
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Support package&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Support Package-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What support package do you prefer?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Essential-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Enterprise-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--3rd party-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--DIY-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Custom-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+    <!--</div>-->
+
+    <!--<br>-->
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Connectivity&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Connectivity-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What is your current network?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--With existing connection-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Requires new connection-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<br>-->
+        <!--<div class="qtn qtn-default">-->
+            <!--LAN preference-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Wired-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Wireless-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+
+        <!--</div>-->
+        <!--<br>-->
+        <!--<div class="qtn qtn-default">-->
+            <!--WAN preference-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--ASL-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--DSL-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+    <!--<br>-->
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Content Management&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Content management-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--How do you plan to create content?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Use in-house resources-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--We have an agency already-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-4">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--We want a proposal from Engagis-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<br>-->
+
+
+    <!--</div>-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--How do you plan to manage content?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Use in-house resources-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-4">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--We want a proposal from Engagis-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<br>-->
+
+
+    <!--</div>-->
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Prototype&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Prototype specifications-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What type of prototype do your require?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Web-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-4">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Native-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-4">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Virtual Reality-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<br>-->
+
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--Choose one prototyping package.-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Essential-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-4">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Enhanced-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-4">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Premium-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+    <!--<div class="sec-qtn">-->
+
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-7">-->
+                <!--<div class="pad_vertical">-->
+                    <!--<div class="qtn qtn-default">-->
+                        <!--Requirements-->
+                    <!--</div>-->
+
+                    <!--<div>-->
+                        <!--<textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="flx-spb-hrt">-->
+                        <!--<a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>-->
+                        <!--<div class="blue2">-->
+                            <!--<span class="font_medium grey2">2 files uploaded</span>-->
+                            <!--<a><i class="fa fa-times"></i></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row ">-->
+            <!--<div class="col-xs-12">-->
+
+
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Design&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Design Details-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What type of prototype do your require?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Renders-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Graphic design-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Solcat-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Virtual design-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Email template-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Renders  instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-7">-->
+                <!--<div class="pad_vertical">-->
+                    <!--<div class="qtn qtn-default">-->
+                        <!--Requirements-->
+                    <!--</div>-->
+
+                    <!--<div>-->
+                        <!--<textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="flx-spb-hrt">-->
+                        <!--<a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>-->
+                        <!--<div class="blue2">-->
+                            <!--<span class="font_medium grey2">2 files uploaded</span>-->
+                            <!--<a><i class="fa fa-times"></i></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row ">-->
+            <!--<div class="col-xs-12">-->
+
+
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+    <!--&lt;!&ndash;Graphic design instance&ndash;&gt;-->
+    <!--<div class="sec-qtn">-->
+        <!--&lt;!&ndash;Question&ndash;&gt;-->
+        <!--<div class="qtn qtn-default">-->
+            <!--What design experience do you require?-->
+        <!--</div>-->
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row btn-opt">-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a class="active">-->
+                    <!--<div class="opt-title">-->
+                        <!--Standard-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+            <!--<div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">-->
+                <!--<a>-->
+                    <!--<div class="opt-title">-->
+                        <!--Custom-->
+                    <!--</div>-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<br>-->
+
+
+    <!--</div>-->
+    <!--<div class="sec-qtn">-->
+
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-7">-->
+                <!--<div class="pad_vertical">-->
+                    <!--<div class="qtn qtn-default">-->
+                        <!--Requirements-->
+                    <!--</div>-->
+
+                    <!--<div>-->
+                        <!--<textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="flx-spb-hrt">-->
+                        <!--<a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>-->
+                        <!--<div class="blue2">-->
+                            <!--<span class="font_medium grey2">2 files uploaded</span>-->
+                            <!--<a><i class="fa fa-times"></i></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row ">-->
+            <!--<div class="col-xs-12">-->
+
+
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->
+
+<!--&lt;!&ndash;Others&ndash;&gt;-->
+<!--<div class="qtn-ctn">-->
+    <!--&lt;!&ndash;Form section&ndash;&gt;-->
+    <!--<div>-->
+        <!--<div class="form-type">-->
+            <!--Others-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;Question instance&ndash;&gt;-->
+
+    <!--<div class="sec-qtn">-->
+
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-7">-->
+                <!--<div class="pad_vertical">-->
+                    <!--<div class="qtn qtn-default">-->
+                        <!--Please provide why this request appropriately belongs to "Others".-->
+                    <!--</div>-->
+
+                    <!--<div>-->
+                        <!--<textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="flx-spb-hrt">-->
+                        <!--<a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>-->
+                        <!--<div class="blue2">-->
+                            <!--<span class="font_medium grey2">2 files uploaded</span>-->
+                            <!--<a><i class="fa fa-times"></i></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row ">-->
+            <!--<div class="col-xs-12">-->
+
+
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <!--<div class="sec-qtn">-->
+
+        <!--&lt;!&ndash;Options&ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12 col-sm-7">-->
+                <!--<div class="pad_vertical">-->
+                    <!--<div class="qtn qtn-default">-->
+                        <!--Brief.-->
+                    <!--</div>-->
+
+                    <!--<div>-->
+                        <!--<textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>-->
+                    <!--</div>-->
+                    <!--<div class="flx-spb-hrt">-->
+                        <!--<a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>-->
+                        <!--<div class="blue2">-->
+                            <!--<span class="font_medium grey2">2 files uploaded</span>-->
+                            <!--<a><i class="fa fa-times"></i></a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="row ">-->
+            <!--<div class="col-xs-12">-->
+
+
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+
+
+    <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+    <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+        <!--<button class="btn btn-default">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button class="btn btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+    <!--</div>-->
+
+<!--</div>-->

@@ -7,101 +7,75 @@
     </div>
     <div class="sec-option hide-sm">
         <div class="dis-flx flx-spb-hrt font_medium">
-            <div class="pad_vertical">
-                <div uib-dropdown auto-close="outsideClick">
+            <div class="pad_vertical" style="display: inline-flex;">
+                <div uib-dropdown>
                     <a class="btn-plain" uib-dropdown-toggle><i class="fa fa-filter" ng-click="isClick('Filters')"></i> Filters</a>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                        <!-- <div class="form-group">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">All
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Client
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Requestor
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Complexity
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Priority Type
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Request Type
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Assignee
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox">Due Date
-                                </label>
-                            </div>
-                        </div> -->
-                        <li role="menuitem"><a>All</a>
+                        <li role="menuitem"><a ng-click="getFilter('All')">All</a>
                         </li>
-                        <!--   <li role="menuitem" class="dropdown-submenu"><a>Client</a>
+                        <li role="menuitem" class="dropdown-submenu"><a>Client</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="client"><a>Requestor</a></li>
-                               
+                                <!-- <li role="menuitem" ng-repeat="client"><a>Requestor</a></li> -->
+                                <li role="menuitem" ng-repeat="requestor in requests"><a ng-click="getFilter('client_id',requestor.request_info.client_id)">{{requestor.request_info.client_details.name}}</a></li>
                             </ul>
-                        </li> -->
+                        </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Requestor</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests  | duplicates:'request_info.requester_details.person_name'"><a ng-click="getFilter('Requestor',requestor.request_info.request_id)">{{requestor.request_info.requester_details.person_name}}</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests  | unique:'request_info.requester_details.person_name'"><a ng-click="getFilter('requester',requestor.request_info.request_id)">{{requestor.request_info.requester_details.person_name}}</a></li>
                             </ul>
                         </li>
-                        <!--  <li role="menuitem" class="dropdown-submenu"><a>Complexity</a>
+                        <li role="menuitem" class="dropdown-submenu"><a>Complexity</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests  | duplicates:'request_info.requester_details.person_name'"><a ng-click="getFilter(requestor.request_info.requester_details.person_name)">{{requestor.request_info.complexity}} point</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'complexity'" ng-if="requestor.complexity <= 1"><a ng-click="getFilter('Complexity',requestor.complexity)">{{requestor.request_info.complexity}} point</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'complexity'" ng-if="requestor.complexity > 1"><a ng-click="getFilter('complexity',requestor.complexity)">{{requestor.complexity}} points</a></li>
                             </ul>
-                        </li> -->
+                        </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Priority Type</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests  | duplicates:'request_info.requester_details.person_name'"><a ng-click="getFilter('Priority',requestor.request_info.priority_id)">{{requestor.request_info.priority_name}}</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests"><a ng-click="getFilter('priority_id',requestor.request_info.priority_id)">{{requestor.request_info.priority_name}}</a></li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Request Type</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests  | duplicates:'request_info.requester_details.person_name'"><a ng-click="getFilter('Request',requestor.request_info.request_type_id)">{{requestor.request_info.request_type_name}}</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests  | duplicates:'request_type_name'"><a ng-click="getFilter('request_type_id',requestor.request_info.request_type_id)">{{requestor.request_info.request_type_name}}</a></li>
                             </ul>
                         </li>
-                        <li role="menuitem" class="dropdown-submenu"><a>Assignee</a>
+                       <!--  <li role="menuitem" class="dropdown-submenu"><a>Assignee</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests  | duplicates:'request_info.requester_details.person_name'"><a ng-click="getFilter('Assignee',requestor.request_info.requester_details.assignee_id)">{{requestor.request_info.assignee_details.person_name}}</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests  | unique:'request_info.assignee_details.person_name'"><a ng-click="getFilter('scheduler',requestor.requester_details.assignee_id)">{{requestor.assignee_details.person_name}}</a></li>
                             </ul>
-                        </li>
-                        <!-- <li role="menuitem"><a>Client</a></li> -->
+                        </li> -->
                     </ul>
                 </div>
                 <div uib-dropdown>
                     <a class="btn-plain left_align" uib-dropdown-toggle ng-click="isClick('Sort')"><i class="fa fa-sort"></i> Sort </a>
                     <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                        <!--    <div class="form-group">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" ng-click="sortBy('Ascending')" >Ascending</label>
-                            <label>
-                                <input type="checkbox" ng-click="sortBy('Descending')">Descending</label>
-                        </div>
-                    </div> -->
-                        <li role="menuitem"><a ng-click="sortBy('Ascending')">Ascending</a></li>
-                        <li role="menuitem"><a ng-click="sortBy('Descending')">Descending</a></li>
+                        <li role="menuitem" class="dropdown-submenu"><a>Ascending</a>
+                            <ul class="dropdown-menu">
+                                <li role="menuitem" ng-click="sortBy('Ascending','title')"><a>By Title</a></li>
+                                <li role="menuitem"><a ng-click="sortBy('Ascending','case_number')">By Case Number</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Company'"><a ng-click="sortBy('Ascending','client_id')">By Company</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Request'"><a ng-click="sortBy('Ascending','request_type_name')">By Request Type</a></li>
+                                <li role="menuitem"><a>By Due Date</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Priority'"><a ng-click="sortBy('Ascending','priority_name')">By Priority</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Complexity'"><a ng-click="sortBy('Ascending','complexity')">By Complexity</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Requestor'"><a ng-click="sortBy('Ascending','requester')">By Requester</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Assignee'"><a ng-click="sortBy('Ascending','assignee_id')">By Assignee</a></li>
+                            </ul>
+                        </li>
+                        <li role="menuitem" class="dropdown-submenu"><a>Descending</a>
+                            <ul class="dropdown-menu">
+                                <li role="menuitem" ng-click="sortBy('Descending','title')"><a>By Title</a></li>
+                                <li role="menuitem"><a ng-click="sortBy('Descending','case_number')">By Case Number</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Company'"><a ng-click="sortBy('Descending','client_id')">By Company</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Request'"><a ng-click="sortBy('Descending','request_type_name')">By Request Type</a></li>
+                                <li role="menuitem"><a>By Due Date</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Priority'"><a ng-click="sortBy('Descending','priority_name')">By Priority</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Complexity'"><a ng-click="sortBy('Descending','complexity')">By Complexity</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Requestor'"><a ng-click="sortBy('Descending','requester')">By Requester</a></li>
+                                <li role="menuitem" ng-hide="filtervalue == 'Assignee'"><a ng-click="sortBy('Descending','assignee_id')">By Assignee</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -125,9 +99,10 @@
                                 </h3>
                             </div>
                         </div>
+                        <!-- -->
                         <div class="case-ctn-body" dnd-list dnd-drop="onDrop('move cards vertical',event,list, item)" dnd-dragover="dragoverCallback(index, list, type, callback)" dnd-allowed-types="list.allow">
-                            <div class="case-itm" ng-repeat="item in list.items" dnd-type="'can'" dnd-draggable="getSelectedItemsIncluding(list, item)" dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)" dnd-dragend="dragend(list)" dnd-selected="logEvent(list,item)" ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected" dnd-callback="container.items.length" dnd-horizontal-list="false">
-                                <!-- dnd-disable-if="item.drag" -->
+                            <div class="case-itm" ng-repeat="item in list.items" dnd-type="'can'" dnd-draggable="getSelectedItemsIncluding(list, item)" dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)" dnd-dragend="dragend(list,item)" dnd-selected="logEvent(list,item)" ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected" dnd-callback="container.items.length" dnd-horizontal-list="false" dnd-disable-if="item.drag">
+                                <!--  -->
                                 <div ng-class="{
                                 'status-red': item.current > 5 || item.current == 0,
                                 'status-orange': item.current == 3,
@@ -146,8 +121,8 @@
                                             </div>
                                             <div class="btn-group" uib-dropdown style="margin-top: -2px;" dropdown-append-to-body>
                                                 <button class="specialbutton inblock" uib-dropdown-toggle><i class="fa fa-ellipsis-v"></i></button>
-                                                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                                                    <li role="menuitem"><a ng-click="manualupdateStatus(list,item)"><i
+                                                <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                    <li role="menuitem" ng-if="list.showupdate"><a ng-click="manualupdateStatus(list,item)"><i
                                                             class="ti ti-pencil-alt"></i> Update Status</a></li>
                                                     <!--  <li role="menuitem"><a><i class="ti ti-trash"></i> Cancel
                                                         Request</a></li> -->
@@ -180,6 +155,7 @@
                                 </div>
                             </div>
                             <div class="dndPlaceholder" ng-if="list.place">
+                                <!-- ng-class="{'dndPlaceholder':list.place}" -->
                                 Drop here!
                             </div>
                         </div>

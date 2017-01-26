@@ -1,6 +1,6 @@
 <!--Progress bar-->
 <div class="form-wizard wrapper">
-    <div class=""  du-scroll-container id="wizard-form">
+    <div class="" du-scroll-container id="wizard-form">
         <div>
 
             <div id="step-one" ng-show="isSet(1)">
@@ -183,15 +183,15 @@
                         <br>
                         <!--Buttons-->
                         <div class="btn-ctn flx-spb-hrt font_medium">
-                            <div></div>
-                            <a href="#contact-info" du-smooth-scroll du-scrollspy  ng-click="addRequest('contact-info')" class=" btn btn-primary">
+                            <div>   </div>
+                            <a du-smooth-scroll="contact-info" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary">
                                 Proceed
                             </a>
                         </div>
                     </div>
                 </div>
                 <!--Contact Details-->
-                <div id="contact-info" class="qtn-ctn" ng-if="contactInfo">
+                <div id="contact-info" class="qtn-ctn" ng-class="testclass" ng-if="contactInfo">
                     <div>
                         <div>
                             <div class="form-type">
@@ -263,7 +263,8 @@
                             <br>
                             <!--Buttons-->
                             <div class="btn-ctn flx-spb-hrt font_medium">
-                                <button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
+                                <button href="#company-info" du-smooth-scroll du-scrollspy ng-click=""
+                                        class="btn btn-default">
                                     Back
                                 </button>
                                 <button ng-click="setTab(2)" class="btn btn-success">
@@ -272,7 +273,6 @@
                             </div>
                         </div>
                     </div>
-
 
 
                 </div>
@@ -379,8 +379,6 @@
 <!--</div>-->
 
 
-
-
 <!--<div class="col-md-6" style="margin-top: 100px;margin-bottom: 100px;">-->
 <!--<wizard>-->
 <!--<wz-step wz-title="Request Type" wz-disabled="{{disabled}}">-->
@@ -412,9 +410,10 @@
 
 
 <style>
-    .static-content{
+    .static-content {
         overflow: hidden;
     }
+
     .step-ind {
         font-size: 12px;
         height: 20px;
