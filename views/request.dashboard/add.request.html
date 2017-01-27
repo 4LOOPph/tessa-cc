@@ -1,5 +1,5 @@
 <!--request type-->
-<div class="qtn-ctn">
+<div class="qtn-ctn" du-scroll-container>
     <div id="request-type">
         <div>
             <div class="form-type">
@@ -66,18 +66,18 @@
             <button class="btn btn-default" ng-click="setTab(1)">
                 Back
             </button>
-            <button class="btn btn-primary" ng-click="addRequest(value)">
+            <button class="btn btn-primary" du-smooth-scroll ng-click="addRequest(value)">
                 Go
             </button>
         </div>
     </div>
 </div>
 <!--Request Details-->
-<div id="rdImpress" class="qtn-ctn" ng-if="ezeimpress">
+<div  du-scroll-container id="rdImpress" class="qtn-ctn" ng-if="ezeimpress">
     <div>
         <div>
             <div class="form-type">
-                Request Details
+                Request Detailssss
             </div>
         </div>
         <!--Question instance-->

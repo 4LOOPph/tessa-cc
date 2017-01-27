@@ -1,5 +1,5 @@
 <!--Request Details-->
-<div  id="rdImpress" class="chuchu qtn-ctn">
+<div  ng-class="testclass"id="rdImpress" class="chuchu qtn-ctn">
     <div>
         <div>
             <div class="form-type">
@@ -82,7 +82,7 @@
             <!--Buttons-->
             <br>
             <div class="btn-ctn flx-spb-hrt font_medium">
-                <a href="#sec-rd-impress" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
+                <a du-smooth-scroll="request-type" du-scrollspy ng-click="" class="btn btn-default">
                     Back
                 </a>
                 <a du-smooth-scroll="sec-sw-impress"  du-scrollspy ng-click="innerForm('sec-sw-impress')" class="btn btn-primary">
@@ -128,10 +128,10 @@
         <br>
         <!--Buttons-->
         <div class="btn-ctn flx-spb-hrt font_medium">
-            <a href="#rdImpress" du-smooth-scroll du-scrollspy class="btn btn-default">
+            <a  du-smooth-scroll="rdImpress" du-scrollspy class="btn btn-default">
                 Back
             </a>
-            <a href="#sec-sd-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-sd-impress')" class="btn btn-primary">
+            <a  du-smooth-scroll="sec-sd-impress" du-scrollspy ng-click="innerForm('sec-sd-impress')" class="btn btn-primary">
                 Proceed
             </a>
         </div>
@@ -297,10 +297,10 @@
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button href="#sec-sw-impress" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
+        <button  du-smooth-scroll="sec-sw-impress" du-scrollspy ng-click="" class="btn btn-default">
             Back
         </button>
-        <button href="#sec-st-impress" du-smooth-scroll du-scrollspy class="btn btn-primary" ng-click="innerForm('sec-st-impress')">
+        <button du-smooth-scroll="sec-st-impress" du-scrollspy class="btn btn-primary" ng-click="innerForm('sec-st-impress')">
             Proceed
         </button>
     </div>
@@ -354,10 +354,10 @@
 
         <!--Buttons-->
         <div class="btn-ctn flx-spb-hrt font_medium">
-            <button href="#sec-sd-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
+            <button du-smooth-scroll="sec-sd-impress" du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
                 Back
             </button>
-            <button href="#sec-si-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-si-impress')" class="btn btn-primary">
+            <button du-smooth-scroll="sec-si-impress" du-scrollspy ng-click="innerForm('sec-si-impress')" class="btn btn-primary">
                 Proceed
             </button>
         </div>
@@ -430,10 +430,10 @@
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <a href="#sec-st-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
+        <a du-smooth-scroll="sec-st-impress" du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
             Back
         </a>
-        <a href="#sec-pt-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-pt-impress')" class="btn btn-primary">
+        <a du-smooth-scroll="sec-pt-impress" du-scrollspy ng-click="innerForm('sec-pt-impress')" class="btn btn-primary">
             Proceed
         </a>
     </div>
@@ -475,10 +475,10 @@
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <a href="#sec-si-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
+        <a  du-smooth-scroll="sec-si-impress" du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
             Back
         </a>
-        <a href="#sec-sp-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-sp-impress')" class="btn btn-primary">
+        <a du-smooth-scroll="sec-sp-impress" du-scrollspy ng-click="innerForm('sec-sp-impress')" class="btn btn-primary">
             Proceed
         </a>
     </div>
@@ -524,10 +524,10 @@
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <a href="#sec-pt-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('');" class="btn btn-default">
+        <a  du-smooth-scroll="sec-pt-impress" du-scrollspy ng-click="scrollTo('');" class="btn btn-default">
             Back
         </a>
-        <a href="#sec-con-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-con-impress');" class="btn btn-primary">
+        <a du-smooth-scroll="sec-con-impress" du-scrollspy ng-click="innerForm('sec-con-impress');" class="btn btn-primary">
             Proceed
         </a>
     </div>

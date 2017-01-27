@@ -1,5 +1,5 @@
 <!--Request Details-->
-<div  id="rdImpress" class="chuchu qtn-ctn">
+<div  id="rdImpress" ng-class="testclass" class="chuchu qtn-ctn">
     <div>
         <div>
             <div class="form-type">
@@ -82,10 +82,10 @@
             <!--Buttons-->
             <br>
             <div class="btn-ctn flx-spb-hrt font_medium">
-                <a href="#sec-rd-impress" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
+                <a du-smooth-scroll="request-type" du-scrollspy ng-click="" class="btn btn-default">
                     Back
                 </a>
-                <a href="#sec-sw-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-sw-impress')" class="btn btn-primary">
+                <a du-smooth-scroll="sec-sw-impress"  du-scrollspy ng-click="innerForm('sec-sw-impress')" class="btn btn-primary">
                     Proceed
                 </a>
             </div>
@@ -95,8 +95,9 @@
 
 </div>
 
-<!--Software for Eze Impress-->
-<div id="sec-sw-impress" ng-if="softwareImpress" class="qtn-ctn">
+
+<!--Software for Eze Find-->
+<div id="sec-sw-impress" ng-class="testclass" ng-if="softwareImpress" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -112,34 +113,33 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'1'"> Eze Impress</label>
+                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'1'"> Live table</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'2'"> Magic Info
-                    Pro</label>
+                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'2'"> Digital ticket</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'3'">John Ryan</label>
+                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'3'">Compass</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'4'">App Space</label>
+                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'4'">Concierge</label>
             </div>
         </div>
         <br>
         <!--Buttons-->
         <div class="btn-ctn flx-spb-hrt font_medium">
-            <a href="#rdImpress" du-smooth-scroll du-scrollspy ng-click="scrollTo('rdImpress')" class="btn btn-default">
+            <a du-smooth-scroll="rdImpress" du-scrollspy  class="btn btn-default">
                 Back
             </a>
-            <a href="#sec-sd-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-sd-impress')" class="btn btn-primary">
+            <a  du-smooth-scroll="sec-sd-impress" du-scrollspy ng-click="innerForm('sec-sd-impress')" class="btn btn-primary">
                 Proceed
             </a>
         </div>
     </div>
 </div>
 
-<!--Screen Details for Eze Impress-->
-<div id="sec-sd-impress" ng-if="sdImpress" class="qtn-ctn">
+<!--Screen Details for Eze Find-->
+<div id="sec-sd-impress" ng-if="sdImpress"  ng-class="testclass" class="qtn-ctn">
     <div>
         <div class="form-type">
             Screen Details
@@ -259,7 +259,7 @@
 
             </div>
             <div class="col-lg-8">
-                <div style="width:100%; border: solid thin black; height:400px;">
+                <div style="width:100%; border: solid thin black; height:200px;">
                     Live Configurator Here
                 </div>
 
@@ -297,10 +297,10 @@
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button href="#sec-sw-impress" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
+        <button  du-smooth-scroll="sec-sw-impress" du-scrollspy ng-click="" class="btn btn-default">
             Back
         </button>
-        <button href="#sec-st-impress" du-smooth-scroll du-scrollspy class="btn btn-primary" ng-click="innerForm('sec-st-impress')">
+        <button du-smooth-scroll="sec-st-impress" du-scrollspy class="btn btn-primary" ng-click="innerForm('sec-st-impress')">
             Proceed
         </button>
     </div>
@@ -308,7 +308,7 @@
 </div>
 
 <!--Screen type for Eze Impress-->
-<div id="sec-st-impress" ng-if="stImpress" class="qtn-ctn">
+<div id="sec-st-impress" ng-if="stImpress" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -354,10 +354,10 @@
 
         <!--Buttons-->
         <div class="btn-ctn flx-spb-hrt font_medium">
-            <button href="#sec-sd-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
+            <button du-smooth-scroll="sec-sd-impress" du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
                 Back
             </button>
-            <button href="#sec-si-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-si-impress')" class="btn btn-primary">
+            <button du-smooth-scroll="sec-si-impress" du-scrollspy ng-click="innerForm('sec-si-impress')" class="btn btn-primary">
                 Proceed
             </button>
         </div>
@@ -365,7 +365,7 @@
 </div>
 
 <!--Site Installation-->
-<div id="sec-si-impress" ng-if="siteInstall" class="qtn-ctn">
+<div id="sec-si-impress" ng-if="siteInstall" ng-class="testclass" class="qtn-ctn">
     <div>
         <div class="form-type">
             Site Installation
@@ -430,10 +430,10 @@
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <a href="#sec-st-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
+        <a du-smooth-scroll="sec-st-impress" du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
             Back
         </a>
-        <a href="#sec-pt-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-pt-impress')" class="btn btn-primary">
+        <a du-smooth-scroll="sec-pt-impress" du-scrollspy ng-click="innerForm('sec-pt-impress')" class="btn btn-primary">
             Proceed
         </a>
     </div>
@@ -441,7 +441,7 @@
 </div>
 
 <!--Project Timeline-->
-<div id="sec-pt-impress" ng-if="ptImpress" class="qtn-ctn">
+<div id="sec-pt-impress" ng-if="ptImpress" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -475,10 +475,10 @@
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <a href="#sec-si-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
+        <a  du-smooth-scroll="sec-si-impress" du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
             Back
         </a>
-        <a href="#sec-sp-find" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-sp-find')" class="btn btn-primary">
+        <a du-smooth-scroll="sec-sp-impress" du-scrollspy ng-click="innerForm('sec-sp-impress')" class="btn btn-primary">
             Proceed
         </a>
     </div>
@@ -486,7 +486,7 @@
 </div>
 
 <!--Support package-->
-<div id="sec-sp-find" ng-if="spFind" class="qtn-ctn">
+<div id="sec-sp-impress" ng-if="spImpress" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -503,27 +503,31 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'1'">Live table</label>
+                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'1'">Essential</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'2'">Digital ticket</label>
+                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'2'">Enterprise</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'3'">Compass</label>
+                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'3'">3rd Party</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'4'">Concierge</label>
+                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'4'">DIY</label>
             </div>
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class="" ng-click="" ng-model="sp" uib-btn-radio="'5'">Custom</label>
+            </div>
+
         </div>
 
     </div>
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <a href="#sec-pt-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('');" class="btn btn-default">
+        <a  du-smooth-scroll="sec-pt-impress" du-scrollspy ng-click="scrollTo('');" class="btn btn-default">
             Back
         </a>
-        <a href="#sec-cot-impress" du-smooth-scroll du-scrollspy ng-click="innerForm('sec-cot-impress');" class="btn btn-primary">
+        <a du-smooth-scroll="sec-con-impress" du-scrollspy ng-click="innerForm('sec-con-impress');" class="btn btn-primary">
             Proceed
         </a>
     </div>
@@ -531,7 +535,7 @@
 </div>
 
 <!--Connectivity-->
-<div id="sec-con-impress" ng-if="connectivity" class="qtn-ctn">
+<div id="sec-con-impress" ng-if="connectivity" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -590,10 +594,10 @@
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <a href="#sec-sp-find" du-smooth-scroll du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
+        <a  du-smooth-scroll="sec-sp-impress" du-scrollspy  class="btn btn-default">
             Back
         </a>
-        <a href="#sec-cot-impress" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-primary">
+        <a  du-smooth-scroll="sec-cot-impress" du-scrollspy ng-click="innerForm('sec-cot-impress')" class="btn btn-primary">
             Proceed
         </a>
     </div>
@@ -602,7 +606,7 @@
 
 
 <!--Content Management-->
-<div id="sec-cot-impress" ng-if="content" class="qtn-ctn">
+<div id="sec-cot-impress" ng-if="content" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -653,15 +657,21 @@
     </div>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button href="#sec-con-impress" du-smooth-scroll du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
+        <a  du-smooth-scroll="sec-con-impress" du-scrollspy  class="btn btn-default">
             Back
-        </button>
-        <a ng-click="setTab(3)" class="btn btn-success">
+        </a>
+        <a du-smooth-scroll="request-review" du-scrollspy ng-click="setTab(3)" class="btn btn-success">
             Next
         </a>
     </div>
 
 </div>
+
+
+
+
+
+
 
 
 

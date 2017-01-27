@@ -1,5 +1,5 @@
 <!--Design-->
-<div  ng-if="design"  id="design" class="qtn-ctn">
+<div  ng-if="design" ng-class="testclass" id="design" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -17,36 +17,48 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('renders')" ng-model="design" uib-btn-radio="'1'">Renders</label>
+                <label class="" ng-click="getValue('renders')" ng-model="desType" uib-btn-radio="'renders'">Renders</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class=""  ng-click="getValue('graphics')"  ng-model="design" uib-btn-radio="'2'">Graphic design</label>
+                <label class=""  ng-click="getValue('graphics')"  ng-model="desType" uib-btn-radio="'graphics'">Graphic design</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('solcat')"  ng-model="design" uib-btn-radio="'3'">Solcat</label>
+                <label class="" ng-click="getValue('solcat')"  ng-model="desType" uib-btn-radio="'solcat'">Solcat</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('visual')"  ng-model="design" uib-btn-radio="'4'">Visual Design</label>
+                <label class="" ng-click="getValue('visual')"  ng-model="desType" uib-btn-radio="'visual'">Visual Design</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('email')"  ng-model="design" uib-btn-radio="'5'">Email template</label>
+                <label class="" ng-click="getValue('email')"  ng-model="desType" uib-btn-radio="'email'">Email template</label>
             </div>
         </div>
     </div>
 
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button class="btn btn-default">
+        <button du-smooth-scroll="request-type" du-scrollspy class="btn btn-default">
             Back
         </button>
-        <a  ng-click="addRequest(value)" class="btn btn-primary">
+        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == 'renders'" ng-click="addRequest(value)" class="btn btn-primary">
             Proceed
-        </a>
+        </button>
+        <button du-smooth-scroll="solcat" du-scrollspy ng-show="desType == 'solcat'"  ng-click="addRequest(value)" class="btn btn-primary">
+            Proceed
+        </button>
+        <button du-smooth-scroll="graphics" du-scrollspy ng-show="desType == 'graphics'"   ng-click="addRequest(value)" class="btn btn-primary">
+            Proceed
+        </button>
+        <button du-smooth-scroll="email" du-scrollspy ng-show="desType == 'email'"   ng-click="addRequest(value)" class="btn btn-primary">
+            Proceed
+        </button>
+        <button du-smooth-scroll="visual" du-scrollspy ng-show="desType == 'visual'"   ng-click="addRequest(value)" class="btn btn-primary">
+            Proceed
+        </button>
     </div>
 
 </div>
 
-<div id="renders" ng-if="renders" class="qtn-ctn">
+<div id="renders" ng-class="testclass" ng-if="renders" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -89,7 +101,7 @@
 
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button class="btn btn-default">
+        <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
         </button>
         <button ng-click="setTab(3)" class="btn btn-success">
@@ -98,7 +110,7 @@
     </div>
 </div>
 
-<div id="solcat" ng-if="solcat" class="qtn-ctn">
+<div id="solcat" ng-class="testclass" ng-if="solcat" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -150,7 +162,7 @@
 
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button class="btn btn-default">
+        <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
         </button>
         <button ng-click="setTab(3)" class="btn btn-success">
@@ -158,7 +170,7 @@
         </button>
     </div>
 </div>
-<div id="graphics" ng-if="graphics" class="qtn-ctn">
+<div id="graphics" ng-class="testclass" ng-if="graphics" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -208,7 +220,7 @@
 
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button class="btn btn-default">
+        <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
         </button>
         <button ng-click="setTab(3)" class="btn btn-success">
@@ -216,7 +228,7 @@
         </button>
     </div>
 </div>
-<div id="visual" ng-if="visual" class="qtn-ctn">
+<div id="visual" ng-class="testclass" ng-if="visual" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -265,7 +277,7 @@
 
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button class="btn btn-default">
+        <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
         </button>
         <button class="btn btn-success">
@@ -273,7 +285,7 @@
         </button>
     </div>
 </div>
-<div id="email" ng-if="emailtemplate" class="qtn-ctn">
+<div id="email" ng-class="testclass" ng-if="emailtemplate" class="qtn-ctn">
     <!--Form section-->
     <div>
         <div class="form-type">
@@ -324,7 +336,7 @@
 
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button class="btn btn-default">
+        <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
         </button>
         <button ng-click="setTab(3)" class="btn btn-success">

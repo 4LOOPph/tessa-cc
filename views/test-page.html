@@ -1,762 +1,866 @@
-<!--Progress bar-->
-<div class="form-wizard wrapper">
-    <div class=""  du-scroll-container id="wizard-form">
-        <div>
+<!--&lt;!&ndash;Progress bar&ndash;&gt;-->
+<!--<div class="form-wizard wrapper">-->
+    <!--<div class=""  du-scroll-container id="wizard-form">-->
+        <!--<div>-->
 
-            <div id="step-one" ng-show="isSet(1)">
+            <!--<div id="step-one" ng-show="isSet(1)">-->
 
-                <div class="qtn-ctn" id="company-info">
+                <!--<div class="qtn-ctn" id="company-info">-->
 
-                    <div class="sec-qtn">
-                        <div class="form-type">
-                            Tell us about your client.
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="pad_vertical">
-                                    <div class="qtn qtn-default">
-                                        Company Name
-                                    </div>
-                                    <div>
-                                        <input type="text" class="form-control" id="focusedinput">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="pad_vertical">
-                                    <div class="qtn qtn-default">
-                                        ABN/ACN
-                                    </div>
-                                    <div>
-                                        <input type="text" class="form-control" id="focusedinput">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--Billing Details-->
-                        <div class="blue2 pad_vertical_15 font_medium">
-                            Billing Details
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="pad_vertical">
-                                    <div class="qtn qtn-default">
-                                        Street Address
-                                    </div>
+                    <!--<div class="sec-qtn">-->
+                        <!--<div class="form-type">-->
+                            <!--Tell us about your client.-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12 col-sm-6">-->
+                                <!--<div class="pad_vertical">-->
+                                    <!--<div class="qtn qtn-default">-->
+                                        <!--Company Name-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<input type="text" class="form-control" id="focusedinput">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-12 col-sm-6">-->
+                                <!--<div class="pad_vertical">-->
+                                    <!--<div class="qtn qtn-default">-->
+                                        <!--ABN/ACN-->
+                                    <!--</div>-->
+                                    <!--<div>-->
+                                        <!--<input type="text" class="form-control" id="focusedinput">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;Billing Details&ndash;&gt;-->
+                        <!--<div class="blue2 pad_vertical_15 font_medium">-->
+                            <!--Billing Details-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12 col-sm-6">-->
+                                <!--<div class="pad_vertical">-->
+                                    <!--<div class="qtn qtn-default">-->
+                                        <!--Street Address-->
+                                    <!--</div>-->
 
-                                    <div>
-                                        <input type="text" class="form-control" id="focusedinput">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="pad_vertical">
-                                    <div class="qtn qtn-default">
-                                        City
-                                    </div>
+                                    <!--<div>-->
+                                        <!--<input type="text" class="form-control" id="focusedinput">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-12 col-sm-6">-->
+                                <!--<div class="pad_vertical">-->
+                                    <!--<div class="qtn qtn-default">-->
+                                        <!--City-->
+                                    <!--</div>-->
 
-                                    <div>
-                                        <input type="text" class="form-control" id="focusedinput">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
+                                    <!--<div>-->
+                                        <!--<input type="text" class="form-control" id="focusedinput">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
 
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="pad_vertical">
-                                    <div class="qtn qtn-default">
-                                        State
-                                    </div>
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12 col-sm-6">-->
+                                <!--<div class="pad_vertical">-->
+                                    <!--<div class="qtn qtn-default">-->
+                                        <!--State-->
+                                    <!--</div>-->
 
-                                    <div>
-                                        <input type="text" class="form-control" id="focusedinput">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="pad_vertical">
-                                    <div class="qtn qtn-default">
-                                        State
-                                    </div>
+                                    <!--<div>-->
+                                        <!--<input type="text" class="form-control" id="focusedinput">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-xs-12 col-sm-6">-->
+                                <!--<div class="pad_vertical">-->
+                                    <!--<div class="qtn qtn-default">-->
+                                        <!--State-->
+                                    <!--</div>-->
 
-                                    <div>
-                                        <input type="text" class="form-control" id="focusedinput">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6">
-                                <div class="pad_vertical">
-                                    <div class="qtn qtn-default">
-                                        Postal Code
-                                    </div>
+                                    <!--<div>-->
+                                        <!--<input type="text" class="form-control" id="focusedinput">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-xs-12 col-sm-6">-->
+                                <!--<div class="pad_vertical">-->
+                                    <!--<div class="qtn qtn-default">-->
+                                        <!--Postal Code-->
+                                    <!--</div>-->
 
-                                    <div>
-                                        <input type="text" class="form-control" id="focusedinput">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <!--<div>-->
+                                        <!--<input type="text" class="form-control" id="focusedinput">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
-                        <!--Shipping Details-->
-                        <div class=" pad_vertical_15 font_medium dis_table">
-                            <div class="blue2 dis_cell">Shipping Details</div>
-                            <div class="dis_cell right_align">
-                                <div class="checkbox">
-                                    <!-- <i class="ti ti-check"></i> -->
-                                    <input type="checkbox" ng-model="shipping"> Same as Shipping Address
-                                </div>
-                            </div>
-                        </div>
-                        <div ng-hide="shipping">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Street Address
-                                        </div>
+                        <!--&lt;!&ndash;Shipping Details&ndash;&gt;-->
+                        <!--<div class=" pad_vertical_15 font_medium dis_table">-->
+                            <!--<div class="blue2 dis_cell">Shipping Details</div>-->
+                            <!--<div class="dis_cell right_align">-->
+                                <!--<div class="checkbox">-->
+                                    <!--&lt;!&ndash; <i class="ti ti-check"></i> &ndash;&gt;-->
+                                    <!--<input type="checkbox" ng-model="shipping"> Same as Shipping Address-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div ng-hide="shipping">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-12 col-sm-6">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--Street Address-->
+                                        <!--</div>-->
 
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            City
-                                        </div>
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-12 col-sm-6">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--City-->
+                                        <!--</div>-->
 
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row">-->
 
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            State
-                                        </div>
+                            <!--</div>-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-12 col-sm-6">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--State-->
+                                        <!--</div>-->
 
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            State
-                                        </div>
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-12 col-sm-6">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--State-->
+                                        <!--</div>-->
 
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Postal Code
-                                        </div>
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-12 col-sm-6">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--Postal Code-->
+                                        <!--</div>-->
 
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <br>
-                        <!--Buttons-->
-                        <div class="btn-ctn flx-spb-hrt font_medium">
-                            <div></div>
-                            <a href="#contact-info" du-smooth-scroll du-scrollspy  ng-click="addRequest('contact-info')" class=" btn btn-primary">
-                                Proceed
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Contact Details-->
-                <div id="contact-info" class="qtn-ctn" ng-if="contactInfo">
-                    <div>
-                        <div>
-                            <div class="form-type">
-                                Provide contact information.
-                            </div>
-                        </div>
-
-                        <div class="sec-qtn">
-                            <!--Question-->
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-3">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Last name
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-sm-3">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            First name
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-3 col-xs-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Contact number (home)
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-3 col-xs-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Contact number (work)
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Contact email
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" id="focusedinput">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
 
 
-                            <br>
-                            <!--Buttons-->
-                            <div class="btn-ctn flx-spb-hrt font_medium">
-                                <button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
-                                    Back
-                                </button>
-                                <button ng-click="setTab(2)" class="btn btn-success">
-                                    Next
-                                </button>
-                            </div>
-                        </div>
-                    </div>
+                        <!--<br>-->
+                        <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+                        <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+                            <!--<div></div>-->
+                            <!--<a href="#contact-info" du-smooth-scroll du-scrollspy  ng-click="addRequest('contact-info')" class=" btn btn-primary">-->
+                                <!--Proceed-->
+                            <!--</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--&lt;!&ndash;Contact Details&ndash;&gt;-->
+                <!--<div id="contact-info" class="qtn-ctn" ng-if="contactInfo">-->
+                    <!--<div>-->
+                        <!--<div>-->
+                            <!--<div class="form-type">-->
+                                <!--Provide contact information.-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="sec-qtn">-->
+                            <!--&lt;!&ndash;Question&ndash;&gt;-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-6 col-sm-3">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--Last name-->
+                                        <!--</div>-->
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-6 col-sm-3">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--First name-->
+                                        <!--</div>-->
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+
+                            <!--</div>-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-sm-3 col-xs-6">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--Contact number (home)-->
+                                        <!--</div>-->
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-sm-3 col-xs-6">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--Contact number (work)-->
+                                        <!--</div>-->
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-12 col-sm-6">-->
+                                    <!--<div class="pad_vertical">-->
+                                        <!--<div class="qtn qtn-default">-->
+                                            <!--Contact email-->
+                                        <!--</div>-->
+                                        <!--<div>-->
+                                            <!--<input type="text" class="form-control" id="focusedinput">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+
+
+                            <!--<br>-->
+                            <!--&lt;!&ndash;Buttons&ndash;&gt;-->
+                            <!--<div class="btn-ctn flx-spb-hrt font_medium">-->
+                                <!--<button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">-->
+                                    <!--Back-->
+                                <!--</button>-->
+                                <!--<button ng-click="setTab(2)" class="btn btn-success">-->
+                                    <!--Next-->
+                                <!--</button>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
 
 
-                </div>
+                <!--</div>-->
 
 
-            </div>
+            <!--</div>-->
 
-            <div id="step-two" ng-show="isSet(2)">
-                <!-- Select Proposal-->
-                <div ng-include="'../views/request.dashboard/wizard/add.request.html'">
-                </div>
+            <!--<div id="step-two" ng-show="isSet(2)">-->
+                <!--&lt;!&ndash; Select Proposal&ndash;&gt;-->
+                <!--<div ng-include="'../views/request.dashboard/wizard/add.request.html'">-->
+                <!--</div>-->
 
-            </div>
-
-
-            <div id="step-three" ng-show="isSet(3)">
-                <div ng-include="'../views/request.dashboard/wizard/request.review.html'">
-                </div>
+            <!--</div>-->
 
 
-            </div>
+            <!--<div id="step-three" ng-show="isSet(3)">-->
+                <!--<div ng-include="'../views/request.dashboard/wizard/request.review.html'">-->
+                <!--</div>-->
+
+
+            <!--</div>-->
+
+
+        <!--</div>-->
+
+
+    <!--</div>-->
+
+
+<!--</div>-->
+
+<!--<div>-->
+    <!--<div class="prog-bar">-->
+        <!--<div class="dis_table full_width font_medium  " ng-class="navClass">-->
+            <!--<a ng-click="setTab(1)" ng-class="{'active':isSet(1)}" class="dis_cell step-focus">-->
+                <!--<span class="step-ind">1</span> Customer details-->
+            <!--</a>-->
+            <!--<a ng-click="setTab(2)" ng-class="{'active':isSet(2)}" class="dis_cell">-->
+                <!--Add request-->
+            <!--</a>-->
+            <!--<a ng-click="setTab(3)" ng-class="{'active':isSet(3)}" class="dis_cell">-->
+                <!--Send request-->
+            <!--</a>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Question Instance&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div>-->
+    <!--<div class="font_18 blue3 font_medium" >-->
+        <!--Request Type-->
+    <!--</div>-->
+
+    <!--<div class="sec-qst">-->
+        <!--<div class="font_16 grey2 font_medium">-->
+            <!--What type of request do you want to send?-->
+        <!--</div>-->
+
+        <!--<div class="dis_table_auto sec-wiz-option">-->
+            <!--<a class="dis_cell ;">-->
+                <!--<div class="wiz-option">-->
+                    <!--<div class="font_14 font_medium blue3 ">-->
+                        <!--Proposal-->
+                    <!--</div>-->
+                    <!--<div class="font_12 ">-->
+                        <!--Hot fudge with rocky road.-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</a>-->
+            <!--<a class="dis_cell">-->
+                <!--<div class="wiz-option active">-->
+
+                    <!--<div class="font_14 font_medium  ">-->
+                        <!--Proposal-->
+                    <!--</div>-->
+                    <!--<div class="font_12 ">-->
+                        <!--Hot fudge with rocky road.-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</a>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="flx-spb-hrt full_width font_medium">-->
+        <!--<button type="button" class="btn btn-sm btn-default-alt">-->
+            <!--Back-->
+        <!--</button>-->
+        <!--<button type="button" class="btn btn-sm btn-primary">-->
+            <!--Go-->
+        <!--</button>-->
+
+    <!--</div>-->
+
+
+<!--</div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<div class="col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>&ndash;&gt;-->
+<!--&lt;!&ndash;<br>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" name="" ng-model="slider.value">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+
+
+<!--&lt;!&ndash;<div class="col-md-6" style="margin-top: 100px;margin-bottom: 100px;">&ndash;&gt;-->
+<!--&lt;!&ndash;<wizard>&ndash;&gt;-->
+<!--&lt;!&ndash;<wz-step wz-title="Request Type" wz-disabled="{{disabled}}">&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>This is the first step</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>Here you can use whatever you want. You can use other directives, binding, etc.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="submit" wz-next value="Continue"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</wz-step>&ndash;&gt;-->
+<!--&lt;!&ndash;<wz-step wz-title="Solution Details">&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>Continuing</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>You have continued here!</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="submit" wz-next value="Go on"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</wz-step>&ndash;&gt;-->
+<!--&lt;!&ndash;<wz-step wz-title="Hardware">&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>Continuing</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>You have continued here!</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="submit" wz-next value="Go on"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</wz-step>&ndash;&gt;-->
+<!--&lt;!&ndash;<wz-step wz-title="Installation">&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>Continuing</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;<p>You have continued here!</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="submit" wz-next value="Go on"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</wz-step>&ndash;&gt;-->
+<!--&lt;!&ndash;<wz-step wz-title="Additional Services">&ndash;&gt;-->
+<!--&lt;!&ndash;<p>Even more steps!!</p>&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="submit" wz-next value="Finish now"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</wz-step>&ndash;&gt;-->
+<!--&lt;!&ndash;</wizard>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+<!--<style>-->
+    <!--.static-content{-->
+        <!--overflow: hidden;-->
+    <!--}-->
+    <!--.step-ind {-->
+        <!--font-size: 12px;-->
+        <!--height: 20px;-->
+        <!--width: 20px;-->
+        <!--border-radius: 100%;-->
+    <!--}-->
+
+    <!--.prog-bar a {-->
+        <!--z-index: 99999;-->
+        <!--border-right: solid thin #bdbdbd;-->
+        <!--text-decoration: none;-->
+        <!--border-bottom: solid 3px #ededed;-->
+        <!--background: #fafafa;-->
+        <!--color: #bdbdbd;-->
+    <!--}-->
+
+    <!--.prog-bar .step-focus {-->
+        <!--border-bottom: solid 3px #337AB7;-->
+        <!--background: white;-->
+        <!--color: #337AB7;-->
+    <!--}-->
+
+    <!--.big {-->
+        <!--font-size: 18px;-->
+        <!--height: 60px;-->
+    <!--}-->
+
+    <!--.small {-->
+        <!--font-size: 14px;-->
+        <!--height: 40px;-->
+    <!--}-->
+
+    <!--.prog-bar {-->
+        <!--border-left: solid thin #ededed;-->
+        <!--border-right: 0 !important;-->
+        <!--position: fixed;-->
+        <!--background: #ffffff;-->
+        <!--text-align: center;-->
+    <!--}-->
+
+    <!--.prog-bar .dis_table {-->
+        <!-- -webkit-transition: 0.3s 0.5s ease-in-out all;-->
+        <!-- -moz-transition: 0.3s 0.5s ease-in-out all;-->
+        <!-- -o-transition: 0.3s 0.5s ease-in-out all;-->
+        <!--transition: 0.3s 0.5s ease-in-out all;-->
+    <!--}-->
+
+    <!--.sec-qst {-->
+        <!--margin-top: 15px;-->
+    <!--}-->
+
+    <!--.wiz-option {-->
+        <!--padding: 20px 10px;-->
+        <!--text-align: center;-->
+        <!--border: solid thin #004d7f;-->
+        <!--background: white;-->
+    <!--}-->
+
+    <!--.sec-wiz-option .active {-->
+        <!--background: #004d7f;-->
+        <!--color: white !important;-->
+        <!--fill: #fffff;-->
+    <!--}-->
+
+    <!--.wiz-option figure {-->
+        <!--padding-bottom: 10px;-->
+    <!--}-->
+
+    <!--.wiz-option .img_holder {-->
+        <!--width: 30px;-->
+        <!--margin: auto;-->
+    <!--}-->
+
+    <!--.sec-wiz-option .dis_cell {-->
+        <!--padding: 3px;-->
+    <!--}-->
+
+    <!--.sec-wiz-option .dis_cell:first-child {-->
+        <!--padding-left: 0;-->
+    <!--}-->
+
+    <!--.sec-wiz-option a {-->
+        <!--text-decoration: none;-->
+    <!--}-->
+
+    <!--.rzslider .rz-tick {-->
+        <!--position: absolute;-->
+        <!--top: 0;-->
+        <!--left: 0;-->
+        <!--width: 10px;-->
+        <!--height: 10px;-->
+        <!--margin-left: 8px;-->
+        <!--text-align: center;-->
+        <!--cursor: pointer;-->
+        <!--background: #bcc5da;-->
+        <!--border-radius: 50%;-->
+    <!--}-->
+
+    <!--.rzslider .rz-pointer {-->
+        <!--top: -11px;-->
+        <!--z-index: 3;-->
+        <!--width: 26px;-->
+        <!--height: 26px;-->
+        <!--cursor: pointer;-->
+        <!--background-color: #00a2d6;-->
+        <!-- -webkit-border-radius: 16px;-->
+        <!-- -moz-border-radius: 16px;-->
+        <!--border-radius: 16px;-->
+    <!--}-->
+
+    <!--.rzslider .rz-selection {-->
+        <!--z-index: 2;-->
+        <!--background: #00a2d6 !important;-->
+        <!-- -webkit-border-radius: 2px;-->
+        <!-- -moz-border-radius: 2px;-->
+        <!--border-radius: 2px;-->
+    <!--}-->
+
+    <!--.rzslider .rz-bar {-->
+        <!--left: 0;-->
+        <!--z-index: 1;-->
+        <!--width: 100%;-->
+        <!--height: 4px;-->
+        <!--background: #bcc5da;-->
+        <!-- -webkit-border-radius: 2px;-->
+        <!-- -moz-border-radius: 2px;-->
+        <!--border-radius: 2px;-->
+    <!--}-->
+
+    <!--.rzslider .rz-pointer.rz-active:after {-->
+        <!--background-color: #fff !important;-->
+    <!--}-->
+
+    <!--.rzslider .rz-pointer:after {-->
+        <!--position: absolute;-->
+        <!--top: 9px;-->
+        <!--left: 9px;-->
+        <!--width: 8px;-->
+        <!--height: 8px;-->
+        <!--background: #fff;-->
+        <!-- -webkit-border-radius: 4px;-->
+        <!-- -moz-border-radius: 4px;-->
+        <!--border-radius: 4px;-->
+        <!--content: '';-->
+    <!--}-->
+
+    <!--.steps-indicator li a:before,-->
+    <!--.steps-indicator:before {-->
+        <!--background-color: #aeaeae;-->
+        <!--content: '';-->
+    <!--}-->
+
+    <!--.steps-indicator li.current a:before {-->
+        <!--background-color: #004d7f !important;-->
+    <!--}-->
+
+    <!--div {-->
+        <!--counter-reset: my-awesome-counter;-->
+    <!--}-->
+
+    <!--.steps-indicator li a {-->
+        <!--counter-increment: my-awesome-counter;-->
+    <!--}-->
+
+    <!--.steps-indicator li a:before {-->
+        <!--position: absolute;-->
+        <!--top: -10px;-->
+        <!--left: calc(50% - 10px);-->
+        <!--width: 20px;-->
+        <!--height: 20px;-->
+        <!--border-radius: 100%;-->
+        <!--transition: .25s;-->
+        <!--content: counter(my-awesome-counter);-->
+        <!-- -webkit-align-content: center;-->
+        <!--align-content: center;-->
+        <!--color: #fff;-->
+        <!--padding: 2.5px;-->
+        <!--font-size: 10px;-->
+        <!--line-height: 1.5;-->
+    <!--}-->
+
+    <!--.steps-indicator li.done a:before {-->
+        <!--background-color: #28b328 !important;-->
+        <!--color: #fff;-->
+        <!--background-image: url('./images/icons/ic_done_white_24px.svg');-->
+        <!--background-position: center;-->
+        <!--background-repeat: no-repeat;-->
+        <!--background-size: 18px;-->
+        <!--content: close-quote;-->
+        <!--/*content: "\f00c";-->
+        <!--font: normal normal normal 14px/1 FontAwesome;-->
+        <!--font-weight: 300;*/-->
+    <!--}-->
+
+    <!--.steps-indicator li.editing a:before {-->
+        <!--background-color: #167116 !important;-->
+        <!--background-image: url('./images/icons/ic_done_white_24px.svg');-->
+        <!--background-position: center;-->
+        <!--background-repeat: no-repeat;-->
+        <!--background-size: 18px;-->
+        <!--content: close-quote;-->
+    <!--}-->
+
+    <!--.steps-indicator li a {-->
+        <!--text-decoration: none;-->
+        <!--text-transform: none;-->
+        <!--font-weight: 700;-->
+        <!--transition: .25s;-->
+        <!--cursor: pointer;-->
+        <!--font-size: 11px;-->
+    <!--}-->
+
+    <!--.steps-indicator li.editing a,-->
+    <!--.steps-indicator li.done a {-->
+        <!--color: #337ab7;-->
+    <!--}-->
+
+    <!--.steps-indicator.steps-5:before {-->
+        <!--left: calc(100% / 5 / 1.9);-->
+        <!--right: calc(100% / 5 / 1.7);-->
+    <!--}-->
+
+    <!--.steps-indicator:before {-->
+        <!--position: absolute;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+    <!--}-->
+
+    <!--.steps-indicator li.current {-->
+        <!--pointer-events: none;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+        <!--line-height: 37px;-->
+        <!--padding-top: 0px;-->
+        <!--background-color: #004d7f;-->
+    <!--}-->
+
+    <!--.steps-indicator li.editing:first-child,-->
+
+        <!--/*.steps-indicator li.done:first-child,*/-->
+
+    <!--.steps-indicator li.current:first-child {-->
+        <!--pointer-events: none;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+        <!--line-height: 37px;-->
+        <!--padding-top: 0px;-->
+        <!--background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #004d7f));-->
+    <!--}-->
+
+    <!--.steps-indicator li.done:first-child {-->
+        <!--pointer-events: none;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+        <!--line-height: 37px;-->
+        <!--padding-top: 0px;-->
+        <!--background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #28b328));-->
+    <!--}-->
+
+    <!--.steps-indicator li.current:last-child {-->
+        <!--pointer-events: none;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+        <!--line-height: 37px;-->
+        <!--padding-top: 0px;-->
+        <!--background: -webkit-gradient(linear, left top, right top, color-stop(50%, #004d7f), color-stop(50%, transparent));-->
+    <!--}-->
+
+    <!--.steps-indicator li.done:last-child {-->
+        <!--pointer-events: none;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+        <!--line-height: 37px;-->
+        <!--padding-top: 0px;-->
+        <!--background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));-->
+    <!--}-->
+
+    <!--.steps-indicator li.editing:last-child {-->
+        <!--pointer-events: none;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+        <!--line-height: 37px;-->
+        <!--padding-top: 0px;-->
+        <!--background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));-->
+    <!--}-->
+
+    <!--/*.steps-indicator li.default,*/-->
+
+    <!--.steps-indicator li.editing {-->
+        <!--pointer-events: none;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+        <!--line-height: 37px;-->
+        <!--padding-top: 0px;-->
+        <!--background-color: #28b328;-->
+    <!--}-->
+
+    <!--.steps-indicator li.done {-->
+        <!--background-color: #28b328;-->
+        <!--height: 3px;-->
+        <!--margin-top: -1px;-->
+        <!--line-height: 37px;-->
+        <!--padding-top: 0px;-->
+    <!--}-->
+
+    <!--.steps-indicator {-->
+        <!--right: 0;-->
+        <!--/* bottom: -56px; */-->
+        <!--left: 0;-->
+        <!--margin: 0;-->
+        <!--padding: 20px 0 0;-->
+        <!--height: 30px;-->
+        <!--list-style: none;-->
+        <!--position: absolute;-->
+        <!--top: -112px;-->
+    <!--}-->
+<!--</style>-->
+<!--&lt;!&ndash;email template&ndash;&gt;-->
+<!--&lt;!&ndash;<div style="width:100%; background:#004d7f; position:relative; height:550px;">-->
+
+
+<!--</div>-->
+<!--<div style="left: 0;  right: 0;  margin-left: auto;  margin-right: auto; width:60%;text-align:center; background: white; padding:10% 5%; position:absolute; top:150px; border-bottom: solid 10px #308ecc;">-->
+    <!--<figure style="margin: auto; text-align: center">-->
+        <!--<img src="../images/icons/logs-identifier&#45;&#45;13.svg" alt="New Comment" style="width:60px;">-->
+    <!--</figure>-->
+    <!--<br>-->
+    <!--<div style="font-size:18px; margin: auto">-->
+        <!--<span style="font-family: bold; font-weight: bold;">-->
+            <!--Magdalene Rosales-->
+        <!--</span>-->
+        <!--has commented on-->
+        <!--<br>-->
+        <!--<span style="font-family: bold; font-weight: bold;">-->
+            <!--<i>Request for Woolworths</i>-->
+        <!--</span>-->
+        <!--on-->
+        <!--<br>-->
+        <!--January 22, 2017 at 3:02 P.M.-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<button type="button" style="padding:5px 10px; font-size:18px; font-family: bold; background-color: #308ecc; border-radius:5px; color:white; border:none;">-->
+        <!--Open case-->
+    <!--</button>-->
+<!--</div>&ndash;&gt;-->
+
+<div id="form-container">
+
+    <div class="page-header text-center">
+        <h2>Let's Be Friends</h2>
+
+        <!-- the links to our nested states using relative paths -->
+        <!-- add the active class if the state matches our ui-sref -->
+        <div id="status-buttons" class="text-center">
+            <a ui-sref-active="active" ui-sref="main.Experiment.wizardRequest"><span>1</span> Profile</a>
+            <a ui-sref-active="active" ui-sref="main.Experiment.wizardCustomer"><span>2</span> Interests</a>
+            <a ui-sref-active="active" ui-sref="main.Experiment.wizardReview"><span>3</span> Payment</a>
+        </div>
+    </div>
+
+    <!-- use ng-submit to catch the form submission and use our Angular function -->
+    <form id="signup-form" ng-submit="processForm()">
+
+        <!-- our nested state views will be injected here -->
+        <div id="form-views" ui-view="">
 
 
         </div>
-
-
-    </div>
-
+    </form>
 
 </div>
 
-<div>
-    <div class="prog-bar">
-        <div class="dis_table full_width font_medium  " ng-class="navClass">
-            <a ng-click="setTab(1)" ng-class="{'active':isSet(1)}" class="dis_cell step-focus">
-                <span class="step-ind">1</span> Customer details
-            </a>
-            <a ng-click="setTab(2)" ng-class="{'active':isSet(2)}" class="dis_cell">
-                Add request
-            </a>
-            <a ng-click="setTab(3)" ng-class="{'active':isSet(3)}" class="dis_cell">
-                Send request
-            </a>
-
-        </div>
-    </div>
-</div>
-
-<!--Question Instance-->
-
-<!--<div>
-    <div class="font_18 blue3 font_medium" >
-        Request Type
-    </div>
-
-    <div class="sec-qst">
-        <div class="font_16 grey2 font_medium">
-            What type of request do you want to send?
-        </div>
-
-        <div class="dis_table_auto sec-wiz-option">
-            <a class="dis_cell ;">
-                <div class="wiz-option">
-                    <div class="font_14 font_medium blue3 ">
-                        Proposal
-                    </div>
-                    <div class="font_12 ">
-                        Hot fudge with rocky road.
-                    </div>
-                </div>
-            </a>
-            <a class="dis_cell">
-                <div class="wiz-option active">
-
-                    <div class="font_14 font_medium  ">
-                        Proposal
-                    </div>
-                    <div class="font_12 ">
-                        Hot fudge with rocky road.
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <div class="flx-spb-hrt full_width font_medium">
-        <button type="button" class="btn btn-sm btn-default-alt">
-            Back
-        </button>
-        <button type="button" class="btn btn-sm btn-primary">
-            Go
-        </button>
-
-    </div>
-
-
-</div>-->
-
-
-<!--<div class="col-md-6">-->
-<!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
-<!--<br>-->
-<!--<input type="text" name="" ng-model="slider.value">-->
-<!--</div>-->
 
 
 
 
-<!--<div class="col-md-6" style="margin-top: 100px;margin-bottom: 100px;">-->
-<!--<wizard>-->
-<!--<wz-step wz-title="Request Type" wz-disabled="{{disabled}}">-->
-<!--<h1>This is the first step</h1>-->
-<!--<p>Here you can use whatever you want. You can use other directives, binding, etc.</p>-->
-<!--<input type="submit" wz-next value="Continue"/>-->
-<!--</wz-step>-->
-<!--<wz-step wz-title="Solution Details">-->
-<!--<h1>Continuing</h1>-->
-<!--<p>You have continued here!</p>-->
-<!--<input type="submit" wz-next value="Go on"/>-->
-<!--</wz-step>-->
-<!--<wz-step wz-title="Hardware">-->
-<!--<h1>Continuing</h1>-->
-<!--<p>You have continued here!</p>-->
-<!--<input type="submit" wz-next value="Go on"/>-->
-<!--</wz-step>-->
-<!--<wz-step wz-title="Installation">-->
-<!--<h1>Continuing</h1>-->
-<!--<p>You have continued here!</p>-->
-<!--<input type="submit" wz-next value="Go on"/>-->
-<!--</wz-step>-->
-<!--<wz-step wz-title="Additional Services">-->
-<!--<p>Even more steps!!</p>-->
-<!--<input type="submit" wz-next value="Finish now"/>-->
-<!--</wz-step>-->
-<!--</wizard>-->
-<!--</div>-->
+
 
 
 <style>
-    .static-content{
-        overflow: hidden;
-    }
-    .step-ind {
-        font-size: 12px;
-        height: 20px;
-        width: 20px;
-        border-radius: 100%;
-    }
 
-    .prog-bar a {
-        z-index: 99999;
-        border-right: solid thin #bdbdbd;
-        text-decoration: none;
-        border-bottom: solid 3px #ededed;
-        background: #fafafa;
-        color: #bdbdbd;
-    }
+    #form-container                { background:#2f2f2f; margin-bottom:20px;
+        border-radius:5px; }
+    #form-container .page-header   { background:#151515; margin:0; padding:30px;
+        border-top-left-radius:5px; border-top-right-radius:5px; }
 
-    .prog-bar .step-focus {
-        border-bottom: solid 3px #337AB7;
-        background: white;
-        color: #337AB7;
-    }
+    /* numbered buttons */
+    #status-buttons                 {  }
+    #status-buttons a               { color:#FFF; display:inline-block; font-size:12px; margin-right:10px; text-align:center; text-transform:uppercase; }
+    #status-buttons a:hover         { text-decoration:none; }
 
-    .big {
-        font-size: 18px;
-        height: 60px;
+    /* we will style the span as the circled number */
+    #status-buttons span            { background:#080808; display:block; height:30px; margin:0 auto 10px; padding-top:5px; width:30px;
+        border-radius:50%; }
+
+    /* active buttons turn light green-blue*/
+    #status-buttons a.active span   { background:#00BC8C; }
+
+    #signup-form            { position:relative; min-height:300px; overflow:hidden; padding:30px; }
+    #form-views             { width:auto; }
+
+    /* basic styling for entering and leaving */
+    /* left and right added to ensure full width */
+    #form-views.ng-enter,
+    #form-views.ng-leave      { position:absolute; left:30px; right:30px;
+        transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease;
     }
 
-    .small {
-        font-size: 14px;
-        height: 40px;
+    /* enter animation */
+    #form-views.ng-enter            {
+        -webkit-animation:slideInRight 0.5s both ease;
+        -moz-animation:slideInRight 0.5s both ease;
+        animation:slideInRight 0.5s both ease;
     }
 
-    .prog-bar {
-        border-left: solid thin #ededed;
-        border-right: 0 !important;
-        position: fixed;
-        background: #ffffff;
-        text-align: center;
+    /* leave animation */
+    #form-views.ng-leave            {
+        -webkit-animation:slideOutLeft 0.5s both ease;
+        -moz-animation:slideOutLeft 0.5s both ease;
+        animation:slideOutLeft 0.5s both ease;
     }
 
-    .prog-bar .dis_table {
-        -webkit-transition: 0.3s 0.5s ease-in-out all;
-        -moz-transition: 0.3s 0.5s ease-in-out all;
-        -o-transition: 0.3s 0.5s ease-in-out all;
-        transition: 0.3s 0.5s ease-in-out all;
+    /* ANIMATIONS
+    ============================================================================= */
+    /* slide out to the left */
+    @keyframes slideOutLeft {
+        to      { transform: translateX(-200%); }
+    }
+    @-moz-keyframes slideOutLeft {
+        to      { -moz-transform: translateX(-200%); }
+    }
+    @-webkit-keyframes slideOutLeft {
+        to      { -webkit-transform: translateX(-200%); }
     }
 
-    .sec-qst {
-        margin-top: 15px;
+    /* slide in from the right */
+    @keyframes slideInRight {
+        from    { transform:translateX(200%); }
+        to      { transform: translateX(0); }
     }
-
-    .wiz-option {
-        padding: 20px 10px;
-        text-align: center;
-        border: solid thin #004d7f;
-        background: white;
+    @-moz-keyframes slideInRight {
+        from    { -moz-transform:translateX(200%); }
+        to      { -moz-transform: translateX(0); }
     }
-
-    .sec-wiz-option .active {
-        background: #004d7f;
-        color: white !important;
-        fill: #fffff;
-    }
-
-    .wiz-option figure {
-        padding-bottom: 10px;
-    }
-
-    .wiz-option .img_holder {
-        width: 30px;
-        margin: auto;
-    }
-
-    .sec-wiz-option .dis_cell {
-        padding: 3px;
-    }
-
-    .sec-wiz-option .dis_cell:first-child {
-        padding-left: 0;
-    }
-
-    .sec-wiz-option a {
-        text-decoration: none;
-    }
-
-    .rzslider .rz-tick {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 10px;
-        height: 10px;
-        margin-left: 8px;
-        text-align: center;
-        cursor: pointer;
-        background: #bcc5da;
-        border-radius: 50%;
-    }
-
-    .rzslider .rz-pointer {
-        top: -11px;
-        z-index: 3;
-        width: 26px;
-        height: 26px;
-        cursor: pointer;
-        background-color: #00a2d6;
-        -webkit-border-radius: 16px;
-        -moz-border-radius: 16px;
-        border-radius: 16px;
-    }
-
-    .rzslider .rz-selection {
-        z-index: 2;
-        background: #00a2d6 !important;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
-    }
-
-    .rzslider .rz-bar {
-        left: 0;
-        z-index: 1;
-        width: 100%;
-        height: 4px;
-        background: #bcc5da;
-        -webkit-border-radius: 2px;
-        -moz-border-radius: 2px;
-        border-radius: 2px;
-    }
-
-    .rzslider .rz-pointer.rz-active:after {
-        background-color: #fff !important;
-    }
-
-    .rzslider .rz-pointer:after {
-        position: absolute;
-        top: 9px;
-        left: 9px;
-        width: 8px;
-        height: 8px;
-        background: #fff;
-        -webkit-border-radius: 4px;
-        -moz-border-radius: 4px;
-        border-radius: 4px;
-        content: '';
-    }
-
-    .steps-indicator li a:before,
-    .steps-indicator:before {
-        background-color: #aeaeae;
-        content: '';
-    }
-
-    .steps-indicator li.current a:before {
-        background-color: #004d7f !important;
-    }
-
-    div {
-        counter-reset: my-awesome-counter;
-    }
-
-    .steps-indicator li a {
-        counter-increment: my-awesome-counter;
-    }
-
-    .steps-indicator li a:before {
-        position: absolute;
-        top: -10px;
-        left: calc(50% - 10px);
-        width: 20px;
-        height: 20px;
-        border-radius: 100%;
-        transition: .25s;
-        content: counter(my-awesome-counter);
-        -webkit-align-content: center;
-        align-content: center;
-        color: #fff;
-        padding: 2.5px;
-        font-size: 10px;
-        line-height: 1.5;
-    }
-
-    .steps-indicator li.done a:before {
-        background-color: #28b328 !important;
-        color: #fff;
-        background-image: url('./images/icons/ic_done_white_24px.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 18px;
-        content: close-quote;
-        /*content: "\f00c";
-        font: normal normal normal 14px/1 FontAwesome;
-        font-weight: 300;*/
-    }
-
-    .steps-indicator li.editing a:before {
-        background-color: #167116 !important;
-        background-image: url('./images/icons/ic_done_white_24px.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 18px;
-        content: close-quote;
-    }
-
-    .steps-indicator li a {
-        text-decoration: none;
-        text-transform: none;
-        font-weight: 700;
-        transition: .25s;
-        cursor: pointer;
-        font-size: 11px;
-    }
-
-    .steps-indicator li.editing a,
-    .steps-indicator li.done a {
-        color: #337ab7;
-    }
-
-    .steps-indicator.steps-5:before {
-        left: calc(100% / 5 / 1.9);
-        right: calc(100% / 5 / 1.7);
-    }
-
-    .steps-indicator:before {
-        position: absolute;
-        height: 3px;
-        margin-top: -1px;
-    }
-
-    .steps-indicator li.current {
-        pointer-events: none;
-        height: 3px;
-        margin-top: -1px;
-        line-height: 37px;
-        padding-top: 0px;
-        background-color: #004d7f;
-    }
-
-    .steps-indicator li.editing:first-child,
-
-        /*.steps-indicator li.done:first-child,*/
-
-    .steps-indicator li.current:first-child {
-        pointer-events: none;
-        height: 3px;
-        margin-top: -1px;
-        line-height: 37px;
-        padding-top: 0px;
-        background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #004d7f));
-    }
-
-    .steps-indicator li.done:first-child {
-        pointer-events: none;
-        height: 3px;
-        margin-top: -1px;
-        line-height: 37px;
-        padding-top: 0px;
-        background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #28b328));
-    }
-
-    .steps-indicator li.current:last-child {
-        pointer-events: none;
-        height: 3px;
-        margin-top: -1px;
-        line-height: 37px;
-        padding-top: 0px;
-        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #004d7f), color-stop(50%, transparent));
-    }
-
-    .steps-indicator li.done:last-child {
-        pointer-events: none;
-        height: 3px;
-        margin-top: -1px;
-        line-height: 37px;
-        padding-top: 0px;
-        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));
-    }
-
-    .steps-indicator li.editing:last-child {
-        pointer-events: none;
-        height: 3px;
-        margin-top: -1px;
-        line-height: 37px;
-        padding-top: 0px;
-        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));
-    }
-
-    /*.steps-indicator li.default,*/
-
-    .steps-indicator li.editing {
-        pointer-events: none;
-        height: 3px;
-        margin-top: -1px;
-        line-height: 37px;
-        padding-top: 0px;
-        background-color: #28b328;
-    }
-
-    .steps-indicator li.done {
-        background-color: #28b328;
-        height: 3px;
-        margin-top: -1px;
-        line-height: 37px;
-        padding-top: 0px;
-    }
-
-    .steps-indicator {
-        right: 0;
-        /* bottom: -56px; */
-        left: 0;
-        margin: 0;
-        padding: 20px 0 0;
-        height: 30px;
-        list-style: none;
-        position: absolute;
-        top: -112px;
+    @-webkit-keyframes slideInRight {
+        from    { -webkit-transform:translateX(200%); }
+        to      { -webkit-transform: translateX(0); }
     }
 </style>
-<!--email template-->
-<!--<div style="width:100%; background:#004d7f; position:relative; height:550px;">
-
-
-</div>
-<div style="left: 0;  right: 0;  margin-left: auto;  margin-right: auto; width:60%;text-align:center; background: white; padding:10% 5%; position:absolute; top:150px; border-bottom: solid 10px #308ecc;">
-    <figure style="margin: auto; text-align: center">
-        <img src="../images/icons/logs-identifier--13.svg" alt="New Comment" style="width:60px;">
-    </figure>
-    <br>
-    <div style="font-size:18px; margin: auto">
-        <span style="font-family: bold; font-weight: bold;">
-            Magdalene Rosales
-        </span>
-        has commented on
-        <br>
-        <span style="font-family: bold; font-weight: bold;">
-            <i>Request for Woolworths</i>
-        </span>
-        on
-        <br>
-        January 22, 2017 at 3:02 P.M.
-    </div>
-    <br>
-    <button type="button" style="padding:5px 10px; font-size:18px; font-family: bold; background-color: #308ecc; border-radius:5px; color:white; border:none;">
-        Open case
-    </button>
-</div>-->

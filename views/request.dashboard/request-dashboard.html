@@ -21,7 +21,7 @@
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Requestor</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests  | unique:'request_info.requester_details.person_name'"><a ng-click="getFilter('requester',requestor.request_info.request_id)">{{requestor.request_info.requester_details.person_name}}</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests  | unique:'requester_details.person_name'"><a ng-click="getFilter('requester',requestor.requester)">{{requestor.requester_details.person_name}}</a></li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Complexity</a>
@@ -40,11 +40,11 @@
                                 <li role="menuitem" ng-repeat="requestor in requests  | duplicates:'request_type_name'"><a ng-click="getFilter('request_type_id',requestor.request_info.request_type_id)">{{requestor.request_info.request_type_name}}</a></li>
                             </ul>
                         </li>
-                       <!--  <li role="menuitem" class="dropdown-submenu"><a>Assignee</a>
+                        <li role="menuitem" class="dropdown-submenu"><a>Assignee</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests  | unique:'request_info.assignee_details.person_name'"><a ng-click="getFilter('scheduler',requestor.requester_details.assignee_id)">{{requestor.assignee_details.person_name}}</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests  | unique:'assignee_details.person_name'"><a ng-click="getFilter('scheduler',requestor.assignee_id)">{{requestor.assignee_details.person_name}}</a></li>
                             </ul>
-                        </li> -->
+                        </li>
                     </ul>
                 </div>
                 <div uib-dropdown>
@@ -144,10 +144,10 @@
                                     </div>
                                     <div class="inblock">
                                         <ul>
-                                            <li>{{item.request_info.due_date| date:'longDate'}}</li>
+                                            <li>{{item.request_info.due_date | date:'longDate'}}</li>
                                             <li>{{item.request_info.priority_name}}</li>
-                                            <li>{{item.request_info.requester_details.person_name}}</li>
-                                            <li>{{item.request_info.scheduler_details.person_name}}</li>
+                                            <li>{{item.requester_details.person_name}}</li>
+                                            <li>{{item.assignee_details.person_name}}</li>
                                         </ul>
                                     </div>
                                 </div>
