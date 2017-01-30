@@ -3,257 +3,7 @@
     <div class="" du-scroll-container id="wizard-form">
         <div>
             <div id="step-one" ng-show="isSet(1)">
-                <div class="qtn-ctn" id="company-info">
-                    <div class="sec-qtn">
-                        <div class="form-type">
-                            Tell us about your client.
-                        </div>
-                        <form role="'form'" name="companyForm">
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Company Name
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" ng-model="details.company_name" id="focusedinput" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            ABN/ACN
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" ng-model="details.abn" id="focusedinput" required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Billing Details-->
-                            <div class="blue2 pad_vertical_15 font_medium">
-                                Billing Details
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Street Address
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" ng-model="details.address" id="focusedinput" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            City
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" ng-model="details.citys" id="focusedinput" required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            State
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" ng-model="details.state" id="focusedinput" required />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            State
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" ng-model="details.states" id="focusedinput" required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-6">
-                                    <div class="pad_vertical">
-                                        <div class="qtn qtn-default">
-                                            Postal Code
-                                        </div>
-                                        <div>
-                                            <input type="text" class="form-control" ng-model="details.postalcode" id="focusedinput" required />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Shipping Details-->
-                            <div class=" pad_vertical_15 font_medium dis_table">
-                                <div class="blue2 dis_cell">Shipping Details</div>
-                                <div class="dis_cell right_align">
-                                    <div class="checkbox">
-                                        <!-- <i class="ti ti-check"></i> -->
-                                        <input type="checkbox" ng-model="shipping"> Same as Shipping Address
-                                    </div>
-                                </div>
-                            </div>
-                            <div ng-hide="shipping">
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                Street Address
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.shipping" id="focusedinput" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                City
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.shipipngcity" id="focusedinput" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                State
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.shippingstate" id="focusedinput" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                State
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.shippingstates" id="focusedinput" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                Postal Code
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.shippingcode" id="focusedinput" required />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <!--Buttons-->
-                            <div class="btn-ctn flx-spb-hrt font_medium">
-                                <div> </div>
-                                <a du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary">
-                                Proceed
-                            </a>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!--Contact Details-->
-                <div id="contact-info" class="qtn-ctn" ng-class="testclass" ng-if="contactInfo">
-                    <div>
-                        <div>
-                            <div class="form-type">
-                                Provide contact information.
-                            </div>
-                        </div>
-                        <div class="sec-qtn">
-                            <!--Question-->
-                            <form role="'form'" name="contactForm">
-                                <div class="row">
-                                    <div class="col-xs-6 col-sm-3">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                Last name
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.lastname" id="focusedinput" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-sm-3">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                First name
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.firstname" id="focusedinput" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-6">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                Contact number (home)
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.contactnum" id="focusedinput" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-3 col-xs-6">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                Contact number (work)
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.contactnum2" id="focusedinput" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xs-12 col-sm-6">
-                                        <div class="pad_vertical">
-                                            <div class="qtn qtn-default">
-                                                Contact email
-                                            </div>
-                                            <div>
-                                                <input type="text" class="form-control" ng-model="details.contactemail" id="focusedinput" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                <!--Buttons-->
-                                <div class="btn-ctn flx-spb-hrt font_medium">
-                                    <button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
-                                        Back
-                                    </button>
-                                    <button ng-click="setTab(2)" ng-disabled="contactForm.$invalid" class="btn btn-success">
-                                        Next
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                <div ng-include="'../views/request.dashboard/wizard/contact.html'">
                 </div>
             </div>
             <div id="step-two" ng-show="isSet(2)">
@@ -268,19 +18,21 @@
         </div>
     </div>
 </div>
-<div>
+<div du-scroll-container="wizard-form" >
     <div class="prog-bar">
-        <div class="dis_table full_width font_medium  " ng-class="navClass">
-            <a ng-click="setTab(1)" ng-class="{'step-focus':isSet(1)}" class="dis_cell ">
-                <span class="step-ind">1</span> Customer details
+        <div class="primary-step dis_table full_width font_medium" ng-class="navClass">
+            <a ng-click="setTab(1)" ng-class="{'step-focus':isSet(1),'step-done':casedetails}" class="dis_cell">
+                       1 Company Details {{companyForm}}
+               
             </a>
             <a ng-click="setTab(2)" ng-class="{'step-focus':isSet(2)}" class="dis_cell">
-                Add request
+                2 Add request
             </a>
-            <a ng-click="setTab(3)" ng-class="{'step-focus':isSet(3)}" class="dis_cell">
-                Send request
+            <a ng-click="setTab(3)" ng-class="{'step-focus':isSet(3)}" class="dis_cell step-done">
+                3 Send request
             </a>
         </div>
+        <br>
     </div>
 </div>
 <!--Question Instance-->
@@ -370,13 +122,21 @@
 }
 
 .step-ind {
-    font-size: 12px;
-    height: 20px;
-    width: 20px;
+    display: inline-block;
+    margin-right: 5px;
     border-radius: 100%;
+    padding: 0.2% 1.5%;
+    background: #bdbdbd;
+    color: #fafafa;
+    vertical-align: middle;
 }
 
-.prog-bar a {
+.step-focus .step-ind {
+    background: #337AB7;
+    color: white;
+}
+
+.prog-bar .primary-step a {
     z-index: 99999;
     border-right: solid thin #bdbdbd;
     text-decoration: none;
@@ -385,27 +145,49 @@
     color: #bdbdbd;
 }
 
-.prog-bar .step-focus {
+.prog-bar .primary-step .step-focus {
     border-bottom: solid 3px #337AB7;
     background: white;
     color: #337AB7;
 }
 
-.big {
-    font-size: 18px;
-    height: 60px;
+.prog-bar .primary-step .step-done {
+    border-bottom: solid 3px #27AE60;
+    background: white;
+    color: #27AE60;
 }
 
-.small {
-    font-size: 14px;
-    height: 40px;
+.step-done .step-ind {
+    background: #27AE60;
+    color: white;
 }
+
+
+/*.big {*/
+
+
+/*font-size: 18px;*/
+
+
+/*height: 60px;*/
+
+
+/*}*/
+
+
+/*.small {*/
+
+
+/*font-size: 14px;*/
+
+
+/*height: 40px;*/
+
+
+/*}*/
 
 .prog-bar {
-    border-left: solid thin #ededed;
-    border-right: 0 !important;
     position: fixed;
-    background: #ffffff;
     text-align: center;
 }
 

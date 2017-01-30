@@ -1,0 +1,248 @@
+<div class="qtn-ctn" id="company-info">
+    <div class="sec-qtn">
+        <div class="form-type">
+            Tell us about your client.
+        </div>
+        <form name="companyForm">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Company Name 
+                        </div>
+                        <div>
+                            <input type="text" name="company_name" class="form-control" ng-model="details.company_name" id="focusedinput" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            ABN/ACN
+                        </div>
+                        <div>
+                            <input type="text" name="abn" class="form-control" ng-model="details.abn" id="focusedinput" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Billing Details-->
+            <div class="blue2 pad_vertical_15 font_medium">
+                Billing Details
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Street Address
+                        </div>
+                        <div>
+                            <input type="text" name="address" class="form-control" ng-model="details.address" id="focusedinput" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            City
+                        </div>
+                        <div>
+                            <input type="text" name="citys" class="form-control" ng-model="details.citys" id="focusedinput" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            State
+                        </div>
+                        <div>
+                            <input type="text" name="state" class="form-control" ng-model="details.state" id="focusedinput" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            State
+                        </div>
+                        <div>
+                            <input type="text" name="states" class="form-control" ng-model="details.states" id="focusedinput" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Postal Code
+                        </div>
+                        <div>
+                            <input type="text" name="postalcode" class="form-control" ng-model="details.postalcode" id="focusedinput" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Shipping Details-->
+            <div class=" pad_vertical_15 font_medium dis_table">
+                <div class="blue2 dis_cell">Shipping Details</div>
+                <div class="dis_cell right_align">
+                    <div class="checkbox">
+                        <!-- <i class="ti ti-check"></i> -->
+                        <input type="checkbox" ng-model="shipping"> Same as Shipping Address
+                    </div>
+                </div>
+            </div>
+            <div ng-hide="shipping">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                Street Address
+                            </div>
+                            <div>
+                                <input type="text" name="shipping" class="form-control" ng-model="details.shipping" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                City
+                            </div>
+                            <div>
+                                <input type="text" name="shipipngcity" class="form-control" ng-model="details.shipipngcity" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                State
+                            </div>
+                            <div>
+                                <input type="text" name="shippingstate" class="form-control" ng-model="details.shippingstate" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                State
+                            </div>
+                            <div>
+                                <input type="text" name="shippingstates" class="form-control" ng-model="details.shippingstates" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                Postal Code
+                            </div>
+                            <div>
+                                <input type="text" name="shippingcode" class="form-control" ng-model="details.shippingcode" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!--Buttons-->
+            <div class="btn-ctn flx-spb-hrt font_medium">
+                <div> </div>
+                <a du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary">
+                                Proceed
+                            </a>
+            </div>
+        </form>
+    </div>
+</div>
+<!--Contact Details-->
+<div id="contact-info" class="qtn-ctn" ng-class="testclass" ng-if="contactInfo">
+    <div>
+        <div>
+            <div class="form-type">
+                Provide contact information.
+            </div>
+        </div>
+        <div class="sec-qtn">
+            <!--Question-->
+            <form role="'form'" name="contactForm">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                Last name
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" ng-model="details.lastname" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-3">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                First name
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" ng-model="details.firstname" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                Contact number (home)
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" ng-model="details.contactnum" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xs-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                Contact number (work)
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" ng-model="details.contactnum2" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                Contact email
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" ng-model="details.contactemail" id="focusedinput" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <!--Buttons-->
+                <div class="btn-ctn flx-spb-hrt font_medium">
+                    <button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
+                        Back
+                    </button>
+                    <button ng-click="setTab(2)" ng-disabled="contactForm.$invalid" class="btn btn-success">
+                        Next
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
