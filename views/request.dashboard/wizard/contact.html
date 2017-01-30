@@ -158,7 +158,7 @@
             <!--Buttons-->
             <div class="btn-ctn flx-spb-hrt font_medium">
                 <div> </div>
-                <a du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary">
+                <a du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid && !casedetails" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary">
                                 Proceed
                             </a>
             </div>
@@ -238,7 +238,7 @@
                     <button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
                         Back
                     </button>
-                    <button ng-click="setTab(2)" ng-disabled="contactForm.$invalid" class="btn btn-success">
+                    <button ng-click="setTab(2,contactForm)" ng-disabled="contactForm.$invalid" class="btn btn-success">
                         Next
                     </button>
                 </div>
