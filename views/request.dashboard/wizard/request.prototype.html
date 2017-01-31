@@ -44,14 +44,10 @@
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-4">
                 <label class="" ng-click="" ng-model="pp" uib-btn-radio="'3'">Premium</label>
             </div>
-
-        </div>
-
-
+             </div>
     </div>
 
     <div class="sec-qtn">
-
         <!--Options-->
         <div class="row">
             <div class="col-xs-12 col-sm-7">
@@ -64,7 +60,11 @@
                         <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
                     </div>
                     <div class="flx-spb-hrt">
-                        <a class="font_medium grey3"><i class="fa fa-link"></i> Attach Files</a>
+                        <div class="attacher">
+                            <input type="file" id="attach" name="file" multiple>
+                            <label for="attach"><i class="fa fa-link"></i> Attach file(s)</label>
+                        </div>
+
                         <div class="blue2">
                             <span class="font_medium grey2">2 files uploaded</span>
                             <a><i class="fa fa-times"></i></a>
@@ -75,7 +75,6 @@
         </div>
         <div class="row ">
             <div class="col-xs-12">
-
 
             </div>
         </div>

@@ -3,12 +3,11 @@
         <div class="form-type">
             Tell us about your client.
         </div>
-        <form name="companyForm">
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <div class="pad_vertical">
                         <div class="qtn qtn-default">
-                            Company Name 
+                            Company Name
                         </div>
                         <div>
                             <input type="text" name="company_name" class="form-control" ng-model="details.company_name" id="focusedinput" required>
@@ -158,11 +157,8 @@
             <!--Buttons-->
             <div class="btn-ctn flx-spb-hrt font_medium">
                 <div> </div>
-                <a du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid && !casedetails" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary">
-                                Proceed
-                            </a>
+                <a du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary">Proceed</a>
             </div>
-        </form>
     </div>
 </div>
 <!--Contact Details-->
@@ -175,74 +171,72 @@
         </div>
         <div class="sec-qtn">
             <!--Question-->
-            <form role="'form'" name="contactForm">
-                <div class="row">
-                    <div class="col-xs-6 col-sm-3">
-                        <div class="pad_vertical">
-                            <div class="qtn qtn-default">
-                                Last name
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" ng-model="details.lastname" id="focusedinput" required>
-                            </div>
+            <div class="row">
+                <div class="col-xs-6 col-sm-3">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Last name
                         </div>
-                    </div>
-                    <div class="col-xs-6 col-sm-3">
-                        <div class="pad_vertical">
-                            <div class="qtn qtn-default">
-                                First name
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" ng-model="details.firstname" id="focusedinput" required>
-                            </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.lastname" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-3 col-xs-6">
-                        <div class="pad_vertical">
-                            <div class="qtn qtn-default">
-                                Contact number (home)
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" ng-model="details.contactnum" id="focusedinput" required>
-                            </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            First name
                         </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        <div class="pad_vertical">
-                            <div class="qtn qtn-default">
-                                Contact number (work)
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" ng-model="details.contactnum2" id="focusedinput" required>
-                            </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.firstname" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="pad_vertical">
-                            <div class="qtn qtn-default">
-                                Contact email
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" ng-model="details.contactemail" id="focusedinput" required>
-                            </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3 col-xs-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Contact number (home)
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.contactnum" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
-                <br>
-                <!--Buttons-->
-                <div class="btn-ctn flx-spb-hrt font_medium">
-                    <button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
-                        Back
-                    </button>
-                    <button ng-click="setTab(2,contactForm)" ng-disabled="contactForm.$invalid" class="btn btn-success">
-                        Next
-                    </button>
+                <div class="col-sm-3 col-xs-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Contact number (work)
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.contactnum2" id="focusedinput" required>
+                        </div>
+                    </div>
                 </div>
-            </form>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Contact email
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.contactemail" id="focusedinput" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!--Buttons-->
+            <div class="btn-ctn flx-spb-hrt font_medium">
+                <button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
+                    Back
+                </button>
+                <button ng-click="setTab(2,contactForm)" ng-disabled="companyForm.$invalid" class="btn btn-success">
+                    Nextss
+                </button>
+            </div>
         </div>
     </div>
 </div>

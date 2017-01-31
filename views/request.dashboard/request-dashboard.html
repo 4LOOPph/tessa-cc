@@ -16,7 +16,7 @@
                         <li role="menuitem" class="dropdown-submenu"><a>Client</a>
                             <ul class="dropdown-menu">
                                 <!-- <li role="menuitem" ng-repeat="client"><a>Requestor</a></li> -->
-                                <li role="menuitem" ng-repeat="requestor in requests|duplicates:'client_id'"><a ng-click="getFilter('client_id',requestor.request_info.client_id)">{{requestor.request_info.client_details.name}}</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests|duplicates:'client_id'"><a ng-click="getFilter('client_id',requestor.client_id)">{{requestor.company_name}}</a></li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Requestor</a>
@@ -26,8 +26,7 @@
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Complexity</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'complexity'" ng-if="requestor.complexity <= 1"><a ng-click="getFilter('Complexity',requestor.complexity)">{{requestor.complexity}} point</a></li>
-                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'complexity'" ng-if="requestor.complexity > 1"><a ng-click="getFilter('complexity',requestor.complexity)">{{requestor.complexity}} points</a></li>
+                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'complexity'" ng-if="requestor.complexity <= 1"><a ng-click="getFilter('Complexity',requestor.complexity)">{{requestor.request_info.complexity_name}}</a></li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Priority Type</a>
@@ -54,10 +53,10 @@
                             <ul class="dropdown-menu">
                                 <li role="menuitem" ng-click="sortBy('Ascending','title')"><a>By Title</a></li>
                                 <li role="menuitem"><a ng-click="sortBy('Ascending','case_number')">By Case Number</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'client_id'"><a ng-click="sortBy('Ascending','client_id')">By Company</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'client_id'"><a ng-click="sortBy('Ascending','company_name')">By Company</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'request_type_id'"><a ng-click="sortBy('Ascending','request_type_name')">By Request Type</a></li>
                                 <li role="menuitem" ng-click="sortBy('Ascending','due_date')"><a>By Due Date</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'priority_id'"><a ng-click="sortBy('Ascending','priority_name')">By Priority</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'priority_id'"><a ng-click="sortBy('Ascending','priority_id')">By Priority</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'Complexity'"><a ng-click="sortBy('Ascending','complexity')">By Complexity</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'requester'"><a ng-click="sortBy('Ascending','requester')">By Requester</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'assignee_id'"><a ng-click="sortBy('Ascending','assignee_id')">By Assignee</a></li>
@@ -67,10 +66,10 @@
                             <ul class="dropdown-menu">
                                 <li role="menuitem" ng-click="sortBy('Descending','title')"><a>By Title</a></li>
                                 <li role="menuitem"><a ng-click="sortBy('Descending','case_number')">By Case Number</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'client_id'"><a ng-click="sortBy('Descending','client_id')">By Company</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'client_id'"><a ng-click="sortBy('Descending','company_name')">By Company</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'request_type_id'"><a ng-click="sortBy('Descending','request_type_name')">By Request Type</a></li>
                                 <li role="menuitem" ng-click="sortBy('Descending','due_date')"><a>By Due Date</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'priority_id'"><a ng-click="sortBy('Descending','priority_name')">By Priority</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'priority_id'"><a ng-click="sortBy('Descending','priority_id')">By Priority</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'Complexity'"><a ng-click="sortBy('Descending','complexity')">By Complexity</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'requester'"><a ng-click="sortBy('Descending','requester')">By Requester</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'assignee_id'"><a ng-click="sortBy('Descending','assignee_id')">By Assignee</a></li>
