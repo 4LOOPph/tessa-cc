@@ -184,7 +184,7 @@
 
         </div>
         <div class="col-xs-6 right_align">
-            <button class="btn btn-success">
+            <button ng-click="confirmation()" class="btn btn-success">
                 Next
             </button>
         </div>
@@ -192,3 +192,26 @@
     </div>
 </div>
 
+
+<script type="text/ng-template" id="templateId">
+    <div class=" " style="padding: 10px 40px; margin:auto;">
+        <div class="font_medium " style="padding-bottom: 20px;border-bottom: solid thin #bdbdbd">
+            <i class="fa  fa-warning"></i>
+            Your request could no longer be modified once you proceed.
+        </div>
+        <br>
+        <div class="font_18">
+            Are you sure to continue?
+        </div>
+        <br>
+        <div class="full_width ">
+            <button class="tes-btn-xs bg-midnight-alt">
+                No, do not continue
+            </button>
+            <button class="tes-btn-xs bg-midnight">
+                Yes, continue
+            </button>
+        </div>
+    </div>
+
+</script>

@@ -157,7 +157,12 @@
             <!--Buttons-->
             <div class="btn-ctn flx-spb-hrt font_medium">
                 <div> </div>
-                <a du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary">Proceed</a>
+
+                <div uib-tooltip="Show this when disabled only" tooltip-enable="!companyForm.$invalid">
+                    <button type="button" du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary ">
+                        Proceed
+                    </button>
+                </div>
             </div>
     </div>
 </div>
@@ -233,8 +238,8 @@
                 <button href="#company-info" du-smooth-scroll du-scrollspy ng-click="" class="btn btn-default">
                     Back
                 </button>
-                <button ng-click="setTab(2,contactForm)" ng-disabled="companyForm.$invalid" class="btn btn-success">
-                    Nextss
+                <button type="submit" ng-disabled="companyForm.$invalid" class="btn btn-success">
+                    Next
                 </button>
             </div>
         </div>
