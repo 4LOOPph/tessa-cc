@@ -44,13 +44,13 @@
         <ul class="prg-ctn">
             <li class="prg-bar">
                 <form name="companyForm" ng-submit="setTab(2)">
-                    <a ng-click="setTab(1)" ng-class="{'wiz-tab-active':isSet(1),'wiz-tab-done':companyForm.$valid}" class="font_medium wiz-tab" href="">
-                        <div class="wiz-sizer " ng-class="navClass">
-                            <h1 ng-if="companyForm.$valid">
+                    <a ng-click="setTab(1)" ng-class="{'wiz-tab-active':isSet(1),'wiz-tab-done':details.name && companyForm.$valid}" class="font_medium wiz-tab" href="">
+                        <div class="wiz-sizer" ng-class="navClass">
+                            <h1 ng-if="details.name && companyForm.$valid">
                                 <i class="fa fa-check"></i>
                             </h1>
                             <div class="hide-sm">
-                                <h1 ng-if="checkValid.$invalid">1</h1> Company Details</div>
+                                <h1 ng-if="!details.name || companyForm.$invalid">1</h1> Company Details</div>
                             <div class="hide-lg">
                                 <h1 ng-if="checkValid.$invalid">1</h1>Company</div>
                         </div>
@@ -97,7 +97,7 @@
 </div>
 <script type="text/ng-template" id="confirm-cancel">
     <div class="ngdialog-message">
-        <div class="font_medium " style="padding-bottom: 10px">
+        <div class="font_medium" style="padding-bottom: 10px">
             <i class="fa  fa-warning"></i> You have uncompleted request.
         </div>
         <div class="font_18">

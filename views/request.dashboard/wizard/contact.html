@@ -11,8 +11,19 @@
                         Company Name
                     </div>
                     <div>
-                        <!--  <input type="text"  class="form-control" ng-model="details.company_name" id="focusedinput" required> -->
-                        <div angucomplete-alt id="ex1" placeholder="Search company" maxlength="50" selected-object="getCompanyValue" local-data="companies" search-fields="name" title-field="name" minlength="1" input-class="form-control" match-class="highlight" override-suggestions="true"></div>
+                        <!--  <input type="text"  class="form-control" ng-model="details.company_name" id="focusedinput" required> infinite-scroll="addMoreItems()" infinite-scroll-distance="2" -->
+                        <ui-select theme="bootstrap" ng-model="details" allow-clear on-select="getCompanyValue($item)" append-to-body="true">
+                            <ui-select-match>
+                                {{$select.selected.name}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="emp in (companies | filter: $select.search) track by $index" position='down'>
+                                {{emp.name}}
+                                <div ng-if="$index == $select.items.length - 1">
+                                    <button class="btn btn-sm btn-success" style="width: 100%; margin-top: 1px;" ng-click="addmoreItems($select, $event);" ng-disabled="loading">Load more...</button>
+                                </div>
+                            </ui-select-choices>
+                        </ui-select>
+                        <!-- <div angucomplete-alt id="ex1" placeholder="Search company" maxlength="50" selected-object="getCompanyValue" local-data="companies" search-fields="name" title-field="name" minlength="1" input-class="form-control" match-class="highlight" ></div> -->
                     </div>
                 </div>
             </div>
@@ -22,80 +33,18 @@
                         ABN/ACN
                     </div>
                     <div>
-                        <input type="text" class="form-control" ng-model="details.ABN" id="focusedinput" required>
+                        <input type="text" numbers-only class="form-control" ng-model="details.ABN" id="focusedinput" disabled disabled>
                     </div>
                 </div>
             </div>
         </div>
-        <!--Billing Details-->
-        <div class="blue2 pad_vertical_15 font_medium">
-            Billing Details
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <div class="pad_vertical">
-                    <div class="qtn qtn-default">
-                        Street Address
-                    </div>
-                    <div>
-                        <input type="text" class="form-control" ng-model="details.bill_address" id="focusedinput" required>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="pad_vertical">
-                    <div class="qtn qtn-default">
-                        City
-                    </div>
-                    <div>
-                        <input type="text" class="form-control" ng-model="details.bill_city" id="focusedinput" required>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <div class="pad_vertical">
-                    <div class="qtn qtn-default">
-                        State
-                    </div>
-                    <div>
-                        <input type="text" class="form-control" ng-model="details.bill_state" id="focusedinput" required>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="pad_vertical">
-                    <div class="qtn qtn-default">
-                        Postal Code
-                    </div>
-                    <div>
-                        <input type="text" class="form-control" ng-model="details.bill_zipcode" id="focusedinput" required>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--  <div class="row">
-            <div class="col-xs-12 col-sm-6">
-                <div class="pad_vertical">
-                    <div class="qtn qtn-default">
-                        State
-                    </div>
-                    <div>
-                        <input type="text" class="form-control" ng-model="details.states" id="focusedinput" required>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!--Shipping Details-->
         <div class=" pad_vertical_15 font_medium dis_table">
             <div class="blue2 dis_cell">Shipping Details</div>
-            <div class="dis_cell right_align">
+            <!--  <div class="dis_cell right_align">
                 <div class="checkbox">
-                    <!-- <i class="ti ti-check"></i> -->
                     <input type="checkbox" ng-model="shipping" ng-click="useBillingAddress(shipping)"> Same as Shipping Address
                 </div>
-            </div>
+            </div> -->
         </div>
         <div ng-hide="shipping">
             <div class="row">
@@ -105,7 +54,7 @@
                             Street Address
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_address" id="focusedinput" required>
+                            <input type="text" class="form-control" ng-model="details.ship_address" id="focusedinput" disabled>
                         </div>
                     </div>
                 </div>
@@ -115,7 +64,7 @@
                             City
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_city" id="focusedinput" required>
+                            <input type="text" class="form-control" ng-model="details.ship_city" id="focusedinput" disabled>
                         </div>
                     </div>
                 </div>
@@ -127,7 +76,7 @@
                             State
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_state" id="focusedinput" required>
+                            <input type="text" class="form-control" ng-model="details.ship_state" id="focusedinput" disabled>
                         </div>
                     </div>
                 </div>
@@ -137,11 +86,72 @@
                             Postal Code
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_zipcode" id="focusedinput" required>
+                            <input type="text" class="form-control" ng-model="details.ship_zipcode" id="focusedinput" disabled>
                         </div>
                     </div>
                 </div>
             </div>
+            <!--Billing Details-->
+            <div class="blue2 pad_vertical_15 font_medium">
+                Billing Details
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Street Address
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.bill_address" id="focusedinput" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            City
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.bill_city" id="focusedinput" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            State
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.bill_state" id="focusedinput" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Postal Code
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.bill_zipcode" id="focusedinput" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="pad_vertical">
+                    <div class="qtn qtn-default">
+                        State
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" ng-model="details.states" id="focusedinput" disabled required>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+            <!--Shipping Details-->
             <!--  <div class="row">
                 <div class="col-xs-12 col-sm-6">
                     <div class="pad_vertical">
@@ -163,7 +173,7 @@
                 <!--<button type="button" du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary ">-->
                 <!--Proceed-->
                 <!--</button>-->
-                <button type="button" du-smooth-scroll="contact-info" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary" ng-disabled="companyForm.$invalid">
+                <button type="button" du-smooth-scroll="contact-info" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary" ng-disabled="!details.name">
                     Proceed
                 </button>
             </div>

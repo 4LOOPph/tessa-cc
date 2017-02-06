@@ -144,10 +144,10 @@
                                  dnd-disable-if="item.drag">
                                 <!--  -->
                                 <div ng-class="{
-                                'status-red': item.current <= 0,
-                                'status-orange':  item.current !=0 && item.current <=3 ,
                                 'status-green':  item.status_name == 'completed',
-                                'status-grey': item.current >= 4}">
+                                'status-red': item.current <= 0 && item.status_name != 'completed',
+                                'status-orange':  item.current !=0 && item.current <=3 && item.status_name != 'completed',
+                                'status-grey': item.current >= 4 && item.status_name != 'completed'}">
                                 </div>
                                 <div class="case-head">
                                     <div class="dis-flx flx-spb-hrt">
@@ -193,7 +193,7 @@
                                     </div>
                                     <div class="inblock">
                                         <ul>
-                                            <li>{{item.request_info.due_date | date:'longDate'}}</li>
+                                            <li>{{item.due_date | date:'longDate'}}</li>
                                             <li>{{item.request_info.priority_name || 'not assign yet'}}</li>
                                             <li>{{item.requester_details.person_name || item.scheduler_details.person_name}}</li>
                                             <li>{{item.assignee_details.person_name || 'not assign yet'}}</li>
