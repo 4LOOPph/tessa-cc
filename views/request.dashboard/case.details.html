@@ -320,11 +320,11 @@
                         </tr>
                         <tr>
                             <th>ABN/ACN</th>
-                            <td>{{details.request_info.client_details.ABN}}</td>
+                            <td>{{details.request_info.client_details.ABN || none}}</td>
                         </tr>
                         <tr>
                             <th>Company Adress</th>
-                            <td>{{details.request_info.client_details.address}}</td>
+                            <td>{{details.request_info.client_details.address || none}}</td>
                         </tr>
                     </table>
                 </div>
