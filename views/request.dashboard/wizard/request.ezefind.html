@@ -20,10 +20,10 @@
                             </button>
                         </div>
                         <div class="dis_cell">
-                            <input type="text" class="qty-roller" ng-model="deployedsite">
+                            <input type="text" class="qty-roller" ng-model="requestdetails.deployedsite" ng-change="deploysite(requestdetails.deployedsite)">
                         </div>
                         <div class="dis_cell">
-                            <button class="btn btn-roller"  ng-click="addminusValue('Site','plus')">
+                            <button class="btn btn-roller" ng-click="addminusValue('Site','plus')">
                                 <i class="fa fa-plus"></i>
                             </button>
                         </div>
@@ -44,7 +44,7 @@
                             </button>
                         </div>
                         <div class="dis_cell">
-                            <input type="text" class="qty-roller" ng-model="deployedsolution">
+                            <input type="text" class="qty-roller" ng-model="requestdetails.deployedsolution" ng-change="deploysolution(requestdetails.deployedsolution)">
                         </div>
                         <div class="dis_cell">
                             <button class="btn btn-roller" ng-click="addminusValue('Solution','plus')">
@@ -63,7 +63,7 @@
                 <!--Options-->
                 <div class="row btn-opt flx-rwp">
                     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                        <label class=""  ng-model="desXp" uib-btn-radio="'proof'">
+                        <label class="" ng-model="desXp" uib-btn-radio="'8'" ng-change="requestdetail(desXp)">
                             <div class="option-icon">
                                 <i class="ti ti-blackboard"></i>
                             </div>
@@ -73,7 +73,7 @@
                         </label>
                     </div>
                     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                        <label class="" ng-model="desXp" uib-btn-radio="'rollout'">
+                        <label class="" ng-model="desXp" uib-btn-radio="'9'" ng-change="requestdetail(desXp)">
                             <div class="option-icon">
                                 <i class="ti ti-map"></i>
                             </div>
@@ -83,7 +83,7 @@
                         </label>
                     </div>
                     <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                        <label class=""  ng-model="desXp" uib-btn-radio="'both'">
+                        <label class="" ng-model="desXp" uib-btn-radio="'10'" ng-change="requestdetail(desXp)">
                             <div>
                                 Both
                             </div>
@@ -104,7 +104,6 @@
         </div>
     </div>
 </div>
-
 <!--Software for Eze Find-->
 <div id="sec-sw-impress" ng-class="testclass" ng-if="softwareImpress" class="qtn-ctn">
     <!--Form section-->
@@ -122,16 +121,16 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'1'"> Live table</label>
+                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'11'" ng-change="softwaredetail('ezefind',cms)"> Live table</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'2'"> Digital ticket</label>
+                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'12'"  ng-change="softwaredetail('ezefind',cms)"> Digital ticket</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'3'">Compass</label>
+                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'13'"  ng-change="softwaredetail('ezefind',cms)">Compass</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'4'">Concierge</label>
+                <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'14'"  ng-change="softwaredetail('ezefind',cms)">Concierge</label>
             </div>
         </div>
         <br>
@@ -146,8 +145,6 @@
         </div>
     </div>
 </div>
-
-
 <!--Screen Configuration-->
 <div id="sec-sd-impress" ng-if="sdImpress" ng-class="testclass" class="qtn-ctn">
     <div>
@@ -164,7 +161,7 @@
         <!--Options-->
         <div class="row btn-opt flx-rwp">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="innerShow('screen-size')" ng-model="sd" uib-btn-radio="'1'">
+                <label class="" ng-model="sd" uib-btn-radio="'15'" ng-change="screendetail(sd)">
                     <div class="option-icon">
                         <i class="ti ti-layout-width-full"></i>
                     </div>
@@ -174,7 +171,7 @@
                 </label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="innerShow('screen-size')" ng-model="sd" uib-btn-radio="'2'">
+                <label class="" ng-model="sd" uib-btn-radio="'16'" ng-change="screendetail(sd)">
                     <div class="option-icon">
                         <i class="ti ti-layout-column2 "></i>
                     </div>
@@ -184,7 +181,7 @@
                 </label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class=""  ng-click="innerShow('matrix-config')" ng-model="sd" uib-btn-radio="'3'">
+                <label class="" ng-model="sd" uib-btn-radio="'17'" ng-change="screendetail(sd)">
                     <div class="option-icon">
                         <i class="ti ti-layout-grid3"></i>
                     </div>
@@ -194,90 +191,90 @@
                 </label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class="" ng-click="hideOptions()" ng-model="sd" uib-btn-radio="'4'">BYO</label>
+                <label class="" ng-model="sd" uib-btn-radio="'18'" ng-change="screendetail(sd)">BYO</label>
             </div>
         </div>
         <br>
-
-        <div class="row animate-if" id="matrix-config" ng-if="matrixConfig" >
-            <div class="col-xs-12 col-lg-4">
-                <div class="blue2 qtn qtn-default">
-                    Matrix Configurator
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="grey2 font_medium">
-                            Row
+        <div class="animate-if" ng-if="screen.screendetails == '17'">
+            <div class="row " id="matrix-config">
+                <div class="col-xs-12 col-lg-4">
+                    <div class="blue2 qtn qtn-default">
+                        Matrix Configurator
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="grey2 font_medium">
+                                Row
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="dis_table_auto">
+                                <div class="dis_cell">
+                                    <button class="btn btn-roller" ng-click="minusRowsColumn('rows')">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div class="dis_cell">
+                                    <input type="text" ng-model="details.rows" style="width: 100px;" ng-change="matrixrow(details.rows)">
+                                </div>
+                                <div class="dis_cell">
+                                    <button class="btn btn-roller" ng-click="addRowsColumn('rows')">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-3">
-                        <div class="dis_table_auto">
-                            <div class="dis_cell">
-                                <button class="btn btn-roller" ng-click="minusRowsColumn('rows')">
-                                    <i class="fa fa-minus"></i>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="grey2 font_medium">
+                                Column
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="dis_table_auto">
+                                <div class="dis_cell">
+                                    <button class="btn btn-roller" name="screen-width" ng-click="minusRowsColumn('columns')">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <div class="dis_cell">
+                                    <input type="text" ng-model="details.columns" style="width: 100px;" ng-change="matrixcolumn(details.columns)">
+                                </div>
+                                <div class="dis_cell">
+                                    <button class="btn btn-roller" ng-click="addRowsColumn('columns')" >
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="grey2 font_medium">
+                                Orientation
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-9 ">
+                            <div class="btn-group" uib-dropdown>
+                                <button id="single-button" uib-dropdown-toggle type="button" class="full_width btn font_medium btn-default">
+                                    {{orientation}}
+                                    <i class="fa fa-caret-down"></i>
                                 </button>
-                            </div>
-                            <div class="dis_cell">
-                                <input type="text" ng-model="details.rows" style="width: 100px;">
-                            </div>
-                            <div class="dis_cell">
-                                <button class="btn btn-roller" ng-click="addRowsColumn('rows')">
-                                    <i class="fa fa-plus"></i>
-                                </button>
+                                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                    <li role="menuitem" ng-click="selectOrientation('Portrait')"><a>Portrait</a>
+                                    </li>
+                                    <li role="menuitem" ng-click="selectOrientation('Landscape')"><a>Landscape</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="grey2 font_medium">
-                            Column
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <div class="dis_table_auto">
-                            <div class="dis_cell">
-                                <button class="btn btn-roller" name="screen-width" ng-click="minusRowsColumn('columns')">
-                                    <i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <div class="dis_cell">
-                                <input type="text" ng-model="details.columns" style="width: 100px;">
-                            </div>
-                            <div class="dis_cell">
-                                <button class="btn btn-roller" ng-click="addRowsColumn('columns')">
-                                    <i class="fa fa-plus"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-xs-3">
-                        <div class="grey2 font_medium">
-                            Orientation
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-9 ">
-                        <div class="btn-group" uib-dropdown>
-                            <button id="single-button" uib-dropdown-toggle type="button" class="full_width btn font_medium btn-default">
-                                {{orientation}}
-                                <i class="fa fa-caret-down"></i>
-                            </button>
-                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                                <li role="menuitem" ng-click="selectOrientation('Portrait')"><a>Portrait</a>
-                                </li>
-                                <li role="menuitem" ng-click="selectOrientation('Landscape')"><a>Landscape</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--  <div class="btn-group" uib-dropdown>
+                        <!--  <div class="btn-group" uib-dropdown>
 
                          <button id="single-button" type="button" class="btn btn-primary" uib-dropdown-toggle ng-disabled="disabled">
                              Button dropdown <span class="caret"></span>
@@ -290,67 +287,90 @@
                              <li role="menuitem"><a href="#">Separated link</a></li>
                          </ul>
                      </div> -->
+                    </div>
+                    <br>
                 </div>
-                <br>
-            </div>
-
-            <div class="col-xs-12 col-lg-8">
-
-                <div style="width:100%; padding:0 10px;">
-                    <table class="tablecustom">
-                        <tbody>
+                <div class="col-xs-12 col-lg-8">
+                    <div style="width:100%; padding:0 10px;">
+                        <table class="tablecustom">
+                            <tbody>
                             <tr ng-repeat="row in cells track by $index">
                                 <td ng-class="myStyle" ng-repeat="cell in row track by $index"></td>
                             </tr>
-                        </tbody>
-                    </table>
-                    <div class="wrappler">
-                        <div class="line"></div>
-                        <div class="wordwrapper">
-                            <div class="word">52mm</div>
+                            </tbody>
+                        </table>
+                        <div class="wrappler">
+                            <div class="line"></div>
+                            <div class="wordwrapper">
+                                <div class="word">52mm</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fancyholder">
+                        <div class="fancy">
+                            <div>52mm</div>
                         </div>
                     </div>
                 </div>
-                <div class="fancyholder">
-                    <div class="fancy">
-                        <div>52mm</div>
+            </div>
+            <div class="sec-qtn" id="screen-size">
+                <!--Question-->
+                <div class="qtn qtn-default">
+                    Select screen size.
+                </div>
+                <!--Options-->
+                <br>
+                <div class="row pad_vertical_15" ng-repeat="slider in singleDualslider track by $index">
+                    <div class="col-xs-12 col-sm-7">
+                        <rzslider rz-slider-model="slider.minValue" rz-slider-options="slider.options"></rzslider>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <input type="text" class="form-control" ng-model="slider.minValue" >
+                    </div>
+                    <a ng-if="singleDualslider.length > 1" ng-hide="$index == 0" class="col-xs-12 col-sm-2 font_medium grey3 " ng-click="removeScreen($index)" style="font-size: x-large;">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <br>
+                <a class="font_medium grey3" ng-click="addSingleDualScreen()">
+                    <i class="fa fa-plus"></i> Add more option
+                </a>
+            </div>
+        </div>
+        <div class="animate-if" ng-if="screen.screendetails == '15' ||screen.screendetails == '16' ">
+            <div class="sec-qtn" id="screen-size" >
+                <!--Question-->
+                <div class="qtn qtn-default">
+                    Select screen size.
+                </div>
+                <!--Options-->
+                <br>
+                <!-- <div class="row">
+                    <div class="col-xs-12 col-sm-7">
+                        <rzslider rz-slider-model="singleDualslider.minValue" rz-slider-options="singleDualslider.options"></rzslider>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <input type="text" class="form-control" ng-model="singleDualslider.minValue">
                     </div>
                 </div>
+                <br> -->
+                <div class="row pad_vertical_15" ng-repeat="slider in singleDualslider track by $index">
+                    <div class="col-xs-12 col-sm-7">
+                        <rzslider rz-slider-model="slider.minValue" rz-slider-options="slider.options"></rzslider>
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <input type="text" class="form-control" ng-model="slider.minValue">
+                    </div>
+                    <a ng-if="singleDualslider.length > 1" ng-hide="$index == 0" class="col-xs-12 col-sm-2 font_medium grey3 " ng-click="removeScreen($index)" style="font-size: x-large;">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <br>
+                <a class="font_medium grey3" ng-click="addSingleDualScreen()">
+                    <i class="fa fa-plus"></i> Add more option
+                </a>
             </div>
         </div>
-    </div>
-
-    <div class="sec-qtn" id="screen-size" ng-if="screenSize">
-        <!--Question-->
-        <div class="qtn qtn-default">
-            Select screen size.
-        </div>
-        <!--Options-->
-        <br>
-        <div class="row">
-            <div class="col-xs-12 col-sm-7">
-                <rzslider rz-slider-model="sliders.slider.minValue" rz-slider-options="sliders.slider.options"></rzslider>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-                <input type="text" class="form-control" ng-model="sliders.slider.minValue">
-            </div>
-        </div>
-        <br>
-        <div class="row pad_vertical_15" ng-repeat="slider in sliders track by $index">
-            <div class="col-xs-12 col-sm-7">
-                <rzslider rz-slider-model="slider.minValue" rz-slider-options="slider.options"></rzslider>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-                <input type="text" class="form-control" ng-model="slider.minValue">
-            </div>
-            <a class="col-xs-12 col-sm-2 font_medium grey3 " ng-click="removeScreen($index)" style="font-size: x-large;">
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </a>
-        </div>
-        <br>
-        <a class="font_medium grey3" ng-click="addScreen()">
-            <i class="fa fa-plus"></i> Add more option
-        </a>
     </div>
     <br>
     <!--Buttons-->
@@ -358,13 +378,11 @@
         <button du-smooth-scroll="sec-sw-impress" du-scrollspy ng-click="" class="btn btn-default">
             Back
         </button>
-        <button du-smooth-scroll="sec-sm-find" ng-hide="!sd" du-scrollspy class="btn btn-primary"
-                ng-click="innerForm('sec-sm-find')">
+        <button du-smooth-scroll="sec-sm-find" ng-hide="!sd" du-scrollspy class="btn btn-primary" ng-click="innerForm('sec-sm-find')">
             Proceed
         </button>
     </div>
 </div>
-
 <!--Screen Mount -->
 <div id="sec-sm-find" ng-if="scMount" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
@@ -382,10 +400,10 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label  ng-model="screenType" uib-btn-radio="'1'"> Table</label>
+                <label ng-model="screenType" uib-btn-radio="'27'" ng-change="screenmount(screenType)"> Table</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                <label class=""  ng-model="screenType" uib-btn-radio="'2'"> Wall</label>
+                <label class="" ng-model="screenType" uib-btn-radio="'28'" ng-change="screenmount(screenType)"> Wall</label>
             </div>
         </div>
         <br>
@@ -395,36 +413,34 @@
             </div>
             <div class="row btn-opt">
                 <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                    <label class="" ng-click="hideOptions()" ng-model="custom" uib-btn-radio="'1'">Window facing</label>
+                    <label class="" ng-model="custom" uib-btn-radio="'29'" ng-change="mountlocation(custom)">Window facing</label>
                 </div>
                 <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                    <label class="" ng-click="hideOptions()" ng-model="custom" uib-btn-radio="'2'"> Near entrance</label>
+                    <label class="" ng-model="custom" uib-btn-radio="'30'" ng-change="mountlocation(custom)"> Near entrance</label>
                 </div>
                 <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                    <label class="" ng-click="hideOptions()" ng-model="custom" uib-btn-radio="'3'">Waiting area</label>
+                    <label class="" ng-model="custom" uib-btn-radio="'31'" ng-change="mountlocation(custom)">Waiting area</label>
                 </div>
                 <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                    <label class="" ng-click="hideOptions()" ng-model="custom" uib-btn-radio="'4'"> Outdoor</label>
+                    <label class="" ng-model="custom" uib-btn-radio="'32'" ng-change="mountlocation(custom)"> Outdoor</label>
                 </div>
                 <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                    <label class="" ng-click="innerShow('other-sec')" ng-model="custom" uib-btn-radio="'5'"> Other</label>
+                    <label class="" ng-model="custom" uib-btn-radio="'33'" ng-change="mountlocation(custom)"> Other</label>
                 </div>
             </div>
         </div>
-
-        <div class="row animate-if" id="other-sec" ng-if="otherSec" >
+        <div class="row animate-if" id="other-sec" ng-show="custom == '32'">
             <div class="col-xs-12 col-sm-6">
                 <div class="pad_vertical">
                     <div class="qtn qtn-default">
                         Other
                     </div>
                     <div>
-                        <input type="text"  class="form-control"  required>
+                        <input type="text" class="form-control" required>
                     </div>
                 </div>
             </div>
         </div>
-
         <!--Buttons-->
         <div class="btn-ctn flx-spb-hrt font_medium">
             <button du-smooth-scroll="sec-sd-impress" du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
@@ -436,7 +452,6 @@
         </div>
     </div>
 </div>
-
 <!--Media Player-->
 <div id="sec-media-player" ng-if="mdPlayer" ng-class="testclass" class="qtn-ctn">
     <div>
@@ -445,7 +460,6 @@
         </div>
     </div>
     <div class="sec-qtn">
-
         <!--Question-->
         <div class="qtn qtn-default">
             Select one media player to include in your solution.
@@ -453,27 +467,24 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="mp" uib-btn-radio="'1'">Standard</label>
+                <label class="" ng-model="mp" uib-btn-radio="'34'" ng-change="mediaplayer(mp)">Standard</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="mp" uib-btn-radio="'2'">Premium</label>
+                <label class="" ng-model="mp" uib-btn-radio="'35'" ng-change="mediaplayer(mp)">Premium</label>
             </div>
         </div>
-
     </div>
     <br>
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <a du-smooth-scroll="sec-sm-find" du-scrollspy  class="btn btn-default">
+        <a du-smooth-scroll="sec-sm-find" du-scrollspy class="btn btn-default">
             Back
         </a>
-        <a du-smooth-scroll="sec-si-impress" du-scrollspy ng-click="innerForm('sec-si-impress')"
-           class="btn btn-primary">
+        <a du-smooth-scroll="sec-si-impress" du-scrollspy ng-click="innerForm('sec-si-impress')" class="btn btn-primary">
             Proceed
         </a>
     </div>
 </div>
-
 <!--Site Installation-->
 <div id="sec-si-impress" ng-if="siteInstall" ng-class="testclass" class="qtn-ctn">
     <div>
@@ -490,10 +501,10 @@
         <!--Options-->
         <div class="row">
             <div class="col-xs-12 col-sm-7">
-                <rzslider rz-slider-model="sliders.slider.value" rz-slider-options="sliders.slider.options"></rzslider>
+                <rzslider rz-slider-model="siteinstallslider.value" rz-slider-options="siteinstallslider.options"></rzslider>
             </div>
             <div class="col-xs-12 col-sm-3">
-                <input type="text" class="form-control"  ng-model="sliders.slider.value">
+                <input type="text" class="form-control" ng-model="siteinstallslider.value">
             </div>
         </div>
         <!--Options-->
@@ -505,21 +516,32 @@
         </div>
         <!--Options-->
         <div class="row btn-opt">
-
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="siteinstall" uib-btn-radio="'1'">Near the screen</label>
+                <label class="" ng-model="siteinstall" uib-btn-radio="'41'" ng-change="installLocation(siteinstall)">Near the screen</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="siteinstall" uib-btn-radio="'2'">In the server room</label>
+                <label class="" ng-model="siteinstall" uib-btn-radio="'42'" ng-change="installLocation(siteinstall)">In the server room</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="siteinstall" uib-btn-radio="'3'">Back of the screen</label>
+                <label class="" ng-model="siteinstall" uib-btn-radio="'43'" ng-change="installLocation(siteinstall)">Back of the screen</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="siteinstall" uib-btn-radio="'4'">Other</label>
+                <label class="" ng-model="siteinstall" uib-btn-radio="'44'" ng-change="installLocation(siteinstall)">Other</label>
             </div>
         </div>
         <!--Options-->
+        <div class="row animate-entry" ng-show="siteinstall == '44'">
+            <div class="col-xs-12 col-sm-6">
+                <div class="pad_vertical">
+                    <div class="qtn qtn-default">
+                        Other
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" required>
+                    </div>
+                </div>
+            </div>
+        </div>
         <br>
         <div class="qtn qtn-default">
             Who do you prefer to install the solution on site?
@@ -527,10 +549,10 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label ng-model="whoInstall" uib-btn-radio="'1'">Engagis</label>
+                <label ng-model="whoInstall" uib-btn-radio="'45'" ng-change="solutionsite(whoInstall)">Engagis</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label ng-model="whoInstall" uib-btn-radio="'2'">3rd Party</label>
+                <label ng-model="whoInstall" uib-btn-radio="'47'" ng-change="solutionsite(whoInstall)">3rd Party</label>
             </div>
         </div>
     </div>
@@ -545,7 +567,6 @@
         </a>
     </div>
 </div>
-
 <!--Project Timeline-->
 <div id="sec-pt-impress" ng-if="ptImpress" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
@@ -563,10 +584,10 @@
         <!--Options-->
         <div class="row">
             <div class="col-xs-12 col-sm-7">
-                <rzslider rz-slider-model="sliders.slider.value" rz-slider-options="sliders.slider.options"></rzslider>
+                <rzslider rz-slider-model="projectslider.value" rz-slider-options="projectslider.options"></rzslider>
             </div>
             <div class="col-xs-12 col-sm-3">
-                <input type="text" class="form-control" name="" ng-model="sliders.slider.value">
+                <input type="text" class="form-control"  ng-model="projectslider.value">
             </div>
         </div>
         <!--Options-->
@@ -583,7 +604,6 @@
         </a>
     </div>
 </div>
-
 <!--Support package-->
 <div id="sec-sp-impress" ng-if="spImpress" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
@@ -601,19 +621,19 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="supportpack" uib-btn-radio="'1'">Essential</label>
+                <label class="" ng-model="supportpack" uib-btn-radio="'53'" ng-change="supportPack(supportpack)">Essential</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="supportpack" uib-btn-radio="'2'">Enterprise</label>
+                <label class="" ng-model="supportpack" uib-btn-radio="'54'" ng-change="supportPack(supportpack)">Enterprise</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="supportpack" uib-btn-radio="'3'">3rd Party</label>
+                <label class="" ng-model="supportpack" uib-btn-radio="'55'" ng-change="supportPack(supportpack)">3rd Party</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="supportpack" uib-btn-radio="'4'">DIY</label>
+                <label class="" ng-model="supportpack" uib-btn-radio="'56'" ng-change="supportPack(supportpack)">DIY</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="supportpack" uib-btn-radio="'5'">Custom</label>
+                <label class="" ng-model="supportpack" uib-btn-radio="'57'" ng-change="supportPack(supportpack)">Custom</label>
             </div>
         </div>
     </div>
@@ -628,7 +648,6 @@
         </a>
     </div>
 </div>
-
 <!--Connectivity-->
 <div id="sec-con-impress" ng-if="connectivity" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
@@ -646,10 +665,10 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="currentnet" uib-btn-radio="'1'">With existing connection</label>
+                <label class="" ng-model="currentnet" uib-btn-radio="'58'" ng-change="currentnets(currentnet)">With existing connection</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="currentnet" uib-btn-radio="'2'">Requires new connection</label>
+                <label class="" ng-model="currentnet" uib-btn-radio="'59'" ng-change="currentnets(currentnet)">Requires new connection</label>
             </div>
         </div>
         <br>
@@ -659,10 +678,10 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="lanpref" uib-btn-radio="'1'">Wired</label>
+                <label class="" ng-model="lanpref" uib-btn-radio="'60'" ng-change="lanprefer(lanpref)">Wired</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="lanpref" uib-btn-radio="'2'">Wireless</label>
+                <label class="" ng-model="lanpref" uib-btn-radio="'61'" ng-change="lanprefer(lanpref)">Wireless</label>
             </div>
         </div>
         <br>
@@ -672,10 +691,10 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="wanpref" uib-btn-radio="'1'">ASL</label>
+                <label class="" ng-model="wanpref" uib-btn-radio="'62'" ng-change="wanprefer(wanpref)">ASL</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="wanpref" uib-btn-radio="'2'">DSL</label>
+                <label class="" ng-model="wanpref" uib-btn-radio="'63'" ng-change="wanprefer(wanpref)">DSL</label>
             </div>
         </div>
     </div>
@@ -690,7 +709,6 @@
         </a>
     </div>
 </div>
-
 <!--Content Management-->
 <div id="sec-cot-impress" ng-show="content" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
@@ -708,13 +726,13 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="createcontent" ng-change="createcont(createcontent)" uib-btn-radio="'1'">Use in-house resources</label>
+                <label class="" ng-model="createcontent" ng-change="createcont(createcontent)" uib-btn-radio="'64'">Use in-house resources</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="createcontent" ng-change="createcont(createcontent)" uib-btn-radio="'2'">We have an agency already</label>
+                <label class="" ng-model="createcontent" ng-change="createcont(createcontent)" uib-btn-radio="'65'">We have an agency already</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-4">
-                <label class="" ng-click="" ng-model="createcontent" ng-change="createcont(createcontent)" uib-btn-radio="'3'">We want a proposal from Engagis</label>
+                <label class="" ng-model="createcontent" ng-change="createcont(createcontent)" uib-btn-radio="'66'">We want a proposal from Engagis</label>
             </div>
         </div>
         <br>
@@ -727,10 +745,10 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="" ng-model="managecontent" ng-change="contentmanage(managecontent)" uib-btn-radio="'1'">Use in-house resources</label>
+                <label class="" ng-click="" ng-model="managecontent" ng-change="contentmanage(managecontent)" uib-btn-radio="'67'">Use in-house resources</label>
             </div>
             <div class="col-xs-12 col-sm-3 col-md-2 col-lg-4">
-                <label class="" ng-click="" ng-model="managecontent" ng-change="contentmanage(managecontent)" uib-btn-radio="'2'">We want a proposal from Engagis</label>
+                <label class="" ng-click="" ng-model="managecontent" ng-change="contentmanage(managecontent)" uib-btn-radio="'68'">We want a proposal from Engagis</label>
             </div>
         </div>
         <br>
@@ -745,86 +763,84 @@
         </a>
     </div>
 </div>
-
 <style type="text/css">
-.fancy {
-    text-align: center;
-}
+    .fancy {
+        text-align: center;
+    }
 
-.fancy div {
-    position: relative;
-    /*font-size: 30px;*/
-    z-index: 1;
-    overflow: hidden;
-    text-align: center;
-}
+    .fancy div {
+        position: relative;
+        /*font-size: 30px;*/
+        z-index: 1;
+        overflow: hidden;
+        text-align: center;
+    }
 
-.fancy div:before,
-.fancy div:after {
-    position: absolute;
-    top: 51%;
-    overflow: hidden;
-    width: 50%;
-    height: 1px;
-    content: '\a0';
-    background-color: #1e587f;
-}
+    .fancy div:before,
+    .fancy div:after {
+        position: absolute;
+        top: 51%;
+        overflow: hidden;
+        width: 50%;
+        height: 1px;
+        content: '\a0';
+        background-color: #1e587f;
+    }
 
-.fancy div:before {
-    margin-left: -50%;
-    text-align: right;
-}
+    .fancy div:before {
+        margin-left: -50%;
+        text-align: right;
+    }
 
-.fancyholder {
-    position: absolute;
-    width: 94%;
-    bottom: -20px;
-}
+    .fancyholder {
+        position: absolute;
+        width: 94%;
+        bottom: -20px;
+    }
 
-.wrappler {
-    position: absolute;
-    width: 45px;
-    height: 260px;
-    top: 0;
-    right: -9px;
-}
+    .wrappler {
+        position: absolute;
+        width: 45px;
+        height: 260px;
+        top: 0;
+        right: -9px;
+    }
 
-.line {
-    position: absolute;
-    left: 49%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: #1e587f;
-    z-index: 1;
-}
+    .line {
+        position: absolute;
+        left: 49%;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background: #1e587f;
+        z-index: 1;
+    }
 
-.wordwrapper {
-    text-align: center;
-    height: 12px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 48%;
-    margin-top: -12px;
-    z-index: 2;
-}
+    .wordwrapper {
+        text-align: center;
+        height: 12px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 48%;
+        margin-top: -12px;
+        z-index: 2;
+    }
 
-.word {
-    /* color: #ccc; */
-    /* text-transform: uppercase; */
-    /* letter-spacing: 1px; */
-    padding: 3px;
-    /* font: bold 12px arial, sans-serif; */
-    background: rgb(255, 255, 255);
-}
+    .word {
+        /* color: #ccc; */
+        /* text-transform: uppercase; */
+        /* letter-spacing: 1px; */
+        padding: 3px;
+        /* font: bold 12px arial, sans-serif; */
+        background: rgb(255, 255, 255);
+    }
 
-.liveconfigurator {
-    width: 100%;
-    height: 250px;
-    -webkit-box-align: center;
-    -webkit-box-pack: center;
-    display: -webkit-box;
-}
+    .liveconfigurator {
+        width: 100%;
+        height: 250px;
+        -webkit-box-align: center;
+        -webkit-box-pack: center;
+        display: -webkit-box;
+    }
 </style>
-

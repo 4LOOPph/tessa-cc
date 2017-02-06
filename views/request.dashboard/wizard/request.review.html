@@ -1,16 +1,16 @@
-<div class="qtn-ctn" id="request-review">
+<div class="qtn-ctn" ng-if="secReview" id="request-review">
     <div class="row">
         <div class="col-xs-12">
             <div class="font_18 font_medium blue1">
                 Review request.
             </div>
             <br>
-            <p>You have successfully filled out necessary information for you request. Please take time
-                to review it below and edit necessary details you desire to change. Once your request is
+            <p>You have successfully filled out necessary information for you request. Please take time to review it below and edit necessary details you desire to change. Once your request is
                 <b>Final</b>, please click <b>Next</b> below to continue.</p>
         </div>
     </div>
-    <br><br>
+    <br>
+    <br>
     <div class="row">
         <div class="col-sm-6">
             <div class=" pad_vertical_15 request-specs">
@@ -19,54 +19,52 @@
                         CUSTOMER DETAILS
                     </div>
                     <div>
-                        <a class=" font_medium">
+                        <a ng-click="setTab(1)" class=" font_medium">
                             <i class="fa fa-edit"></i> Edit
                         </a>
                     </div>
-
                 </div>
                 <table class="info_table tbl-bordered full_width tbl-lg ">
                     <tbody>
-                    <tr>
-                        <th class="tbl-label" colspan="2">Customer details</th>
-                    </tr>
-                    <tr>
-                        <th>Company</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>ABN/ACN</th>
-                        <td>Lorem Ipsum</td>
-                    </tr>
-                    <tr>
-                        <th class="tbl-label" colspan="2">Contact Details</th>
-                    </tr>
-                    <tr>
-                        <th>Contact name</th>
-                        <td>
-                            Emily Rose
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Contact address</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact email</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact number (Home)</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact number (Work)</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
+                        <tr>
+                            <th class="tbl-label" colspan="2">Customer details</th>
+                        </tr>
+                        <tr>
+                            <th>Company</th>
+                            <td>{{details.name}}</td>
+                        </tr>
+                        <tr>
+                            <th>ABN/ACN</th>
+                            <td>{{details.ABN}}</td>
+                        </tr>
+                        <tr>
+                            <th class="tbl-label" colspan="2">Contact Details</th>
+                        </tr>
+                        <tr>
+                            <th>Contact name</th>
+                            <td>
+                                {{person.lastname}},{{firstname}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Contact address</th>
+                            <td>{{person.address}}</td>
+                        </tr>
+                        <tr>
+                            <th>Contact email</th>
+                            <td>{{person.email}}</td>
+                        </tr>
+                        <tr>
+                            <th>Contact number (Home)</th>
+                            <td>{{person.contact_number2}}</td>
+                        </tr>
+                        <tr>
+                            <th>Contact number (Work)</th>
+                            <td>{{person.mobile}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
-
         </div>
         <div class="col-sm-6">
             <div class=" pad_vertical_15 request-specs">
@@ -75,143 +73,355 @@
                         REQUEST DETAILS
                     </div>
                     <div>
-                        <a class=" font_medium">
+                        <a ng-click="setTab(2)" class=" font_medium">
                             <i class="fa fa-edit"></i> Edit
                         </a>
                     </div>
-
                 </div>
-                <table class="info_table tbl-bordered full_width tbl-lg ">
+                <table class="info_table tbl-bordered full_width tbl-lg">
                     <tbody>
-                    <tr>
-                        <th class="tbl-label" colspan="2">Customer details</th>
-                    </tr>
-                    <tr>
-                        <th>Company</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>ABN/ACN</th>
-                        <td>Lorem Ipsum</td>
-                    </tr>
-                    <tr>
-                        <th class="tbl-label" colspan="2">Contact Details</th>
-                    </tr>
-                    <tr>
-                        <th>Contact name</th>
-                        <td>
-                            Emily Rose
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Contact address</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact email</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact number (Home)</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact number (Work)</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th class="tbl-label" colspan="2">Contact Details</th>
-                    </tr>
-                    <tr>
-                        <th>Contact name</th>
-                        <td>
-                            Emily Rose
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Contact address</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact email</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact number (Home)</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact number (Work)</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th class="tbl-label" colspan="2">Contact Details</th>
-                    </tr>
-                    <tr>
-                        <th>Contact name</th>
-                        <td>
-                            Emily Rose
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Contact address</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact email</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact number (Home)</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    <tr>
-                        <th>Contact number (Work)</th>
-                        <td>Lorem Ipsum dollar.</td>
-                    </tr>
-                    </tbody>
-                </table>
+                        <tr>
+                            <th class="tbl-label" colspan="2">Purpose</th>
+                        </tr>
+                        <tr>
+                            <th>Objectives</th>
+                            <td>{{requestobject}}</td>
+                        </tr>
+                        <tr>
+                            <th>Intended Audience</th>
+                            <td>{{objectAudience}}</td>
+                        </tr>
+                        <tr>
+                            <th class="tbl-label" colspan="2">Solution details</th>
+                        </tr>
+                        <tr>
+                            <th>Request Type</th>
+                            <td>{{requestType}}</td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th class="tbl-label" colspan="2">Deployment Details</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Number of solution(s) to be deployed per site.</th>
+                            <td>
+                                {{requestdetails.deployedsite}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Number of sites where solutions be deployed.</th>
+                            <td>{{requestdetails.deployedsolution}}</td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Expected deployment type</th>
+                            <td>{{requestdetaildesign}}</td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th class="tbl-label" colspan="2">Software Details</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Application</th>
+                            <td>
+                                {{softwaresolution}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th class="tbl-label" colspan="2">Screen Details</th>
+                        </tr ng-if="requestType == 'Proposal'">
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Screen Configuration</th>
+                            <td>
+                                {{screens}}
+                            </td>
+                        </tr>
+                        <tr ng-if="screens == 'Matrix'">
+                            <th>Row</th>
+                            <td>1</td>
+                        </tr>
+                        <tr ng-if="screens == 'Matrix'">
+                            <th>Column</th>
+                            <td>2</td>
+                        </tr>
+                        <tr ng-if="screens == 'Matrix'">
+                            <th>Orientation</th>
+                            <td>Landscape</td>
+                        </tr>
+                        <tr ng-repeat="slider in singleDualslider">
+                            <th>Screen Size ({{$index}})</th>
+                            <td>{{slider.minValue}}</td>
+                        </tr>
+                        <tr ng-if="screentypes">
+                            <th class="tbl-label" colspan="2">Screen Type</th>
+                        </tr>
+                        <tr ng-if="screentypes">
+                            <th>Type</th>
+                            <td>
+                                {{screentypes}}
+                        </tr>
+                        <tr ng-if="mountlocations">
+                            <th class="tbl-label" colspan="2">Screen mount details</th>
+                        </tr>
+                        <tr ng-if="mountlocations">
+                            <th>Mounting options</th>
+                            <td>
+                                {{screenmounts}}
+                            </td>
+                        </tr>
+                        <tr ng-if="mountlocations">
+                            <th>Mounting location</th>
+                            <td>
+                                {{mountlocations}}
+                            </td>
+                        </tr>
+                        <tr ng-if="mediaplayers">
+                            <th class="tbl-label" colspan="2">Media Player</th>
+                        </tr>
+                        <tr ng-if="mediaplayers">
+                            <th>Media Player</th>
+                            <td>
+                                {{mediaplayers}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th class="tbl-label" colspan="2">Site installation</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Distance between DMP and Screen</th>
+                            <td>
+                                {{siteinstallslider.value}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>DMP install location</th>
+                            <td>
+                                {{installLocate}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Preferred solution installer</th>
+                            <td>
+                                {{solutionsit}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th class="tbl-label" colspan="2">Project Timeline</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Implementation timeframe</th>
+                            <td>
+                                {{projectslider.value}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th class="tbl-label" colspan="2">Support package</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Support package</th>
+                            <td>
+                                {{supportpackage}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th class="tbl-label" colspan="2">Connectivity</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Current network status</th>
+                            <td>
+                                {{currentnetwork}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>LAN preference</th>
+                            <td>
+                                {{lanpreference}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>WAN Preference</th>
+                            <td>
+                                {{wanpreference}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th class="tbl-label" colspan="2">Content management</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Content plan</th>
+                            <td>
+                                {{createcontents}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Content management</th>
+                            <td>
+                                {{contentmanagement}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Design'">
+                            <th class="tbl-label" colspan="2">Design Details</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Design'">
+                            <th>Design Type</th>
+                            <td>
+                                {{designtypes}}
+                            </td>
+                        </tr>
+                        <tr ng-if="designtypes == 'Solcat'">
+                            <th>Solcat Detail</th>
+                            <td>
+                                {{solcats}}
+                            </td>
+                        </tr>
+                        <tr ng-if="designtypes == 'Visual Design'">
+                            <th>Visual Design Detail</th>
+                            <td>
+                                {{solcats}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Prototype'">
+                            <th class="tbl-label" colspan="2">Prototype specifications</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Prototype'">
+                            <th>Prototype requirements</th>
+                            <td>
+                                {{protypeSpecific}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Prototype'">
+                            <th>Prototype package</th>
+                            <td>
+                                {{protypePackage}}
+                            </td>
+                        </tr>
             </div>
-
+            </tbody>
+            </table>
         </div>
-    </div>
-    <br><br>
-    <div class="row font_medium">
-        <div class="col-xs-6">
-            <button ng-click="setTab(2)" class="btn btn-default">
-                Back
-            </button>
-
-        </div>
-        <div class="col-xs-6 right_align">
-            <button ng-click="confirmation()" class="btn btn-success">
-                Next
-            </button>
-        </div>
-
     </div>
 </div>
-
-
-<script type="text/ng-template" id="templateId">
-    <div class=" " style="padding: 10px 40px; margin:auto;">
-        <div class="font_medium " style="padding-bottom: 20px;border-bottom: solid thin #bdbdbd">
-            <i class="fa  fa-warning"></i>
-            Your request could no longer be modified once you proceed.
-        </div>
-        <br>
-        <div class="font_18">
-            Are you sure to continue?
-        </div>
-        <br>
-        <div class="full_width ">
-            <button class="tes-btn-xs bg-midnight-alt">
-                No, do not continue
-            </button>
-            <button class="tes-btn-xs bg-midnight">
-                Yes, continue
-            </button>
+<br>
+<br>
+<div class="row font_medium">
+    <div class="col-xs-6">
+        <button ng-click="setTab(2)" class="btn btn-default">
+            Back
+        </button>
+    </div>
+    <div class="col-xs-6 right_align">
+        <button du-smooth-scroll="final-step" du-scrollspy=" " ng-click="innerForm('final-step')" class="btn btn-primary">
+            Proceed
+        </button>
+    </div>
+</div>
+</div>
+<div class="qtn-ctn" ng-class="testclass" ng-if="secFinale" id="final-step">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="font_24 font_medium blue1">
+                Final steps.
+            </div>
         </div>
     </div>
+    <br>
+    <!--Company Details-->
+    <div class="sec-qtn">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <div class="pad_vertical">
+                    <div class="qtn qtn-default">
+                        Due date
+                    </div>
+                    <div>
+                        <p class="input-group">
+                            <input type="text" class="form-control" ng-model="reqinfo.due_date" data-date-format="MM-dd-yyyy" bs-datepicker/>
+                            <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i
+                    class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <div class="pad_vertical">
+                    <div class="qtn qtn-default">
+                        Priority type
+                    </div>
+                    <div>
+                        <div class="btn-group" uib-dropdown>
+                            <button id="single-button" uib-dropdown-toggle type="button" class="full_width btn font_medium btn-default">
+                                {{reqinfo.priortype}}
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                <li role="menuitem" ng-click="getPriortype('Low')"><a>Low</a>
+                                </li>
+                                <li role="menuitem" ng-click="getPriortype('Medium')"><a>Medium</a>
+                                </li>
+                                <li role="menuitem" ng-click="getPriortype('High')"><a>High</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-12 col-sm-8">
+                <div class="pad_vertical">
+                    <div class="qtn qtn-default">
+                        Notes
+                    </div>
+                    <div>
+                        <textarea ng-model="reqinfo.remark" cols="50" rows="4" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-xs-6">
+                <button du-smooth-scroll="" du-scrollspy=" " class="btn btn-default">
+                    Back
+                </button>
+            </div>
+            <div class="col-xs-6 right_align">
+                <button du-smooth-scroll="request-review" du-scrollspy=" " ng-click="confirmation()" class="btn btn-success">
+                    Next
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/ng-template" id="templateId">
+    <div class="ngdialog-message">
+        <div class="font_medium " style="padding-bottom: 10px">
+            <i class="fa  fa-warning"></i> Your request could no longer be edited once you proceed.
+        </div>
+        <div class="font_18">
+            Are you sure to submit your request?
+        </div>
+        <br>
+    </div>
+    <div class="ngdialog-buttons">
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="successConfirm()">Submit</button>
+        <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">Do not submit.
+        </button>
+    </div>
+</script>
+<script type="text/ng-template" id="success-modal">
+    <div class="ngdialog-message">
+        <div class="font_medium font_24 text-green" style="padding-bottom: 10px">
+            Success!
+        </div>
+        <div class="font_16">
+            Your request has been submitted. Select done to close dialog or create another request to submit new entry.
+        </div>
+        <br>
+    </div>
 
+    <div class="ngdialog-buttons">
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ui-sref="main.requestDashboard">Done</button>
+        <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="newRequest()">Make new request</button>
+    </div>
 </script>

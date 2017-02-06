@@ -18,21 +18,21 @@
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-click="getValue('renders')" ng-model="desType"
-                       uib-btn-radio="'renders'">Renders</label>
+                       uib-btn-radio="'139'" ng-change="designType(desType)">Renders</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('graphics')" ng-model="desType" uib-btn-radio="'graphics'">Graphic
+                <label class="" ng-click="getValue('graphics')" ng-model="desType" uib-btn-radio="'140'" ng-change="designType(desType)">Graphic
                     design</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('solcat')" ng-model="desType" uib-btn-radio="'solcat'">Solcat</label>
+                <label class="" ng-click="getValue('solcat')" ng-model="desType" uib-btn-radio="'141'" ng-change="designType(desType)">Solcat</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('visual')" ng-model="desType" uib-btn-radio="'visual'">Visual
+                <label class="" ng-click="getValue('visual')" ng-model="desType" uib-btn-radio="'142'" ng-change="designType(desType)">Visual
                     Design</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('email')" ng-model="desType" uib-btn-radio="'email'">Email
+                <label class="" ng-click="getValue('email')" ng-model="desType" uib-btn-radio="'143'" ng-change="designType(desType)">Email
                     template</label>
             </div>
         </div>
@@ -43,23 +43,23 @@
         <button du-smooth-scroll="request-type" du-scrollspy class="btn btn-default">
             Back
         </button>
-        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == 'renders'" ng-click="addRequest(value)"
+        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == '139'" ng-click="addRequest(value)"
                 class="btn btn-primary">
             Proceed
         </button>
-        <button du-smooth-scroll="solcat" du-scrollspy ng-show="desType == 'solcat'" ng-click="addRequest(value)"
+        <button du-smooth-scroll="solcat" du-scrollspy ng-show="desType == '141'" ng-click="addRequest(value)"
                 class="btn btn-primary">
             Proceed
         </button>
-        <button du-smooth-scroll="graphics" du-scrollspy ng-show="desType == 'graphics'" ng-click="addRequest(value)"
+        <button du-smooth-scroll="graphics" du-scrollspy ng-show="desType == '140'" ng-click="addRequest(value)"
                 class="btn btn-primary">
             Proceed
         </button>
-        <button du-smooth-scroll="email" du-scrollspy ng-show="desType == 'email'" ng-click="addRequest(value)"
+        <button du-smooth-scroll="email" du-scrollspy ng-show="desType == '143'" ng-click="addRequest(value)"
                 class="btn btn-primary">
             Proceed
         </button>
-        <button du-smooth-scroll="visual" du-scrollspy ng-show="desType == 'visual'" ng-click="addRequest(value)"
+        <button du-smooth-scroll="visual" du-scrollspy ng-show="desType == '142'" ng-click="addRequest(value)"
                 class="btn btn-primary">
             Proceed
         </button>
@@ -68,7 +68,6 @@
 </div>
 
 <div id="renders" ng-class="testclass" ng-if="renders" class="qtn-ctn">
-
     <div>
         <div class="form-type">
             Renders
@@ -94,7 +93,7 @@
                             <label for="attach"><i class="fa fa-link"></i> Attach file(s)</label>
                         </div>
                         <div class="blue2">
-                            <span class="font_medium grey2">2 files uploaded</span>
+                            <span class="font_medium grey2">{{uploader.length}} files uploaded</span>
                             <a><i class="fa fa-times"></i></a>
                         </div>
                     </div>
@@ -102,7 +101,7 @@
             </div>
         </div>
         <br>
-        <div class="row ">
+        <div class="row">
             <div class="col-xs-12 col-sm-7">
                 <div class="qtn qtn-default">
                     Please attach actual photo as reference.
@@ -213,10 +212,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </form>
-
-
                 </div>
 
             </div>
@@ -250,10 +246,10 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-model="xp" uib-btn-radio="'1'">Standard</label>
+                <label class="" ng-model="sc" uib-btn-radio="'145'" ng-change="getSolcat(sc)">Standard</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-model="xp" uib-btn-radio="'2'">Custom</label>
+                <label class="" ng-model="sc" uib-btn-radio="'146'" ng-change="getSolcat(sc)">Custom</label>
             </div>
         </div>
         <br>
@@ -475,11 +471,11 @@
         </div>
         <!--Options-->
         <div class="row btn-opt">
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-model="xp" uib-btn-radio="'1'">Standard</label>
+             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                <label class="" ng-model="sc" uib-btn-radio="'145'" ng-change="getSolcat(sc)">Standard</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-model="xp" uib-btn-radio="'2'">Custom</label>
+                <label class="" ng-model="sc" uib-btn-radio="'146'" ng-change="getSolcat(sc)">Custom</label>
             </div>
         </div>
     </div>
@@ -505,7 +501,7 @@
         </div>
     </div>
     <br>
-    <div class="row ">
+    <div class="row">
         <div class="col-xs-12 col-sm-6">
             <div class="qtn qtn-default">
                 Branding reference.
@@ -616,14 +612,12 @@
                             </div>
                         </div>
                     </div>
-
                 </form>
-
-
             </div>
-
         </div>
-        <div class="col-xs-12 col-sm-6">
+    </div>
+    <div class="row">
+     <div class="col-xs-12 col-sm-6">
             <div class="qtn qtn-default">
                 Assets
             </div>

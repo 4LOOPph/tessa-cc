@@ -17,7 +17,7 @@
                     <div style="text-transform: uppercase;">{{details.status_name}}</div>
                 </div>
                 <div class="font_medium font_18 padding_10 blue3">
-                    {{details.request_info.title}}
+                    {{details.request_info.client_details.name}}
                 </div>
                 <div class="padding_10">
                     <table class="info_table full_width">
@@ -55,8 +55,8 @@
                             <td>
                                 {{details.request_info.requester_details.person_name}}
                             </td>
-                          <!--   <td>
-                                <input type="text" class="edit-on-text" ng-focus="sam()" ng-if="!display">
+                              <td>
+                                <!-- <input type="text" class="edit-on-text" ng-focus="sam()" ng-if="!display">
                                 <ui-select ng-click="sam()" ng-model="displayName.selected" ng-click="btn-edit = true" style="" uib-tooltip="Click to Edit">
                                     <ui-select-match placeholder="Select" style="outline: 0px;">
                                         {{$select.selected.displayName}}
@@ -70,14 +70,14 @@
                                 <div class="edit-btn-container" ng-show="btn-edit">
                                     <button class="btn btn-xm btn-default"><i class="ti ti-check"></i></button>
                                     <button class="btn btn-xm btn-default"><i class="ti ti-close"></i></button>
-                                </div>
-                            </td> -->
+                                </div> -->
+                            </td>
                         </tr>
                         <tr>
                             <th>Scheduler</th>
                             <td>
-                             {{details.request_info.scheduler_details.person_name}}
-                               <!--  <input type="text" class="edit-on-text" uib-tooltip="Click to Edit">
+                                {{details.scheduler_details.person_name}}
+                                <!--  <input type="text" class="edit-on-text" uib-tooltip="Click to Edit">
                                 <div class="edit-btn-container" ng-show="btn-editz">
                                     <button class="btn btn-xm btn-default"><i class="ti ti-check"></i></button>
                                     <button class="btn btn-xm btn-default"><i class="ti ti-close"></i></button>
@@ -87,12 +87,22 @@
                         <tr>
                             <th>Assignee</th>
                             <td>
-                            {{details.request_info.assignee_details.person_name}}
-                                <!-- <input type="text" class="edit-on-text" value="dasd" uib-tooltip="Click to Edit">
+                                <!-- {{details.request_info.assignee_details.person_name}} -->
+                                <!-- <input type="text" class="edit-on-text" ng-focus="sam()" ng-if="!display"> -->
+                                <ui-select ng-click="sam()" ng-model="displayName.selected" ng-click="btn-edit = true" style="" uib-tooltip="Click to Edit" on-select="getAssign($item)">
+                                    <ui-select-match placeholder="Select" style="outline: 0px;">
+                                        {{$select.selected.displayName}}
+                                    </ui-select-match>
+                                    <ui-select-choices focus-on="sam()" repeat="name in persons | filter: $select.search" position="down">
+                                        <span ng-bind-html="name.displayName | highlight: $select.search"></span>
+                                        <small ng-bind-html="name.code | highlight: $select.search"></small>
+                                    </ui-select-choices>
+                                    <!-- <button type="button" class="btn btn-default ">sample</button> -->
+                                </ui-select>
                                 <div class="edit-btn-container" ng-show="btn-edit">
                                     <button class="btn btn-xm btn-default"><i class="ti ti-check"></i></button>
                                     <button class="btn btn-xm btn-default"><i class="ti ti-close"></i></button>
-                                </div> -->
+                                </div>
                             </td>
                         </tr>
                     </table>
@@ -214,8 +224,10 @@
                     </div>
                     <div class="comment-section" emoji-form emoji-message="emojiMessage">
                         <div class="font_medium blue3">Post a comment</div>
-                        <textarea class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
+                        <textarea class="form-control"  rows="2" id="messageInput"  ng-model="emojiMessage.messagetext">
                         </textarea>
+                        <!-- <input type="text"  mentio-typed-text="typedTerm" mentio-trigger-char="'@'" mentio-items="sample" mentio-search="searchPeople(term)" class="form-control" ng-model="theTextArea2" size="100" />
+                        </input> -->
                         <div>
                             <span class="" uib-dropdown style="margin-top: -2px;">
                             <button class="btn-def font_medium" uib-dropdown-toggle><i
@@ -304,15 +316,15 @@
                     <table class="info_table tbl-bordered full_width tbl-lg ">
                         <tr>
                             <th>Company</th>
-                            <td>{{details.company}}</td>
+                            <td>{{details.request_info.client_details.name}}</td>
                         </tr>
                         <tr>
                             <th>ABN/ACN</th>
-                            <td>ABN</td>
+                            <td>{{details.request_info.client_details.ABN}}</td>
                         </tr>
                         <tr>
                             <th>Company Adress</th>
-                            <td>Emily Homes Cagayan deo orfsdfdsfds fsdfdsf fsdfds</td>
+                            <td>{{details.request_info.client_details.address}}</td>
                         </tr>
                     </table>
                 </div>
@@ -348,7 +360,7 @@
                     </div>
                     <br>
                     <div>
-                        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Pellentesque in ipsum id orci porta dapibus. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Proin eget tortor risus. Donec rutrum congue leo eget malesuada.
+                        {{details.remark}}
                     </div>
                 </div>
             </div>
