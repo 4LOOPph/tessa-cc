@@ -211,12 +211,12 @@
                         <div class="col-xs-3">
                             <div class="dis_table_auto">
                                 <div class="dis_cell">
-                                    <button class="btn btn-roller" ng-click="minusRowsColumn('rows')">
+                                    <button class="btn btn-roller" ng-click="minusRowsColumn('rows')" uib-tooltip="max size 20">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
-                                <div class="dis_cell">
-                                    <input type="text" ng-model="details.rows" style="width: 100px;" ng-change="matrixrow(details.rows)">
+                                <div class="dis_cell" >
+                                    <input type="numbers" numbers-only ng-model="details.rows" style="width: 100px;" ng-maxlength="20" ng-change="matrixrow(details.rows)" uib-tooltip="max size 20">
                                 </div>
                                 <div class="dis_cell">
                                     <button class="btn btn-roller" ng-click="addRowsColumn('rows')">
@@ -236,12 +236,12 @@
                         <div class="col-xs-3">
                             <div class="dis_table_auto">
                                 <div class="dis_cell">
-                                    <button class="btn btn-roller" name="screen-width" ng-click="minusRowsColumn('columns')">
+                                    <button class="btn btn-roller" name="screen-width" ng-click="minusRowsColumn('columns')" uib-tooltip="max size 20">
                                         <i class="fa fa-minus"></i>
                                     </button>
                                 </div>
                                 <div class="dis_cell">
-                                    <input type="text" ng-model="details.columns" style="width: 100px;" ng-change="matrixcolumn(details.columns)">
+                                    <input type="numbers" numbers-only ng-model="details.columns" ng-model="details.rows" style="width: 100px;" ng-change="matrixcolumn(details.columns)" uib-tooltip="max size 20">
                                 </div>
                                 <div class="dis_cell">
                                     <button class="btn btn-roller" ng-click="addRowsColumn('columns')" >

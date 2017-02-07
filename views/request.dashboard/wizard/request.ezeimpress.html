@@ -216,7 +216,7 @@
                                     </button>
                                 </div>
                                 <div class="dis_cell">
-                                    <input type="text" ng-model="details.rows" style="width: 100px;" ng-change="matrixrow(details.rows)">
+                                    <input type="numbers" numbers-only ng-model="details.rows" ng-maxlength="20" style="width: 100px;" ng-change="matrixrow(details.rows)" >
                                 </div>
                                 <div class="dis_cell">
                                     <button class="btn btn-roller" ng-click="addRowsColumn('rows')">
@@ -241,7 +241,7 @@
                                     </button>
                                 </div>
                                 <div class="dis_cell">
-                                    <input type="text" ng-model="details.columns" style="width: 100px;" ng-change="matrixcolumn(details.columns)">
+                                    <input type="numbers" numbers-only ng-model="details.columns" ng-maxlength="20" style="width: 100px;" ng-change="matrixcolumn(details.columns)" >
                                 </div>
                                 <div class="dis_cell">
                                     <button class="btn btn-roller" ng-click="addRowsColumn('columns')">

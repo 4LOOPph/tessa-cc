@@ -12,7 +12,7 @@
                     </div>
                     <div>
                         <!--  <input type="text"  class="form-control" ng-model="details.company_name" id="focusedinput" required> infinite-scroll="addMoreItems()" infinite-scroll-distance="2" -->
-                        <ui-select theme="bootstrap" ng-model="details" allow-clear on-select="getCompanyValue($item)" append-to-body="true">
+                        <ui-select theme="bootstrap" ng-model="details" allow-clear on-select="getCompanyValue($item)" append-to-body="true" required>
                             <ui-select-match>
                                 {{$select.selected.name}}
                             </ui-select-match>
@@ -33,7 +33,7 @@
                         ABN/ACN
                     </div>
                     <div>
-                        <input type="text" numbers-only class="form-control" ng-model="details.ABN" id="focusedinput" disabled disabled>
+                        <input type="text" numbers-only class="form-control" ng-model="details.ABN" id="focusedinput" disabled >
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                             Street Address
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_address" id="focusedinput" disabled>
+                            <input type="text" class="form-control" ng-model="details.ship_address" id="focusedinput" disabled required>
                         </div>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                             City
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_city" id="focusedinput" disabled>
+                            <input type="text" class="form-control" ng-model="details.ship_city" id="focusedinput" disabled required>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                             State
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_state" id="focusedinput" disabled>
+                            <input type="text" class="form-control" ng-model="details.ship_state" id="focusedinput" disabled required>
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                             Postal Code
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_zipcode" id="focusedinput" disabled>
+                            <input type="text" class="form-control" ng-model="details.ship_zipcode" id="focusedinput" disabled required>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                             Street Address
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_address" id="focusedinput" disabled>
+                            <input type="text" class="form-control" ng-model="details.bill_address" id="focusedinput" disabled required>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                             City
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_city" id="focusedinput" disabled>
+                            <input type="text" class="form-control" ng-model="details.bill_city" id="focusedinput" disabled required>
                         </div>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                             State
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_state" id="focusedinput" disabled>
+                            <input type="text" class="form-control" ng-model="details.bill_state" id="focusedinput" disabled required>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
                             Postal Code
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_zipcode" id="focusedinput" disabled>
+                            <input type="text" class="form-control" ng-model="details.bill_zipcode" id="focusedinput" disabled required>
                         </div>
                     </div>
                 </div>
@@ -198,7 +198,7 @@
                         </div>
                         <div>
                             <!--  <div angucomplete-alt id="ex1" placeholder="Contact" maxlength="50" selected-object="getcontactPerson" local-data="persons" search-fields="lastname" title-field="lastname,firstname" minlength="1" input-class="form-control" match-class="highlight" override-suggestions="true"></div> -->
-                            <input type="text" class="form-control" ng-model="person.lastname" id="focusedinput" required>
+                            <input type="text" placeholder="Lastname"  class="form-control" ng-model="person.lastname" id="focusedinput" required minimum-input-length="3" refresh-delay="100">
                         </div>
                     </div>
                 </div>
@@ -208,7 +208,7 @@
                             First name
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="person.firstname" id="focusedinput" required>
+                            <input type="text" class="form-control" placeholder="Firstname" ng-model="person.firstname" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -220,7 +220,7 @@
                             Contact address
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="person.address" id="focusedinput" required>
+                            <input type="text" class="form-control" placeholder="Address" ng-model="person.address" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -230,7 +230,7 @@
                             Contact email
                         </div>
                         <div>
-                            <input type="email" class="form-control" ng-model="person.email" id="focusedinput" required>
+                            <input type="email" class="form-control" placeholder="Email adddress" ng-model="person.email" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -242,7 +242,7 @@
                             Contact number (home)
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="person.contact_number2" id="focusedinput" required>
+                            <input type="text" class="form-control" name="repeat" placeholder="Home number" ng-model="person.contact_number2" numbers-only id="focusedinput" required mask="99-999-9999">
                         </div>
                     </div>
                 </div>
@@ -252,7 +252,7 @@
                             Contact number (work)
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="person.mobile" id="focusedinput" required>
+                            <input type="text" class="form-control" name="repeat" placeholder="Mobile number" mask="9999-999-9999" numbers-only  ng-model="person.mobile" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -266,7 +266,7 @@
                 <!--<a du-smooth-scroll="sec-purpose" ng-disabled="companyForm.$invalid"  du-scrollspy ng-click="innerForm('sec-purpose')" class="btn btn-primary">-->
                 <!--Proceed-->
                 <!--</a>-->
-                <a du-smooth-scroll="sec-purpose" du-scrollspy ng-click="innerForm('sec-purpose')" class="btn btn-primary" ng-disabled="companyForm.$invalid">
+                <a du-smooth-scroll="sec-purpose" du-scrollspy ng-click="innerForm('sec-purpose')" class="btn btn-primary" ng-disabled="companyForm.$invalid" >
                     Proceed
                 </a>
             </div>
