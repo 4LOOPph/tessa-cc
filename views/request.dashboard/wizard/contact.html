@@ -1,8 +1,9 @@
 <!--Company Details-->
 <div class="qtn-ctn" id="company-info">
     <div class="sec-qtn">
-        <div class="form-type">
-            Tell us about your client.
+        <div class="form-type flx-spb-hrt">
+            <div>Tell us about your client.</div>
+            <div class="font_12 grey3 ">1 of 3</div>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-6">
@@ -33,7 +34,7 @@
                         ABN/ACN
                     </div>
                     <div>
-                        <input type="text" numbers-only class="form-control" ng-model="details.ABN" id="focusedinput" disabled >
+                        <input type="text" numbers-only class="form-control" ng-model="details.ABN" id="focusedinput" disabled>
                     </div>
                 </div>
             </div>
@@ -90,6 +91,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="pad_vertical">
+                            <div class="qtn qtn-default">
+                                Country
+                            </div>
+                            <div>
+                                <input type="text" class="form-control" ng-model="details.ship_country" id="focusedinput" required disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!--Billing Details-->
             <div class="blue2 pad_vertical_15 font_medium">
@@ -139,6 +152,18 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Country
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.bill_country" id="focusedinput" required disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!--  <div class="row">
             <div class="col-xs-12 col-sm-6">
                 <div class="pad_vertical">
@@ -169,7 +194,7 @@
         <!--Buttons-->
         <div class="btn-ctn flx-spb-hrt font_medium">
             <div> </div>
-            <div uib-tooltip="Show this when disabled only" tooltip-enable="!companyForm.$invalid">
+            <div uib-tooltip="Make sure required details are provided." tooltip-enable="companyForm.$invalid">
                 <!--<button type="button" du-smooth-scroll="contact-info" ng-disabled="companyForm.$invalid" du-scrollspy ng-click="addRequest('contact-info')" class="btn btn-primary ">-->
                 <!--Proceed-->
                 <!--</button>-->
@@ -184,25 +209,26 @@
 <div id="contact-info" class="qtn-ctn" ng-class="testclass" ng-if="contactInfo">
     <div>
         <div>
-            <div class="form-type">
-                Provide contact information.
+            <div class="form-type flx-spb-hrt">
+                <div>Contact information.</div>
+                <div class="font_12 grey3 ">2 of 3</div>
             </div>
         </div>
         <div class="sec-qtn">
             <!--Question-->
             <div class="row">
-                <div class="col-xs-6 col-sm-3">
+                <div class="col-xs-12 col-sm-4">
                     <div class="pad_vertical">
                         <div class="qtn qtn-default">
                             Last name
                         </div>
                         <div>
                             <!--  <div angucomplete-alt id="ex1" placeholder="Contact" maxlength="50" selected-object="getcontactPerson" local-data="persons" search-fields="lastname" title-field="lastname,firstname" minlength="1" input-class="form-control" match-class="highlight" override-suggestions="true"></div> -->
-                            <input type="text" placeholder="Lastname"  class="form-control" ng-model="person.lastname" id="focusedinput" required minimum-input-length="3" refresh-delay="100">
+                            <input type="text" placeholder="Lastname" class="form-control" ng-model="person.lastname" id="focusedinput" required minimum-input-length="3" refresh-delay="100">
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-6 col-sm-3">
+                <div class="col-xs-12 col-sm-4">
                     <div class="pad_vertical">
                         <div class="qtn qtn-default">
                             First name
@@ -214,46 +240,51 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-8 col-xs-12">
                     <div class="pad_vertical">
                         <div class="qtn qtn-default">
                             Contact address
                         </div>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Address" ng-model="person.address" id="focusedinput" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-3 col-sm-6">
-                    <div class="pad_vertical">
-                        <div class="qtn qtn-default">
-                            Contact email
-                        </div>
-                        <div>
-                            <input type="email" class="form-control" placeholder="Email adddress" ng-model="person.email" id="focusedinput" required>
+                        <div ng-class="{ 'has-success':companyForm.contactaddress.$valid && !companyForm.contactaddress.$pristine }">
+                            <input type="text" name="contactaddress" class="form-control" ng-model="person.address" id="focusedinput" placeholder="(eg. street, city, state, postal code, country)" required>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-4 col-xs-12">
                     <div class="pad_vertical">
                         <div class="qtn qtn-default">
                             Contact number (home)
                         </div>
-                        <div>
-                            <input type="text" class="form-control" name="repeat" placeholder="Home number" ng-model="person.contact_number2" numbers-only id="focusedinput" required mask="99-999-9999">
+                        <div class="form-group" ng-class="{ 'has-error' : companyForm.numberhome.$invalid && !companyForm.numberhome.$pristine, 'has-success':companyForm.numberhome.$valid && !companyForm.numberhome.$pristine }">
+                            <input type="text" class="form-control" name="numberhome" placeholder="Home number" ng-model="person.contact_number2" numbers-only id="focusedinput" required mask="99-999-9999">
                         </div>
+                        <p ng-show="companyForm.numberhome.$invalid && !companyForm.numberhome.$pristine" class="form-feedback">Please input a valid number. (eg. 9999-999-9999)</p>
                     </div>
                 </div>
-                <div class="col-sm-3 col-xs-6">
+                <div class="col-sm-4 col-xs-12">
                     <div class="pad_vertical">
                         <div class="qtn qtn-default">
                             Contact number (work)
                         </div>
-                        <div>
-                            <input type="text" class="form-control" name="repeat" placeholder="Mobile number" mask="9999-999-9999" numbers-only  ng-model="person.mobile" id="focusedinput" required>
+                        <div class="form-group" ng-class="{  'has-error' : companyForm.numberwork.$invalid && !companyForm.numberwork.$pristine, 'has-success':companyForm.numberwork.$valid && !companyForm.numberwork.$pristine }">
+                            <input type="text" class="form-control" name="numberwork" placeholder="Mobile number" mask="9999-999-9999" numbers-only ng-model="person.mobile" id="focusedinput" required>
                         </div>
+                        <p ng-show="companyForm.numberwork.$invalid && !companyForm.numberwork.$pristine" class="form-feedback">Please input a valid number. (eg. 9999-999-9999)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Contact email
+                        </div>
+                        <div class="form-group" ng-class="{ 'has-error' : companyForm.email.$invalid && !companyForm.email.$pristine, 'has-success':companyForm.email.$valid && !companyForm.email.$pristine }">
+                            <input type="email" name="email" class=" form-control" ng-model="person.email" id="focusedinput" required>
+                        </div>
+                        <p ng-show="companyForm.email.$invalid && !companyForm.email.$pristine" class="form-feedback">Enter a valid email. (eg. jupiter@engagis.com)</p>
                     </div>
                 </div>
             </div>
@@ -266,9 +297,11 @@
                 <!--<a du-smooth-scroll="sec-purpose" ng-disabled="companyForm.$invalid"  du-scrollspy ng-click="innerForm('sec-purpose')" class="btn btn-primary">-->
                 <!--Proceed-->
                 <!--</a>-->
-                <a du-smooth-scroll="sec-purpose" du-scrollspy ng-click="innerForm('sec-purpose')" class="btn btn-primary" ng-disabled="companyForm.$invalid" >
-                    Proceed
-                </a>
+                <div uib-tooltip="Make sure required details are provided." tooltip-enable="companyForm.$invalid">
+                    <a du-smooth-scroll="sec-purpose" du-scrollspy ng-click="innerForm('sec-purpose')" class="btn btn-primary" >
+                        Proceed
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -277,8 +310,9 @@
 <div id="sec-purpose" ng-class="testclass" class=" qtn-ctn" ng-if="purpose">
     <div>
         <div>
-            <div class="form-type">
-                Objectives
+            <div class="form-type flx-spb-hrt">
+                <div>Objectives</div>
+                <div class="font_12 grey3 ">3 of 3</div>
             </div>
         </div>
         <!--Question instance-->
@@ -302,12 +336,12 @@
                     <label class="" ng-model="audience" uib-btn-radio="'154'" ng-change="getObjective(audience)">Others</label>
                 </div>
             </div>
-            <div class="row animate-entry" ng-show="audience == 'audienceOthers'">
+            <div class="row animate-entry" ng-show="audience == '154'">
                 <br>
                 <div class="col-xs-12 col-sm-6">
                     <div class="pad_vertical">
                         <div class="qtn qtn-default">
-                            Other
+                            Please specify others.
                         </div>
                         <div>
                             <input type="text" class="form-control" ng-model="objectad">
@@ -344,11 +378,11 @@
                 </div>
             </div>
             <br>
-            <div class="row animate-entry" ng-show="objectives == 'objectivesOthers'">
+            <div class="row animate-entry" ng-show="objectives == '160'">
                 <div class="col-xs-12 col-sm-6">
                     <div class="pad_vertical">
                         <div class="qtn qtn-default">
-                            Other
+                            Please specify others.
                         </div>
                         <div>
                             <input type="text" class="form-control" ng-model="objectother">

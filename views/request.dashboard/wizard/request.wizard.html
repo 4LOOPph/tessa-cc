@@ -44,15 +44,19 @@
         <ul class="prg-ctn">
             <li class="prg-bar">
                 <form name="companyForm" ng-submit="setTab(2)">
-                    <a ng-click="setTab(1)" ng-class="{'wiz-tab-active':isSet(1),'wiz-tab-done':details.name && companyForm.$valid}" class="font_medium wiz-tab" href="">
+                    <a ng-click="setTab(1)"
+                       ng-class="{'wiz-tab-active':isSet(1),'wiz-tab-done':details.name && companyForm.$valid}"
+                       class="font_medium wiz-tab" href="">
                         <div class="wiz-sizer" ng-class="navClass">
                             <h1 ng-if="details.name && companyForm.$valid">
                                 <i class="fa fa-check"></i>
                             </h1>
                             <div class="hide-sm">
-                                <h1 ng-if="!details.name || companyForm.$invalid">1</h1> Company Details</div>
+                                <h1 ng-if="!details.name || companyForm.$invalid">1</h1> Company Details
+                            </div>
                             <div class="hide-lg">
-                                <h1 ng-if="checkValid.$invalid">1</h1>Company</div>
+                                <h1 ng-if="checkValid.$invalid">1</h1>Company
+                            </div>
                         </div>
                     </a>
                     <div du-scroll-container ng-show="isSet(1)" class="wiz-cnt animate-entry">
@@ -62,29 +66,48 @@
                 </form>
             </li>
             <li class="prg-bar">
-                <a ng-click="setTab(2)" ng-class=" {'wiz-tab-active':isSet(2),'wiz-tab-done':createcontent && managecontent,'wiz-tab-done':designtypedetail || protypePackage}" class="font_medium wiz-tab" href="" ng-style="{cursor: checkValid.$valid == true ? '':'not-allowed'}">
+                <a ng-click="setTab(2)" ng-class="{'wiz-tab-active':isSet(2),'wiz-tab-done':createcontent && managecontent,'wiz-tab-done':designtypedetail || protypePackage}" class="font_medium wiz-tab" href="" ng-style="{cursor: checkValid.$valid == true ? '':'not-allowed'}">
                     <div class="wiz-sizer" ng-class="navClass">
                         <h1 ng-show="createcontent && managecontent;designtypedetail;protypePackage">
                             <i class="fa fa-check"></i>
                         </h1>
                         <div class="hide-sm">
-                            <h1 ng-hide="createcontent && managecontent;designtypedetail;protypePackage">2 </h1>Add Request</div>
+                            <h1 ng-hide="createcontent && managecontent;designtypedetail;protypePackage">2 </h1>Add
+                            Request
+                        </div>
                         <div class="hide-lg">
-                            <h1 ng-hide="createcontent && managecontent;designtypedetail;protypePackage">2 </h1>Request</div>
+                            <h1 ng-hide="createcontent && managecontent;designtypedetail;protypePackage">2 </h1>Request
+                        </div>
                     </div>
                 </a>
-                <div du-scroll-container ng-show="isSet(2)" class="wiz-cnt animate-entry">
+
+
+                <!--<div class="flx-spb-hrt sub-step">-->
+
+
+                <!--<button   du-scroll-container="scroll-container" du-smooth-scroll="rdImpress" du-scrollspy class="animate-if">Solution details</button>-->
+                <!--<button du-scroll-container="scroll-container" ng-if="sdImpress" du-smooth-scroll="sec-sd-impress" du-scrollspy class="animate-if">Hardware</button>-->
+                <!--<button du-scroll-container="scroll-container"  ng-if="siteInstall" du-smooth-scroll="sec-si-impress" du-scrollspy class="animate-if">Installation</button>-->
+                <!--<button du-scroll-container="scroll-container"  ng-if="ptImpress" du-smooth-scroll="sec-pt-impress" du-scrollspy class="animate-if">MISC</button>-->
+                <!--</div>-->
+
+                <div id="scroll-container" du-scroll-container ng-show="isSet(2)" class="wiz-cnt animate-entry">
+
+
                     <div ng-include="'../views/request.dashboard/wizard/add.request.html'">
                     </div>
                 </div>
             </li>
             <li class="prg-bar">
-                <a ng-click="setTab(3)" class=" font_medium wiz-tab" href="" ng-class="{'wiz-tab-active':isSet(3)}" ng-style="{cursor: (!createcontent && !managecontent) == true ? 'not-allowed':'' }">
+                <a ng-click="setTab(3)" class=" font_medium wiz-tab" href="" ng-class="{'wiz-tab-active':isSet(3)}"
+                   ng-style="{cursor: (!createcontent && !managecontent) == true ? 'not-allowed':'' }">
                     <div class="wiz-sizer" ng-class="navClass">
                         <div class="hide-sm">
-                            <h1>3</h1> Submit Request</div>
+                            <h1>3</h1> Submit Request
+                        </div>
                         <div class="hide-lg">
-                            <h1>3</h1>Submit</div>
+                            <h1>3</h1>Submit
+                        </div>
                     </div>
                 </a>
                 <div du-scroll-container ng-show="isSet(3)" class=" wiz-cnt animate-entry">
@@ -106,521 +129,514 @@
         <br>
     </div>
     <div class="ngdialog-buttons">
-        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="goBack()">Yes, close wizard</button>
-        <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">No, do not close</button>
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="goBack()">Yes, close wizard
+        </button>
+        <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog(0)">No, do not
+            close
+        </button>
     </div>
 </script>
 <style>
-#active-dashboard {
-    background: #424242;
-}
-
-.static-content {
-    overflow: hidden;
-}
-
-.step-ind {
-    display: inline-block;
-    margin-right: 5px;
-    border-radius: 100%;
-    padding: 0.2% 1.5%;
-    background: #bdbdbd;
-    color: #fafafa;
-    vertical-align: middle;
-}
-
-.step-focus .step-ind {
-    background: #337AB7;
-    color: white;
-}
-
-.prog-bar .primary-step a {
-    z-index: 99999;
-    border-right: solid thin #bdbdbd;
-    text-decoration: none;
-    border-bottom: solid 3px #ededed;
-    background: #fafafa;
-    color: #bdbdbd;
-}
-
-.prog-bar .primary-step .step-focus {
-    border-bottom: solid 3px #337AB7;
-    background: white;
-    color: #337AB7;
-}
-
-.prog-bar .primary-step .step-done {
-    border-bottom: solid 3px #27AE60;
-    background: white;
-    color: #27AE60;
-}
-
-.step-done .step-ind {
-    background: #27AE60;
-    color: white;
-}
-
-
-/*.big {*/
-
-
-/*font-size: 18px;*/
-
-
-/*height: 60px;*/
-
-
-/*}*/
-
-
-/*.small {*/
-
-
-/*font-size: 14px;*/
-
-
-/*height: 40px;*/
-
-
-/*}*/
-
-.prog-bar {
-    position: fixed;
-    text-align: center;
-}
-
-.prog-bar .dis_table {
-    -webkit-transition: 0.3s 0.5s ease-in-out all;
-    -moz-transition: 0.3s 0.5s ease-in-out all;
-    -o-transition: 0.3s 0.5s ease-in-out all;
-    transition: 0.3s 0.5s ease-in-out all;
-}
-
-.sec-qst {
-    margin-top: 15px;
-}
-
-.wiz-option {
-    padding: 20px 10px;
-    text-align: center;
-    border: solid thin #004d7f;
-    background: white;
-}
-
-.sec-wiz-option .active {
-    background: #004d7f;
-    color: white !important;
-    fill: #fffff;
-}
-
-.wiz-option figure {
-    padding-bottom: 10px;
-}
-
-.wiz-option .img_holder {
-    width: 30px;
-    margin: auto;
-}
-
-.sec-wiz-option .dis_cell {
-    padding: 3px;
-}
-
-.sec-wiz-option .dis_cell:first-child {
-    padding-left: 0;
-}
-
-.sec-wiz-option a {
-    text-decoration: none;
-}
-
-.rzslider .rz-tick {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    margin-left: 8px;
-    text-align: center;
-    cursor: pointer;
-    background: #bcc5da;
-    border-radius: 50%;
-}
-
-.rzslider .rz-pointer {
-    top: -11px;
-    z-index: 3;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    background-color: #00a2d6;
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-    border-radius: 16px;
-}
-
-.rzslider .rz-selection {
-    z-index: 2;
-    background: #00a2d6 !important;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-}
-
-.rzslider .rz-bar {
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 4px;
-    background: #bcc5da;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-}
-
-.rzslider .rz-pointer.rz-active:after {
-    background-color: #fff !important;
-}
-
-.rzslider .rz-pointer:after {
-    position: absolute;
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    background: #fff;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    content: '';
-}
-
-.steps-indicator li a:before,
-.steps-indicator:before {
-    background-color: #aeaeae;
-    content: '';
-}
-
-.steps-indicator li.current a:before {
-    background-color: #004d7f !important;
-}
-
-div {
-    counter-reset: my-awesome-counter;
-}
-
-.steps-indicator li a {
-    counter-increment: my-awesome-counter;
-}
-
-.steps-indicator li a:before {
-    position: absolute;
-    top: -10px;
-    left: calc(50% - 10px);
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    transition: .25s;
-    content: counter(my-awesome-counter);
-    -webkit-align-content: center;
-    align-content: center;
-    color: #fff;
-    padding: 2.5px;
-    font-size: 10px;
-    line-height: 1.5;
-}
-
-.steps-indicator li.done a:before {
-    background-color: #28b328 !important;
-    color: #fff;
-    background-image: url('./images/icons/ic_done_white_24px.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 18px;
-    content: close-quote;
-}
-
-.prog-bar {
-    position: fixed;
-    text-align: center;
-}
-
-.prog-bar .dis_table {
-    -webkit-transition: 0.3s 0.5s ease-in-out all;
-    -moz-transition: 0.3s 0.5s ease-in-out all;
-    -o-transition: 0.3s 0.5s ease-in-out all;
-    transition: 0.3s 0.5s ease-in-out all;
-}
-
-.sec-qst {
-    margin-top: 15px;
-}
-
-.wiz-option {
-    padding: 20px 10px;
-    text-align: center;
-    border: solid thin #004d7f;
-    background: white;
-}
-
-.sec-wiz-option .active {
-    background: #004d7f;
-    color: white !important;
-    fill: #fffff;
-}
-
-.wiz-option figure {
-    padding-bottom: 10px;
-}
-
-.wiz-option .img_holder {
-    width: 30px;
-    margin: auto;
-}
-
-.sec-wiz-option .dis_cell {
-    padding: 3px;
-}
-
-.sec-wiz-option .dis_cell:first-child {
-    padding-left: 0;
-}
-
-.sec-wiz-option a {
-    text-decoration: none;
-}
-
-.rzslider .rz-tick {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 10px;
-    height: 10px;
-    margin-left: 8px;
-    text-align: center;
-    cursor: pointer;
-    background: #bcc5da;
-    border-radius: 50%;
-}
-
-.rzslider .rz-pointer {
-    top: -11px;
-    z-index: 3;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    background-color: #00a2d6;
-    -webkit-border-radius: 16px;
-    -moz-border-radius: 16px;
-    border-radius: 16px;
-}
-
-.rzslider .rz-selection {
-    z-index: 2;
-    background: #00a2d6 !important;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-}
-
-.rzslider .rz-bar {
-    left: 0;
-    z-index: 1;
-    width: 100%;
-    height: 4px;
-    background: #bcc5da;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-}
-
-.rzslider .rz-pointer.rz-active:after {
-    background-color: #fff !important;
-}
-
-.rzslider .rz-pointer:after {
-    position: absolute;
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    background: #fff;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    border-radius: 4px;
-    content: '';
-}
-
-.steps-indicator li a:before,
-.steps-indicator:before {
-    background-color: #aeaeae;
-    content: '';
-}
-
-.steps-indicator li.current a:before {
-    background-color: #004d7f !important;
-}
-
-div {
-    counter-reset: my-awesome-counter;
-}
-
-.steps-indicator li a {
-    counter-increment: my-awesome-counter;
-}
-
-.steps-indicator li a:before {
-    position: absolute;
-    top: -10px;
-    left: calc(50% - 10px);
-    width: 20px;
-    height: 20px;
-    border-radius: 100%;
-    transition: .25s;
-    content: counter(my-awesome-counter);
-    -webkit-align-content: center;
-    align-content: center;
-    color: #fff;
-    padding: 2.5px;
-    font-size: 10px;
-    line-height: 1.5;
-}
-
-.steps-indicator li.done a:before {
-    background-color: #28b328 !important;
-    color: #fff;
-    background-image: url('./images/icons/ic_done_white_24px.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 18px;
-    content: close-quote;
-    /*content: "\f00c";
->>>>>>> f0248662b629d8e4929d5a49380bc9433fabed7e
-            font: normal normal normal 14px/1 FontAwesome;
-            font-weight: 300;*/
-}
-
-.steps-indicator li.editing a:before {
-    background-color: #167116 !important;
-    background-image: url('./images/icons/ic_done_white_24px.svg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 18px;
-    content: close-quote;
-}
-
-.steps-indicator li a {
-    text-decoration: none;
-    text-transform: none;
-    font-weight: 700;
-    transition: .25s;
-    cursor: pointer;
-    font-size: 11px;
-}
-
-.steps-indicator li.editing a,
-.steps-indicator li.done a {
-    color: #337ab7;
-}
-
-.steps-indicator.steps-5:before {
-    left: calc(100% / 5 / 1.9);
-    right: calc(100% / 5 / 1.7);
-}
-
-.steps-indicator:before {
-    position: absolute;
-    height: 3px;
-    margin-top: -1px;
-}
-
-.steps-indicator li.current {
-    pointer-events: none;
-    height: 3px;
-    margin-top: -1px;
-    line-height: 37px;
-    padding-top: 0px;
-    background-color: #004d7f;
-}
-
-.steps-indicator li.editing:first-child,
-
-/*.steps-indicator li.done:first-child,*/
-
-.steps-indicator li.current:first-child {
-    pointer-events: none;
-    height: 3px;
-    margin-top: -1px;
-    line-height: 37px;
-    padding-top: 0px;
-    background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #004d7f));
-}
-
-.steps-indicator li.done:first-child {
-    pointer-events: none;
-    height: 3px;
-    margin-top: -1px;
-    line-height: 37px;
-    padding-top: 0px;
-    background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #28b328));
-}
-
-.steps-indicator li.current:last-child {
-    pointer-events: none;
-    height: 3px;
-    margin-top: -1px;
-    line-height: 37px;
-    padding-top: 0px;
-    background: -webkit-gradient(linear, left top, right top, color-stop(50%, #004d7f), color-stop(50%, transparent));
-}
-
-.steps-indicator li.done:last-child {
-    pointer-events: none;
-    height: 3px;
-    margin-top: -1px;
-    line-height: 37px;
-    padding-top: 0px;
-    background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));
-}
-
-.steps-indicator li.editing:last-child {
-    pointer-events: none;
-    height: 3px;
-    margin-top: -1px;
-    line-height: 37px;
-    padding-top: 0px;
-    background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));
-}
-
-
-/*.steps-indicator li.default,*/
-
-.steps-indicator li.editing {
-    pointer-events: none;
-    height: 3px;
-    margin-top: -1px;
-    line-height: 37px;
-    padding-top: 0px;
-    background-color: #28b328;
-}
-
-.steps-indicator li.done {
-    background-color: #28b328;
-    height: 3px;
-    margin-top: -1px;
-    line-height: 37px;
-    padding-top: 0px;
-}
-
-.steps-indicator {
-    right: 0;
-    /* bottom: -56px; */
-    left: 0;
-    margin: 0;
-    padding: 20px 0 0;
-    height: 30px;
-    list-style: none;
-    position: absolute;
-    top: -112px;
-}
+    #active-dashboard {
+        background: #424242;
+    }
+
+    .static-content {
+        overflow: hidden;
+    }
+
+    .step-ind {
+        display: inline-block;
+        margin-right: 5px;
+        border-radius: 100%;
+        padding: 0.2% 1.5%;
+        background: #bdbdbd;
+        color: #fafafa;
+        vertical-align: middle;
+    }
+
+    .step-focus .step-ind {
+        background: #337AB7;
+        color: white;
+    }
+
+    .prog-bar .primary-step a {
+        z-index: 99999;
+        border-right: solid thin #bdbdbd;
+        text-decoration: none;
+        border-bottom: solid 3px #ededed;
+        background: #fafafa;
+        color: #bdbdbd;
+    }
+
+    .prog-bar .primary-step .step-focus {
+        border-bottom: solid 3px #337AB7;
+        background: white;
+        color: #337AB7;
+    }
+
+    .prog-bar .primary-step .step-done {
+        border-bottom: solid 3px #27AE60;
+        background: white;
+        color: #27AE60;
+    }
+
+    .step-done .step-ind {
+        background: #27AE60;
+        color: white;
+    }
+
+    /*.big {*/
+
+    /*font-size: 18px;*/
+
+    /*height: 60px;*/
+
+    /*}*/
+
+    /*.small {*/
+
+    /*font-size: 14px;*/
+
+    /*height: 40px;*/
+
+    /*}*/
+
+    .prog-bar {
+        position: fixed;
+        text-align: center;
+    }
+
+    .prog-bar .dis_table {
+        -webkit-transition: 0.3s 0.5s ease-in-out all;
+        -moz-transition: 0.3s 0.5s ease-in-out all;
+        -o-transition: 0.3s 0.5s ease-in-out all;
+        transition: 0.3s 0.5s ease-in-out all;
+    }
+
+    .sec-qst {
+        margin-top: 15px;
+    }
+
+    .wiz-option {
+        padding: 20px 10px;
+        text-align: center;
+        border: solid thin #004d7f;
+        background: white;
+    }
+
+    .sec-wiz-option .active {
+        background: #004d7f;
+        color: white !important;
+        fill: #fffff;
+    }
+
+    .wiz-option figure {
+        padding-bottom: 10px;
+    }
+
+    .wiz-option .img_holder {
+        width: 30px;
+        margin: auto;
+    }
+
+    .sec-wiz-option .dis_cell {
+        padding: 3px;
+    }
+
+    .sec-wiz-option .dis_cell:first-child {
+        padding-left: 0;
+    }
+
+    .sec-wiz-option a {
+        text-decoration: none;
+    }
+
+    .rzslider .rz-tick {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        margin-left: 8px;
+        text-align: center;
+        cursor: pointer;
+        background: #bcc5da;
+        border-radius: 50%;
+    }
+
+    .rzslider .rz-pointer {
+        top: -11px;
+        z-index: 3;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        background-color: #00a2d6;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        border-radius: 16px;
+    }
+
+    .rzslider .rz-selection {
+        z-index: 2;
+        background: #00a2d6 !important;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    .rzslider .rz-bar {
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 4px;
+        background: #bcc5da;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    .rzslider .rz-pointer.rz-active:after {
+        background-color: #fff !important;
+    }
+
+    .rzslider .rz-pointer:after {
+        position: absolute;
+        top: 9px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        content: '';
+    }
+
+    .steps-indicator li a:before,
+    .steps-indicator:before {
+        background-color: #aeaeae;
+        content: '';
+    }
+
+    .steps-indicator li.current a:before {
+        background-color: #004d7f !important;
+    }
+
+    div {
+        counter-reset: my-awesome-counter;
+    }
+
+    .steps-indicator li a {
+        counter-increment: my-awesome-counter;
+    }
+
+    .steps-indicator li a:before {
+        position: absolute;
+        top: -10px;
+        left: calc(50% - 10px);
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        transition: .25s;
+        content: counter(my-awesome-counter);
+        -webkit-align-content: center;
+        align-content: center;
+        color: #fff;
+        padding: 2.5px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .steps-indicator li.done a:before {
+        background-color: #28b328 !important;
+        color: #fff;
+        background-image: url('./images/icons/ic_done_white_24px.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        content: close-quote;
+    }
+
+    .prog-bar {
+        position: fixed;
+        text-align: center;
+    }
+
+    .prog-bar .dis_table {
+        -webkit-transition: 0.3s 0.5s ease-in-out all;
+        -moz-transition: 0.3s 0.5s ease-in-out all;
+        -o-transition: 0.3s 0.5s ease-in-out all;
+        transition: 0.3s 0.5s ease-in-out all;
+    }
+
+    .sec-qst {
+        margin-top: 15px;
+    }
+
+    .wiz-option {
+        padding: 20px 10px;
+        text-align: center;
+        border: solid thin #004d7f;
+        background: white;
+    }
+
+    .sec-wiz-option .active {
+        background: #004d7f;
+        color: white !important;
+        fill: #fffff;
+    }
+
+    .wiz-option figure {
+        padding-bottom: 10px;
+    }
+
+    .wiz-option .img_holder {
+        width: 30px;
+        margin: auto;
+    }
+
+    .sec-wiz-option .dis_cell {
+        padding: 3px;
+    }
+
+    .sec-wiz-option .dis_cell:first-child {
+        padding-left: 0;
+    }
+
+    .sec-wiz-option a {
+        text-decoration: none;
+    }
+
+    .rzslider .rz-tick {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        margin-left: 8px;
+        text-align: center;
+        cursor: pointer;
+        background: #bcc5da;
+        border-radius: 50%;
+    }
+
+    .rzslider .rz-pointer {
+        top: -11px;
+        z-index: 3;
+        width: 26px;
+        height: 26px;
+        cursor: pointer;
+        background-color: #00a2d6;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        border-radius: 16px;
+    }
+
+    .rzslider .rz-selection {
+        z-index: 2;
+        background: #00a2d6 !important;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    .rzslider .rz-bar {
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 4px;
+        background: #bcc5da;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    .rzslider .rz-pointer.rz-active:after {
+        background-color: #fff !important;
+    }
+
+    .rzslider .rz-pointer:after {
+        position: absolute;
+        top: 9px;
+        left: 9px;
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        content: '';
+    }
+
+    .steps-indicator li a:before,
+    .steps-indicator:before {
+        background-color: #aeaeae;
+        content: '';
+    }
+
+    .steps-indicator li.current a:before {
+        background-color: #004d7f !important;
+    }
+
+    div {
+        counter-reset: my-awesome-counter;
+    }
+
+    .steps-indicator li a {
+        counter-increment: my-awesome-counter;
+    }
+
+    .steps-indicator li a:before {
+        position: absolute;
+        top: -10px;
+        left: calc(50% - 10px);
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        transition: .25s;
+        content: counter(my-awesome-counter);
+        -webkit-align-content: center;
+        align-content: center;
+        color: #fff;
+        padding: 2.5px;
+        font-size: 10px;
+        line-height: 1.5;
+    }
+
+    .steps-indicator li.done a:before {
+        background-color: #28b328 !important;
+        color: #fff;
+        background-image: url('./images/icons/ic_done_white_24px.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        content: close-quote;
+        /*content: "\f00c";
+                font: normal normal normal 14px/1 FontAwesome;
+                font-weight: 300;*/
+    }
+
+    .steps-indicator li.editing a:before {
+        background-color: #167116 !important;
+        background-image: url('./images/icons/ic_done_white_24px.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 18px;
+        content: close-quote;
+    }
+
+    .steps-indicator li a {
+        text-decoration: none;
+        text-transform: none;
+        font-weight: 700;
+        transition: .25s;
+        cursor: pointer;
+        font-size: 11px;
+    }
+
+    .steps-indicator li.editing a,
+    .steps-indicator li.done a {
+        color: #337ab7;
+    }
+
+    .steps-indicator.steps-5:before {
+        left: calc(100% / 5 / 1.9);
+        right: calc(100% / 5 / 1.7);
+    }
+
+    .steps-indicator:before {
+        position: absolute;
+        height: 3px;
+        margin-top: -1px;
+    }
+
+    .steps-indicator li.current {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background-color: #004d7f;
+    }
+
+    .steps-indicator li.editing:first-child,
+
+        /*.steps-indicator li.done:first-child,*/
+
+    .steps-indicator li.current:first-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #004d7f));
+    }
+
+    .steps-indicator li.done:first-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, transparent), color-stop(50%, #28b328));
+    }
+
+    .steps-indicator li.current:last-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #004d7f), color-stop(50%, transparent));
+    }
+
+    .steps-indicator li.done:last-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));
+    }
+
+    .steps-indicator li.editing:last-child {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #28b328), color-stop(50%, transparent));
+    }
+
+    /*.steps-indicator li.default,*/
+
+    .steps-indicator li.editing {
+        pointer-events: none;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+        background-color: #28b328;
+    }
+
+    .steps-indicator li.done {
+        background-color: #28b328;
+        height: 3px;
+        margin-top: -1px;
+        line-height: 37px;
+        padding-top: 0px;
+    }
+
+    .steps-indicator {
+        right: 0;
+        /* bottom: -56px; */
+        left: 0;
+        margin: 0;
+        padding: 20px 0 0;
+        height: 30px;
+        list-style: none;
+        position: absolute;
+        top: -112px;
+    }
 </style>

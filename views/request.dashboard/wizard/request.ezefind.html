@@ -2,8 +2,8 @@
 <div id="rdImpress" ng-class="testclass" class="chuchu qtn-ctn" ng-if="ezefind">
     <div>
         <div>
-            <div class="form-type">
-                Request Details
+            <div class="form-type flx-spb-hrt">
+                <div>Request details</div> <div class="font_12 grey3 ">2 of 11</div>
             </div>
         </div>
         <!--Question instance-->
@@ -108,8 +108,8 @@
 <div id="sec-sw-impress" ng-class="testclass" ng-if="softwareImpress" class="qtn-ctn">
     <!--Form section-->
     <div>
-        <div class="form-type">
-            Software
+        <div class="form-type flx-spb-hrt">
+            <div>Software</div> <div class="font_12 grey3 ">3 of 11</div>
         </div>
     </div>
     <!--Question instance-->
@@ -148,8 +148,8 @@
 <!--Screen Configuration-->
 <div id="sec-sd-impress" ng-if="sdImpress" ng-class="testclass" class="qtn-ctn">
     <div>
-        <div class="form-type">
-            Screen Details
+        <div class="form-type flx-spb-hrt">
+            <div>Screen details</div> <div class="font_12 grey3 ">4 of 11</div>
         </div>
     </div>
     <!--Question instance-->
@@ -291,26 +291,27 @@
                     <br>
                 </div>
                 <div class="col-xs-12 col-lg-8">
-                    <div style="width:100%; padding:0 10px;">
-                        <table class="tablecustom">
-                            <tbody>
-                            <tr ng-repeat="row in cells track by $index">
-                                <td ng-class="myStyle" ng-repeat="cell in row track by $index"></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <div class="wrappler">
-                            <div class="line"></div>
-                            <div class="wordwrapper">
-                                <div class="word">52mm</div>
+                    <div class="mc-ctn">
+                        <div class="size-mm">55mm</div>
+                        <div class="size-mm-bot">55mm</div>
+                        <div class="matrix-config-ctn">
+                            <div>
+                                <table class="tablecustom">
+                                    <tbody>
+                                    <tr ng-repeat="row in cells track by $index">
+                                        <td  ng-class="myStyle" ng-repeat="cell in row track by $index"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                    <div class="fancyholder">
-                        <div class="fancy">
-                            <div>52mm</div>
-                        </div>
-                    </div>
+
+                    <!--<div class="fancyholder">-->
+                        <!--<div class="fancy">-->
+                            <!--<div>52mm</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
             </div>
             <div class="sec-qtn" id="screen-size">
@@ -387,8 +388,8 @@
 <div id="sec-sm-find" ng-if="scMount" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
-        <div class="form-type">
-            Screen Mount
+        <div class="form-type flx-spb-hrt">
+            <div>Screen Mount</div> <div class="font_12 grey3 ">5 of 11</div>
         </div>
     </div>
     <!--Question instance-->
@@ -429,7 +430,7 @@
                 </div>
             </div>
         </div>
-        <div class="row animate-if" id="other-sec" ng-show="custom == '32'">
+        <div class="row animate-entry" id="other-sec" ng-show="custom == '33'">
             <div class="col-xs-12 col-sm-6">
                 <div class="pad_vertical">
                     <div class="qtn qtn-default">
@@ -455,8 +456,8 @@
 <!--Media Player-->
 <div id="sec-media-player" ng-if="mdPlayer" ng-class="testclass" class="qtn-ctn">
     <div>
-        <div class="form-type">
-            Media Player
+        <div class="form-type flx-spb-hrt">
+            <div>Media player</div> <div class="font_12 grey3 ">6 of 11</div>
         </div>
     </div>
     <div class="sec-qtn">
@@ -488,8 +489,8 @@
 <!--Site Installation-->
 <div id="sec-si-impress" ng-if="siteInstall" ng-class="testclass" class="qtn-ctn">
     <div>
-        <div class="form-type">
-            Site Installation
+        <div class="form-type flx-spb-hrt">
+            <div>Site installation</div> <div class="font_12 grey3 ">7 of 11</div>
         </div>
     </div>
     <div class="sec-qtn">
@@ -571,8 +572,8 @@
 <div id="sec-pt-impress" ng-if="ptImpress" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
-        <div class="form-type">
-            Project Timeline
+        <div class="form-type flx-spb-hrt">
+            <div>Project timeline</div> <div class="font_12 grey3 ">8 of 11</div>
         </div>
     </div>
     <div class="sec-qtn">
@@ -608,8 +609,8 @@
 <div id="sec-sp-impress" ng-if="spImpress" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
-        <div class="form-type">
-            Support Package
+        <div class="form-type flx-spb-hrt">
+            <div>Support package</div> <div class="font_12 grey3 ">9 of 11</div>
         </div>
     </div>
     <!--Question instance-->
@@ -652,8 +653,8 @@
 <div id="sec-con-impress" ng-if="connectivity" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
-        <div class="form-type">
-            Connectivity
+        <div class="form-type flx-spb-hrt">
+            <div>Connectivity</div> <div class="font_12 grey3 ">10 of 11</div>
         </div>
     </div>
     <!--Question instance-->
@@ -713,8 +714,8 @@
 <div id="sec-cot-impress" ng-show="content" ng-class="testclass" class="qtn-ctn">
     <!--Form section-->
     <div>
-        <div class="form-type">
-            Content management
+        <div class="form-type flx-spb-hrt">
+            <div>Content management</div> <div class="font_12 grey3 ">11 of 11</div>
         </div>
     </div>
     <!--Question instance-->

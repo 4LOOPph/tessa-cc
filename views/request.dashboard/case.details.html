@@ -224,7 +224,9 @@
                     </div>
                     <div class="comment-section" emoji-form emoji-message="emojiMessage">
                         <div class="font_medium blue3">Post a comment</div>
-                        <textarea class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
+                        <!-- <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="htmlContent" style="text-align:left;">
+                        </div> -->
+                        <textarea   class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
                         </textarea>
                         <!-- <input type="text"  mentio-typed-text="typedTerm" mentio-trigger-char="'@'" mentio-items="sample" mentio-search="searchPeople(term)" class="form-control" ng-model="theTextArea2" size="100" />
                         </input> -->
@@ -247,7 +249,8 @@
                             </button>
                             <button class="btn btn-primary btn-sm pull-right">Post</button>
                             <div ng-repeat="people in getPeople">
-                            <input type="text" mentio mentio-typed-text="typedTerm" mentio-items="people | filter:label:typedTerm" ng-model="myval" /></div>
+                                <input type="text" mentio mentio-typed-text="typedTerm" mentio-items="people | filter:label:typedTerm" ng-model="myval" />
+                            </div>
                         </div>
                     </div>
                 </div>

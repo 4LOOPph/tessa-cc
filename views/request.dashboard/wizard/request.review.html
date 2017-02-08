@@ -425,6 +425,24 @@
         <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="newRequest()">Make new request</button>
     </div>
 </script>
+<script type="text/ng-template" id="confirm-new">
+    <div class="ngdialog-message">
+
+        <div class="font_medium " style="padding-bottom: 10px">
+            <i class="fa  fa-warning"></i> Make new request.
+        </div>
+        <br>
+    </div>
+    <div class="ngdialog-buttons">
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="sameCompany()">Same Company</button>
+        <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="newCompany()">New Company</button>
+    </div>
+</script>
+
+
+
+
+
 <style type="text/css">
 .loading {
     position: fixed;

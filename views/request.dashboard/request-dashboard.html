@@ -121,21 +121,21 @@
                     <div class="dis_cell" id="to-do" ng-repeat="list in models">
                         <div class="case-ctn">
                             <div class="case-ctn-head">
-                                <h3>
-                                    <img ng-src='{{list.image}}' class="icons-md"/>
+
+                                    <!--<img ng-src='{{list.image}}' class="icons-md"/>-->
                                     {{list.listName}}
                                     <a ng-class="{disabled:completecards.items.length == 0}"><i
                                             ng-if="list.listName == 'completed'" class="fa fa-cog"
                                             ng-click="sortDisplay()" style="float:right;color:#adb3bc"
                                             aria-hidden="true"></i></a>
-                                </h3>
+
                             </div>
                         </div>
                         <!-- -->
-                        <div class="case-ctn-body" dnd-list dnd-drop="onDrop('move cards vertical',event,list, item)"
+                        <div  class="case-ctn-body" dnd-list dnd-drop="onDrop('move cards vertical',event,list, item)"
                              dnd-dragover="dragoverCallback(index, list, type, callback)"
                              dnd-allowed-types="list.allow">
-                            <div class="case-itm" ng-repeat="item in list.items" dnd-type="'can'"
+                            <div uib-tooltip="{{item.request_info.client_details.name || 'null'}}" class="case-itm" ng-repeat="item in list.items" dnd-type="'can'"
                                  dnd-draggable="getSelectedItemsIncluding(list, item)"
                                  dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)"
                                  dnd-dragend="dragend(list,item)" dnd-selected="logEvent(list,item)"
@@ -152,13 +152,17 @@
                                 <div class="case-head">
                                     <div class="dis-flx flx-spb-hrt">
                                         <div class="set-ellipses">
-                                            <a class="blue3 font_18 font_medium"
-                                               ui-sref="main.caseDetails({case_id:item.request_info.request_id})">{{item.request_info.client_details.name || 'null'}}</a>
+                                            <a class="blue3 case-title font_medium"
+                                               ui-sref="main.caseDetails({case_id:item.request_info.request_id})" >
+
+                                                {{item.request_info.client_details.name || 'null'}}
+
+                                            </a>
                                             <div class="font_12 grey2 font_bold">
                                                 {{item.request_info.request_type_name}}
                                             </div>
                                         </div>
-                                        <div class="nowrap right_align  font_18 font_medium">
+                                        <div class="nowrap right_align   font_medium">
                                             <div class="inblock clear-scroll pad_side_10">
                                                 {{item.request_info.case_number}}
                                             </div>
@@ -166,7 +170,7 @@
                                                  dropdown-append-to-body>
                                                 <button class="specialbutton inblock" uib-dropdown-toggle><i
                                                         class="fa fa-ellipsis-v"></i></button>
-                                                <ul class="dropdown-menu dropdown-menu-right" uib-dropdown-menu
+                                                <ul class="font_medium dropdown-menu dropdown-menu-right" uib-dropdown-menu
                                                     role="menu" aria-labelledby="single-button">
                                                     <li role="menuitem" ng-if="list.showupdate"><a
                                                             ng-click="manualupdateStatus(list,item)"><i
@@ -275,6 +279,7 @@
     }
 
     .set-ellipses {
+        widows:100%;
         overflow: hidden;
     }
 
