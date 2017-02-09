@@ -91,6 +91,7 @@
                             <th>Intended Audience</th>
                             <td>{{objectAudience}}</td>
                         </tr>
+
                         <tr>
                             <th class="tbl-label" colspan="2">Solution details</th>
                         </tr>
@@ -98,6 +99,11 @@
                             <th>Request Type</th>
                             <td>{{requestType}}</td>
                         </tr>
+                        <tr ng-if="requestType == 'Proposal'">
+                            <th>Proposal Type</th>
+                            <td>{{proposType}}</td>
+                        </tr>
+
                         <tr ng-if="requestType == 'Proposal'">
                             <th class="tbl-label" colspan="2">Deployment Details</th>
                         </tr>
@@ -381,7 +387,7 @@
         <br>
         <div class="row">
             <div class="col-xs-6">
-                <button du-smooth-scroll="" du-scrollspy=" " class="btn btn-default">
+                <button du-smooth-scroll="request-review" du-scrollspy=" " class="btn btn-default">
                     Back
                 </button>
             </div>
@@ -438,8 +444,6 @@
         <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="newCompany()">New Company</button>
     </div>
 </script>
-
-
 
 
 

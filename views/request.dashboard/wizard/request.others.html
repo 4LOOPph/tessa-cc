@@ -6,11 +6,8 @@
             Others
         </div>
     </div>
-
     <!--Question instance-->
-
     <div class="sec-qtn">
-
         <!--Options-->
         <div class="row">
             <div class="col-xs-12 col-sm-7">
@@ -18,17 +15,15 @@
                     <div class="qtn qtn-default">
                         Please provide why this request appropriately belongs to "Others".
                     </div>
-
                     <div>
                         <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
                     </div>
                     <div class="flx-spb-hrt">
-                        <div class="attacher">
-                            <input type="file" id="attach" name="file" multiple>
-                            <label for="attach"><i class="fa fa-link"></i> Attach file(s)</label>
-                        </div>
+                        <button type="file" ngf-select="uploadFiles($files)" ng-model="files" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'">
+                            <i class="fa fa-link"></i> Attach file(s)
+                        </button>
                         <div class="blue2">
-                            <span class="font_medium grey2">2 files uploaded</span>
+                            <span class="font_medium grey2">{{files.length}} files uploaded</span>
                             <a><i class="fa fa-times"></i></a>
                         </div>
                     </div>
@@ -37,56 +32,45 @@
         </div>
         <div class="row ">
             <div class="col-xs-12">
-
-
             </div>
         </div>
-
     </div>
     <div class="sec-qtn">
-
         <!--Options-->
         <div class="row">
             <div class="col-xs-12 col-sm-7">
                 <div class="pad_vertical">
                     <div class="qtn qtn-default">
-                        Brief
+                        Requirements
                     </div>
-
                     <div>
-                        <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                        <textarea name="txtarea1" cols="50" rows="4" class="form-control" ng-model="requirementother"></textarea>
                     </div>
-                    <div class="flx-spb-hrt">
-                        <div class="attacher">
-                            <input type="file" id="attach" name="file" multiple>
-                            <label for="attach"><i class="fa fa-link"></i> Attach file(s)</label>
-                        </div>
-                        <div class="blue2">
-                            <span class="font_medium grey2">2 files uploaded</span>
-                            <a><i class="fa fa-times"></i></a>
-                        </div>
-                    </div>
+                    <!--<div class="flx-spb-hrt">-->
+                    <!--<div class="attacher">-->
+                    <!--<input type="file" id="attach" name="file" multiple>-->
+                    <!--<label for="attach"><i class="fa fa-link"></i> Attach file(s)</label>-->
+                    <!--</div>-->
+                    <!--<div class="blue2">-->
+                    <!--<span class="font_medium grey2">2 files uploaded</span>-->
+                    <!--<a><i class="fa fa-times"></i></a>-->
+                    <!--</div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
         <div class="row ">
             <div class="col-xs-12">
-
-
             </div>
         </div>
-
     </div>
-
-
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
-        <button du-smooth-scroll="request-type" du-scrollspy  class="btn btn-default">
+        <button du-smooth-scroll="request-type" du-scrollspy class="btn btn-default">
             Back
         </button>
         <button du-smooth-scroll du-scrollspy ng-click="setTab(3)" class="btn btn-success">
             Next
         </button>
     </div>
-
 </div>

@@ -6,9 +6,7 @@
             Design Type
         </div>
     </div>
-
     <!--Question instance-->
-
     <div class="sec-qtn">
         <!--Question-->
         <div class="qtn qtn-default">
@@ -17,66 +15,217 @@
         <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('renders')" ng-model="desType"
-                       uib-btn-radio="'139'" ng-change="designType(desType)">Renders</label>
+                <label class="" ng-click="getValue('renders')" ng-model="desType" uib-btn-radio="'139'" ng-change="designType(desType)">Renders</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('graphics')" ng-model="desType" uib-btn-radio="'140'" ng-change="designType(desType)">Graphic
-                    design</label>
+                <label class="" ng-click="getValue('graphics')" ng-model="desType" uib-btn-radio="'140'" ng-change="designType(desType)">Graphic design
+                </label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-click="getValue('solcat')" ng-model="desType" uib-btn-radio="'141'" ng-change="designType(desType)">Solcat</label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('visual')" ng-model="desType" uib-btn-radio="'142'" ng-change="designType(desType)">Visual
-                    Design</label>
+                <label class="" ng-click="getValue('visual')" ng-model="desType" uib-btn-radio="'142'" ng-change="designType(desType)">Visual Design
+                </label>
             </div>
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-click="getValue('email')" ng-model="desType" uib-btn-radio="'143'" ng-change="designType(desType)">Email
-                    template</label>
+                <label class="" ng-click="getValue('email')" ng-model="desType" uib-btn-radio="'143'" ng-change="designType(desType)">Email template
+                </label>
             </div>
         </div>
     </div>
-
     <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
         <button du-smooth-scroll="request-type" du-scrollspy class="btn btn-default">
             Back
         </button>
-        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == '139'" ng-click="addRequest(value)"
-                class="btn btn-primary">
+        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == '139'" ng-click="addRequest(value)" class="btn btn-primary">
             Proceed
         </button>
-        <button du-smooth-scroll="solcat" du-scrollspy ng-show="desType == '141'" ng-click="addRequest(value)"
-                class="btn btn-primary">
+        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == '141'" ng-click="addRequest(value)" class="btn btn-primary">
             Proceed
         </button>
-        <button du-smooth-scroll="graphics" du-scrollspy ng-show="desType == '140'" ng-click="addRequest(value)"
-                class="btn btn-primary">
+        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == '140'" ng-click="addRequest(value)" class="btn btn-primary">
             Proceed
         </button>
-        <button du-smooth-scroll="email" du-scrollspy ng-show="desType == '143'" ng-click="addRequest(value)"
-                class="btn btn-primary">
+        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == '143'" ng-click="addRequest(value)" class="btn btn-primary">
             Proceed
         </button>
-        <button du-smooth-scroll="visual" du-scrollspy ng-show="desType == '142'" ng-click="addRequest(value)"
-                class="btn btn-primary">
+        <button du-smooth-scroll="renders" du-scrollspy ng-show="desType == '142'" ng-click="addRequest(value)" class="btn btn-primary">
             Proceed
         </button>
     </div>
-
 </div>
+<div id="renders" ng-class="testclass" class="qtn-ctn" ng-if="renders ||solcat ||graphics||visual||emailtemplate">
+    <div>
+        <div class="form-type">
+            {{designtypes}}
+        </div>
+    </div>
+    <div class="sec-qtn">
+        <div ng-if="solcat">
+            <div class="qtn qtn-default">
+                What design experience do you require?
+            </div>
+            <div class="row btn-opt">
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                    <label class="" ng-model="sc" uib-btn-radio="'145'" ng-change="getSolcat(sc)">Standard</label>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
+                    <label class="" ng-model="sc" uib-btn-radio="'146'" ng-change="getSolcat(sc)">Custom</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-7">
+                <div class="pad_vertical">
+                    <div class="qtn qtn-default">
+                        Requirements
+                    </div>
+                    <div>
+                        <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                    </div>
+                    <div class="flx-spb-hrt">
+                        <button type="file" ngf-select="uploadFiles($files)" ng-model="files" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'">
+                            <i class="fa fa-link"></i> Attach file(s)
+                        </button>
+                        <div class="blue2">
+                            <span class="font_medium grey2">{{files.length}} files uploaded</span>
+                            <a><i class="fa fa-times"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <!--   <div class="row">
+            <div class="col-xs-12 col-sm-7">
+                <div class="qtn qtn-default">
+                    Please attach actual photo as reference.
+                </div>
+                <div nv-file-drop="" uploader="uploader">
+                    <form action="">
+                        <div class="form-group">
+                            <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
+                                <div class="text-center">
+                                    <div class="drop-zone">
 
-<div id="renders" ng-class="testclass" ng-if="renders" class="qtn-ctn">
+                                        <p class="font_medium" style="margin-bottom:5px;">
+                                            <i class="fa fa-file-o"></i> Drop files here or
+                                        </p>
+
+                                        <div class="input-group image-preview">
+                                            <div class="input-group-btn">
+                                                <div class="btn btn-primary image-preview-input"><span
+                                                        class="glyphicon glyphicon-folder-open"></span> <span
+                                                        class="image-preview-input-title font_medium">Browse</span>
+                                                    <input type="file" accept="image/png,image/jpeg, image/gif, image/jpeg, image/x-ms-bmp,
+                                        audio/mp3, audio/mp4,
+                                        video/mp4, video/x-flv, video/3gpp, video/x-msvideo, video/x-ms-wmv, video/quicktime,
+                                        application/pdf,
+                                        application/msword, application/vnd.openxmlformats-officedocument.wordprocessingml.document,
+                                        application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+                                        text/csv,text/plain,
+                                        application/vnd.ms-powerpoint, application/vnd.openxmlformats-officedocument.presentationml.presentation,
+                                        application/zip" nv-file-select="" uploader="uploader" multiple/>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th width="50%">Name</th>
+                                    <th ng-show="uploader.isHTML5">Size</th>
+                                    <th width="25%" ng-show="uploader.isHTML5">Progress</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in uploader.queue" ng-hide="item.isValid"
+                                    style="border-bottom: solid thin #ccc;">
+                                    <td style="padding-top: 15px;">
+                                        <strong>{{ item.file.name }}</strong>
+                                    </td>
+                                    <td style="padding-top: 15px;" ng-show="uploader.isHTML5" nowrap>{{
+                                        item.file.size/1024/1024|number:2 }} MB
+                                    </td>
+                                    <td style="padding-top: 22px;" ng-show="uploader.isHTML5">
+                                        <div class="progress" style="margin-bottom: 0;">
+                                            <div class="progress-bar" role="progressbar"
+                                                 ng-style="{ 'width': item.progress + '%' }"></div>
+                                        </div>
+                                    </td>
+                                    <td nowrap>
+                                        <button type="button" uib-tooltip="Upload" class="btn btn-xs"
+                                                ng-click="item.upload()"
+                                                ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+                                            <img src="./images/icons/ic_file_upload_black_24px.svg">
+                                        </button>
+                                        <button type="button" uib-tooltip="Cancel" class="btn btn-xs"
+                                                ng-click="item.cancel()" ng-disabled="!item.isUploading">
+                                            <img src="./images/icons/ic_block_black_24px.svg">
+                                        </button>
+                                        <button type="button" uib-tooltip="Delete" class="btn btn-xs"
+                                                ng-click="item.remove()">
+                                            <img src="./images/icons/ic_delete_black_24px.svg">
+                                        </button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div class="form-group">
+                                <div class="mailbox-controls">
+                                    <button type="button" class="btn btn-flat btn-s" ng-click="uploadAll()"
+                                            ng-disabled="!uploader.getNotUploadedItems().length" ng-if="isUploadAll">
+                                        <img src="./images/icons/ic_file_upload_black_24px.svg"> Upload all
+                                    </button>
+                                    <button type="button" class="btn btn-flat btn-s" ng-click="uploader.cancelAll()"
+                                            ng-disabled="!uploader.isUploading">
+                                        <img src="./images/icons/ic_block_black_24px.svg"> Cancel all
+                                    </button>
+                                    <button type="button" class="btn btn-flat btn-s" ng-click="uploader.clearQueue()"
+                                            ng-disabled="!uploader.queue.length">
+                                        <img src="./images/icons/ic_delete_black_24px.svg"> Delete all
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="progress" style="">
+                                    <div class="progress-bar" role="progressbar"
+                                         ng-style="{ 'width': uploader.progress + '%' }"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div> -->
+    </div>
+    <div class="btn-ctn flx-spb-hrt font_medium">
+        <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
+            Back
+        </button>
+        <button ng-click="setTab(3)" class="btn btn-success">
+            Next
+        </button>
+    </div>
+</div>
+<!-- <div id="renders" ng-class="testclass" ng-if="renders" class="qtn-ctn">
     <div>
         <div class="form-type">
             Renders
         </div>
     </div>
-    <!--Renders  instance-->
     <div class="sec-qtn">
 
-        <!--Options-->
         <div class="row">
             <div class="col-xs-12 col-sm-7">
                 <div class="pad_vertical">
@@ -147,7 +296,6 @@
                                     <th width="50%">Name</th>
                                     <th ng-show="uploader.isHTML5">Size</th>
                                     <th width="25%" ng-show="uploader.isHTML5">Progress</th>
-                                    <!--     <th style="color: transparent;">Status</th> -->
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -166,11 +314,6 @@
                                                  ng-style="{ 'width': item.progress + '%' }"></div>
                                         </div>
                                     </td>
-                                    <!-- <td class="text-center">
-                                        <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                        <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                        <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                                    </td> -->
                                     <td nowrap>
                                         <button type="button" uib-tooltip="Upload" class="btn btn-xs"
                                                 ng-click="item.upload()"
@@ -218,8 +361,6 @@
             </div>
         </div>
     </div>
-
-    <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
         <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
@@ -228,10 +369,8 @@
             Next
         </button>
     </div>
-</div>
-
-<div id="solcat" ng-class="testclass" ng-if="solcat" class="qtn-ctn">
-    <!--Form section-->
+</div> -->
+<!-- <div id="solcat" ng-class="testclass" ng-if="solcat" class="qtn-ctn">
     <div>
         <div class="form-type">
             Solcat
@@ -239,11 +378,9 @@
     </div>
 
     <div class="sec-qtn">
-        <!--Question-->
         <div class="qtn qtn-default">
             What design experience do you require?
         </div>
-        <!--Options-->
         <div class="row btn-opt">
             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-model="sc" uib-btn-radio="'145'" ng-change="getSolcat(sc)">Standard</label>
@@ -279,8 +416,6 @@
 
     </div>
 
-
-    <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
         <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
@@ -289,17 +424,13 @@
             Next
         </button>
     </div>
-</div>
-<div id="graphics" ng-class="testclass" ng-if="graphics" class="qtn-ctn">
-    <!--Form section-->
+</div> -->
+<!-- <div id="graphics" ng-class="testclass" ng-if="graphics" class="qtn-ctn">
     <div>
         <div class="form-type">
             Graphic Design
         </div>
     </div>
-
-    <!--Graphic design instance-->
-
 
     <div class="row">
         <div class="col-xs-12 col-sm-7">
@@ -325,7 +456,7 @@
         </div>
     </div>
     <br>
-    <div class="row ">
+    <div class="row">
         <div class="col-xs-12 col-sm-7">
             <div class="qtn qtn-default">
                 Please attach actual photo as reference.
@@ -371,7 +502,6 @@
                                 <th width="50%">Name</th>
                                 <th ng-show="uploader.isHTML5">Size</th>
                                 <th width="25%" ng-show="uploader.isHTML5">Progress</th>
-                                <!--     <th style="color: transparent;">Status</th> -->
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -390,11 +520,6 @@
                                              ng-style="{ 'width': item.progress + '%' }"></div>
                                     </div>
                                 </td>
-                                <!-- <td class="text-center">
-                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                                </td> -->
                                 <td nowrap>
                                     <button type="button" uib-tooltip="Upload" class="btn btn-xs"
                                             ng-click="item.upload()"
@@ -415,8 +540,8 @@
                         </table>
                         <div class="form-group">
                             <div class="mailbox-controls">
-                                <button type="button" class="btn btn-flat btn-s" ng-click="uploadAll()"
-                                        ng-disabled="!uploader.getNotUploadedItems().length" ng-if="isUploadAll">
+                                <button type="button" class="btn btn-flat btn-s" ng-click="uploadsam()"
+                                        ng-disabled="!uploader.getNotUploadedItems().length">
                                     <img src="./images/icons/ic_file_upload_black_24px.svg"> Upload all
                                 </button>
                                 <button type="button" class="btn btn-flat btn-s" ng-click="uploader.cancelAll()"
@@ -444,8 +569,6 @@
         </div>
     </div>
 
-
-    <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
         <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
@@ -454,29 +577,11 @@
             Next
         </button>
     </div>
-</div>
-<div id="visual" ng-class="testclass" ng-if="visual" class="qtn-ctn">
-    <!--Form section-->
+</div> -->
+<!-- <div id="visual" ng-class="testclass" ng-if="visual" class="qtn-ctn">
     <div>
         <div class="form-type">
             Visual design
-        </div>
-    </div>
-
-    <!--Graphic design instance-->
-    <div class="sec-qtn">
-        <!--Question-->
-        <div class="qtn qtn-default">
-            What design experience do you require?
-        </div>
-        <!--Options-->
-        <div class="row btn-opt">
-             <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-model="sc" uib-btn-radio="'145'" ng-change="getSolcat(sc)">Standard</label>
-            </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
-                <label class="" ng-model="sc" uib-btn-radio="'146'" ng-change="getSolcat(sc)">Custom</label>
-            </div>
         </div>
     </div>
 
@@ -547,7 +652,6 @@
                                 <th width="50%">Name</th>
                                 <th ng-show="uploader.isHTML5">Size</th>
                                 <th width="25%" ng-show="uploader.isHTML5">Progress</th>
-                                <!--     <th style="color: transparent;">Status</th> -->
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -566,11 +670,6 @@
                                              ng-style="{ 'width': item.progress + '%' }"></div>
                                     </div>
                                 </td>
-                                <!-- <td class="text-center">
-                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                                </td> -->
                                 <td nowrap>
                                     <button type="button" uib-tooltip="Upload" class="btn btn-xs"
                                             ng-click="item.upload()"
@@ -591,8 +690,8 @@
                         </table>
                         <div class="form-group">
                             <div class="mailbox-controls">
-                                <button type="button" class="btn btn-flat btn-s" ng-click="uploadAll()"
-                                        ng-disabled="!uploader.getNotUploadedItems().length" ng-if="isUploadAll">
+                                <button type="button" class="btn btn-flat btn-s" ng-click="uploadsam()"
+                                        ng-disabled="!uploader.getNotUploadedItems().length" ">
                                     <img src="./images/icons/ic_file_upload_black_24px.svg"> Upload all
                                 </button>
                                 <button type="button" class="btn btn-flat btn-s" ng-click="uploader.cancelAll()"
@@ -627,11 +726,9 @@
                         <div class="well my-drop-zone" nv-file-over="" uploader="uploader">
                             <div class="text-center">
                                 <div class="drop-zone">
-
                                     <p class="font_medium" style="margin-bottom:5px;">
                                         <i class="fa fa-file-o"></i> Drop files here or
                                     </p>
-
                                     <div class="input-group image-preview">
                                         <div class="input-group-btn">
                                             <div class="btn btn-primary image-preview-input"><span
@@ -662,7 +759,6 @@
                                 <th width="50%">Name</th>
                                 <th ng-show="uploader.isHTML5">Size</th>
                                 <th width="25%" ng-show="uploader.isHTML5">Progress</th>
-                                <!--     <th style="color: transparent;">Status</th> -->
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -681,11 +777,6 @@
                                              ng-style="{ 'width': item.progress + '%' }"></div>
                                     </div>
                                 </td>
-                                <!-- <td class="text-center">
-                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                                </td> -->
                                 <td nowrap>
                                     <button type="button" uib-tooltip="Upload" class="btn btn-xs"
                                             ng-click="item.upload()"
@@ -706,8 +797,8 @@
                         </table>
                         <div class="form-group">
                             <div class="mailbox-controls">
-                                <button type="button" class="btn btn-flat btn-s" ng-click="uploadAll()"
-                                        ng-disabled="!uploader.getNotUploadedItems().length" ng-if="isUploadAll">
+                                <button type="button" class="btn btn-flat btn-s" ng-click="uploadsam()"
+                                        ng-disabled="!uploader.getNotUploadedItems().length">
                                     <img src="./images/icons/ic_file_upload_black_24px.svg"> Upload all
                                 </button>
                                 <button type="button" class="btn btn-flat btn-s" ng-click="uploader.cancelAll()"
@@ -736,8 +827,6 @@
         </div>
     </div>
     <br>
-
-    <!--Buttons-->
     <div class="btn-ctn flx-spb-hrt font_medium">
         <button du-smooth-scroll="design" du-scrollspy class="btn btn-default">
             Back
@@ -746,16 +835,13 @@
             Next
         </button>
     </div>
-</div>
-<div id="email" ng-class="testclass" ng-if="emailtemplate" class="qtn-ctn">
-    <!--Form section-->
+</div> -->
+<!-- <div id="email" ng-class="testclass" ng-if="emailtemplate" class="qtn-ctn">
     <div>
         <div class="form-type">
             Email template
         </div>
     </div>
-
-    <!--Email Template instance-->
 
     <div class="row">
         <div class="col-xs-12 col-sm-7">
@@ -839,7 +925,6 @@
                                 <th width="50%">Name</th>
                                 <th ng-show="uploader.isHTML5">Size</th>
                                 <th width="25%" ng-show="uploader.isHTML5">Progress</th>
-                                <!--     <th style="color: transparent;">Status</th> -->
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -858,11 +943,6 @@
                                              ng-style="{ 'width': item.progress + '%' }"></div>
                                     </div>
                                 </td>
-                                <!-- <td class="text-center">
-                                    <span ng-show="item.isSuccess"><i class="glyphicon glyphicon-ok"></i></span>
-                                    <span ng-show="item.isCancel"><i class="glyphicon glyphicon-ban-circle"></i></span>
-                                    <span ng-show="item.isError"><i class="glyphicon glyphicon-remove"></i></span>
-                                </td> -->
                                 <td nowrap>
                                     <button type="button" uib-tooltip="Upload" class="btn btn-xs"
                                             ng-click="item.upload()"
@@ -883,8 +963,8 @@
                         </table>
                         <div class="form-group">
                             <div class="mailbox-controls">
-                                <button type="button" class="btn btn-flat btn-s" ng-click="uploadAll()"
-                                        ng-disabled="!uploader.getNotUploadedItems().length" ng-if="isUploadAll">
+                                <button type="button" class="btn btn-flat btn-s" ng-click="uploadsam()"
+                                        ng-disabled="!uploader.getNotUploadedItems().length">
                                     <img src="./images/icons/ic_file_upload_black_24px.svg"> Upload all
                                 </button>
                                 <button type="button" class="btn btn-flat btn-s" ng-click="uploader.cancelAll()"
@@ -921,6 +1001,4 @@
             Next
         </button>
     </div>
-</div>
-
-
+</div> -->

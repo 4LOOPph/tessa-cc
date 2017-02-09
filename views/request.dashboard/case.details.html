@@ -222,16 +222,30 @@
                             <span class="description font_10 grey2">7:30 AM <a>Edit</a></span>
                         </div>
                     </div>
-                    <div class="comment-section" emoji-form emoji-message="emojiMessage">
+                    <div class="comment-section" >
                         <div class="font_medium blue3">Post a comment</div>
-                        <!-- <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="htmlContent" style="text-align:left;">
-                        </div> -->
-                        <textarea   class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
-                        </textarea>
+                        <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="htmlContent" style="text-align:left;">
+                        </div>
+                        <mentio-menu
+                            mentio-for="'htmlContent'"
+                            mentio-trigger-char="'@'"
+                            mentio-items="people"
+                            mentio-template-url="/people-mentions.tpl"
+                            mentio-search="searchPeople(term)"
+                            mentio-select="getPeopleText(item)"
+                        ></mentio-menu>
+                       <!--  <textarea  class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
+                        </textarea> -->
                         <!-- <input type="text"  mentio-typed-text="typedTerm" mentio-trigger-char="'@'" mentio-items="sample" mentio-search="searchPeople(term)" class="form-control" ng-model="theTextArea2" size="100" />
                         </input> -->
                         <div>
-                            <span class="" uib-dropdown style="margin-top: -2px;">
+                            <div class="blue2">
+                                <span class="font_medium grey2" ng-repeat="item in attachfiles">{{item.name}} <br></span>
+                            </div>
+                            <button type="file" ngf-select="newUploader($files)" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'">
+                                <i class="fa fa-link"></i> Attach file(s)
+                            </button>
+                            <!-- <span class="" uib-dropdown style="margin-top: -2px;">
                             <button class="btn-def font_medium" uib-dropdown-toggle><i
                                     class="fa fa-paperclip"></i> Attach Files</button>
                                 <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
@@ -244,8 +258,8 @@
                                     </li>
                                     
                                 </ul>
-                            </span>
-                            <button class="btn-def font_medium " id="emojibtn"><img ng-src="http://i.imgur.com/5WUpcPZ.png" style="height: 18px;"> Emoji
+                            </span> -->
+                           
                             </button>
                             <button class="btn btn-primary btn-sm pull-right">Post</button>
                             <div ng-repeat="people in getPeople">
@@ -374,14 +388,11 @@
 </div>
 <script type="text/ng-template" id="/people-mentions.tpl">
     <ul class="list-group user-search">
-        <i mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
-                            <mg ng-src=" { {person.imageUrl} }" class="user-photo">
-                            <span class="text-primary"
-                                ng-bind-html="person.name | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
-                            <em class="text-muted" ng-bind="person.bio | words:5"></em>
-                        </li>
-                    </ul>
-                </script>
+        <li mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
+            <span class="text-personlist" ng-bind-html="person.displayName | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
+        </li>
+    </ul>
+</script>
 <style type="text/css">
 .box-comment {
     padding: 10px;

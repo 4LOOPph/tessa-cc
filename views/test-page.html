@@ -330,39 +330,39 @@ Go
 
 </div>-->
 <!--<div class="col-md-6">-->
-<!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
-<!--<br>-->
-<!--<input type="text" name="" ng-model="slider.value">-->
+    <!--<rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>-->
+    <!--<br>-->
+    <!--<input type="text" name="" ng-model="slider.value">-->
 <!--</div>-->
-<!--<div class="col-md-6" style="margin-top: 100px;margin-bottom: 100px;">-->
-<!--<wizard>-->
-<!--<wz-step wz-title="Request Type">-->
-<!--<h1>This is the first step</h1>-->
-<!--<p>Here you can use whatever you want. You can use other directives, binding, etc.</p>-->
-<!--<input type="submit" wz-next value="Continue"/>-->
-<!--</wz-step>-->
-<!--<wz-step wz-title="Solution Details">-->
-<!--<h1>2</h1>-->
-<!--<p>You have continued here!</p>-->
-<!--<input type="submit" wz-next value="Go on"/>-->
-<!--</wz-step>-->
-<!--<wz-step wz-title="Hardware">-->
-<!--<h1>3</h1>-->
-<!--<p>You have continued here!</p>-->
-<!--<input type="submit" wz-next value="Go on"/>-->
-<!--</wz-step>-->
-<!--<wz-step wz-title="Installation">-->
-<!--<h1>4</h1>-->
-<!--<p>You have continued here!</p>-->
-<!--<input type="submit" wz-next value="Go on"/>-->
-<!--</wz-step>-->
-<!--<wz-step wz-title="Additional Services">-->
-<!--<p>5</p>-->
-<!--<input type="submit" wz-next value="Finish now"/>-->
-<!--</wz-step>-->
-<!--</wizard>-->
-<!--</div>-->
-<!---->
+<div class="col-md-6" style="margin-top: 100px;margin-bottom: 100px;">
+    <wizard>
+        <wz-step wz-title="Request Type">
+            <h1>This is the first step</h1>
+            <p>Here you can use whatever you want. You can use other directives, binding, etc.</p>
+            <input type="submit" wz-next value="Continue"/>
+        </wz-step>
+        <wz-step wz-title="Solution Details">
+            <h1>2</h1>
+            <p>You have continued here!</p>
+            <input type="submit" wz-next value="Go on"/>
+        </wz-step>
+        <wz-step wz-title="Hardware">
+            <h1>3</h1>
+            <p>You have continued here!</p>
+            <input type="submit" wz-next value="Go on"/>
+        </wz-step>
+        <wz-step wz-title="Installation">
+            <h1>4</h1>
+            <p>You have continued here!</p>
+            <input type="submit" wz-next value="Go on"/>
+        </wz-step>
+        <wz-step wz-title="Additional Services">
+            <p>5</p>
+            <input type="submit" wz-next value="Finish now"/>
+        </wz-step>
+    </wizard>
+</div>
+
 <style>
     .static-content {
         overflow: hidden;
@@ -741,56 +741,56 @@ Open case
 <!--</a>-->
 <!--</div>-->
 <!--</div>-->
-<div class="wrapper">
-    <div class="trd-wiz">
-        <ul>
-            <li>
-                <form name="companyForm">
+<!--<div class="wrapper">-->
+    <!--<div class="trd-wiz">-->
+        <!--<ul>-->
+            <!--<li>-->
+                <!--<form name="companyForm">-->
 
-                    <a ng-click="setTab(1)" ng-class="{'wiz-tab-active':isSet(1),'wiz-tab-done':companyForm.$valid}"
-                       class="font_medium wiz-tab" href="">
-                        <div class="wiz-sizer" ng-class="navClass">
-                            1 Company Details
-                        </div>
-                    </a>
+                    <!--<a ng-click="setTab(1)" ng-class="{'wiz-tab-active':isSet(1),'wiz-tab-done':companyForm.$valid}"-->
+                       <!--class="font_medium wiz-tab" href="">-->
+                        <!--<div class="wiz-sizer" ng-class="navClass">-->
+                            <!--1 Company Details-->
+                        <!--</div>-->
+                    <!--</a>-->
 
-                    <div du-scroll-container ng-show="isSet(1)" class="wiz-cnt">
-                        <div ng-include="'../views/request.dashboard/wizard/contact.html'">
-                        </div>
-                    </div>
-                </form>
-            </li>
-            <li>
+                    <!--<div du-scroll-container ng-show="isSet(1)" class="wiz-cnt">-->
+                        <!--<div ng-include="'../views/request.dashboard/wizard/contact.html'">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+            <!--</li>-->
+            <!--<li>-->
 
-                <a ng-click="setTab(2)" ng-class=" {'wiz-tab-active':isSet(2)}" class="font_medium wiz-tab" href="">
-                    <div class="wiz-sizer" ng-class="navClass">
-                        2 Add Request
-                    </div>
-                </a>
-
-
-                <div du-scroll-container ng-show="isSet(2)" class="wiz-cnt">
-                    <div ng-include="'../views/request.dashboard/wizard/add.request.html'">
-                    </div>
-                </div>
-            </li>
-            <li>
-
-                <a ng-click="setTab(3)" class="font_medium wiz-tab" href="">
-                    <div class="wiz-sizer" ng-class="navClass">
-                        3 Submit Request
-                    </div>
-                </a>
+                <!--<a ng-click="setTab(2)" ng-class=" {'wiz-tab-active':isSet(2)}" class="font_medium wiz-tab" href="">-->
+                    <!--<div class="wiz-sizer" ng-class="navClass">-->
+                        <!--2 Add Request-->
+                    <!--</div>-->
+                <!--</a>-->
 
 
-                <div du-scroll-container ng-show="isSet(3)" class=" wiz-cnt">
-                    <div ng-include="'../views/request.dashboard/wizard/request.review.html'">
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
-</div>
+                <!--<div du-scroll-container ng-show="isSet(2)" class="wiz-cnt">-->
+                    <!--<div ng-include="'../views/request.dashboard/wizard/add.request.html'">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li>-->
+
+                <!--<a ng-click="setTab(3)" class="font_medium wiz-tab" href="">-->
+                    <!--<div class="wiz-sizer" ng-class="navClass">-->
+                        <!--3 Submit Request-->
+                    <!--</div>-->
+                <!--</a>-->
+
+
+                <!--<div du-scroll-container ng-show="isSet(3)" class=" wiz-cnt">-->
+                    <!--<div ng-include="'../views/request.dashboard/wizard/request.review.html'">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
+<!--</div>-->
 <style>
     #form-container {
         background: #2f2f2f;

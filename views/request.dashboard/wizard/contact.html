@@ -91,15 +91,16 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <div class="pad_vertical">
-                            <div class="qtn qtn-default">
-                                Country
-                            </div>
-                            <div>
-                                <input type="text" class="form-control" ng-model="details.ship_country" id="focusedinput" required disabled>
-                            </div>
+
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="pad_vertical">
+                        <div class="qtn qtn-default">
+                            Country
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" ng-model="details.ship_country" id="focusedinput" required disabled>
                         </div>
                     </div>
                 </div>
@@ -258,9 +259,9 @@
                             Contact number (home)
                         </div>
                         <div class="form-group" ng-class="{ 'has-error' : companyForm.numberhome.$invalid && !companyForm.numberhome.$pristine, 'has-success':companyForm.numberhome.$valid && !companyForm.numberhome.$pristine }">
-                            <input type="text" class="form-control" name="numberhome" placeholder="Home number" ng-model="person.contact_number2" numbers-only id="focusedinput" required mask="99-999-9999">
+                            <input type="text" class="form-control" name="numberhome" placeholder="Home number" ng-model="person.contact_number2" restrict="reject" required mask="*?99?9?99999999" id="focusedinput" >
                         </div>
-                        <p ng-show="companyForm.numberhome.$invalid && !companyForm.numberhome.$pristine" class="form-feedback">Please input a valid number. (eg. 9999-999-9999)</p>
+                        <p ng-show="companyForm.numberhome.$invalid && !companyForm.numberhome.$pristine" class="form-feedback">Please input a valid number. (eg. +63999999999 or 0926456892)</p>
                     </div>
                 </div>
                 <div class="col-sm-4 col-xs-12">
@@ -269,9 +270,10 @@
                             Contact number (work)
                         </div>
                         <div class="form-group" ng-class="{  'has-error' : companyForm.numberwork.$invalid && !companyForm.numberwork.$pristine, 'has-success':companyForm.numberwork.$valid && !companyForm.numberwork.$pristine }">
-                            <input type="text" class="form-control" name="numberwork" placeholder="Mobile number" mask="9999-999-9999" numbers-only ng-model="person.mobile" id="focusedinput" required>
+                            <input type="text" class="form-control" name="numberwork" placeholder="Mobile number" restrict="reject" required mask="*?99?9?99999999" ng-model="person.mobile" id="focusedinput" required>
                         </div>
-                        <p ng-show="companyForm.numberwork.$invalid && !companyForm.numberwork.$pristine" class="form-feedback">Please input a valid number. (eg. 9999-999-9999)</p>
+
+                        <p ng-show="companyForm.numberwork.$invalid && !companyForm.numberwork.$pristine" class="form-feedback">Please input a valid number. (eg. +63999999999 or 0926456892)</p>
                     </div>
                 </div>
             </div>
@@ -282,7 +284,7 @@
                             Contact email
                         </div>
                         <div class="form-group" ng-class="{ 'has-error' : companyForm.email.$invalid && !companyForm.email.$pristine, 'has-success':companyForm.email.$valid && !companyForm.email.$pristine }">
-                            <input type="email" name="email" class=" form-control" ng-model="person.email" id="focusedinput" required>
+                            <input type="email" name="email" placeholder="Email address" class=" form-control" ng-model="person.email" id="focusedinput" required>
                         </div>
                         <p ng-show="companyForm.email.$invalid && !companyForm.email.$pristine" class="form-feedback">Enter a valid email. (eg. jupiter@engagis.com)</p>
                     </div>
@@ -298,9 +300,9 @@
                 <!--Proceed-->
                 <!--</a>-->
                 <div uib-tooltip="Make sure required details are provided." tooltip-enable="companyForm.$invalid">
-                    <a du-smooth-scroll="sec-purpose" du-scrollspy ng-click="innerForm('sec-purpose')" class="btn btn-primary" >
+                    <button type="submit" du-smooth-scroll="sec-purpose" du-scrollspy ng-click="innerForm('sec-purpose')" class="btn btn-primary" ng-disabled="companyForm.$invalid">
                         Proceed
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -396,7 +398,7 @@
                 <a du-smooth-scroll="contact-info" du-scrollspy class="btn btn-default">
                     Back
                 </a>
-                <button ng-show="audience && objectives" type="submit" class="btn btn-success">
+                <button ng-click="setTab(2)" ng-show="audience && objectives" type="submit" class="btn btn-success">
                     Next
                 </button>
             </div>

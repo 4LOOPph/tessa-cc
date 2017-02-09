@@ -14,7 +14,7 @@
             </div>
             <!--Options-->
             <div class="row btn-opt">
-                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
 
                     <label id="optProposal" ng-click="getValue('secProposal')" ng-model="requestType"
                            uib-btn-radio="'Proposal'" ng-change="requestype(requestType) " uib-uncheckable="uncheckable">
@@ -28,7 +28,7 @@
 
                     </label>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                     <label id="optDesign" class="" ng-click="getValue('design')" ng-model="requestType"
                            uib-btn-radio="'Design'" ng-change="requestype(requestType)">
 
@@ -40,7 +40,7 @@
                         </div>
                     </label>
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                     <label id="optPrototype" class="" ng-click="getValue('prototype')"
                            ng-model="requestType" uib-btn-radio="'Prototype'" ng-change="requestype(requestType)">
                         <div class="option-icon">
@@ -52,7 +52,7 @@
                     </label>
 
                 </div>
-                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                     <label id="optOthers" ng-click="getValue('others')" ng-model="requestType"
                            uib-btn-radio="'others'" ng-change="requestype(requestType)">
                         <div class="option-icon">
@@ -77,7 +77,7 @@
             <!--Options-->
             <div class="row btn-opt">
                 <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                    <label class="" ng-click="getValue('ezefind')" ng-model="proposalType" uib-btn-radio="'4'" ng-change="proposaltype(proposalType)" uib-uncheckable="uncheckable">
+                    <label class="" ng-click="getValue('ezefind')" ng-model="proposType" uib-btn-radio="'4'" ng-change="proposaltype(proposType)" uib-uncheckable="uncheckable">
                         <div class="option-icon">
                             <i class="ti ti-layout-media-right-alt"></i>
                         </div>
@@ -87,7 +87,7 @@
                     </label>
                 </div>
                 <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
-                    <label class="" ng-click="getValue('ezeimpress')" ng-model="proposalType" uib-btn-radio="'5'" ng-change="proposaltype(proposalType)">
+                    <label class="" ng-click="getValue('ezeimpress')" ng-model="proposType" uib-btn-radio="'5'" ng-change="proposaltype(proposType)">
                         <div class="option-icon">
                             <i class="ti ti-layout-media-left-alt"></i>
                         </div>
@@ -121,24 +121,24 @@
             <button class="btn btn-default font_medium" ng-click="setTab(1)">
                 Back
             </button>
-            <button du-smooth-scroll="ezefind" du-scrollspy="" ng-show="proposalType == '4'"
-                    class="btn btn-primary" ng-click="uncheckable = !uncheckable">
-                Proceed
-            </button>
-            <button du-smooth-scroll="ezeimpress" du-scrollspy="" ng-show="proposalType == '5'"
+            <button du-smooth-scroll="ezefind" du-scrollspy="" ng-show="proposType == '4'"
                     class="btn btn-primary" ng-click="addRequest(value)">
                 Proceed
             </button>
-            <button ng-if="!proposalType" du-smooth-scroll="design" du-scrollspy ng-show="requestType == 'Design'"
+            <button du-smooth-scroll="ezeimpress" du-scrollspy="" ng-show="proposType == '5'"
+                    class="btn btn-primary" ng-click="addRequest(value)">
+                Proceed
+            </button>
+            <button ng-if="!proposType" du-smooth-scroll="design" du-scrollspy ng-show="requestType == 'Design'"
                     class="btn btn-primary"
                     ng-click="addRequest(value)">
                 Proceed
             </button>
-            <button ng-if="!proposalType" du-smooth-scroll="prototype" du-scrollspy ng-show="requestType == 'Prototype'"
+            <button ng-if="!proposType" du-smooth-scroll="prototype" du-scrollspy ng-show="requestType == 'Prototype'"
                     class="btn btn-primary" ng-click="addRequest(value)">
                 Proceed
             </button>
-            <button ng-if="!proposalType" du-smooth-scroll="others" du-scrollspy ng-show="requestType == 'others'"
+            <button ng-if="!proposType" du-smooth-scroll="others" du-scrollspy ng-show="requestType == 'others'"
                     class="btn btn-primary"
                     ng-click="addRequest(value)">
                 Proceed
