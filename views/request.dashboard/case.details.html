@@ -222,19 +222,12 @@
                             <span class="description font_10 grey2">7:30 AM <a>Edit</a></span>
                         </div>
                     </div>
-                    <div class="comment-section" >
+                    <div class="comment-section">
                         <div class="font_medium blue3">Post a comment</div>
                         <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="htmlContent" style="text-align:left;">
                         </div>
-                        <mentio-menu
-                            mentio-for="'htmlContent'"
-                            mentio-trigger-char="'@'"
-                            mentio-items="people"
-                            mentio-template-url="/people-mentions.tpl"
-                            mentio-search="searchPeople(term)"
-                            mentio-select="getPeopleText(item)"
-                        ></mentio-menu>
-                       <!--  <textarea  class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
+                        <mentio-menu mentio-for="'htmlContent'" mentio-trigger-char="'@'" mentio-items="people" mentio-template-url="/people-mentions.tpl" mentio-search="searchPeople(term)" mentio-select="getPeopleText(item)"></mentio-menu>
+                        <!--  <textarea  class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
                         </textarea> -->
                         <!-- <input type="text"  mentio-typed-text="typedTerm" mentio-trigger-char="'@'" mentio-items="sample" mentio-search="searchPeople(term)" class="form-control" ng-model="theTextArea2" size="100" />
                         </input> -->
@@ -259,7 +252,6 @@
                                     
                                 </ul>
                             </span> -->
-                           
                             </button>
                             <button class="btn btn-primary btn-sm pull-right">Post</button>
                             <div ng-repeat="people in getPeople">
@@ -308,6 +300,126 @@
                         <th class="tbl-label" colspan="2">Solution Details</th>
                     </tr>
                     <tr>
+                        <th>Request Type</th>
+                        <td>{{requestType.question_options.option_name}}</td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Proposal Type</th>
+                        <td>{{proposalType.question_options.option_name}}</td>
+                    </tr>
+                    <tr>
+                        <th class="tbl-label" colspan="2">Deployment Details</th>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Number of solution(s) to be deployed per site.</th>
+                        <td>
+                            {{solutionperSite.option_value}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Number of sites where solutions be deployed.</th>
+                        <td>
+                            {{deployedSite.option_value}}
+                        </td>
+                    </tr>
+                    <!-- <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Expected deployment type</th>
+                        <td>{{requestdetaildesign}}</td>
+                    </tr> -->
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th class="tbl-label" colspan="2">Software Details</th>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Application</th>
+                        <td>
+                            {{softwareapplication.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th class="tbl-label" colspan="2">Screen Details</th>
+                    </tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Screen Configuration</th>
+                        <td>
+                            {{screenDetail.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th class="tbl-label" colspan="2">Site installation</th>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Distance between DMP and Screen</th>
+                        <td>
+                            {{distanceDMP.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>DMP install location</th>
+                        <td>
+                            {{preferredDMP.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Preferred solution installer</th>
+                        <td>
+                            {{preferredSolution.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th class="tbl-label" colspan="2">Project Timeline</th>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Implementation timeframe</th>
+                        <td>
+                            {{projectimeline.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th class="tbl-label" colspan="2">Support package</th>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Support package</th>
+                        <td>
+                            {{supportPackage.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th class="tbl-label" colspan="2">Connectivity</th>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Current network status</th>
+                        <td>
+                            {{currentNetwork.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>LAN preference</th>
+                        <td>
+                            {{lanpreference.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>WAN Preference</th>
+                        <td>
+                            {{wanpreference.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th class="tbl-label" colspan="2">Content management</th>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Content plan</th>
+                        <td>
+                            {{contentCreated.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                        <th>Content management</th>
+                        <td>
+                            {{contentManaged.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <!-- <tr>
                         <th>Number of Solution</th>
                         <td>
                             Lorem Ipsum.
@@ -321,7 +433,7 @@
                     <tr>
                         <th>Objectives</th>
                         <td>Lorem Ipsum dollar.</td>
-                    </tr>
+                    </tr> -->
                 </table>
             </div>
         </div>

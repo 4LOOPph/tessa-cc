@@ -141,15 +141,15 @@
                         </tr>
                         <tr ng-if="screens == 'Matrix'">
                             <th>Row</th>
-                            <td>1</td>
+                            <td>{{details.rows}}</td>
                         </tr>
                         <tr ng-if="screens == 'Matrix'">
                             <th>Column</th>
-                            <td>2</td>
+                            <td>{{details.columns}}</td>
                         </tr>
                         <tr ng-if="screens == 'Matrix'">
                             <th>Orientation</th>
-                            <td>Landscape</td>
+                            <td>{{orientation}}</td>
                         </tr>
                         <tr ng-repeat="slider in singleDualslider">
                             <th>Screen Size ({{$index}})</th>

@@ -60,10 +60,10 @@
                         <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
                     </div>
                      <div class="flx-spb-hrt">
-                        <button type="file" ngf-select="uploadFiles($files)" ng-model="files" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'">
+                        <a class="font_medium" type="file" ngf-select="uploadFiles($files)" ng-model="files" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'">
                             <i class="fa fa-link"></i> Attach file(s)
-                        </button>
-                        <div class="blue2">
+                        </a>
+                        <div ng-show="files.length" class="animate-entry blue2">
                             <span class="font_medium grey2">{{files.length}} files uploaded</span>
                             <a><i class="fa fa-times"></i></a>
                         </div>

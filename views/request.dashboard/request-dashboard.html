@@ -145,9 +145,9 @@
                                 <!--  -->
                                 <div ng-class="{
                                 'status-green':  item.status_name == 'completed',
-                                'status-red': item.current <= 0 && item.status_name != 'completed',
-                                'status-orange':  item.current !=0 && item.current <=3 && item.status_name != 'completed',
-                                'status-grey': item.current >= 4 && item.status_name != 'completed'}">
+                                'status-red': (item.current == 1 || item.current <= 0)&& item.status_name != 'completed',
+                                'status-orange':  item.current >= 2&& item.current < 5 && item.status_name != 'completed',
+                                'status-grey': item.current >= 5 && item.status_name != 'completed'}">
                                 </div>
                                 <div class="case-head">
                                     <div class="dis-flx flx-spb-hrt">
