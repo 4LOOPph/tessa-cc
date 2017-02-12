@@ -86,7 +86,7 @@
                         Article Set
                     </div>
                     <div>
-                        <textarea name="txtarea1" cols="50" rows="4" class="form-control"></textarea>
+                        <textarea name="txtarea1" cols="50" rows="4" class="form-control" ng-model="designtype.designRequirements"></textarea>
                     </div>
                     <div class="flx-spb-hrt">
                         <a class="font_medium" type="file" ngf-select="uploadFiles($files)" ng-model="files" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'">
@@ -108,7 +108,7 @@
                         <i class="fa fa-link"></i> CTA Link
                     </div>
                     <div>
-                        <input type="text" name="shipping" class="form-control" >
+                        <input type="text" name="shipping" class="form-control" ng-model="designtype.designctalink">
                     </div>
                 </div>
             </div>

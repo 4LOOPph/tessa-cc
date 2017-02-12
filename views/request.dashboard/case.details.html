@@ -211,20 +211,19 @@
                 <!--Comments Tab-->
                 <div ng-show="isSet(2)" class="scroll-vt sec-comments flx-spb-vrt">
                     <div class="box-comment">
-                        <div class="user-block">
-                            <img class="img-circle" src="../images/user1-128x128.jpg" alt="User Image">
-                            <span class="username"><a>Korr Valmoria:</a> Hello Thor, can i ask the asset file for this request? Thanks</span>
-                            <span class="description font_10 grey2">7:30 AM</span>
+                        <div class="user-block" ng-repeat="convo in comments | orderBy: 'date_created':reverse track by $index">
+                            <span class="username" ng-if="convo.split.length >1"><a>{{convo.user_info[0].person_name}}:</a> <a> {{convo.split[0]}}</a>{{convo.split[1]}}</span>
+                            <span class="username" ng-if="convo.split.length ==1"><a>{{convo.user_info[0].person_name}}:</a> {{convo.comment_body}}</span>
                         </div>
-                        <div class="user-block">
+                        <!-- <div class="user-block">
                             <img class="img-circle" src="../images/user1-128x128.jpg" alt="User Image">
                             <span class="username"><a>Korr Valmoria:</a> Hello Thor, can i ask the asset file for this request? Thanks</span>
                             <span class="description font_10 grey2">7:30 AM <a>Edit</a></span>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="comment-section">
                         <div class="font_medium blue3">Post a comment</div>
-                        <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="htmlContent" style="text-align:left;">
+                        <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="posts.htmlContent" style="text-align:left;">
                         </div>
                         <mentio-menu mentio-for="'htmlContent'" mentio-trigger-char="'@'" mentio-items="people" mentio-template-url="/people-mentions.tpl" mentio-search="searchPeople(term)" mentio-select="getPeopleText(item)"></mentio-menu>
                         <!--  <textarea  class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
@@ -233,7 +232,9 @@
                         </input> -->
                         <div>
                             <div class="blue2">
-                                <span class="font_medium grey2" ng-repeat="item in attachfiles">{{item.name}} <br></span>
+                                <span class="font_medium grey2" ng-repeat="item in attachfiles">{{item.name}} <br><button type="button" ng-click="removeFile($index)">
+                                    X
+                                </button></span>
                             </div>
                             <button type="file" ngf-select="newUploader($files)" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'">
                                 <i class="fa fa-link"></i> Attach file(s)
@@ -253,7 +254,7 @@
                                 </ul>
                             </span> -->
                             </button>
-                            <button class="btn btn-primary btn-sm pull-right">Post</button>
+                            <button class="btn btn-primary btn-sm pull-right" ng-click="postcomment()">Post</button>
                             <div ng-repeat="people in getPeople">
                                 <input type="text" mentio mentio-typed-text="typedTerm" mentio-items="people | filter:label:typedTerm" ng-model="myval" />
                             </div>
@@ -264,12 +265,27 @@
                 <div ng-show="isSet(3)" class="scroll-vt sec-attachments">
                     <div class="pad_vertical">
                         <div class="row">
-                            <div class="col-xs-4">
-                                <div class="ctn-attachment ">
-                                    <a class="attachments-icon font_medium">
-                                        <img src="../../images/icons/ext-file-pdf.svg"> dasdas.pdf
+                            <div class="col-xs-4" ng-repeat="attach in attachments">
+                                <div class="ctn-attachment">
+                                    <a class="attachments-icon font_medium" ng-if="attach.media_mimetype == 'application/pdf'">
+                                        <img src="../../images/icons/ext-file-pdf.svg"> {{attach.media_name}}
                                     </a>
-                                    <a class="float-icon">
+                                    <a class="attachments-icon font_medium" ng-if="attach.media_mimetype == 'image/jpeg'">
+                                        <img src="../../images/icons/ext-file-slides.svg"> {{attach.media_name}}
+                                    </a>
+                                    <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'text/plain'">
+                                        <img src="./images/icons/ext-preso--06-text.svg"> {{attach.media_name}}
+                                    </a>
+                                    <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'application/vnd.openxmlformats-officedocument.presentationml.presentation' || attach.asset_mimetype == 'application/vnd.ms-powerpoint'">
+                                        <img src="./images/icons/ext-file-slides.svg"> {{attach.media_name}}
+                                    </a>
+                                     <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'text/csv' || attach.asset_mimetype == 'application/vnd.ms-excel' || attach.asset_mimetype == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'">
+                                        <img src="./images/icons/ext-file-sheets.svg"> {{attach.media_name}}
+                                    </a>
+                                     <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'audio/mp3'||attach.asset_mimetype == 'audio/mp4'">
+                                        <img src="./images/icons/ext-preso--04-mp3.svg"> {{attach.media_name}}
+                                    </a>
+                                    <a class="float-icon" ng-href="{{attach.media_url}}" target="_self" download="{{attach.media_url}}">
                                         <i class="fa fa-download"></i>
                                     </a>
                                 </div>
@@ -285,16 +301,16 @@
                     Request Specifications
                 </div>
                 <table class="info_table tbl-bordered full_width tbl-lg ">
-                    <tr>
+                    <tr ng-if="objectives.question_options">
                         <th class="tbl-label" colspan="2">Objectives</th>
                     </tr>
-                    <tr>
+                    <tr ng-if="objectives.question_options">
                         <th>Objectives</th>
-                        <td>Lorem Ipsum dollar.</td>
+                        <td>{{objectives.question_options.option_name}}</td>
                     </tr>
-                    <tr>
+                    <tr ng-if="audience.question_options">
                         <th>Intended Audience</th>
-                        <td>Lorem Ipsum</td>
+                        <td>{{audience.question_options.option_name}}</td>
                     </tr>
                     <tr>
                         <th class="tbl-label" colspan="2">Solution Details</th>
@@ -307,16 +323,16 @@
                         <th>Proposal Type</th>
                         <td>{{proposalType.question_options.option_name}}</td>
                     </tr>
-                    <tr>
+                    <tr ng-if="solutionperSite">
                         <th class="tbl-label" colspan="2">Deployment Details</th>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="solutionperSite">
                         <th>Number of solution(s) to be deployed per site.</th>
                         <td>
                             {{solutionperSite.option_value}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="deployedSite">
                         <th>Number of sites where solutions be deployed.</th>
                         <td>
                             {{deployedSite.option_value}}
@@ -326,94 +342,94 @@
                         <th>Expected deployment type</th>
                         <td>{{requestdetaildesign}}</td>
                     </tr> -->
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="softwareapplication">
                         <th class="tbl-label" colspan="2">Software Details</th>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="softwareapplication">
                         <th>Application</th>
                         <td>
                             {{softwareapplication.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="screenDetail">
                         <th class="tbl-label" colspan="2">Screen Details</th>
-                    </tr ng-if="requestType.question_options.option_name == 'Proposal'">
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    </tr ng-if="screenDetail">
+                    <tr ng-if="screenDetail">
                         <th>Screen Configuration</th>
                         <td>
                             {{screenDetail.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="distanceDMP.question_options">
                         <th class="tbl-label" colspan="2">Site installation</th>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="distanceDMP.question_options">
                         <th>Distance between DMP and Screen</th>
                         <td>
                             {{distanceDMP.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="preferredDMP">
                         <th>DMP install location</th>
                         <td>
                             {{preferredDMP.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="preferredSolution">
                         <th>Preferred solution installer</th>
                         <td>
                             {{preferredSolution.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="projectimeline.question_options">
                         <th class="tbl-label" colspan="2">Project Timeline</th>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="projectimeline.question_options">
                         <th>Implementation timeframe</th>
                         <td>
                             {{projectimeline.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="supportPackage">
                         <th class="tbl-label" colspan="2">Support package</th>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="supportPackage">
                         <th>Support package</th>
                         <td>
                             {{supportPackage.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="currentNetwork">
                         <th class="tbl-label" colspan="2">Connectivity</th>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="currentNetwork">
                         <th>Current network status</th>
                         <td>
                             {{currentNetwork.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="lanpreference">
                         <th>LAN preference</th>
                         <td>
                             {{lanpreference.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="wanpreference">
                         <th>WAN Preference</th>
                         <td>
                             {{wanpreference.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="contentCreated">
                         <th class="tbl-label" colspan="2">Content management</th>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="contentCreated">
                         <th>Content plan</th>
                         <td>
                             {{contentCreated.question_options.option_name}}
                         </td>
                     </tr>
-                    <tr ng-if="requestType.question_options.option_name == 'Proposal'">
+                    <tr ng-if="contentManaged">
                         <th>Content management</th>
                         <td>
                             {{contentManaged.question_options.option_name}}

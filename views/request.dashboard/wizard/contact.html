@@ -13,7 +13,7 @@
                     </div>
                     <div>
                         <!--  <input type="text"  class="form-control" ng-model="details.company_name" id="focusedinput" required> infinite-scroll="addMoreItems()" infinite-scroll-distance="2" -->
-                        <ui-select theme="bootstrap" ng-model="details" allow-clear on-select="getCompanyValue($item)" append-to-body="true" required>
+                        <!--  <ui-select theme="bootstrap" ng-model="details" allow-clear on-select="getCompanyValue($item)" append-to-body="true" required>
                             <ui-select-match>
                                 {{$select.selected.name}}
                             </ui-select-match>
@@ -23,8 +23,8 @@
                                     <button class="btn btn-sm btn-success" style="width: 100%; margin-top: 1px;" ng-click="addmoreItems($select, $event);" ng-disabled="loading">Load more...</button>
                                 </div>
                             </ui-select-choices>
-                        </ui-select>
-                        <!-- <div angucomplete-alt id="ex1" placeholder="Search company" maxlength="50" selected-object="getCompanyValue" local-data="companies" search-fields="name" title-field="name" minlength="1" input-class="form-control" match-class="highlight" ></div> -->
+                        </ui-select> -->
+                        <div angucomplete-alt id="ex1" placeholder="Search company" maxlength="50" selected-object="getCompanyValue" local-data="companies" search-fields="name" title-field="name" minlength="2" input-class="form-control" match-class="highlight" override-suggestions="true"></div>
                     </div>
                 </div>
             </div>
@@ -34,7 +34,17 @@
                         ABN/ACN
                     </div>
                     <div>
-                        <input type="text" numbers-only class="form-control" ng-model="details.ABN" id="focusedinput" disabled>
+                        <input type="text" numbers-only class="form-control" placeholder="Company ABN" ng-model="details.ABN" id="focusedinput">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="pad_vertical">
+                    <div class="qtn qtn-default">
+                        Address
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Company Address" ng-model="details.address" id="focusedinput" required>
                     </div>
                 </div>
             </div>
@@ -55,7 +65,7 @@
                             Street Address
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_address" id="focusedinput" disabled required>
+                            <input type="text" class="form-control" ng-model="details.ship_address" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -65,7 +75,7 @@
                             City
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_city" id="focusedinput" disabled required>
+                            <input type="text" class="form-control" ng-model="details.ship_city" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -77,7 +87,7 @@
                             State
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_state" id="focusedinput" disabled required>
+                            <input type="text" class="form-control" ng-model="details.ship_state" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -87,11 +97,10 @@
                             Postal Code
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_zipcode" id="focusedinput" disabled required>
+                            <input type="text" class="form-control" ng-model="details.ship_zipcode" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-6">
@@ -100,7 +109,7 @@
                             Country
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.ship_country" id="focusedinput" required disabled>
+                            <input type="text" class="form-control" ng-model="details.ship_country" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -116,7 +125,7 @@
                             Street Address
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_address" id="focusedinput" disabled required>
+                            <input type="text" class="form-control" ng-model="details.bill_address" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -126,7 +135,7 @@
                             City
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_city" id="focusedinput" disabled required>
+                            <input type="text" class="form-control" ng-model="details.bill_city" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -138,7 +147,7 @@
                             State
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_state" id="focusedinput" disabled required>
+                            <input type="text" class="form-control" ng-model="details.bill_state" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -148,7 +157,7 @@
                             Postal Code
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_zipcode" id="focusedinput" disabled required>
+                            <input type="text" class="form-control" ng-model="details.bill_zipcode" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -160,7 +169,7 @@
                             Country
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="details.bill_country" id="focusedinput" required disabled>
+                            <input type="text" class="form-control" ng-model="details.bill_country" id="focusedinput" required>
                         </div>
                     </div>
                 </div>
@@ -172,7 +181,7 @@
                         State
                     </div>
                     <div>
-                        <input type="text" class="form-control" ng-model="details.states" id="focusedinput" disabled required>
+                        <input type="text" class="form-control" ng-model="details.states" id="focusedinput"  required>
                     </div>
                 </div>
             </div>
@@ -259,7 +268,7 @@
                             Contact number (home)
                         </div>
                         <div class="form-group" ng-class="{ 'has-error' : companyForm.numberhome.$invalid && !companyForm.numberhome.$pristine, 'has-success':companyForm.numberhome.$valid && !companyForm.numberhome.$pristine }">
-                            <input type="text" class="form-control" name="numberhome" placeholder="Home number" ng-model="person.contact_number2" restrict="reject" required mask="*?99?9?99999999" id="focusedinput" >
+                            <input type="text" class="form-control" name="numberhome" placeholder="Home number" ng-model="person.contact_number2" restrict="reject" required mask="*?99?9?99999999" id="focusedinput">
                         </div>
                         <p ng-show="companyForm.numberhome.$invalid && !companyForm.numberhome.$pristine" class="form-feedback">Please input a valid number. (eg. +63999999999 or 0926456892)</p>
                     </div>
@@ -272,7 +281,6 @@
                         <div class="form-group" ng-class="{  'has-error' : companyForm.numberwork.$invalid && !companyForm.numberwork.$pristine, 'has-success':companyForm.numberwork.$valid && !companyForm.numberwork.$pristine }">
                             <input type="text" class="form-control" name="numberwork" placeholder="Mobile number" restrict="reject" required mask="*?99?9?99999999" ng-model="person.mobile" id="focusedinput" required>
                         </div>
-
                         <p ng-show="companyForm.numberwork.$invalid && !companyForm.numberwork.$pristine" class="form-feedback">Please input a valid number. (eg. +63999999999 or 0926456892)</p>
                     </div>
                 </div>
