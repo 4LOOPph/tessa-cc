@@ -12,7 +12,7 @@
     <br>
     <br>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-xs-12 col-md-12 col-sm-6">
             <div class=" pad_vertical_15 request-specs">
                 <div class="flx-spb-hrt">
                     <div class=" font_16 font_bold blue3">
@@ -36,6 +36,22 @@
                         <tr>
                             <th>ABN/ACN</th>
                             <td>{{details.ABN}}</td>
+                        </tr>
+                        <tr>
+                            <th>Shipping address</th>
+                            <td>
+                                <div>{{details.ship_city}}</div>
+                                <div>{{details.ship_state}}, {{details.ship_zipcode}}</div>
+                                <div>{{details.ship_country}}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Billing address</th>
+                            <td>
+                                <div>{{details.bill_city}}</div>
+                                <div>{{details.bill_state}}, {{details.bill_zipcode}}</div>
+                                <div>{{details.bill_country}}</div>
+                            </td>
                         </tr>
                         <tr>
                             <th class="tbl-label" colspan="2">Contact Details</th>
@@ -66,7 +82,7 @@
                 </table>
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-xs-12 col-md-12 col-sm-6">
             <div class=" pad_vertical_15 request-specs">
                 <div class="flx-spb-hrt">
                     <div class=" font_16 font_bold blue3">
@@ -91,7 +107,6 @@
                             <th>Intended Audience</th>
                             <td>{{objectAudience}}</td>
                         </tr>
-
                         <tr>
                             <th class="tbl-label" colspan="2">Solution details</th>
                         </tr>
@@ -103,7 +118,6 @@
                             <th>Proposal Type</th>
                             <td>{{proposType}}</td>
                         </tr>
-
                         <tr ng-if="requestType == 'Proposal'">
                             <th class="tbl-label" colspan="2">Deployment Details</th>
                         </tr>
@@ -139,49 +153,49 @@
                                 {{screens}}
                             </td>
                         </tr>
-                        <tr ng-if="screens == 'Matrix'">
+                        <tr ng-if="requestType == 'Proposal' && screens == 'Matrix'">
                             <th>Row</th>
                             <td>{{details.rows}}</td>
                         </tr>
-                        <tr ng-if="screens == 'Matrix'">
+                        <tr ng-if="requestType == 'Proposal' && screens == 'Matrix'">
                             <th>Column</th>
                             <td>{{details.columns}}</td>
                         </tr>
-                        <tr ng-if="screens == 'Matrix'">
+                        <tr ng-if="requestType == 'Proposal'">
                             <th>Orientation</th>
                             <td>{{orientation}}</td>
                         </tr>
-                        <tr ng-repeat="slider in singleDualslider">
+                        <tr ng-repeat="slider in singleDualslider" ng-if="requestType == 'Proposal'">
                             <th>Screen Size ({{$index}})</th>
                             <td>{{slider.minValue}}</td>
                         </tr>
-                        <tr ng-if="screentypes">
+                        <tr ng-if="requestType == 'Proposal' && screentypes">
                             <th class="tbl-label" colspan="2">Screen Type</th>
                         </tr>
-                        <tr ng-if="screentypes">
+                        <tr ng-if="requestType == 'Proposal' && screentypes">
                             <th>Type</th>
                             <td>
                                 {{screentypes}}
                         </tr>
-                        <tr ng-if="mountlocations">
+                        <tr ng-if="requestType == 'Proposal' && mountlocations">
                             <th class="tbl-label" colspan="2">Screen mount details</th>
                         </tr>
-                        <tr ng-if="mountlocations">
+                        <tr ng-if="requestType == 'Proposal' && mountlocations">
                             <th>Mounting options</th>
                             <td>
                                 {{screenmounts}}
                             </td>
                         </tr>
-                        <tr ng-if="mountlocations">
+                        <tr ng-if="requestType == 'Proposal' && mountlocations">
                             <th>Mounting location</th>
                             <td>
                                 {{mountlocations}}
                             </td>
                         </tr>
-                        <tr ng-if="mediaplayers">
+                        <tr ng-if="requestType == 'Proposal' && mediaplayers">
                             <th class="tbl-label" colspan="2">Media Player</th>
                         </tr>
-                        <tr ng-if="mediaplayers">
+                        <tr ng-if="requestType == 'Proposal' && mediaplayers">
                             <th>Media Player</th>
                             <td>
                                 {{mediaplayers}}
@@ -283,6 +297,22 @@
                                 {{solcats}}
                             </td>
                         </tr>
+                        <tr ng-if="requestType == 'Design'">
+                            <th class="tbl-label" colspan="2">Requirements</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Design'">
+                            <td>
+                                <div>
+                                    {{designtype.designRequirements}}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr ng-if="designtype.designctalink">
+                            <th>CTA Link</th>
+                            <td>
+                                {{designtype.designctalink}}
+                            </td>
+                        </tr>
                         <tr ng-if="requestType == 'Prototype'">
                             <th class="tbl-label" colspan="2">Prototype specifications</th>
                         </tr>
@@ -296,6 +326,45 @@
                             <th>Prototype package</th>
                             <td>
                                 {{protypePackage}}
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'others'">
+                            <th class="tbl-label" colspan="2">Brief</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div>
+                                    {{requestothers.requestother}}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'others'">
+                            <th class="tbl-label" colspan="2">Requirements</th>
+                        </tr>
+                        <tr ng-if="requestType == 'others'">
+                            <td>
+                                <div>
+                                    {{requestothers.requirementother}}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr ng-if="requestType == 'Prototype'">
+                            <th class="tbl-label" colspan="2">Requirements</th>
+                        </tr>
+                        <tr ng-if="requestType == 'Prototype'">
+                            <td>
+                                <div>
+                                    {{prototyperequest.prototyperequirements}}
+                                </div>
+                            </td>
+                        </tr>
+                        <tr ng-show="files.length">
+                            <th class="tbl-label" colspan="2">Attachments</th>
+                        </tr>
+                        <tr ng-show="files.length" ng-repeat="item in files">
+                            <td>
+                                <p class="font_medium grey2">{{item.name}}
+                                    </p>
                             </td>
                         </tr>
             </div>
@@ -433,7 +502,6 @@
 </script>
 <script type="text/ng-template" id="confirm-new">
     <div class="ngdialog-message">
-
         <div class="font_medium " style="padding-bottom: 10px">
             <i class="fa  fa-warning"></i> Make new request.
         </div>
@@ -444,9 +512,6 @@
         <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="newCompany()">New Company</button>
     </div>
 </script>
-
-
-
 <style type="text/css">
 .loading {
     position: fixed;

@@ -93,15 +93,15 @@
                             <i class="fa fa-link"></i> Attach file(s)
                         </a>
                         <div ng-show="files.length" class="animate-entry blue2">
-                            <span class="font_medium grey2">{{files.length}} files uploaded</span>
-                            <a ><i class="fa fa-times"></i></a>
+                            <span class="font_medium grey2" ng-repeat="item in files">{{item.name}}
+                            <a ng-click="removeFiles($index)"><i class="fa fa-times"></i></a></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <br>
-        <div ng-if="emailtemplate" class="row" >
+        <div ng-if="emailtemplate" class="row">
             <div class="col-xs-12 col-sm-7">
                 <div class="pad_vertical">
                     <div class="qtn qtn-default">

@@ -31,11 +31,11 @@
                         </tr>
                         <tr>
                             <th>Date Requested</th>
-                            <td>{{details.request_info.date_created | date: 'longDate'}}</td>
+                            <td>{{details.date_created | date: 'longDate'}}</td>
                         </tr>
                         <tr>
                             <th>Delivery Date</th>
-                            <td>{{details.request_info.expected_delivery_date| date:'longDate'}}</td>
+                            <td>{{details.expected_delivery_date| date:'longDate'}}</td>
                         </tr>
                         <tr>
                             <th>Complexity</th>
@@ -50,7 +50,7 @@
                                 <br>
                             </td>
                         </tr>
-                        <tr>
+                        <tr ng-if="details.request_info.requester_details">
                             <th>Requestor</th>
                             <td>
                                 {{details.request_info.requester_details.person_name}}
@@ -73,7 +73,7 @@
                                 </div> -->
                             </td>
                         </tr>
-                        <tr>
+                        <tr ng-if="details.scheduler_details">
                             <th>Scheduler</th>
                             <td>
                                 {{details.scheduler_details.person_name}}
@@ -89,19 +89,19 @@
                             <td>
                                 <!-- {{details.request_info.assignee_details.person_name}} -->
                                 <!-- <input type="text" class="edit-on-text" ng-focus="sam()" ng-if="!display"> -->
-                                <ui-select ng-click="sam()" ng-model="displayName.selected" ng-click="btn-edit = true" style="" uib-tooltip="Click to Edit" on-select="getAssign($item)">
+                                <ui-select ng-model="displayName.selected" theme="bootstrap" style="" uib-tooltip="Click to Edit" on-select="getAssign($item)">
                                     <ui-select-match placeholder="Select" style="outline: 0px;">
                                         {{$select.selected.displayName}}
                                     </ui-select-match>
-                                    <ui-select-choices focus-on="sam()" repeat="name in persons | filter: $select.search" position="down">
+                                    <ui-select-choices repeat="name.displayName as name in (persons | filter: $select.search) track by name.displayName" position="down">
                                         <span ng-bind-html="name.displayName | highlight: $select.search"></span>
-                                        <small ng-bind-html="name.code | highlight: $select.search"></small>
+                                        <!-- <small ng-bind-html="name.code | highlight: $select.search"></small> -->
                                     </ui-select-choices>
                                     <!-- <button type="button" class="btn btn-default ">sample</button> -->
                                 </ui-select>
-                                <div class="edit-btn-container" ng-show="btn-edit">
-                                    <button class="btn btn-xm btn-default"><i class="ti ti-check"></i></button>
-                                    <button class="btn btn-xm btn-default"><i class="ti ti-close"></i></button>
+                                <div class="edit-btn-container" ng-show="btn-edit" ng-if="edit">
+                                    <button class="btn btn-xm btn-default" ng-click="updateAssignee()"><i class="ti ti-check"></i></button>
+                                    <button class="btn btn-xm btn-default" ng-click="cancelAssignee()"><i class="ti ti-close"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -117,6 +117,7 @@
                         </a>
                         <a ng-click="setTab(2)" ng-class="{'active':isSet(2)}" class="dis_cell">
                             <i class="fa fa-comments-o"></i> Comments
+
                         </a>
                         <a ng-click="setTab(3)" ng-class="{'active':isSet(3)}" class="dis_cell">
                             <i class="fa fa-link"></i> Attachments
@@ -212,8 +213,18 @@
                 <div ng-show="isSet(2)" class="scroll-vt sec-comments flx-spb-vrt">
                     <div class="box-comment">
                         <div class="user-block" ng-repeat="convo in comments | orderBy: 'date_created':reverse track by $index">
-                            <span class="username" ng-if="convo.split.length >1"><a>{{convo.user_info[0].person_name}}:</a> <a> {{convo.split[0]}}</a>{{convo.split[1]}}</span>
-                            <span class="username" ng-if="convo.split.length ==1"><a>{{convo.user_info[0].person_name}}:</a> {{convo.comment_body}}</span>
+                            <img class="img-circle">
+                            <span class="username" ng-if="convo.split.length >1">
+                            <span class="font_medium ">{{convo.user_info[0].person_name}}
+                            </span>
+                            <br> <a> {{convo.split[0]}}</a>{{convo.split[1]}}
+                            <br><small class="font_10 grey2">Just now</small></span>
+                            <span class="username" ng-if="convo.split.length ==1"><span class="font_medium ">
+                          
+                            {{convo.user_info[0].person_name}}
+                            </span>
+                             <p ng-bind-html="convo.comment_body"></p>
+                            <!-- <br><small class="font_10 grey2">Just now</small></span> -->
                         </div>
                         <!-- <div class="user-block">
                             <img class="img-circle" src="../images/user1-128x128.jpg" alt="User Image">
@@ -223,7 +234,7 @@
                     </div>
                     <div class="comment-section">
                         <div class="font_medium blue3">Post a comment</div>
-                        <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="posts.htmlContent" style="text-align:left;">
+                        <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor commenttab form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="posts.htmlContent" >
                         </div>
                         <mentio-menu mentio-for="'htmlContent'" mentio-trigger-char="'@'" mentio-items="people" mentio-template-url="/people-mentions.tpl" mentio-search="searchPeople(term)" mentio-select="getPeopleText(item)"></mentio-menu>
                         <!--  <textarea  class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
@@ -231,14 +242,16 @@
                         <!-- <input type="text"  mentio-typed-text="typedTerm" mentio-trigger-char="'@'" mentio-items="sample" mentio-search="searchPeople(term)" class="form-control" ng-model="theTextArea2" size="100" />
                         </input> -->
                         <div>
-                            <div class="blue2">
-                                <span class="font_medium grey2" ng-repeat="item in attachfiles">{{item.name}} <br><button type="button" ng-click="removeFile($index)">
-                                    X
-                                </button></span>
+                            <div class="blue2" style="padding: 5px 25px 10px 0;">
+                                <div class="hidetxt grey2" ng-repeat="item in attachfiles">{{item.name}}
+                                    <button class="btn removebutton" type="button" ng-click="removeFile($index)">
+                                        <i class="ti ti-close"></i>
+                                    </button>
+                                </div>
                             </div>
-                            <button type="file" ngf-select="newUploader($files)" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'">
+                            <a type="file" ngf-select="newUploader($files)" ngf-max-size="8MB" ngf-multiple="true" ngf-keep="'distinct'" class="font_medium">
                                 <i class="fa fa-link"></i> Attach file(s)
-                            </button>
+                            </a>
                             <!-- <span class="" uib-dropdown style="margin-top: -2px;">
                             <button class="btn-def font_medium" uib-dropdown-toggle><i
                                     class="fa fa-paperclip"></i> Attach Files</button>
@@ -250,7 +263,6 @@
                                     <li role="menuitem">
                                     <a><img src="../images/icons/google-drive.svg"> Google Drive</a>
                                     </li>
-                                    
                                 </ul>
                             </span> -->
                             </button>
@@ -268,22 +280,28 @@
                             <div class="col-xs-4" ng-repeat="attach in attachments">
                                 <div class="ctn-attachment">
                                     <a class="attachments-icon font_medium" ng-if="attach.media_mimetype == 'application/pdf'">
-                                        <img src="../../images/icons/ext-file-pdf.svg"> {{attach.media_name}}
+                                        <img src="../../images/icons/ext-file-pdf.svg">
+                                        <div uib-tooltip="{{attach.media_name}}" class="overlay-filename">{{attach.media_name}}</div>
                                     </a>
-                                    <a class="attachments-icon font_medium" ng-if="attach.media_mimetype == 'image/jpeg'">
-                                        <img src="../../images/icons/ext-file-slides.svg"> {{attach.media_name}}
+                                    <a class="attachments-icon font_medium" ng-if="attach.media_mimetype == 'image/jpeg' || attach.media_mimetype ==  'image/png'">
+                                        <img src="../../images/icons/ext-file-slides.svg">
+                                        <div uib-tooltip="{{attach.media_name}}" class="overlay-filename">{{attach.media_name}}</div>
                                     </a>
                                     <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'text/plain'">
-                                        <img src="./images/icons/ext-preso--06-text.svg"> {{attach.media_name}}
+                                        <img src="./images/icons/ext-preso--06-text.svg">
+                                        <div uib-tooltip="{{attach.media_name}}" class="overlay-filename">{{attach.media_name}}</div>
                                     </a>
                                     <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'application/vnd.openxmlformats-officedocument.presentationml.presentation' || attach.asset_mimetype == 'application/vnd.ms-powerpoint'">
-                                        <img src="./images/icons/ext-file-slides.svg"> {{attach.media_name}}
+                                        <img src="./images/icons/ext-file-slides.svg">
+                                        <div uib-tooltip="{{attach.media_name}}" class="overlay-filename">{{attach.media_name}}</div>
                                     </a>
-                                     <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'text/csv' || attach.asset_mimetype == 'application/vnd.ms-excel' || attach.asset_mimetype == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'">
-                                        <img src="./images/icons/ext-file-sheets.svg"> {{attach.media_name}}
+                                    <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'text/csv' || attach.asset_mimetype == 'application/vnd.ms-excel' || attach.asset_mimetype == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'">
+                                        <img src="./images/icons/ext-file-sheets.svg">
+                                        <div uib-tooltip="{{attach.media_name}}" class="overlay-filename">{{attach.media_name}}</div>
                                     </a>
-                                     <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'audio/mp3'||attach.asset_mimetype == 'audio/mp4'">
-                                        <img src="./images/icons/ext-preso--04-mp3.svg"> {{attach.media_name}}
+                                    <a class="attachments-icon font_medium" ng-if="attach.asset_mimetype == 'audio/mp3'||attach.asset_mimetype == 'audio/mp4'">
+                                        <img src="./images/icons/ext-preso--04-mp3.svg">
+                                        <div uib-tooltip="{{attach.media_name}}" class="overlay-filename">{{attach.media_name}}</div>
                                     </a>
                                     <a class="float-icon" ng-href="{{attach.media_url}}" target="_self" download="{{attach.media_url}}">
                                         <i class="fa fa-download"></i>
@@ -360,6 +378,18 @@
                             {{screenDetail.question_options.option_name}}
                         </td>
                     </tr>
+                    <tr ng-if="matrixrow">
+                        <th>Row</th>
+                        <td>{{matrixrow.option_value}}</td>
+                    </tr>
+                    <tr ng-if="matrixcolumn">
+                        <th>Column</th>
+                        <td>{{matrixcolumn.option_value}}</td>
+                    </tr>
+                    <tr ng-if="orientation">
+                        <th>Orientation</th>
+                        <td>{{orientation.question_options.option_name}}</td>
+                    </tr>
                     <tr ng-if="distanceDMP.question_options">
                         <th class="tbl-label" colspan="2">Site installation</th>
                     </tr>
@@ -435,6 +465,56 @@
                             {{contentManaged.question_options.option_name}}
                         </td>
                     </tr>
+                    <tr ng-if="requestType.question_options.option_name == 'Prototype'">
+                        <th class="tbl-label" colspan="2">Prototype specifications</th>
+                    </tr>
+                    <tr ng-if="prototypeSpecification">
+                        <th>Prototype requirements</th>
+                        <td>
+                            {{prototypeSpecification.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="packageSupport">
+                        <th>Prototype package</th>
+                        <td>
+                            {{packageSupport.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="prototyperequirements">
+                        <th class="tbl-label" colspan="2">Requirements</th>
+                    </tr>
+                    <tr ng-if="prototyperequirements">
+                        <td>
+                            <div>
+                                {{prototyperequirements.option_value}}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-if="designDetail">
+                        <th class="tbl-label" colspan="2">Design Details</th>
+                    </tr>
+                    <tr ng-if="designDetail">
+                        <th>Design Type</th>
+                        <td>
+                            {{designDetail.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="designSolcat">
+                        <th>Solcat Detail</th>
+                        <td>
+                            {{designSolcat.question_options.option_name}}
+                        </td>
+                    </tr>
+                    <tr ng-if="designrequirements">
+                        <th class="tbl-label" colspan="2">Requirements</th>
+                    </tr>
+                    <tr ng-if="designrequirements">
+                        <td>
+                            <div>
+                                {{designrequirements.option_value}}
+                            </div>
+                        </td>
+                    </tr>
                     <!-- <tr>
                         <th>Number of Solution</th>
                         <td>
@@ -484,19 +564,23 @@
                     <table class="info_table tbl-bordered full_width tbl-lg ">
                         <tr>
                             <th>Contact Name</th>
-                            <td>Anne Curtis</td>
+                            <td>{{details.contact_name}}</td>
                         </tr>
                         <tr>
                             <th>Phone Number (Home)</th>
-                            <td>342-5253</td>
+                            <td>{{details.contact_number_home}}</td>
                         </tr>
                         <tr>
                             <th>Phone Number (Work)</th>
-                            <td>345-4556</td>
+                            <td>{{details.contact_number_work}}</td>
+                        </tr>
+                        <tr>
+                            <th>Contact Address</th>
+                            <td>{{details.contact_address}}</td>
                         </tr>
                         <tr>
                             <th>Email Address</th>
-                            <td>anne@gmail.com</td>
+                            <td>{{details.contact_email}}</td>
                         </tr>
                     </table>
                 </div>
@@ -514,20 +598,26 @@
         </div>
     </div>
 </div>
+<div class="loading" ng-if="isLoading">Loading&#8230;</div>
 <script type="text/ng-template" id="/people-mentions.tpl">
     <ul class="list-group user-search">
         <li mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
+            <img class="user-photo" ng-src="http://educationalsoftware.wikispaces.com/file/view/manga_suzie.jpg/38030142/178x177/manga_suzie.jpg">
             <span class="text-personlist" ng-bind-html="person.displayName | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
         </li>
     </ul>
 </script>
 <style type="text/css">
-.box-comment {
+    .box-comment {
     padding: 10px;
+    height: 280px;
+    overflow-y: auto;
 }
 
 .user-block {
     margin: 7px 0;
+    display: inline-block;
+    width: 100%;
 }
 
 .user-block img {
@@ -535,7 +625,37 @@
     height: 40px;
     float: left;
     border-radius: 50%;
+    position: relative;
+    background-image: url(./images/default-profile-pic.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
 }
+
+.user-search .user-photo {
+    position: relative;
+    background-image: url(./images/default-profile-pic.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+    /* float: left; */
+    border-radius: 50%;
+}
+
+
+/*.user-block img:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 10px;
+    height: 41px;
+    width: 95px;
+    background-color: white;
+    background-image: url('./images/default-profile.png');
+}*/
 
 .user-block .username {
     font-size: 13px;
@@ -641,4 +761,172 @@
 .emoji-menu {
     box-shadow: rgba(0, 0, 0, 0.172549) 0px 6px 12px !important;
 }
+
+.loading {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.removebutton {
+    position: absolute;
+    right: 26px;
+    border-radius: 50%;
+    font-size: 11px;
+    background: #fff;
+    border: thin solid;
+    padding: 1px 3px;
+}
+
+.hidetxt {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.ctn-attachment {
+    word-wrap: break-word;
+}
+
+mentio-menu {
+    display: block;
+    top: inherit !important;
+    left: 85px !important;
+    position: absolute;
+    z-index: 10000;
+    bottom: 20px !important;
+    height: 350px !important;
+    overflow-y: auto;
+}
+
+mentio-menu .list-group {
+    padding-left: 0;
+    margin-bottom: 0px !important;
+}
+
+.commenttab {
+    height: auto !important;
+    text-align: left;
+}
+
+
+/* Transparent Overlay */
+
+.loading:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.51);
+}
+
+
+/* :not(:required) hides these rules from IE9 and below */
+
+.loading:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.loading:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner 1500ms infinite linear;
+    -moz-animation: spinner 1500ms infinite linear;
+    -ms-animation: spinner 1500ms infinite linear;
+    -o-animation: spinner 1500ms infinite linear;
+    animation: spinner 1500ms infinite linear;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(253, 253, 253, 0.75) 0 1.5em 0 0, rgba(232, 232, 232, 0.75) -1.1em 1.1em 0 0, rgba(234, 232, 232, 0.75) -1.5em 0 0 0, rgba(236, 234, 234, 0.75) -1.1em -1.1em 0 0, rgba(234, 231, 231, 0.75) 0 -1.5em 0 0, rgba(241, 241, 241, 0.75) 1.1em -1.1em 0 0;
+    box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(253, 253, 253, 0.75) 0 1.5em 0 0, rgba(232, 232, 232, 0.75) -1.1em 1.1em 0 0, rgba(234, 232, 232, 0.75) -1.5em 0 0 0, rgba(236, 234, 234, 0.75) -1.1em -1.1em 0 0, rgba(234, 231, 231, 0.75) 0 -1.5em 0 0, rgba(241, 241, 241, 0.75) 1.1em -1.1em 0 0;
+}
+
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@-o-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
 </style>

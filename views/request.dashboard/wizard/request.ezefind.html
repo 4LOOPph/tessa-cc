@@ -62,7 +62,7 @@
                 </div>
                 <!--Options-->
                 <div class="row btn-opt flx-rwp">
-                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                         <label class="" ng-model="desXp" uib-btn-radio="'8'" ng-change="requestdetail(desXp)">
                             <div class="option-icon">
                                 <i class="ti ti-blackboard"></i>
@@ -72,7 +72,7 @@
                             </div>
                         </label>
                     </div>
-                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                         <label class="" ng-model="desXp" uib-btn-radio="'9'" ng-change="requestdetail(desXp)">
                             <div class="option-icon">
                                 <i class="ti ti-map"></i>
@@ -82,7 +82,7 @@
                             </div>
                         </label>
                     </div>
-                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                         <label class="" ng-model="desXp" uib-btn-radio="'10'" ng-change="requestdetail(desXp)">
                             <div>
                                 Both
@@ -120,16 +120,16 @@
         </div>
         <!--Options-->
         <div class="row btn-opt">
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'11'" ng-change="softwaredetail('ezefind',cms)"> Live table</label>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'12'"  ng-change="softwaredetail('ezefind',cms)"> Digital ticket</label>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'13'"  ng-change="softwaredetail('ezefind',cms)">Compass</label>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-click="getValue('samediv')" ng-model="cms" uib-btn-radio="'14'"  ng-change="softwaredetail('ezefind',cms)">Concierge</label>
             </div>
         </div>
@@ -160,7 +160,7 @@
         </div>
         <!--Options-->
         <div class="row btn-opt flx-rwp">
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-model="sd" uib-btn-radio="'15'" ng-change="screendetail(sd)">
                     <div class="option-icon">
                         <i class="ti ti-layout-width-full"></i>
@@ -170,7 +170,7 @@
                     </div>
                 </label>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-model="sd" uib-btn-radio="'16'" ng-change="screendetail(sd)">
                     <div class="option-icon">
                         <i class="ti ti-layout-column2 "></i>
@@ -180,7 +180,7 @@
                     </div>
                 </label>
             </div>
-            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-3">
                 <label class="" ng-model="sd" uib-btn-radio="'17'" ng-change="screendetail(sd)">
                     <div class="option-icon">
                         <i class="ti ti-layout-grid3"></i>
@@ -195,9 +195,9 @@
             </div>
         </div>
         <br>
-        <div class="animate-if" ng-if="screen.screendetails == '17'">
+        <div class="animate-if" ng-if="screen.screendetails == '17' ||screen.screendetails == '18'">
             <div class="row " id="matrix-config">
-                <div class="col-xs-12 col-lg-4">
+                <div class="col-xs-12 col-lg-5">
                     <div class="blue2 qtn qtn-default">
                         Matrix Configurator
                     </div>
@@ -216,7 +216,7 @@
                                     </button>
                                 </div>
                                 <div class="dis_cell" >
-                                    <input type="numbers" numbers-only ng-model="details.rows" style="width: 100px;" ng-maxlength="20" ng-change="matrixrow(details.rows)" uib-tooltip="max size 20">
+                                    <input type="numbers" numbers-only ng-model="details.rows" style="width: 100px;"  ng-maxlength="20" ng-change="matrixrow(details.rows)" uib-tooltip="max size 20">
                                 </div>
                                 <div class="dis_cell">
                                     <button class="btn btn-roller" ng-click="addRowsColumn('rows')">
@@ -260,7 +260,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-9 ">
+                        <div class="col-xs-9">
                             <div class="btn-group" uib-dropdown>
                                 <button id="single-button" uib-dropdown-toggle type="button" class="full_width btn font_medium btn-default">
                                     {{orientation}}
@@ -289,11 +289,12 @@
                      </div> -->
                     </div>
                     <br>
+
                 </div>
-                <div class="col-xs-12 col-lg-8">
+                <div class="col-xs-12 col-lg-7">
                     <div class="mc-ctn">
-                        <div class="size-mm">55mm</div>
-                        <div class="size-mm-bot">55mm</div>
+                        <!--<div class="size-mm">55mm</div>-->
+                        <!--<div class="size-mm-bot">55mm</div>-->
                         <div class="matrix-config-ctn">
                             <div>
                                 <table class="tablecustom">
@@ -315,6 +316,7 @@
                 </div>
             </div>
             <div class="sec-qtn" id="screen-size">
+
                 <!--Question-->
                 <div class="qtn qtn-default">
                     Select screen size.
@@ -339,6 +341,31 @@
             </div>
         </div>
         <div class="animate-if" ng-if="screen.screendetails == '15' ||screen.screendetails == '16' ">
+            <br>
+            <div class="row">
+                <div class="col-xs-3">
+                    <div class="grey2 font_medium">
+                        Orientation
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-9 ">
+                    <div class="btn-group" uib-dropdown>
+                        <button id="single-button" uib-dropdown-toggle type="button" class="full_width btn font_medium btn-default">
+                            {{orientation}}
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li role="menuitem" ng-click="selectOrientation('Portrait')"><a>Portrait</a>
+                            </li>
+                            <li role="menuitem" ng-click="selectOrientation('Landscape')"><a>Landscape</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br>
             <div class="sec-qtn" id="screen-size" >
                 <!--Question-->
                 <div class="qtn qtn-default">
@@ -346,15 +373,6 @@
                 </div>
                 <!--Options-->
                 <br>
-                <!-- <div class="row">
-                    <div class="col-xs-12 col-sm-7">
-                        <rzslider rz-slider-model="singleDualslider.minValue" rz-slider-options="singleDualslider.options"></rzslider>
-                    </div>
-                    <div class="col-xs-12 col-sm-3">
-                        <input type="text" class="form-control" ng-model="singleDualslider.minValue">
-                    </div>
-                </div>
-                <br> -->
                 <div class="row pad_vertical_15" ng-repeat="slider in singleDualslider track by $index">
                     <div class="col-xs-12 col-sm-7">
                         <rzslider rz-slider-model="slider.minValue" rz-slider-options="slider.options"></rzslider>

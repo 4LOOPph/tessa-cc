@@ -65,16 +65,16 @@
             </li>
             <li class="prg-bar">
                 <form name="requestForm">
-                    <a ng-click="setTab(2)" ng-class="{'wiz-tab-active':isSet(2),'wiz-tab-done':createcontent && managecontent,'wiz-tab-done':designtypedetail || protypePackage}" class="font_medium wiz-tab" href="" ng-style="{cursor: checkValid.$valid == true ? '':'not-allowed'}">
+                    <a ng-click="setTab(2)" ng-class="{'wiz-tab-active':isSet(2),'wiz-tab-done':createcontent && managecontent,'wiz-tab-done':designtypedetail || protypePackage||requestothers.requirementother|| requestothers.requestother}" class="font_medium wiz-tab" href="" ng-style="{cursor: checkValid.$valid == true ? '':'not-allowed'}">
                         <div class="wiz-sizer" ng-class="navClass">
-                            <h1 ng-show="createcontent && managecontent;designtypedetail;protypePackage">
+                            <h1 ng-show="createcontent && managecontent;designtypedetail;protypePackage;requestothers.requirementother;requestothers.requestother">
                             <i class="fa fa-check"></i>
                         </h1>
                             <div class="hide-sm">
-                                <h1 ng-hide="createcontent && managecontent;designtypedetail;protypePackage">2 </h1>Add Request
+                                <h1 ng-hide="createcontent && managecontent;designtypedetail;protypePackage;requestothers.requirementother;requestothers.requestother">2 </h1>Add Request
                             </div>
                             <div class="hide-lg">
-                                <h1 ng-hide="createcontent && managecontent;designtypedetail;protypePackage">2 </h1>Request
+                                <h1 ng-hide="createcontent && managecontent;designtypedetail;protypePackage;requestothers.requirementother;requestothers.requestother">2 </h1>Request
                             </div>
                         </div>
                     </a>
