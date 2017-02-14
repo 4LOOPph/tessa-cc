@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="breadcrumbs padding_10">
-        <img src="./images/icons/ico_store00.svg"/>
+        <img src="./images/icons/ico_store00.svg" />
         <a class="current font_medium">
             Request Dashboard
         </a>
@@ -17,44 +17,38 @@
                         <li role="menuitem" class="dropdown-submenu"><a>Client</a>
                             <ul class="dropdown-menu">
                                 <!-- <li role="menuitem" ng-repeat="client"><a>Requestor</a></li> -->
-                                <li role="menuitem" ng-repeat="requestor in requests|duplicates:'client_id'"><a
-                                        ng-click="getFilter('client_id',requestor.client_id)">{{requestor.company_name}}</a>
+                                <li role="menuitem" ng-repeat="requestor in requests|duplicates:'client_id'"><a ng-click="getFilter('client_id',requestor.client_id)">{{requestor.company_name}}</a>
                                 </li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Requestor</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests | unique:'requester'"><a
-                                        ng-click="getFilter('requester',requestor.requester)">{{requestor.requester_details.person_name}}</a>
+                                <li role="menuitem" ng-repeat="requestor in requests | unique:'requester'"><a ng-click="getFilter('requester',requestor.requester)">{{requestor.requester_details.person_name}}</a>
                                 </li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Complexity</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'complexity'"
-                                    ng-if="requestor.complexity <= 1"><a
-                                        ng-click="getFilter('Complexity',requestor.complexity)">{{requestor.request_info.complexity_name}}</a>
+                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'complexity'" ng-if="requestor.complexity <= 1"><a ng-click="getFilter('Complexity',requestor.complexity)">{{requestor.request_info.complexity_name}}</a>
                                 </li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Priority Type</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests|duplicates:'priority_id'"><a
-                                        ng-click="getFilter('priority_id',requestor.request_info.priority_id)">{{requestor.request_info.priority_name}}</a>
+                                <li role="menuitem" ng-repeat="requestor in requests|duplicates:'priority_id'"><a ng-click="getFilter('priority_id',requestor.request_info.priority_id)">{{requestor.request_info.priority_name}}</a>
                                 </li>
                             </ul>
                         </li>
-                        <li role="menuitem" class="dropdown-submenu"><a>Request Type</a>
+                        <li role="menuitem" class="dropdown-submenu" ng-hide="user.role_name == 'requestor'"><a>Request Type</a>
                             <ul class="dropdown-menu">
                                 <li role="menuitem" ng-repeat="requestor in requests | duplicates:'request_type_name'">
                                     <a ng-click="getFilter('request_type_id',requestor.request_info.request_type_id)">{{requestor.request_info.request_type_name}}</a>
                                 </li>
                             </ul>
                         </li>
-                        <li role="menuitem" class="dropdown-submenu"><a>Assignee</a>
+                        <li role="menuitem" class="dropdown-submenu" ng-hide="user.role_name == 'assignee'"><a>Assignee</a>
                             <ul class="dropdown-menu">
-                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'assignee_id'"><a
-                                        ng-click="getFilter('assignee_id',requestor.assignee_id)">{{requestor.assignee_details.person_name}}</a>
+                                <li role="menuitem" ng-repeat="requestor in requests| duplicates:'assignee_id'"><a ng-click="getFilter('assignee_id',requestor.assignee_id)">{{requestor.assignee_details.person_name}}</a>
                                 </li>
                             </ul>
                         </li>
@@ -69,19 +63,13 @@
                                 <li role="menuitem" ng-click="sortBy('Ascending','title')"><a>By Title</a></li>
                                 <li role="menuitem"><a ng-click="sortBy('Ascending','case_number')">By Case Number</a>
                                 </li>
-                                <li role="menuitem" ng-hide="filtername == 'client_id'"><a
-                                        ng-click="sortBy('Ascending','company_name')">By Company</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'request_type_id'"><a
-                                        ng-click="sortBy('Ascending','request_type_name')">By Request Type</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'client_id'"><a ng-click="sortBy('Ascending','company_name')">By Company</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'request_type_id'"><a ng-click="sortBy('Ascending','request_type_name')">By Request Type</a></li>
                                 <li role="menuitem" ng-click="sortBy('Ascending','due_date')"><a>By Due Date</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'priority_id'"><a
-                                        ng-click="sortBy('Ascending','priority_id')">By Priority</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'Complexity'"><a
-                                        ng-click="sortBy('Ascending','complexity')">By Complexity</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'requester'"><a
-                                        ng-click="sortBy('Ascending','requester')">By Requester</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'assignee_id'"><a
-                                        ng-click="sortBy('Ascending','assignee_id')">By Assignee</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'priority_id'"><a ng-click="sortBy('Ascending','priority_id')">By Priority</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'Complexity'"><a ng-click="sortBy('Ascending','complexity')">By Complexity</a></li>
+                                <li ng-hide="user.role_name == 'requestor'" role="menuitem" ng-hide="filtername == 'requester'"><a ng-click="sortBy('Ascending','requester')">By Requester</a></li>
+                                <li ng-hide="user.role_name == 'assignee'" role="menuitem" ng-hide="filtername == 'assignee_id'" ><a ng-click="sortBy('Ascending','assignee_id')">By Assignee</a></li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Descending</a>
@@ -89,27 +77,20 @@
                                 <li role="menuitem" ng-click="sortBy('Descending','title')"><a>By Title</a></li>
                                 <li role="menuitem"><a ng-click="sortBy('Descending','case_number')">By Case Number</a>
                                 </li>
-                                <li role="menuitem" ng-hide="filtername == 'client_id'"><a
-                                        ng-click="sortBy('Descending','company_name')">By Company</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'request_type_id'"><a
-                                        ng-click="sortBy('Descending','request_type_name')">By Request Type</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'client_id'"><a ng-click="sortBy('Descending','company_name')">By Company</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'request_type_id'"><a ng-click="sortBy('Descending','request_type_name')">By Request Type</a></li>
                                 <li role="menuitem" ng-click="sortBy('Descending','due_date')"><a>By Due Date</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'priority_id'"><a
-                                        ng-click="sortBy('Descending','priority_id')">By Priority</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'Complexity'"><a
-                                        ng-click="sortBy('Descending','complexity')">By Complexity</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'requester'"><a
-                                        ng-click="sortBy('Descending','requester')">By Requester</a></li>
-                                <li role="menuitem" ng-hide="filtername == 'assignee_id'"><a
-                                        ng-click="sortBy('Descending','assignee_id')">By Assignee</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'priority_id'"><a ng-click="sortBy('Descending','priority_id')">By Priority</a></li>
+                                <li role="menuitem" ng-hide="filtername == 'Complexity'"><a ng-click="sortBy('Descending','complexity')">By Complexity</a></li>
+                                <li ng-hide="user.role_name == 'requestor'" role="menuitem" ng-hide="filtername == 'requester'"><a ng-click="sortBy('Descending','requester')">By Requester</a></li>
+                                <li ng-hide="user.role_name == 'assignee'" role="menuitem" ng-hide="filtername == 'assignee_id'"><a ng-click="sortBy('Descending','assignee_id')">By Assignee</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </div>
             <div>
-                <button type="button" ui-sref="main.requestWizard" class="btn btn-sm btn-primary"><i
-                        class="fa fa-plus"></i> Create New Request
+                <button type="button" ui-sref="main.requestWizard" class="btn btn-sm btn-primary" ng-hide="user.role_name == 'assignee'"><i class="fa fa-plus"></i> Create New Request
                 </button>
             </div>
         </div>
@@ -121,39 +102,28 @@
                     <div class="dis_cell" id="to-do" ng-repeat="list in models">
                         <div class="case-ctn">
                             <div class="case-ctn-head">
-
-                                    <!--<img ng-src='{{list.image}}' class="icons-md"/>-->
-                                    {{list.listName}}
-                                    <a ng-class="{disabled:completecards.items.length == 0}"><i
+                                <!--<img ng-src='{{list.image}}' class="icons-md"/>-->
+                                {{list.listName}}
+                                <a ng-class="{disabled:completecards.items.length == 0}"><i
                                             ng-if="list.listName == 'completed'" class="fa fa-cog"
                                             ng-click="sortDisplay()" style="float:right;color:#adb3bc"
                                             aria-hidden="true"></i></a>
-
                             </div>
                         </div>
                         <!-- -->
-                        <div  class="case-ctn-body" dnd-list dnd-drop="onDrop('move cards vertical',event,list, item)"
-                             dnd-dragover="dragoverCallback(index, list, type, callback)"
-                             dnd-allowed-types="list.allow">
-                            <div uib-tooltip="{{item.request_info.client_details.name || 'null'}}" class="case-itm" ng-repeat="item in list.items" dnd-type="'can'"
-                                 dnd-draggable="getSelectedItemsIncluding(list, item)"
-                                 dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)"
-                                 dnd-dragend="dragend(list,item)" dnd-selected="logEvent(list,item)"
-                                 ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected"
-                                 dnd-callback="container.items.length" dnd-horizontal-list="false"
-                                 dnd-disable-if="item.drag">
+                        <div class="case-ctn-body" dnd-list dnd-drop="onDrop('move cards vertical',event,list, item)" dnd-dragover="dragoverCallback(index, list, type, callback)" dnd-allowed-types="list.allow">
+                            <div uib-tooltip="{{item.request_info.client_details.name || 'null'}}" class="case-itm" ng-repeat="item in list.items" dnd-type="'can'" dnd-draggable="getSelectedItemsIncluding(list, item)" dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)" dnd-dragend="dragend(list,item)" dnd-selected="logEvent(list,item)" ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected" dnd-callback="container.items.length" dnd-horizontal-list="false" dnd-disable-if="item.drag">
                                 <!--  -->
                                 <div ng-class="{
-                                'status-green':  item.status_name == 'completed',
-                                'status-red': (item.current == 1 || item.current <= 0)&& item.status_name != 'completed',
+                                'status-green':  item.status_name == 'completed' && item.date_completed >=0,
+                                'status-red': ((item.current == 1 || item.current <= 0)&& item.status_name != 'completed') || item.status_name == 'completed' && item.date_completed <0 ,
                                 'status-orange':  item.current >= 2&& item.current < 5 && item.status_name != 'completed',
                                 'status-grey': item.current >= 5 && item.status_name != 'completed'}">
                                 </div>
                                 <div class="case-head">
                                     <div class="dis-flx flx-spb-hrt">
                                         <div class="set-ellipses">
-                                            <a class="blue3 case-title font_medium"
-                                               ui-sref="main.caseDetails({case_id:item.request_info.request_id})" >
+                                            <a class="blue3 case-title font_medium" ui-sref="main.caseDetails({case_id:item.request_info.request_id})">
 
                                                 {{item.request_info.client_details.name || 'null'}}
 
@@ -166,19 +136,14 @@
                                             <div class="inblock clear-scroll pad_side_10">
                                                 {{item.request_info.case_number}}
                                             </div>
-                                            <div class="btn-group" uib-dropdown style="margin-top: -2px;"
-                                                 dropdown-append-to-body>
-                                                <button class="specialbutton inblock" uib-dropdown-toggle><i
-                                                        class="fa fa-ellipsis-v"></i></button>
-                                                <ul class="font_medium dropdown-menu dropdown-menu-right" uib-dropdown-menu
-                                                    role="menu" aria-labelledby="single-button">
-                                                    <li role="menuitem" ng-if="list.showupdate"><a
-                                                            ng-click="manualupdateStatus(list,item)"><i
+                                            <div class="btn-group" uib-dropdown style="margin-top: -2px;" dropdown-append-to-body>
+                                                <button class="specialbutton inblock" uib-dropdown-toggle><i class="fa fa-ellipsis-v"></i></button>
+                                                <ul class="font_medium dropdown-menu dropdown-menu-right" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                                                    <li role="menuitem" ng-if="list.showupdate"><a ng-click="manualupdateStatus(list,item)"><i
                                                             class="ti ti-pencil-alt"></i> Update Status</a></li>
                                                     <!--  <li role="menuitem"><a><i class="ti ti-trash"></i> Cancel
                                                         Request</a></li> -->
-                                                    <li role="menuitem"><a
-                                                            ui-sref="main.caseDetails({case_id:item.request_info.request_id})"><i
+                                                    <li role="menuitem"><a ui-sref="main.caseDetails({case_id:item.request_info.request_id})"><i
                                                             class="ti ti-eye"></i> View Details</a>
                                                     </li>
                                                 </ul>
@@ -220,26 +185,27 @@
 </div>
 <div class="loading" ng-if="isLoading">Loading&#8230;</div>
 <style type="text/css">
-    #active-dashboard {
-        background: #424242;
-    }
+#active-dashboard {
+    background: #424242;
+}
 
-    .multiDemo div[dnd-list] {
-        min-height: 200px;
-        padding-left: 0px;
-    }
+.multiDemo div[dnd-list] {
+    min-height: 200px;
+    padding-left: 0px;
+}
 
-    .multiDemo div[dnd-list] div {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-top-right-radius: 4px;
-        border-top-left-radius: 4px;
-        display: block;
-        margin-bottom: -1px;
-        padding: 10px 15px;
-    }
+.multiDemo div[dnd-list] div {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    display: block;
+    margin-bottom: -1px;
+    padding: 10px 15px;
+}
 
-    /*
+
+/*
      div.dndPlaceholder:hover {
         color: #d0d0d0;
         border-color: #66afe9 !important;
@@ -248,265 +214,268 @@
         box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
     }*/
 
-    .dndPlaceholder {
-        background-color: #efefef !important;
-        /*min-height: 100%;*/
-        border-radius: 2px;
-        border: 3px dashed #d0d0d0 !important;
-        padding: 3px;
-        display: block;
-        margin-bottom: 10px;
-        color: #d0d0d0;
-        font-size: 20px;
-        font-weight: 600;
-        text-align: center;
-        vertical-align: middle;
-        padding: 55px;
-        /*padding-top: 50vh;
+.dndPlaceholder {
+    background-color: #efefef !important;
+    /*min-height: 100%;*/
+    border-radius: 2px;
+    border: 3px dashed #d0d0d0 !important;
+    padding: 3px;
+    display: block;
+    margin-bottom: 10px;
+    color: #d0d0d0;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+    padding: 55px;
+    /*padding-top: 50vh;
         min-height: 100vh;
         /*position: absolute;*/
-        top: 50px;
-        width: 100%;
-        z-index: 9999;
+    top: 50px;
+    width: 100%;
+    z-index: 9999;
+}
+
+.dndDragover {
+    background-color: #fff;
+}
+
+.case-body {
+    overflow: hidden;
+}
+
+.set-ellipses {
+    widows: 100%;
+    overflow: hidden;
+}
+
+.selected {
+    background-color: #d3edff !important;
+    color: #1e587f;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.case-itm:hover {
+    background: inherit;
+}
+
+.dashboard-ctn .dis_cell {
+    /**width: 25%;**/
+}
+
+.case-ctn-body {
+    border-top: 0;
+    padding: 10px;
+    min-height: 100vh;
+    /*min-width: 200px;*/
+}
+
+.dis_cell {
+    vertical-align: inherit;
+}
+
+.case-itm {
+    cursor: move;
+}
+
+.icons-md {
+    margin-top: -3px;
+}
+
+.case-ctn-body .dropdown-menu {
+    left: -135px !important;
+    border: 1px solid rgba(204, 204, 204, 0.15);
+}
+
+.case-ctn-body .dropdown-menu > li > a {
+    font-family: regular;
+}
+
+.dropdown-menu .ti {
+    margin-right: 5px;
+}
+
+.specialbutton {
+    border: 0;
+    background: transparent;
+    margin-right: -10px;
+}
+
+.loading {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
+/* Transparent Overlay */
+
+.loading:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.51);
+}
+
+
+/* :not(:required) hides these rules from IE9 and below */
+
+.loading:not(:required) {
+    /* hide "loading..." text */
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+
+.loading:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner 1500ms infinite linear;
+    -moz-animation: spinner 1500ms infinite linear;
+    -ms-animation: spinner 1500ms infinite linear;
+    -o-animation: spinner 1500ms infinite linear;
+    animation: spinner 1500ms infinite linear;
+    border-radius: 0.5em;
+    -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(253, 253, 253, 0.75) 0 1.5em 0 0, rgba(232, 232, 232, 0.75) -1.1em 1.1em 0 0, rgba(234, 232, 232, 0.75) -1.5em 0 0 0, rgba(236, 234, 234, 0.75) -1.1em -1.1em 0 0, rgba(234, 231, 231, 0.75) 0 -1.5em 0 0, rgba(241, 241, 241, 0.75) 1.1em -1.1em 0 0;
+    box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(253, 253, 253, 0.75) 0 1.5em 0 0, rgba(232, 232, 232, 0.75) -1.1em 1.1em 0 0, rgba(234, 232, 232, 0.75) -1.5em 0 0 0, rgba(236, 234, 234, 0.75) -1.1em -1.1em 0 0, rgba(234, 231, 231, 0.75) 0 -1.5em 0 0, rgba(241, 241, 241, 0.75) 1.1em -1.1em 0 0;
+}
+
+
+/* Animation */
+
+@-webkit-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-
-    .dndDragover {
-        background-color: #fff;
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
+}
 
-    .case-body {
-        overflow: hidden;
+@-moz-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-
-    .set-ellipses {
-        widows:100%;
-        overflow: hidden;
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
+}
 
-    .selected {
-        background-color: #d3edff !important;
-        color: #1e587f;
+@-o-keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-
-    .disabled {
-        cursor: not-allowed;
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
+}
 
-    .case-itm:hover {
-        background: inherit;
+@keyframes spinner {
+    0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
     }
-
-    .dashboard-ctn .dis_cell {
-        /**width: 25%;**/
+    100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
     }
+}
 
-    .case-ctn-body {
-        border-top: 0;
-        padding: 10px;
-        min-height: 100vh;
-        /*min-width: 200px;*/
-    }
+.dropdown-submenu {
+    position: relative;
+}
 
-    .dis_cell {
-        vertical-align: inherit;
-    }
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
 
-    .case-itm {
-        cursor: move;
-    }
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
 
-    .icons-md {
-        margin-top: -3px;
-    }
+.dropdown-submenu > a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
 
-    .case-ctn-body .dropdown-menu {
-        left: -135px !important;
-        border: 1px solid rgba(204, 204, 204, 0.15);
-    }
+.dropdown-submenu:hover > a:after {
+    border-left-color: #fff;
+}
 
-    .case-ctn-body .dropdown-menu > li > a {
-        font-family: regular;
-    }
+.dropdown-submenu.pull-left {
+    float: none;
+}
 
-    .dropdown-menu .ti {
-        margin-right: 5px;
-    }
-
-    .specialbutton {
-        border: 0;
-        background: transparent;
-        margin-right: -10px;
-    }
-
-    .loading {
-        position: fixed;
-        z-index: 999;
-        height: 2em;
-        width: 2em;
-        overflow: show;
-        margin: auto;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-    }
-
-    /* Transparent Overlay */
-
-    .loading:before {
-        content: '';
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.51);
-    }
-
-    /* :not(:required) hides these rules from IE9 and below */
-
-    .loading:not(:required) {
-        /* hide "loading..." text */
-        font: 0/0 a;
-        color: transparent;
-        text-shadow: none;
-        background-color: transparent;
-        border: 0;
-    }
-
-    .loading:not(:required):after {
-        content: '';
-        display: block;
-        font-size: 10px;
-        width: 1em;
-        height: 1em;
-        margin-top: -0.5em;
-        -webkit-animation: spinner 1500ms infinite linear;
-        -moz-animation: spinner 1500ms infinite linear;
-        -ms-animation: spinner 1500ms infinite linear;
-        -o-animation: spinner 1500ms infinite linear;
-        animation: spinner 1500ms infinite linear;
-        border-radius: 0.5em;
-        -webkit-box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(253, 253, 253, 0.75) 0 1.5em 0 0, rgba(232, 232, 232, 0.75) -1.1em 1.1em 0 0, rgba(234, 232, 232, 0.75) -1.5em 0 0 0, rgba(236, 234, 234, 0.75) -1.1em -1.1em 0 0, rgba(234, 231, 231, 0.75) 0 -1.5em 0 0, rgba(241, 241, 241, 0.75) 1.1em -1.1em 0 0;
-        box-shadow: rgba(255, 255, 255, 0.75) 1.5em 0 0 0, rgba(255, 255, 255, 0.75) 1.1em 1.1em 0 0, rgba(253, 253, 253, 0.75) 0 1.5em 0 0, rgba(232, 232, 232, 0.75) -1.1em 1.1em 0 0, rgba(234, 232, 232, 0.75) -1.5em 0 0 0, rgba(236, 234, 234, 0.75) -1.1em -1.1em 0 0, rgba(234, 231, 231, 0.75) 0 -1.5em 0 0, rgba(241, 241, 241, 0.75) 1.1em -1.1em 0 0;
-    }
-
-    /* Animation */
-
-    @-webkit-keyframes spinner {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-
-    @-moz-keyframes spinner {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-
-    @-o-keyframes spinner {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes spinner {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-
-    .dropdown-submenu {
-        position: relative;
-    }
-
-    .dropdown-submenu > .dropdown-menu {
-        top: 0;
-        left: 100%;
-        margin-top: -6px;
-        margin-left: -1px;
-        -webkit-border-radius: 0 6px 6px 6px;
-        -moz-border-radius: 0 6px 6px;
-        border-radius: 0 6px 6px 6px;
-    }
-
-    .dropdown-submenu:hover > .dropdown-menu {
-        display: block;
-    }
-
-    .dropdown-submenu > a:after {
-        display: block;
-        content: " ";
-        float: right;
-        width: 0;
-        height: 0;
-        border-color: transparent;
-        border-style: solid;
-        border-width: 5px 0 5px 5px;
-        border-left-color: #ccc;
-        margin-top: 5px;
-        margin-right: -10px;
-    }
-
-    .dropdown-submenu:hover > a:after {
-        border-left-color: #fff;
-    }
-
-    .dropdown-submenu.pull-left {
-        float: none;
-    }
-
-    .dropdown-submenu.pull-left > .dropdown-menu {
-        left: -100%;
-        margin-left: 10px;
-        -webkit-border-radius: 6px 0 6px 6px;
-        -moz-border-radius: 6px 0 6px 6px;
-        border-radius: 6px 0 6px 6px;
-    }
+.dropdown-submenu.pull-left > .dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
 </style>
