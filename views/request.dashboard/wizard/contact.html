@@ -24,7 +24,7 @@
                                 </div>
                             </ui-select-choices>
                         </ui-select> -->
-                        <div angucomplete-alt id="ex1" placeholder="Search company" maxlength="50" selected-object="getCompanyValue" local-data="companies" search-fields="name" title-field="name" minlength="2" input-class="form-control" match-class="highlight" override-suggestions="true"></div>
+                        <div angucomplete-alt id="ex1" placeholder="Search company" maxlength="50" selected-object="getCompanyValue" local-data="companies" search-fields="name" title-field="name" minlength="2" input-class="form-control" match-class="highlight" override-suggestions="true" initial-value="details.name"></div>
                     </div>
                 </div>
             </div>
@@ -37,10 +37,10 @@
 
                     </div>
                     <div class="form-group" ng-class="{ 'has-error' : companyForm.companyNumber.$invalid && !companyForm.companyNumber.$pristine, 'has-success':companyForm.companyNumber.$valid && !companyForm.companyNumber.$pristine }">
-                        <input type="text" name="companyNumber" restrict="reject" required mask="*?99?9?99999999" class="form-control" ng-model="details.ABN" id="focusedinput">
+                        <input type="text" name="companyNumber" required restrict="reject"  mask="99-999-999-999" class="form-control" ng-model="details.ABN" id="focusedinput">
 
                     </div>
-                    <p ng-show="companyForm.companyNumber.$invalid && !companyForm.companyNumber.$pristine" class="form-feedback">Please input a valid number. (eg. +63999999999 or 0926456892)</p>
+                    <p ng-show="companyForm.companyNumber.$invalid && !companyForm.companyNumber.$pristine" class="form-feedback">Please input a valid number. (eg. 99-999-999-999)</p>
 
                 </div>
             </div>
@@ -102,9 +102,10 @@
                         <div class="qtn qtn-default">
                             Postal Code
                         </div>
-                        <div>
-                            <input type="text" class="form-control" ng-model="details.ship_zipcode" id="focusedinput" required>
+                        <div class="form-group" ng-class="{'has-error' : companyForm.postal.$invalid && !companyForm.postal.$pristine, 'has-success':companyForm.postal.$valid && !companyForm.postal.$pristine }">
+                            <input restrict="reject"  mask="9?9999" type="text" name="postal" class="form-control" ng-model="details.ship_zipcode" id="focusedinput" required>
                         </div>
+                        <p ng-show="companyForm.postal.$invalid && !companyForm.postal.$pristine" class="form-feedback">Please input a valid postal code. (eg. 99999)</p>
                     </div>
                 </div>
             </div>
@@ -162,9 +163,10 @@
                         <div class="qtn qtn-default">
                             Postal Code
                         </div>
-                        <div>
-                            <input type="text" class="form-control" ng-model="details.bill_zipcode" id="focusedinput" required>
+                        <div class="form-group" ng-class="{'has-error' : companyForm.postalBill.$invalid && !companyForm.postalBill.$pristine, 'has-success':companyForm.postalBill.$valid && !companyForm.postalBill.$pristine }">
+                            <input restrict="reject"  mask="9?9999" type="text" name="postalBill" class="form-control" ng-model="details.bill_zipcode" id="focusedinput" required>
                         </div>
+                        <p ng-show="companyForm.postalBill.$invalid && !companyForm.postalBill.$pristine" class="form-feedback">Please input a valid postal code. (eg. 99999)</p>
                     </div>
                 </div>
             </div>
@@ -360,7 +362,7 @@
                             Please specify others.
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="objectad">
+                            <input type="text" class="form-control" ng-model="objectad.other">
                         </div>
                     </div>
                 </div>
@@ -401,7 +403,7 @@
                             Please specify others.
                         </div>
                         <div>
-                            <input type="text" class="form-control" ng-model="objectother">
+                            <input type="text" class="form-control" ng-model="objectother.other">
                         </div>
                     </div>
                 </div>

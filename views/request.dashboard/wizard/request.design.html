@@ -107,9 +107,10 @@
                     <div class="qtn qtn-default">
                         <i class="fa fa-link"></i> CTA Link
                     </div>
-                    <div>
-                        <input type="text" name="shipping" class="form-control" ng-model="designtype.designctalink">
+                    <div class="form-group" ng-class="{ 'has-error' : requestForm.ctalink.$invalid && !requestForm.ctalink.$pristine, 'has-success':requestForm.ctalink.$valid && !requestForm.ctalink.$pristine }">
+                        <input type="url" name="ctalink"  required   restrict="reject" mask="W?WW"  class="form-control" ng-model="designtype.designctalink">
                     </div>
+                    <p ng-show="requestForm.ctalink.$invalid && !requestForm.ctalink.$pristine" class="form-feedback">Please input a valid link. (eg. www.tessa.io)</p>
                 </div>
             </div>
         </div>
@@ -233,6 +234,8 @@
         </button>
     </div>
 </div>
+
+
 <!-- <div id="renders" ng-class="testclass" ng-if="renders" class="qtn-ctn">
     <div>
         <div class="form-type">

@@ -117,7 +117,6 @@
                         </a>
                         <a ng-click="setTab(2)" ng-class="{'active':isSet(2)}" class="dis_cell">
                             <i class="fa fa-comments-o"></i> Comments
-
                         </a>
                         <a ng-click="setTab(3)" ng-class="{'active':isSet(3)}" class="dis_cell">
                             <i class="fa fa-link"></i> Attachments
@@ -127,27 +126,52 @@
                 <!--Activities Tab-->
                 <div ng-show="isSet(1)" class="scroll-vt">
                     <table class="info_table tbl-fix-pad full_width tbl-lg tbl-bordered">
-                        <tr>
+                        <tr ng-repeat="log in Activitylogs">
                             <td class="cell_xs">
-                                <div class="log-idfr">
+                                <div class="log-idfr" ng-if="log.type == 'attachment'">
                                     <img src="../../images/icons/logs-identifier--09.svg">
                                 </div>
                             </td>
-                            <td>
+                            <td ng-if="log.type == 'attachment'">
                                 <div>
-                                    <span class="font_medium ">
-                                    Vanessa Gacula
-                                </span> left a
+                                    <span class="font_medium">
+                                    {{log.uploader.person_name}}
+                                </span> sent a
                                     <span class="txt-underlined">
-                                    comment.
+                                    attachment.
                                 </span>
                                 </div>
                                 <div class="font_10 grey2">
-                                    November 20, 2016 | 8:00 AM
+                                    {{log.dc}}
+                                </div>
+                            </td>
+                            <td ng-if="log.type == 'request'">
+                                <div ng-if="log.status_name == 'to do'">
+                                    <span class="font_medium">CASE-{{log.case_number}} </span> created
+                                </div>
+                                <div ng-if="log.status_name != 'to do'">
+                                    <span class="font_medium">CASE-{{log.case_number}} </span> updated status into
+                                    <span class="txt-underlined">{{log.status_name}}</span>
+                                </div>
+                                <div class="font_10 grey2">
+                                    {{log.dc}}
+                                </div>
+                            </td>
+                                <td ng-if="log.type == 'comment'">
+                                <div>
+                                    <span class="font_medium">
+                                    {{log.commentor.person_name}}
+                                </span> commented on this request
+                                    <span class="txt-underlined">
+                                    request.
+                                </span>
+                                </div>
+                                <div class="font_10 grey2">
+                                    {{log.dc}}
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        <!--  <tr>
                             <td class="cell_xs">
                                 <div class="log-idfr">
                                     <img src="../../images/icons/logs-identifier--10.svg">
@@ -206,7 +230,7 @@
                                     November 20, 2016 | 8:00 AM
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                     </table>
                 </div>
                 <!--Comments Tab-->
@@ -223,7 +247,7 @@
                           
                             {{convo.user_info[0].person_name}}
                             </span>
-                             <p ng-bind-html="convo.comment_body"></p>
+                            <p ng-bind-html="convo.comment_body"></p>
                             <!-- <br><small class="font_10 grey2">Just now</small></span> -->
                         </div>
                         <!-- <div class="user-block">
@@ -234,7 +258,7 @@
                     </div>
                     <div class="comment-section">
                         <div class="font_medium blue3">Post a comment</div>
-                        <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor commenttab form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="posts.htmlContent" >
+                        <div contenteditable mentio mentio-typed-term="typedTerm" mentio-macros="macros" mentio-require-leading-space="true" mentio-select-not-found="true" class="editor commenttab form-control" mentio-id="'htmlContent'" id="htmlContent" ng-model="posts.htmlContent">
                         </div>
                         <mentio-menu mentio-for="'htmlContent'" mentio-trigger-char="'@'" mentio-items="people" mentio-template-url="/people-mentions.tpl" mentio-search="searchPeople(term)" mentio-select="getPeopleText(item)"></mentio-menu>
                         <!--  <textarea  class="form-control" rows="2" id="messageInput" ng-model="emojiMessage.messagetext">
@@ -324,11 +348,13 @@
                     </tr>
                     <tr ng-if="objectives.question_options">
                         <th>Objectives</th>
-                        <td>{{objectives.question_options.option_name}}</td>
+                        <td ng-if="objectives.question_options.option_name != 'Others'">{{objectives.question_options.option_name}}</td>
+                        <td ng-if="objectives.question_options.option_name == 'Others'">{{objectives.option_value}}</td>
                     </tr>
                     <tr ng-if="audience.question_options">
                         <th>Intended Audience</th>
-                        <td>{{audience.question_options.option_name}}</td>
+                        <td ng-if="audience.question_options.option_name != 'Others'">{{audience.question_options.option_name}}</td>
+                        <td ng-if="audience.question_options.option_name == 'Others'">{{audience.option_value}}</td>
                     </tr>
                     <tr>
                         <th class="tbl-label" colspan="2">Solution Details</th>
@@ -389,6 +415,18 @@
                     <tr ng-if="orientation">
                         <th>Orientation</th>
                         <td>{{orientation.question_options.option_name}}</td>
+                    </tr>
+                    <tr ng-repeat="screen in screensizes" ng-if="screensizes">
+                        <th>Screen Size ({{$index + 1}})</th>
+                        <td>{{screen.question_options.option_name}}</td>
+                    </tr>
+                    <tr ng-if="screentype">
+                        <th class="tbl-label" colspan="2">Screen Type</th>
+                    </tr>
+                    <tr ng-if="screentype">
+                        <th>Type</th>
+                        <td>
+                            {{screentype.question_options.option_name}}
                     </tr>
                     <tr ng-if="distanceDMP.question_options">
                         <th class="tbl-label" colspan="2">Site installation</th>
@@ -505,6 +543,16 @@
                             {{designSolcat.question_options.option_name}}
                         </td>
                     </tr>
+                    <tr ng-if="designlink">
+                        <th class="tbl-label" colspan="2">CTA Link</th>
+                    </tr>
+                    <tr ng-if="designlink">
+                        <td>
+                            <div>
+                                {{designlink.option_value}}
+                            </div>
+                        </td>
+                    </tr>
                     <tr ng-if="designrequirements">
                         <th class="tbl-label" colspan="2">Requirements</th>
                     </tr>
@@ -601,7 +649,7 @@
 <div class="loading" ng-if="isLoading">Loading&#8230;</div>
 <script type="text/ng-template" id="/people-mentions.tpl">
     <ul class="list-group user-search">
-        <li mentio-menu-item="person" ng-repeat="person in items" class="list-group-item">
+        <li mentio-menu-item="person" ng-repeat="person in items track by $index" class="list-group-item">
             <img class="user-photo" ng-src="http://educationalsoftware.wikispaces.com/file/view/manga_suzie.jpg/38030142/178x177/manga_suzie.jpg">
             <span class="text-personlist" ng-bind-html="person.displayName | mentioHighlight:typedTerm:'menu-highlighted' | unsafe"></span>
         </li>

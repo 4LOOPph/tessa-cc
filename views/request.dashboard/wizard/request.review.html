@@ -109,11 +109,11 @@
                         </tr>
                         <tr>
                             <th>Objectives</th>
-                            <td>{{requestobject}}</td>
+                            <td>{{requestobject || objectother.other}}</td>
                         </tr>
                         <tr>
                             <th>Intended Audience</th>
-                            <td>{{objectAudience}}</td>
+                            <td>{{objectAudience || objectad.other}}</td>
                         </tr>
                         <tr>
                             <th class="tbl-label" colspan="2">Solution details</th>
@@ -174,7 +174,7 @@
                             <td>{{orientation}}</td>
                         </tr>
                         <tr ng-repeat="slider in singleDualslider" ng-if="requestType == 'Proposal'">
-                            <th>Screen Size ({{$index}})</th>
+                            <th>Screen Size ({{$index +1}})</th>
                             <td>{{slider.minValue}}</td>
                         </tr>
                         <tr ng-if="requestType == 'Proposal' && screentypes">
