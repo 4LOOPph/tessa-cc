@@ -93,7 +93,7 @@
             </div>
             <div>
 
-                <button type="button" ui-sref="main.requestWizard" class="btn btn-sm btn-primary" ng-hide="user.role_name == 'assignee'"><i class="fa fa-plus"></i> Create New Request
+                <button type="button"  ng-click="isAuthorize('create')" class="btn btn-sm btn-primary" ng-hide="role_name == 'assignee'"><i class="fa fa-plus"></i> Create New Request
                 </button>
             </div>
         </div>
@@ -114,9 +114,8 @@
                             </div>
                         </div>
                         <!-- -->
-                        <div class="case-ctn-body" dnd-list dnd-drop="onDrop('move cards vertical',event,list, item)" dnd-dragover="dragoverCallback(index, list, type, callback)" dnd-allowed-types="list.allow">
+                        <div class="case-ctn-body" dnd-list dnd-drop="onDrop('move cards horizontal',event,list, item)" dnd-dragover="dragoverCallback(index, list, type, callback)" dnd-allowed-types="list.allow">
                             <div uib-tooltip="{{item.request_info.client_details.name || 'null'}}" class="case-itm" ng-repeat="item in list.items" dnd-type="'can'" dnd-draggable="getSelectedItemsIncluding(list, item)" dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)" dnd-dragend="dragend(list,item)" dnd-selected="logEvent(list,item)" ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected" dnd-callback="container.items.length" dnd-horizontal-list="false" dnd-disable-if="item.drag">
-                                <!--  -->
                                 <div ng-class="{
                                 'status-green':  item.status_name == 'completed' && item.date_completed >=0,
                                 'status-red': ((item.current == 1 || item.current <= 0)&& item.status_name != 'completed') || item.status_name == 'completed' && item.date_completed < 0 ,
@@ -128,11 +127,11 @@
                                         <div class="set-ellipses">
                                             <a class="blue3 case-title font_medium" ui-sref="main.caseDetails({case_id:item.request_info.request_id})">
 
-                                                {{item.request_info.client_details.name || 'null'}}
+                                                {{item.company_name || 'null'}}
 
                                             </a>
                                             <div class="font_12 grey2 font_bold">
-                                                {{item.request_info.request_type_name}}
+                                                {{item.request_type_detail.option_name}}
                                             </div>
                                         </div>
                                         <div class="nowrap right_align   font_medium">
@@ -159,7 +158,7 @@
                                         <ul class="case-label grey2 font_medium">
                                             <li>Due Date</li>
                                             <li>Priority</li>
-                                            <li>Requester</li>
+                                            <li >Requester</li>
                                             <li>Assignee</li>
                                         </ul>
                                     </div>

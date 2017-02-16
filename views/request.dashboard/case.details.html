@@ -157,14 +157,40 @@
                                     {{log.dc}}
                                 </div>
                             </td>
-                                <td ng-if="log.type == 'comment'">
+                            <!-- <td ng-if="log.type == 'comment' && log.mentions.length > 0">
                                 <div>
                                     <span class="font_medium">
                                     {{log.commentor.person_name}}
-                                </span> commented on this request
+                                </span> mentioned {{com}}
                                     <span class="txt-underlined">
                                     request.
                                 </span>
+                                </div>
+                                <div class="font_10 grey2">
+                                    {{log.dc}}
+                                </div>
+                            </td> -->
+                            <td ng-if="log.type == 'comment' && is_mentioned == null">
+                                <div>
+                                    <span class="font_medium">
+                                    {{log.commentor.person_name}}
+                                </span> commented on this
+                                    <span class="txt-underlined">
+                                    request.
+                                </span>
+                                </div>
+                                <div class="font_10 grey2">
+                                    {{log.dc}}
+                                </div>
+                            </td>
+                            <td ng-if="log.type == 'mentioncomment'">
+                                <div>
+                                    <span class="font_medium">
+                                    {{log.commentor}}
+                                </span> mentioned
+                                    <span class="txt-underlined">
+                                    {{log.is_mentioned}}
+                                </span> on this request.
                                 </div>
                                 <div class="font_10 grey2">
                                     {{log.dc}}
