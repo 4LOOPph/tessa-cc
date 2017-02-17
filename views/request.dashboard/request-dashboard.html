@@ -39,14 +39,14 @@
                                 </li>
                             </ul>
                         </li>
-                        <li role="menuitem" class="dropdown-submenu" ng-hide="user.role_name == 'requestor'"><a>Request Type</a>
+                        <li role="menuitem" class="dropdown-submenu" ng-hide="role_name == 'requestor'"><a>Request Type</a>
                             <ul class="dropdown-menu">
                                 <li role="menuitem" ng-repeat="requestor in requests | duplicates:'request_type_name'">
                                     <a ng-click="getFilter('request_type_id',requestor.request_info.request_type_id)">{{requestor.request_info.request_type_name}}</a>
                                 </li>
                             </ul>
                         </li>
-                        <li role="menuitem" class="dropdown-submenu" ng-hide="user.role_name == 'assignee'"><a>Assignee</a>
+                        <li role="menuitem" class="dropdown-submenu" ng-hide="role_name == 'assignee'"><a>Assignee</a>
                             <ul class="dropdown-menu">
                                 <li role="menuitem" ng-repeat="requestor in requests| duplicates:'assignee_id'"><a ng-click="getFilter('assignee_id',requestor.assignee_id)">{{requestor.assignee_details.person_name}}</a>
                                 </li>
@@ -69,8 +69,8 @@
                                 <li role="menuitem" ng-hide="filtername == 'priority_id'"><a ng-click="sortBy('Ascending','priority_id')">By Priority</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'Complexity'"><a ng-click="sortBy('Ascending','complexity')">By Complexity</a></li>
 
-                                <li ng-hide="user.role_name == 'requestor'" role="menuitem" ng-hide="filtername == 'requester'"><a ng-click="sortBy('Ascending','requester')">By Requester</a></li>
-                                <li ng-hide="user.role_name == 'assignee'" role="menuitem" ng-hide="filtername == 'assignee_id'" ><a ng-click="sortBy('Ascending','assignee_id')">By Assignee</a></li>
+                                <li ng-hide="role_name == 'requestor'" role="menuitem" ng-hide="filtername == 'requester'"><a ng-click="sortBy('Ascending','requester')">By Requester</a></li>
+                                <li ng-hide="role_name == 'assignee'" role="menuitem" ng-hide="filtername == 'assignee_id'" ><a ng-click="sortBy('Ascending','assignee_id')">By Assignee</a></li>
                             </ul>
                         </li>
                         <li role="menuitem" class="dropdown-submenu"><a>Descending</a>
@@ -84,8 +84,8 @@
                                 <li role="menuitem" ng-hide="filtername == 'priority_id'"><a ng-click="sortBy('Descending','priority_id')">By Priority</a></li>
                                 <li role="menuitem" ng-hide="filtername == 'Complexity'"><a ng-click="sortBy('Descending','complexity')">By Complexity</a></li>
 
-                                <li ng-hide="user.role_name == 'requestor'" role="menuitem" ng-hide="filtername == 'requester'"><a ng-click="sortBy('Descending','requester')">By Requester</a></li>
-                                <li ng-hide="user.role_name == 'assignee'" role="menuitem" ng-hide="filtername == 'assignee_id'"><a ng-click="sortBy('Descending','assignee_id')">By Assignee</a></li>
+                                <li ng-hide="role_name == 'requestor'" role="menuitem" ng-hide="filtername == 'requester'"><a ng-click="sortBy('Descending','requester')">By Requester</a></li>
+                                <li ng-hide="role_name == 'assignee'" role="menuitem" ng-hide="filtername == 'assignee_id'"><a ng-click="sortBy('Descending','assignee_id')">By Assignee</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -118,8 +118,8 @@
                             <div uib-tooltip="{{item.request_info.client_details.name || 'null'}}" class="case-itm" ng-repeat="item in list.items" dnd-type="'can'" dnd-draggable="getSelectedItemsIncluding(list, item)" dnd-dragstart="onDragstart(list, event)" dnd-moved="onMoved(list,$index)" dnd-dragend="dragend(list,item)" dnd-selected="logEvent(list,item)" ng-class="{'selected': item.selected}" ng-hide="list.dragging && item.selected" dnd-callback="container.items.length" dnd-horizontal-list="false" dnd-disable-if="item.drag">
                                 <div ng-class="{
                                 'status-green':  item.status_name == 'completed' && item.date_completed >=0,
-                                'status-red': ((item.current == 1 || item.current <= 0)&& item.status_name != 'completed') || item.status_name == 'completed' && item.date_completed < 0 ,
-                                'status-orange':  item.current >= 2&& item.current < 5 && item.status_name != 'completed',
+                                'status-red': ((item.current <= 0)&& item.status_name != 'completed') || item.status_name == 'completed' && item.date_completed < 0 ,
+                                'status-orange':  item.current >= 1 && item.current < 5 && item.status_name != 'completed',
                                 'status-grey': item.current >= 5 && item.status_name != 'completed'}">
                                 </div>
                                 <div class="case-head">

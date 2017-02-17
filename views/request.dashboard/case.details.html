@@ -23,7 +23,7 @@
                     <table class="info_table full_width">
                         <tr>
                             <th>Request Type</th>
-                            <td>{{details.request_info.request_type_name}}</td>
+                            <td>{{requestType.question_options.option_name || 'none'}}</td>
                         </tr>
                         <tr>
                             <th>Request Status</th>
@@ -50,10 +50,10 @@
                                 <br>
                             </td>
                         </tr>
-                        <tr ng-if="details.request_info.requester_details">
+                        <tr ng-if="details.requester_details">
                             <th>Requestor</th>
                             <td>
-                                {{details.request_info.requester_details.person_name}}
+                                {{details.requester_details.person_name}}
                             </td>
                             <td>
                                 <!-- <input type="text" class="edit-on-text" ng-focus="sam()" ng-if="!display">
@@ -86,8 +86,11 @@
                         </tr>
                         <tr>
                             <th>Assignee</th>
-                            <td>
-                                <!-- {{details.request_info.assignee_details.person_name}} -->
+                            <td ng-if="user.role_name != 'scheduler'">
+                                {{details.assignee_details.person_name || 'not assign yet'}}
+                            </td>
+                            <td ng-if="user.role_name == 'scheduler'">
+                                <!--  -->
                                 <!-- <input type="text" class="edit-on-text" ng-focus="sam()" ng-if="!display"> -->
                                 <ui-select ng-model="displayName.selected" theme="bootstrap" style="" uib-tooltip="Click to Edit" on-select="getAssign($item)">
                                     <ui-select-match placeholder="Select" style="outline: 0px;">
@@ -387,7 +390,7 @@
                     </tr>
                     <tr>
                         <th>Request Type</th>
-                        <td>{{requestType.question_options.option_name}}</td>
+                        <td>{{requestType.question_options.option_name || 'none'}}</td>
                     </tr>
                     <tr ng-if="requestType.question_options.option_name == 'Proposal'">
                         <th>Proposal Type</th>

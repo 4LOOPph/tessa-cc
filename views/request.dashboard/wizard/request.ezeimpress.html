@@ -140,7 +140,7 @@
             <a du-smooth-scroll="rdImpress" du-scrollspy class="btn btn-default">
                 Back
             </a>
-            <a du-smooth-scroll="sec-sd-impress" du-scrollspy ng-click="innerForm('sec-sd-impress')" class="btn btn-primary">
+            <a du-smooth-scroll="sec-sd-impress" ng-hide="!cms" du-scrollspy ng-click="innerForm('sec-sd-impress')" class="btn btn-primary">
                 Proceed
             </a>
         </div>
@@ -217,7 +217,7 @@
                                     </button>
                                 </div>
                                 <div class="dis_cell">
-                                    <input type="numbers" numbers-only ng-model="details.rows" ng-maxlength="20" style="width: 100px;" ng-change="matrixrow(details.rows)" >
+                                    <input type="numbers" restrict="reject" mask="99" uib-tooltip="max size 20"  numbers-only ng-model="details.rows" ng-maxlength="20" style="width: 100px;" ng-change="matrixrow(details.rows)" >
                                 </div>
                                 <div class="dis_cell">
                                     <button class="btn btn-roller" ng-click="addRowsColumn('rows')">
@@ -242,7 +242,7 @@
                                     </button>
                                 </div>
                                 <div class="dis_cell">
-                                    <input type="numbers" numbers-only ng-model="details.columns" ng-maxlength="20" style="width: 100px;" ng-change="matrixcolumn(details.columns)" >
+                                    <input uib-tooltip="max size 20" restrict="reject" mask="99" type="numbers" numbers-only ng-model="details.columns" ng-maxlength="20" style="width: 100px;" ng-change="matrixcolumn(details.columns)" >
                                 </div>
                                 <div class="dis_cell">
                                     <button class="btn btn-roller" ng-click="addRowsColumn('columns')">
@@ -419,7 +419,7 @@
         <button du-smooth-scroll="sec-sw-impress" du-scrollspy ng-click="" class="btn btn-default">
             Back
         </button>
-        <button du-smooth-scroll="sec-st-impress" du-scrollspy class="btn btn-primary" ng-click="innerForm('sec-st-impress')">
+        <button du-smooth-scroll="sec-st-impress" ng-hide="!sd" du-scrollspy class="btn btn-primary" ng-click="innerForm('sec-st-impress')">
             Proceed
         </button>
     </div>
@@ -472,7 +472,7 @@
             <button du-smooth-scroll="sec-sd-impress" du-scrollspy ng-click="scrollTo('')" class="btn btn-default">
                 Back
             </button>
-            <button du-smooth-scroll="sec-si-impress" du-scrollspy ng-click="innerForm('sec-si-impress')" class="btn btn-primary">
+            <button du-smooth-scroll="sec-si-impress" ng-hide="(!screentypes) ||screentypes == 'Custom' && !custom" du-scrollspy ng-click="innerForm('sec-si-impress')" class="btn btn-primary">
                 Proceed
             </button>
         </div>

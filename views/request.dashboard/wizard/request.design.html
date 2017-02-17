@@ -107,10 +107,12 @@
                     <div class="qtn qtn-default">
                         <i class="fa fa-link"></i> CTA Link
                     </div>
+                    <form name="requestForm">
                     <div class="form-group" ng-class="{ 'has-error' : requestForm.ctalink.$invalid && !requestForm.ctalink.$pristine, 'has-success':requestForm.ctalink.$valid && !requestForm.ctalink.$pristine }">
-                        <input type="url" name="ctalink"  required   restrict="reject" mask="W?WW"  class="form-control" ng-model="designtype.designctalink">
+                        <input type="text" name="ctalink"  required   ng-pattern="/^(((https:\/\/\w+\.)|(\w+\.)))?(\w+\.)(\w{3,}|\w{2,})(.*)$/"  class="form-control" ng-model="designtype.designctalink" ng-change="watchlink(designtype.designctalink)">
                     </div>
                     <p ng-show="requestForm.ctalink.$invalid && !requestForm.ctalink.$pristine" class="form-feedback">Please input a valid link. (eg. www.tessa.io)</p>
+                    </form>
                 </div>
             </div>
         </div>
