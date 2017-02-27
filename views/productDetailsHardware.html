@@ -217,12 +217,12 @@
                                 <span>Hardware</span>
                             </div>
                             <ul class="spec_list">
-                                <li ng-repeat="item in relatedProductHardware">
+                                <li ng-repeat="item in productDetails.relatedProductHardware">
                                     <a class="font_light font_regulargrey2" ng-click="openDetail(item.ref_product.p_id)">
                                         {{item.ref_product.item_name}}
                                     </a>
                                 </li>
-                                <li ng-show="!relatedProductHardware.length"><span class="font_12 grey3 font_light"> No Related Items</span>
+                                <li ng-show="!productDetails.relatedProductHardware.length"><span class="font_12 grey3 font_light"> No Related Items</span>
                                 </li>
                             </ul>
                             <br/>
@@ -230,7 +230,7 @@
                                 <span>Software</span>
                             </div>
                             <ul class="spec_list">
-                                <li ng-repeat="item in relatedProductSoftware">
+                                <li ng-repeat="item in productDetails.relatedProductSoftware">
                                     <a ng-click="openDetail(item.ref_product.p_id)" class="font_light grey2">
                                         <div class="icon_table">
                                             <div class="icon_cell">
@@ -239,7 +239,7 @@
                                         </div>
                                     </a>
                                 </li>
-                                <li ng-show="!relatedProductSoftware.length"><span class="font_12 grey3 font_light"> No Related Items</span>
+                                <li ng-show="!productDetails.relatedProductSoftware.length"><span class="font_12 grey3 font_light"> No Related Items</span>
                                 </li>
                             </ul>
                         </div>

@@ -215,19 +215,19 @@
             <li data-ng-repeat="article in articlesList|limitTo:limitWithPage track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1" class="grid">
                 <div class="grid-card" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
-                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article._id})">
                             <img ng-src="{{article.image}}" imageonload class="grid-img" />
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
                     <div class="" ng-if="article.article_thumbnail.media_mimetype == 'image/jpeg' || article.article_thumbnail.media_mimetype == 'image/png'">
-                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article._id})">
                             <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" err-src="images/is5.jpg" class="grid-img" />
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
                      <div class="" ng-if="article.article_thumbnail.media_mimetype == 'video/mp4'">
-                        <a class="videogular-container" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="videogular-container" ui-sref="main.articlePage({selected_id:article._id})">
                             <videogular vg-theme="article.article_thumbnail.url" style="height: 250px;">
                                 <vg-media vg-src="article.article_thumbnail.media_path"></vg-media>
                                 <vg-controls>
@@ -248,7 +248,7 @@
                             </videogular>
                         </a>
                     </div>
-                    <div id="masonry_body" class="padding_10 blue1 font_bold" ui-sref="main.articlePage({selected_id:article.article_id})" ui-sref="main.articlePage({selected_id:article.article_id})">
+                    <div id="masonry_body" class="padding_10 blue1 font_bold" ui-sref="main.articlePage({selected_id:article._id})">
                         <a>{{article.title}}</a>
                         <br>
                         <div class="featured_solution font_light">
@@ -262,19 +262,19 @@
             <li ng-repeat="article in articlesList|limitTo:limitWithPage track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1" class="grid">
                 <div class="grid-card" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
-                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article._id})">
                             <img ng-src="{{article.image}}" imageonload err-src="images/is5.jpg" class="grid-img" />
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
                     <div class="" ng-if="article.article_thumbnail.media_mimetype == 'image/jpeg' || article.article_thumbnail.media_mimetype == 'image/png'">
-                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article._id})">
                             <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" err-src="images/is5.jpg" class="grid-img" />.
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
                     <div class="" ng-if="article.article_thumbnail.media_mimetype == 'video/mp4'">
-                        <a class="videogular-container" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="videogular-container" ui-sref="main.articlePage({selected_id:article._id})">
                             <videogular vg-theme="article.article_thumbnail.url" style="height: 250px;">
                                 <vg-media vg-src="article.article_thumbnail.media_path"></vg-media>
                                 <vg-controls>
@@ -295,7 +295,7 @@
                             </videogular>
                         </a>
                     </div>
-                    <div id="masonry_body" class="padding_10 blue1  font_bold" ui-sref="main.articlePage({selected_id:article.article_id})" ui-sref="main.articlePage({selected_id:article.article_id})">
+                    <div id="masonry_body" class="padding_10 blue1  font_bold" ui-sref="main.articlePage({selected_id:article._id})" >
                         <a>{{article.title}}</a>
                         <br>
                         <div iclass="featured_solution font_light">
@@ -309,19 +309,19 @@
             <li data-ng-repeat="article in articlesList|limitTo:limitWithPage track by article.article_id" ng-repeat-end-watch="repeatEnd" ng-if="article.tags.length > 0 && article.is_active == 1" class="grid">
                 <div class="grid-card" ng-click="trackExperienceAll(article)">
                     <div class="" ng-if="!article.thumbnail_media">
-                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article._id})">
                             <img ng-src="{{article.image}}" imageonload err-src="images/is5.jpg" class="grid-img" />
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
                     <div class="" ng-if="article.article_thumbnail.media_mimetype == 'image/jpeg' || article.article_thumbnail.media_mimetype == 'image/png'">
-                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="img_holder" ui-sref="main.articlePage({selected_id:article._id})">
                             <img ng-src="{{article.article_thumbnail.media_path}}" imageonload ng-if="article.article_thumbnail" err-src="images/is5.jpg" class="grid-img" />
                             <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                         </a>
                     </div>
                     <div class="" ng-if="article.article_thumbnail.media_mimetype == 'video/mp4'">
-                        <a class="videogular-container" ui-sref="main.articlePage({selected_id:article.article_id})">
+                        <a class="videogular-container" ui-sref="main.articlePage({selected_id:article._id})">
                             <videogular vg-theme="article.article_thumbnail.url" style="height: 250px;">
                                 <vg-media vg-src="article.article_thumbnail.media_path"></vg-media>
                                 <vg-controls>
@@ -342,7 +342,7 @@
                             </videogular>
                         </a>
                     </div>
-                    <div id="masonry_body" class="padding_10 blue1  font_bold" ui-sref="main.articlePage({selected_id:article.article_id})" ui-sref="main.articlePage({selected_id:article.article_id})">
+                    <div id="masonry_body" class="padding_10 blue1  font_bold" ui-sref="main.articlePage({selected_id:article._id})">
                         <a>{{article.title}}</a>
                         <br>
                         <div iclass="featured_solution font_light">

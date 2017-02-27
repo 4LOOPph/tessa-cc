@@ -202,7 +202,7 @@
                             </div>
 
                             <div class="itm-body dis-flx flx-spb-vrt" ng-click="hardwareScreens(item)">
-                                <a class="link-control" ng-click="hardwareScreens(item) " ui-sref="main.productDetailsHardware({selected_id: item.p_id})">
+                                <a class="link-control" ng-click="hardwareScreens(item) " ui-sref="main.productDetailsHardware({selected_id: item._id})">
                                     <div class="img_holder ">
                                         <img ng-src="{{item.img_default}}" imageonload err-src="images/is5.jpg" />
                                         <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
@@ -231,11 +231,6 @@
                 </div>
             </div>
 
-
-
-
-
-
             <div class="ctn" ng-if="prodTypeLabel == 'Solution' && solutionTypes !== null">
                 <div class="row">
                     <div class=" sec-search-filter" ng-if="solutionTypes == null">
@@ -251,13 +246,13 @@
                                 </div>
                             </div>
                             <div class="itm-body dis-flx flx-spb-vrt" ng-click="solutionsEzeImpress(item)">
-                                <a class="link-control" ui-sref="main.productDetailsSolution({selected_id: item.pb_id})" ng-click="solutionsEzeImpress(item)">
+                                <a class="link-control" ui-sref="main.productDetailsSolution({selected_id: item._id})" ng-click="solutionsEzeImpress(item)">
                                     <div class="img_holder ">
                                         <img ng-src="{{item.product_images[0].image_path}}" imageonload err-src="images/is5.jpg" />
                                         <span class="loading" style="text-align: center;margin-left: 40%;margin-right: 40%;"> <img src="./images/icons/default.gif" style="width: 20% !important;"></span>
                                     </div>
                                     <div class="itm-ctn pad-15 ">
-                                        <a ui-sref="main.productDetailsSolution({selected_id: item.pb_id})">
+                                        <a ui-sref="main.productDetailsSolution({selected_id: item._id})">
                                             <h2>{{item.bundle_name}}</h2>
                                         </a>
                                     </div>
