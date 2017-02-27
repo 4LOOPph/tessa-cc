@@ -249,7 +249,7 @@
                             </div>
                             <ul class="spec_list">
                                 <li ng-repeat="pack in SolutionPack">
-                                    <a data-toggle="modal" ui-sref="main.productDetailsSolution({selected_id: pack.pb_id})" class="font_light grey2">
+                                    <a  ui-sref="main.productDetailsSolution({selected_id: pack._id})" class="font_light grey2">
                                         <div class="icon_table">
                                             <div class="icon_cell">
                                                 {{pack.bundle_name}}
